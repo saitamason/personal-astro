@@ -1,10 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const birthDate = +new Date("1996-07");
+const currentDate = +new Date();
+
+const ageInMilliseconds = currentDate - birthDate;
+const ageInYears = Math.trunc(ageInMilliseconds / 1000 / 60 / 60 / 24 / 365);
 ---
 
 <Layout
   title="Dawid Le Hai – Programista frontendu"
-  description=""
+  description={`${ageInYears}-letni programista frontendu, psycholog, certyfikowany trener personalny, a także entuzjasta tworzenia muzyki.`}
   language="pl">
   Hello!
 </Layout>
