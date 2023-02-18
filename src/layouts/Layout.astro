@@ -1,4 +1,7 @@
 ---
+import "@fontsource/lora";
+import "@fontsource/source-sans-pro";
+
 export interface Props {
   language: "en" | "pl";
   title: string;
@@ -42,6 +45,13 @@ const polishUrl = new URL(`pl${path}`, site);
 
   <style is:global>
     :root {
+      --font-serif: "Lora", serif;
+      --font-sans: "Source Sans Pro", sans-serif;
+
+      --font-normal: 400;
+      --font-semibold: 600;
+      --font-bold: 700;
+
       /* Perfect Fourth (1.333) type scale with base 1.8 */
       --font-1: 10.1rem;
       --font-2: 7.58rem;
@@ -51,6 +61,8 @@ const polishUrl = new URL(`pl${path}`, site);
       --font-6: 2.4rem;
       --font-base: 1.8rem;
       --font-small: 1.35rem;
+
+      --line-base: 1.618;
 
       --space-1: 0.1rem;
       --space-2: 0.2rem;
@@ -83,6 +95,9 @@ const polishUrl = new URL(`pl${path}`, site);
 
     body {
       box-sizing: border-box;
+      font-family: var(--font-sans);
+      font-size: var(--font-base);
+      line-height: var(--line-base);
     }
 
     input,
