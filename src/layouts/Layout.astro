@@ -6,11 +6,12 @@ export interface Props {
 }
 
 const { title, description, language } = Astro.props;
+
 const { pathname: path } = Astro.url;
 const { site } = Astro;
 
+const englishUrl = new URL(path, site);
 const polishUrl = new URL(`pl${path}`, site);
-const defaultUrl = new URL(path, site);
 ---
 
 <!DOCTYPE html>
@@ -24,8 +25,9 @@ const defaultUrl = new URL(path, site);
     <meta name="description" content={description} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" href={englishUrl} hreflang="en" />
     <link rel="alternate" href={polishUrl} hreflang="pl" />
-    <link rel="alternate" href={defaultUrl} hreflang="x-default" />
+    <link rel="alternate" href={englishUrl} hreflang="x-default" />
 
     <title>{title}</title>
   </head>
