@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const birthDate = +new Date("1996-07");
+const birthDate = +new Date(import.meta.env.BIRTH_DATE);
 const currentDate = +new Date();
 
 const ageInMilliseconds = currentDate - birthDate;
