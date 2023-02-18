@@ -28,8 +28,53 @@ const polishUrl = new URL(`pl${path}`, site);
 
     <title>{title}</title>
   </head>
+
   <body>
     <slot />
   </body>
-  <style is:global></style>
+
+  <style is:global>
+    :root {
+    }
+
+    * {
+      box-sizing: inherit;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 62.5%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      box-sizing: border-box;
+    }
+
+    input,
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a:where(:link, :visited) {
+      text-decoration: none;
+    }
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+    }
+
+    img {
+      display: block;
+    }
+  </style>
 </html>
