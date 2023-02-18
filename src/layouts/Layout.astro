@@ -1,21 +1,31 @@
 ---
 export interface Props {
-  title: string;
+  language: "en" | "pl";
+  alternateLanguageUrl: string;
+  title: string; // max 55 chars
+  description: string; // max 150 chars
 }
 
-const { title } = Astro.props;
+const { language, alternateLanguageUrl, title, description } = Astro.props;
+
+const alternateLanguage = language === "en" ? "pl" : "en";
 ---
 
 <!DOCTYPE html>
-<html lang="pl">
+<html lang={language} dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
+    <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
+    <link
+      rel="alternate"
+      href={alternateLanguageUrl}
+      hreflang={alternateLanguage}
+    />
     <title>{title}</title>
   </head>
   <body>
