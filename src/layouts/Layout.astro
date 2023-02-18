@@ -22,9 +22,9 @@ const polishUrl = new URL(`pl${path}`, site);
     <meta name="description" content={description} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate" href={englishUrl} hreflang="en" />
-    <link rel="alternate" href={polishUrl} hreflang="pl" />
-    <link rel="alternate" href={englishUrl} hreflang="x-default" />
+    <link rel="alternate" hreflang="en" href={englishUrl} />
+    <link rel="alternate" hreflang="pl" href={polishUrl} />
+    <link rel="alternate" hreflang="x-default" href={englishUrl} />
 
     <title>{title}</title>
   </head>
