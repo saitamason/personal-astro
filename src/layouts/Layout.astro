@@ -1,14 +1,16 @@
 ---
 export interface Props {
-  language: "en" | "pl";
-  alternateLanguageUrl: string;
   title: string; // max 55 chars
   description: string; // max 150 chars
+  language: "en" | "pl";
 }
 
-const { language, alternateLanguageUrl, title, description } = Astro.props;
+const { title, description, language } = Astro.props;
+const { pathname: path } = Astro.url;
+const { site } = Astro;
 
-const alternateLanguage = language === "en" ? "pl" : "en";
+const polishUrl = new URL(`pl${path}`, site);
+const defaultUrl = new URL(path, site);
 ---
 
 <!DOCTYPE html>
@@ -20,16 +22,15 @@ const alternateLanguage = language === "en" ? "pl" : "en";
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
     <meta name="description" content={description} />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link
-      rel="alternate"
-      href={alternateLanguageUrl}
-      hreflang={alternateLanguage}
-    />
+    <link rel="alternate" href={polishUrl} hreflang="pl" />
+    <link rel="alternate" href={defaultUrl} hreflang="x-default" />
+
     <title>{title}</title>
   </head>
   <body>
     <slot />
   </body>
+  <style is:global></style>
 </html>
-<style is:global></style>
