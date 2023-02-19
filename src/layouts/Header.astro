@@ -1,24 +1,35 @@
 ---
 import type { Language } from "../utils/types";
-import { getSite } from "../utils/utils.astro";
+import { getSite, getSiteName, getLanguageUrls } from "../utils/utils.astro";
 
 interface Props extends Language {}
 
-// const { language } = Astro.props;
+const { language } = Astro.props;
+const isEn = language === "en";
+const langCode = isEn ? "pl" : "en";
+const url = getLanguageUrls(Astro.url.pathname);
 
-const site = String(getSite());
-const siteName = site.slice(site.indexOf("//") + 2, -1);
+const site = getSite();
+const siteName = getSiteName();
 ---
 
 <header class="mid-col">
   <a href={site}><div class="logo-container"></div>{siteName}</a>
   <nav>
     <slot>Test</slot>
-    <nav>
-      <ul>
-        <li><a href=""></a></li>
-        <li></li>
-      </ul>
-    </nav>
+  </nav>
+  <nav>
+    <ul>
+      <li>
+        <a
+          rel="alternate"
+          hreflang={langCode}
+          href={url[langCode]}
+          lang={langCode}
+          >{isEn ? "Polski" : "English"}
+        </a>
+      </li>
+      <li></li>
+    </ul>
   </nav>
 </header>

@@ -4,4 +4,20 @@ export const getSite = () => {
   if (!site) throw new Error("Please define site property in astro.config.");
   return site;
 };
+
+export const getLanguageUrls = (path: string) => {
+  const site = getSite();
+  const englishUrl = new URL(path, site);
+  const polishUrl = new URL(`pl${path}`, site);
+  return {
+    en: englishUrl,
+    pl: polishUrl,
+  };
+};
+
+export const getSiteName = () => {
+  const site = String(getSite());
+  const siteName = site.slice(site.indexOf("//") + 2, -1);
+  return siteName;
+};
 ---

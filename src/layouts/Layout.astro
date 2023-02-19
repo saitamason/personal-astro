@@ -3,7 +3,7 @@ import "@fontsource/lora";
 import "@fontsource/source-sans-pro";
 
 import type { Language } from "../utils/types";
-import { getSite } from "../utils/utils.astro";
+import { getLanguageUrls } from "../utils/utils.astro";
 import Header from "./Header.astro";
 
 interface Props extends Language {
@@ -21,11 +21,7 @@ if (description.length > 150)
     `The description mustn't have more than 150 characters: ${description}`
   );
 
-const { pathname: path } = Astro.url;
-const site = getSite();
-
-const englishUrl = new URL(path, site);
-const polishUrl = new URL(`pl${path}`, site);
+const url = getLanguageUrls(Astro.url.pathname);
 ---
 
 <!DOCTYPE html>
@@ -36,9 +32,9 @@ const polishUrl = new URL(`pl${path}`, site);
     <meta name="description" content={description} />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="alternate" hreflang="en" href={englishUrl} />
-    <link rel="alternate" hreflang="pl" href={polishUrl} />
-    <link rel="alternate" hreflang="x-default" href={englishUrl} />
+    <link rel="alternate" hreflang="en" href={url.en} />
+    <link rel="alternate" hreflang="pl" href={url.pl} />
+    <link rel="alternate" hreflang="x-default" href={url.en} />
 
     <title>{title}</title>
   </head>
