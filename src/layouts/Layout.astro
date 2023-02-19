@@ -39,11 +39,21 @@ const polishUrl = new URL(`pl${path}`, site);
     <title>{title}</title>
   </head>
 
-  <body>
+  <body class="container">
     <slot />
   </body>
 
+  <style>
+    .container {
+      display: grid;
+      grid-template-columns:
+        1fr [start] minmax(min-content, var(--width-default))
+        [end] 1fr;
+    }
+  </style>
+
   <style is:global>
+    /* Custom properties */
     :root {
       --font-serif: "Lora", serif;
       --font-sans: "Source Sans Pro", sans-serif;
@@ -80,8 +90,11 @@ const polishUrl = new URL(`pl${path}`, site);
       --space-144: 14.4rem;
       --space-192: 19.2rem;
       --space-256: 25.6rem;
+
+      --width-default: 120rem;
     }
 
+    /* Reset */
     * {
       box-sizing: inherit;
       margin: 0;
@@ -123,6 +136,15 @@ const polishUrl = new URL(`pl${path}`, site);
 
     img {
       display: block;
+    }
+
+    /* Utility classes */
+    .mid-col {
+      grid-column: start / end;
+    }
+
+    .full-bleed {
+      grid-column: 1 / -1;
     }
   </style>
 </html>
