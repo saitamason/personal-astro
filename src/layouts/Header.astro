@@ -1,15 +1,19 @@
 ---
-import type { Language } from "../utils/types";
+import type { Language, Links } from "../utils/types";
 import { getSite, getSiteName, getLanguageUrls } from "../utils/utils.astro";
 
-interface Props extends Language {}
+interface Props extends Language {
+  links: Links;
+  cta?: { link: string; text: string };
+}
 
-const { language } = Astro.props;
+const { language, links, cta } = Astro.props;
+
 const isEn = language === "en";
 const langCode = isEn ? "pl" : "en";
 const url = getLanguageUrls(Astro.url.pathname);
 
-const site = getSite();
+const site = new URL("pl", getSite());
 const siteName = getSiteName();
 ---
 
@@ -29,7 +33,15 @@ const siteName = getSiteName();
           >{isEn ? "Polski" : "English"}
         </a>
       </li>
-      <li></li>
+      {
+        cta && (
+          <li>
+            <a href={cta.link} class="cta">
+              {cta.text}
+            </a>
+          </li>
+        )
+      }
     </ul>
   </nav>
 </header>

@@ -2,17 +2,18 @@
 import "@fontsource/lora";
 import "@fontsource/source-sans-pro";
 
-import type { Language } from "../utils/types";
+import type { Language, Links } from "../utils/types";
 import { getLanguageUrls } from "../utils/utils.astro";
 import Header from "./Header.astro";
 
 interface Props extends Language {
   title: string;
   description: string;
+  headerLinks: Links;
   children: any;
 }
 
-const { language, title, description } = Astro.props;
+const { language, title, description, headerLinks } = Astro.props;
 
 if (title.length > 55)
   throw new Error(`The title mustn't have more than 55 characters: ${title}`);
@@ -39,7 +40,7 @@ const url = getLanguageUrls(Astro.url.pathname);
     <title>{title}</title>
   </head>
 
-  <Header language={language} />
+  <Header language={language} links={headerLinks} />
   <body class="container">
     <slot />
   </body>

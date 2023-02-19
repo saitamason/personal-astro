@@ -1,4 +1,5 @@
 ---
+import type { Links } from "../utils/types";
 import Layout from "../layouts/Layout.astro";
 
 const birthDate = +new Date(import.meta.env.BIRTH_DATE);
@@ -6,12 +7,21 @@ const currentDate = +new Date();
 
 const ageInMilliseconds = currentDate - birthDate;
 const ageInYears = Math.trunc(ageInMilliseconds / 1000 / 60 / 60 / 24 / 365);
+
+const headerLinks: Links = new Map([
+  ["Projekty", "#projekty"],
+  ["Technologie", "#technologie"],
+  ["Kursy", "#kursy"],
+  ["Wykształcenie", "#wyksztalcenie"],
+  ["Badania", "#"],
+]);
 ---
 
 <Layout
   language="pl"
   title="Dawid Le Hai – Programista frontendu"
-  description={`${ageInYears}-letni programista frontendu, psycholog, certyfikowany trener personalny, a także entuzjasta tworzenia muzyki.`}>
+  description={`${ageInYears}-letni programista frontendu, psycholog, certyfikowany trener personalny, a także entuzjasta tworzenia muzyki.`}
+  headerLinks={headerLinks}>
   <main class="mid-col">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia voluptatum
     quibusdam voluptatibus quod itaque praesentium eos minus architecto ut quo
