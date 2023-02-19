@@ -1,5 +1,10 @@
 ---
+import type { Language } from "../utils/types";
 import { getSite } from "../utils/utils.astro";
+
+interface Props extends Language {}
+
+// const { language } = Astro.props;
 
 const site = String(getSite());
 const siteName = site.slice(site.indexOf("//") + 2, -1);
@@ -7,4 +12,13 @@ const siteName = site.slice(site.indexOf("//") + 2, -1);
 
 <header class="mid-col">
   <a href={site}><div class="logo-container"></div>{siteName}</a>
+  <nav>
+    <slot>Test</slot>
+    <nav>
+      <ul>
+        <li><a href=""></a></li>
+        <li></li>
+      </ul>
+    </nav>
+  </nav>
 </header>

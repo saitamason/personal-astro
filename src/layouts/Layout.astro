@@ -1,13 +1,15 @@
 ---
-import { getSite } from "../utils/utils.astro";
-
 import "@fontsource/lora";
 import "@fontsource/source-sans-pro";
 
-export interface Props {
-  language: "en" | "pl";
+import type { Language } from "../utils/types";
+import { getSite } from "../utils/utils.astro";
+import Header from "./Header.astro";
+
+interface Props extends Language {
   title: string;
   description: string;
+  children: any;
 }
 
 const { language, title, description } = Astro.props;
@@ -41,6 +43,7 @@ const polishUrl = new URL(`pl${path}`, site);
     <title>{title}</title>
   </head>
 
+  <Header language={language} />
   <body class="container">
     <slot />
   </body>
