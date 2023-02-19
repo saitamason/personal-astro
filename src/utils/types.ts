@@ -3,3 +3,5 @@ export interface Language {
 }
 
 export type Links = Map<string, string>;
+
+export type Link = { text: string; url: string };

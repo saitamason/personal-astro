@@ -1,27 +1,32 @@
 ---
 import type { Links } from "../utils/types";
+import { getAge } from "../utils/utils.astro";
 import Layout from "../layouts/Layout.astro";
+import Header from "../layouts/Header.astro";
 
-const birthDate = +new Date(import.meta.env.BIRTH_DATE);
-const currentDate = +new Date();
+const language = "pl";
+const ageInYears = getAge();
 
-const ageInMilliseconds = currentDate - birthDate;
-const ageInYears = Math.trunc(ageInMilliseconds / 1000 / 60 / 60 / 24 / 365);
-
-const headerLinks: Links = new Map([
+const anchorLinks: Links = new Map([
   ["Projekty", "#projekty"],
   ["Technologie", "#technologie"],
   ["Kursy", "#kursy"],
   ["Wykształcenie", "#wyksztalcenie"],
-  ["Badania", "#"],
+  ["Badania naukowe", "#badania"],
+  ["Muzyka", "#muzyka"],
 ]);
 ---
 
 <Layout
-  language="pl"
+  language={language}
   title="Dawid Le Hai – Programista frontendu"
-  description={`${ageInYears}-letni programista frontendu, psycholog, certyfikowany trener personalny, a także entuzjasta tworzenia muzyki.`}
-  headerLinks={headerLinks}>
+  description={`${ageInYears}-letni programista frontendu, psycholog, certyfikowany trener personalny, a także entuzjasta tworzenia muzyki.`}>
+  <Header
+    language={language}
+    links={anchorLinks}
+    cta={{ text: "Zatrudnij mnie", url: "#praca" }}
+  />
+
   <main class="mid-col">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia voluptatum
     quibusdam voluptatibus quod itaque praesentium eos minus architecto ut quo

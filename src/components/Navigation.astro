@@ -1,0 +1,24 @@
+---
+import type { Links, Link } from "../utils/types";
+
+interface Props {
+  links: Links;
+  class?: string;
+}
+
+const { links, class: className } = Astro.props;
+let linksArr: Link[] = [];
+links.forEach((value, key) => linksArr.push({ text: key, url: value }));
+---
+
+<nav class:list={[{ className }]}>
+  <ul>
+    {
+      linksArr.map((link) => (
+        <li>
+          <a href={link.url}>{link.text}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

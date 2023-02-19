@@ -1,10 +1,11 @@
 ---
-import type { Language, Links } from "../utils/types";
+import type { Language, Links, Link } from "../utils/types";
 import { getSite, getSiteName, getLanguageUrls } from "../utils/utils.astro";
+import Navigation from "../components/Navigation.astro";
 
 interface Props extends Language {
-  links: Links;
-  cta?: { link: string; text: string };
+  links?: Links;
+  cta?: Link;
 }
 
 const { language, links, cta } = Astro.props;
@@ -19,9 +20,7 @@ const siteName = getSiteName();
 
 <header class="mid-col">
   <a href={site}><div class="logo-container"></div>{siteName}</a>
-  <nav>
-    <slot>Test</slot>
-  </nav>
+  {links && <Navigation links={links} />}
   <nav>
     <ul>
       <li>
@@ -36,7 +35,7 @@ const siteName = getSiteName();
       {
         cta && (
           <li>
-            <a href={cta.link} class="cta">
+            <a href={cta.url} class="cta">
               {cta.text}
             </a>
           </li>
