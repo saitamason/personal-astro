@@ -1,4 +1,6 @@
 ---
+import { getSite } from "../utils/utils.astro";
+
 import "@fontsource/lora";
 import "@fontsource/source-sans-pro";
 
@@ -18,7 +20,7 @@ if (description.length > 150)
   );
 
 const { pathname: path } = Astro.url;
-const { site } = Astro;
+const site = getSite();
 
 const englishUrl = new URL(path, site);
 const polishUrl = new URL(`pl${path}`, site);

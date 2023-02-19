@@ -1,0 +1,10 @@
+---
+import { getSite } from "../utils/utils.astro";
+
+const site = String(getSite());
+const siteName = site.slice(site.indexOf("//") + 2, -1);
+---
+
+<header class="mid-col">
+  <a href={site}><div class="logo-container"></div>{siteName}</a>
+</header>

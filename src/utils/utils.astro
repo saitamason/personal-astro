@@ -1,0 +1,7 @@
+---
+export const getSite = () => {
+  const { site } = Astro;
+  if (!site) throw new Error("Please define site property in astro.config.");
+  return site;
+};
+---
