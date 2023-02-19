@@ -3,15 +3,15 @@ import type { Links, Link } from "../utils/types";
 
 interface Props {
   links: Links;
-  class?: string;
 }
 
-const { links, class: className } = Astro.props;
+const { links } = Astro.props;
+
 let linksArr: Link[] = [];
 links.forEach((value, key) => linksArr.push({ text: key, url: value }));
 ---
 
-<nav class:list={[{ className }]}>
+<nav>
   <ul>
     {
       linksArr.map((link) => (
@@ -22,3 +22,11 @@ links.forEach((value, key) => linksArr.push({ text: key, url: value }));
     }
   </ul>
 </nav>
+
+<style>
+  ul {
+    display: flex;
+    gap: var(--gap);
+    align-items: center;
+  }
+</style>

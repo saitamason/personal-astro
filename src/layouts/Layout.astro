@@ -48,6 +48,12 @@ const url = getLanguageUrls(Astro.url.pathname);
       grid-template-columns:
         1fr [start] minmax(min-content, var(--width-default))
         [end] 1fr;
+
+      background: linear-gradient(
+        to bottom,
+        var(--gray-13) 50dvh,
+        var(--gray-15) 150dvh
+      );
     }
   </style>
 
@@ -71,6 +77,7 @@ const url = getLanguageUrls(Astro.url.pathname);
       --font-base: 1.8rem;
       --font-small: 1.35rem;
 
+      --line-6: 1.5;
       --line-base: 1.618;
 
       --space-1: 0.1rem;
@@ -90,7 +97,26 @@ const url = getLanguageUrls(Astro.url.pathname);
       --space-192: 19.2rem;
       --space-256: 25.6rem;
 
-      --width-default: 120rem;
+      --width-default: 140rem;
+
+      --gray-0: #000;
+      --gray-1: #111;
+      --gray-2: #222;
+      --gray-3: #333;
+      --gray-4: #444;
+      --gray-5: #555;
+      --gray-6: #666;
+      --gray-7: #777;
+      --gray-8: #888;
+      --gray-9: #999;
+      --gray-10: #aaa;
+      --gray-11: #bbb;
+      --gray-12: #ccc;
+      --gray-13: #ddd;
+      --gray-14: #eee;
+      --gray-15: #fff;
+
+      --radius-default: 2rem;
     }
 
     /* Reset */
@@ -144,6 +170,17 @@ const url = getLanguageUrls(Astro.url.pathname);
 
     .full-bleed {
       grid-column: 1 / -1;
+    }
+
+    .button {
+      display: inline-block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: var(--line-6);
+      border-radius: var(--radius-default);
+      padding: 1ex 2ex;
     }
   </style>
 </html>
