@@ -51,7 +51,7 @@ const url = getLanguageUrls(Astro.url.pathname);
       background: linear-gradient(
         to bottom,
         var(--gray-13) 50dvh,
-        var(--gray-15) 100dvh
+        var(--gray-15) 150dvh
       );
     }
   </style>
@@ -80,19 +80,19 @@ const url = getLanguageUrls(Astro.url.pathname);
       --font-semibold: 600;
       --font-bold: 700;
 
-      /* Perfect Fourth (1.333) type scale with base 1.8 */
       --font-1: 11rem;
       --font-2: 7.58rem;
       --font-3: 5.68rem;
       --font-4: 4.26rem;
-      --font-5: 3.2rem;
-      --font-6: 2.4rem;
+      --font-5: 3rem;
+      --font-6: 2.5rem;
       --font-large: 2rem;
       --font-base: 1.8rem;
-      --font-small: 1.35rem;
+      --font-small: 1.4rem;
 
-      --line-1: 1.2;
-      --line-6: 1.5;
+      --line-very-tight: 1.2;
+      --line-tight: 1.25;
+      --line-normal: 1.5;
       --line-base: 1.618;
 
       --space-1: 0.1rem;
@@ -203,7 +203,7 @@ const url = getLanguageUrls(Astro.url.pathname);
       align-items: center;
       justify-content: center;
       text-align: center;
-      line-height: var(--line-6);
+      line-height: var(--line-normal);
       border-radius: var(--radius-default);
       padding: 1.2ex 2ex 1.35ex 2ex;
       color: currentColor;

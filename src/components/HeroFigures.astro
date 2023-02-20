@@ -1,18 +1,72 @@
-<div>
-  <figure>
-    <figcaption>Programista <span>frontendu.</span></figcaption>
-    <div class="figure-image"></div>
-  </figure>
-  <figure>
-    <figcaption>Psycholog.</figcaption>
-    <div class="figure-image"></div>
-  </figure>
-  <figure>
-    <figcaption>Trener <span>personalny.</span></figcaption>
-    <div class="figure-image"></div>
-  </figure>
-  <figure>
-    <figcaption>Producent <span>muzyczny.</span></figcaption>
-    <div class="figure-image"></div>
-  </figure>
+---
+interface Props {
+  captions: string[];
+}
+
+const { captions } = Astro.props;
+---
+
+<div class="figures mid-col">
+  {
+    captions.map((caption) => (
+      <figure>
+        <figcaption>{caption}</figcaption>
+        <div class="figure-image" />
+      </figure>
+    ))
+  }
 </div>
+
+<style>
+  .figures {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--side-padding);
+    align-items: end;
+    padding: 0 var(--side-padding);
+  }
+
+  figure:nth-child(1) {
+    margin-bottom: 60%;
+  }
+  figure:nth-child(3) {
+    margin-bottom: 40%;
+  }
+  figure:nth-child(2) {
+    margin-bottom: 20%;
+  }
+
+  figcaption {
+    font-size: var(--font-5);
+    font-weight: var(--font-bold);
+    color: var(--gray-3);
+    max-width: 10ch;
+    line-height: var(--line-tight);
+    margin-bottom: var(--space-16);
+  }
+
+  figcaption::after {
+    content: ".";
+  }
+
+  .figure-image {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background-color: var(--gray-11);
+    border-radius: var(--radius-default);
+    position: relative;
+  }
+
+  /* .figure-image::before {
+    content: "";
+    position: absolute;
+    --border: var(--space-4);
+    top: var(--border);
+    left: var(--border);
+    width: 100%;
+    height: 100%;
+    background-color: var(--gray-13);
+    border-radius: var(--radius-default);
+    z-index: -1;
+  } */
+</style>

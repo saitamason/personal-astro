@@ -22,8 +22,7 @@ const { linkUrl: url, linkText: text } = Astro.props;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: var(--space-128) var(--side-padding) var(--space-192)
-      var(--side-padding);
+    padding: var(--space-128) var(--side-padding);
     color: var(--text-color);
     --text-color: var(--gray-2);
     --line: 1px dashed var(--gray-8);
@@ -31,7 +30,7 @@ const { linkUrl: url, linkText: text } = Astro.props;
 
   .title h1 {
     position: relative;
-    line-height: 1.25;
+    line-height: var(--line-tight);
     margin-bottom: var(--space-24);
   }
 
