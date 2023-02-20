@@ -5,6 +5,8 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../layouts/Header.astro";
 import HeroTitle from "../components/HeroTitle.astro";
 import HeroFigures from "../components/HeroFigures.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+// import Intersection from "../components/Intersection.astro";
 
 const language = "pl";
 const ageInYears = getAge();
@@ -45,14 +47,17 @@ const anchorLinks: Links = [
         ]}
       />
     </section>
-    <section class="mid-col">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia voluptatum
-      quibusdam voluptatibus quod itaque praesentium eos minus architecto ut quo
-      possimus exercitationem adipisci iste, vel excepturi rerum ex dolore.
-      Doloribus! Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-      Dolorum alias consequuntur tempore, enim, commodi dolores libero
-      perspiciatis tempora velit assumenda dolor quisquam cupiditate vitae eius,
-      atque vero! Molestiae, numquam? Optio?
+
+    <section class="ignore-children">
+      <!-- <Intersection>
+        {
+          `Jestem ${ageInYears}-letnim programistą frontendu urodzonym i mieszkającym w Polsce, który uwielbia design oraz technologię. Jako osoba z wykształceniem psychologicznym zwracam uwagę na dostosowanie UI do potrzeb odbiorców. Jestem również certyfikowanym trenerem personalnym, a w wolnych chwilach czerpię radość z tworzenia muzyki.`
+        }
+      </Intersection> -->
+    </section>
+
+    <section class="ignore-children" id={anchorLinks[0]!.url}>
+      <SectionHeader>Projekty</SectionHeader>
     </section>
   </main>
 </Layout>

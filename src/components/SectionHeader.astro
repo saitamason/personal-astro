@@ -1,0 +1,22 @@
+---
+interface Props {
+  children: any;
+}
+---
+
+<div class="container mid-col">
+  <div>
+    <h2><slot /></h2>
+  </div>
+</div>
+
+<style>
+  .container {
+    padding: 0 var(--side-padding);
+    margin-top: var(--space-192);
+    margin-bottom: var(--space-192);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>

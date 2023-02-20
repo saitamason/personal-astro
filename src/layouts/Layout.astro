@@ -81,14 +81,14 @@ const url = getLanguageUrls(Astro.url.pathname);
       --font-bold: 700;
 
       --font-1: 11rem;
-      --font-2: 7.58rem;
-      --font-3: 5.68rem;
-      --font-4: 4.26rem;
-      --font-5: 3rem;
-      --font-6: 2.5rem;
-      --font-large: 2rem;
+      --font-2: 5.37rem;
+      --font-3: 4.48rem;
+      --font-4: 3.73rem;
+      --font-5: 3.11rem;
+      --font-6: 2.59rem;
+      --font-large: 2.16rem;
       --font-base: 1.8rem;
-      --font-small: 1.4rem;
+      --font-small: 1.5rem;
 
       --line-very-tight: 1.2;
       --line-tight: 1.25;
@@ -152,6 +152,7 @@ const url = getLanguageUrls(Astro.url.pathname);
       font-family: var(--font-serif);
       font-size: var(--font-base);
       line-height: var(--line-base);
+      color: var(--gray-3);
     }
 
     input,
@@ -182,6 +183,12 @@ const url = getLanguageUrls(Astro.url.pathname);
     h1 {
       font-size: var(--font-1);
       font-weight: var(--font-bold);
+    }
+
+    h2 {
+      font-size: var(--font-2);
+      font-weight: var(--font-bold);
+      line-height: var(--line-very-tight);
     }
 
     /* Utility classes */

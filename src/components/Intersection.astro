@@ -1,0 +1,22 @@
+<div class="container mid-col">
+  <p><slot /></p>
+</div>
+
+<style>
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 var(--side-padding);
+    margin-top: var(--space-192);
+    margin-bottom: var(--space-144);
+  }
+
+  p {
+    text-align: center;
+    max-width: 70ch;
+    font-size: var(--font-large);
+    font-style: italic;
+  }
+</style>
