@@ -1,22 +1,35 @@
 ---
+import { Code } from "phosphor-react";
+
 interface Props {
+  id: string;
   children: any;
 }
+
+const { id } = Astro.props;
 ---
 
-<div class="container mid-col">
-  <div>
+<div class="container mid-col" id={id}>
+  <hgroup>
+    <Code size="var(--icon-size)" weight="duotone" />
     <h2><slot /></h2>
-  </div>
+  </hgroup>
 </div>
 
 <style>
   .container {
     padding: 0 var(--side-padding);
     margin-top: var(--space-192);
-    margin-bottom: var(--space-192);
+    margin-bottom: var(--space-128);
     display: flex;
     justify-content: center;
     align-items: center;
+    --icon-size: 10rem;
+  }
+
+  hgroup {
+    display: flex;
+    align-items: center;
+    gap: var(--side-padding);
   }
 </style>

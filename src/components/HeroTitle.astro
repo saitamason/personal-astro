@@ -25,7 +25,6 @@ const { linkUrl: url, linkText: text } = Astro.props;
     padding: var(--space-128) var(--side-padding);
     color: var(--text-color);
     --text-color: var(--gray-2);
-    --line: 1px dashed var(--gray-8);
   }
 
   .title h1 {
@@ -38,32 +37,6 @@ const { linkUrl: url, linkText: text } = Astro.props;
     -webkit-text-stroke: 1px var(--text-color);
     color: transparent;
     font-style: italic;
-  }
-
-  .title h1::before {
-    content: "";
-    width: 120%;
-    height: 1.05ex;
-    position: absolute;
-    bottom: 0.475ex;
-    left: -10%;
-    border-top: var(--line);
-    border-bottom: var(--line);
-    z-index: -1;
-    transform: skewX(20deg);
-  }
-
-  .title h1::after {
-    content: "";
-    width: 120%;
-    height: 2.05ex;
-    position: absolute;
-    bottom: 0;
-    left: -10%;
-    border-top: var(--line);
-    border-bottom: var(--line);
-    z-index: -1;
-    transform: skewX(-20deg);
   }
 
   .title p {

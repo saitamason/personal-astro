@@ -1,4 +1,6 @@
 ---
+import { Translate } from "phosphor-react";
+
 import type { Language, Links, Link } from "../utils/types";
 import { getSite, getSiteName, getLanguageUrls } from "../utils/utils.astro";
 import Navigation from "../components/Navigation.astro";
@@ -29,7 +31,13 @@ const siteName = getSiteName();
           hreflang={langCode}
           href={url[langCode]}
           lang={langCode}
-          >{isEn ? "Polski" : "English"}
+          class="lang-link">
+          <Translate
+            size="2.5ex"
+            weight="duotone"
+            alt={isEn ? "Zmień język" : "Change language"}
+          />
+          {isEn ? "Polski" : "English"}
         </a>
       </li>
       {
@@ -76,6 +84,13 @@ const siteName = getSiteName();
     font-weight: var(--font-semibold);
     font-style: italic;
     justify-self: start;
+  }
+
+  .lang-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: calc(var(--gap) / 4);
   }
 
   .button {

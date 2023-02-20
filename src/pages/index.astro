@@ -6,6 +6,7 @@ import Header from "../layouts/Header.astro";
 import HeroTitle from "../components/HeroTitle.astro";
 import HeroFigures from "../components/HeroFigures.astro";
 import SectionHeader from "../components/SectionHeader.astro";
+import MyProjects from "../components/MyProjects.astro";
 // import Intersection from "../components/Intersection.astro";
 
 const language = "pl";
@@ -56,8 +57,10 @@ const anchorLinks: Links = [
       </Intersection> -->
     </section>
 
-    <section class="ignore-children" id={anchorLinks[0]!.url}>
-      <SectionHeader>Projekty</SectionHeader>
+    <section class="ignore-children">
+      <SectionHeader id={anchorLinks[0]!.url.slice(1)}>Projekty</SectionHeader>
+
+      <MyProjects />
     </section>
   </main>
 </Layout>
