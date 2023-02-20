@@ -1,20 +1,17 @@
 ---
-import type { Links, Link } from "../utils/types";
+import type { Links } from "../utils/types";
 
 interface Props {
   links: Links;
 }
 
 const { links } = Astro.props;
-
-let linksArr: Link[] = [];
-links.forEach((value, key) => linksArr.push({ text: key, url: value }));
 ---
 
 <nav>
   <ul>
     {
-      linksArr.map((link) => (
+      links.map((link) => (
         <li>
           <a href={link.url}>{link.text}</a>
         </li>
@@ -28,5 +25,10 @@ links.forEach((value, key) => linksArr.push({ text: key, url: value }));
     display: flex;
     gap: var(--gap);
     align-items: center;
+  }
+
+  a:is(:link, :visited) {
+    color: var(--link-color);
+    font-weight: var(--weight);
   }
 </style>

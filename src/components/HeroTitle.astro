@@ -1,0 +1,84 @@
+---
+interface Props {
+  linkUrl: string;
+  linkText: string;
+  children: any;
+}
+
+const { linkUrl: url, linkText: text } = Astro.props;
+---
+
+<div class="title mid-col">
+  <h1><span>Dawid</span> Le Hai</h1>
+  <p>
+    <slot />
+  </p>
+  <a href={url} class="button">{text}</a>
+</div>
+
+<style>
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: var(--space-128) var(--side-padding) var(--space-192)
+      var(--side-padding);
+    color: var(--text-color);
+    --text-color: var(--gray-2);
+    --line: 1px dashed var(--gray-8);
+  }
+
+  .title h1 {
+    position: relative;
+    line-height: 1.25;
+    margin-bottom: var(--space-24);
+  }
+
+  .title h1 span {
+    -webkit-text-stroke: 1px var(--text-color);
+    color: transparent;
+    font-style: italic;
+  }
+
+  .title h1::before {
+    content: "";
+    width: 120%;
+    height: 1.05ex;
+    position: absolute;
+    bottom: 0.475ex;
+    left: -10%;
+    border-top: var(--line);
+    border-bottom: var(--line);
+    z-index: -1;
+    transform: skewX(20deg);
+  }
+
+  .title h1::after {
+    content: "";
+    width: 120%;
+    height: 2.05ex;
+    position: absolute;
+    bottom: 0;
+    left: -10%;
+    border-top: var(--line);
+    border-bottom: var(--line);
+    z-index: -1;
+    transform: skewX(-20deg);
+  }
+
+  .title p {
+    font-size: var(--font-6);
+    max-width: 40ch;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: var(--space-32);
+    color: var(--gray-3);
+  }
+
+  .button {
+    background-color: var(--gray-15);
+    color: var(--gray-4);
+    font-size: var(--font-large);
+  }
+</style>

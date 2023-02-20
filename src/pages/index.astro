@@ -3,18 +3,20 @@ import type { Links } from "../utils/types";
 import { getAge } from "../utils/utils.astro";
 import Layout from "../layouts/Layout.astro";
 import Header from "../layouts/Header.astro";
+import HeroTitle from "../components/HeroTitle.astro";
+import HeroFigures from "../components/HeroFigures.astro";
 
 const language = "pl";
 const ageInYears = getAge();
 
-const anchorLinks: Links = new Map([
-  ["Projekty", "#projekty"],
-  ["Technologie", "#technologie"],
-  ["Kursy", "#kursy"],
-  ["Wykształcenie", "#wyksztalcenie"],
-  ["Badania naukowe", "#badania"],
-  ["Muzyka", "#muzyka"],
-]);
+const anchorLinks: Links = [
+  { text: "Projekty", url: "#projekty" },
+  { text: "Technologie", url: "#technologie" },
+  { text: "Kursy", url: "#kursy" },
+  { text: "Wykształcenie", url: "#wyksztalcenie" },
+  { text: "Badania naukowe", url: "#badania" },
+  { text: "Muzyka", url: "#muzyka" },
+];
 ---
 
 <Layout
@@ -27,14 +29,31 @@ const anchorLinks: Links = new Map([
     cta={{ text: "Zatrudnij mnie", url: "#praca" }}
   />
 
-  <main class="mid-col">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia voluptatum
-    quibusdam voluptatibus quod itaque praesentium eos minus architecto ut quo
-    possimus exercitationem adipisci iste, vel excepturi rerum ex dolore.
-    Doloribus! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum
-    alias consequuntur tempore, enim, commodi dolores libero perspiciatis
-    tempora velit assumenda dolor quisquam cupiditate vitae eius, atque vero!
-    Molestiae, numquam? Optio?
+  <main class="ignore-children">
+    <section class="ignore-children">
+      <HeroTitle linkUrl={anchorLinks[0]!.url} linkText="Poznaj mnie lepiej">
+        <strong>Programista frontendu</strong>, który tworzy przyjazne
+        i&nbsp;dobrze wyglądające interfejsy użytkownika.
+      </HeroTitle>
+
+      <HeroFigures
+        captions={[
+          "Programista frontendu",
+          "Psycholog",
+          "Trener personalny",
+          "Producent muzyczny",
+        ]}
+      />
+    </section>
+    <section class="mid-col">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia voluptatum
+      quibusdam voluptatibus quod itaque praesentium eos minus architecto ut quo
+      possimus exercitationem adipisci iste, vel excepturi rerum ex dolore.
+      Doloribus! Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+      Dolorum alias consequuntur tempore, enim, commodi dolores libero
+      perspiciatis tempora velit assumenda dolor quisquam cupiditate vitae eius,
+      atque vero! Molestiae, numquam? Optio?
+    </section>
   </main>
 </Layout>
 

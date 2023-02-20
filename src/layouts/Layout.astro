@@ -1,6 +1,5 @@
 ---
-import "@fontsource/lora";
-import "@fontsource/source-sans-pro";
+import "@fontsource/quicksand";
 
 import type { Language } from "../utils/types";
 import { getLanguageUrls } from "../utils/utils.astro";
@@ -52,31 +51,47 @@ const url = getLanguageUrls(Astro.url.pathname);
       background: linear-gradient(
         to bottom,
         var(--gray-13) 50dvh,
-        var(--gray-15) 150dvh
+        var(--gray-15) 100dvh
       );
     }
   </style>
 
   <style is:global>
+    @font-face {
+      font-family: "Lora";
+      src: local("Lora"),
+        url("/fonts/Lora-VariableFont_wght.ttf") format("truetype");
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Lora";
+      src: local("Lora"),
+        url("/fonts/Lora-Italic-VariableFont_wght.ttf") format("truetype");
+      font-style: italic;
+    }
+
     /* Custom properties */
     :root {
       --font-serif: "Lora", serif;
-      --font-sans: "Source Sans Pro", sans-serif;
+      --font-sans: "Quicksand", sans-serif;
 
       --font-normal: 400;
       --font-semibold: 600;
       --font-bold: 700;
 
       /* Perfect Fourth (1.333) type scale with base 1.8 */
-      --font-1: 10.1rem;
+      --font-1: 11rem;
       --font-2: 7.58rem;
       --font-3: 5.68rem;
       --font-4: 4.26rem;
       --font-5: 3.2rem;
       --font-6: 2.4rem;
+      --font-large: 2rem;
       --font-base: 1.8rem;
       --font-small: 1.35rem;
 
+      --line-1: 1.2;
       --line-6: 1.5;
       --line-base: 1.618;
 
@@ -97,7 +112,8 @@ const url = getLanguageUrls(Astro.url.pathname);
       --space-192: 19.2rem;
       --space-256: 25.6rem;
 
-      --width-default: 140rem;
+      --side-padding: var(--space-32);
+      --width-default: 185rem;
 
       --gray-0: #000;
       --gray-1: #111;
@@ -133,7 +149,7 @@ const url = getLanguageUrls(Astro.url.pathname);
 
     body {
       box-sizing: border-box;
-      font-family: var(--font-sans);
+      font-family: var(--font-serif);
       font-size: var(--font-base);
       line-height: var(--line-base);
     }
@@ -163,7 +179,16 @@ const url = getLanguageUrls(Astro.url.pathname);
       display: block;
     }
 
+    h1 {
+      font-size: var(--font-1);
+      font-weight: var(--font-bold);
+    }
+
     /* Utility classes */
+    .ignore-children {
+      display: contents;
+    }
+
     .mid-col {
       grid-column: start / end;
     }
@@ -173,14 +198,15 @@ const url = getLanguageUrls(Astro.url.pathname);
     }
 
     .button {
-      display: inline-block;
+      display: block;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       line-height: var(--line-6);
       border-radius: var(--radius-default);
-      padding: 1ex 2ex;
+      padding: 1.2ex 2ex 1.35ex 2ex;
+      color: currentColor;
     }
   </style>
 </html>

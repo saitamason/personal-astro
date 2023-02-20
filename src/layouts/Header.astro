@@ -19,7 +19,7 @@ const siteName = getSiteName();
 ---
 
 <header class="mid-col">
-  <a href={site}><div class="logo-container"></div>{siteName}</a>
+  <a href={site} class="logo-link">{siteName}</a>
   {links && <Navigation links={links} />}
   <nav>
     <ul>
@@ -48,11 +48,17 @@ const siteName = getSiteName();
 <style>
   header {
     --gap: var(--space-24);
+    --link-color: var(--gray-4);
     gap: var(--gap);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--space-24) var(--space-32);
+    padding: var(--space-24) var(--side-padding);
+  }
+
+  header a:where(:link, :visited) {
+    color: var(--link-color);
+    font-weight: var(--weight);
   }
 
   ul {
@@ -61,8 +67,13 @@ const siteName = getSiteName();
     gap: var(--gap);
   }
 
+  .logo-link {
+    font-weight: var(--font-semibold);
+    font-style: italic;
+  }
+
   .button {
     background-color: var(--gray-15);
-    padding: calc(var(--gap) * 0.5) var(--gap);
+    color: var(--link-color);
   }
 </style>
