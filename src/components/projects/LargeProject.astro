@@ -5,68 +5,65 @@ import {
   Sitypescript,
   SicssThree,
   Sihtml5,
-  Sinetlify,
 } from "@icons-pack/react-simple-icons";
+
+import type { Project } from "../../utils/types";
+
+interface Props {
+  project: Project;
+}
+
+const { title, subtitle, image } = Astro.props.project;
 ---
 
-<ul class="section-container mid-col">
-  <li class="project">
-    <hgroup class="project__header">
-      <h4>Kociołek</h4>
-      <p>Bufet i kawiarnia w Bydgoszczy</p>
-    </hgroup>
-    <div class="project__figure">
-      <div class="tablet">
-        <div class="tablet__screen">
-          <img src="/screenshots/kociolek-01.png" class="project__img" />
-        </div>
-      </div>
-      <ul class="tech">
-        <li>
-          <Siremix size="var(--icon-size)" className="tech__icon" />Remix
-        </li>
-        <li><Sireact className="tech__icon" size="var(--icon-size)" />React</li>
-        <li>
-          <Sitypescript
-            className="tech__icon"
-            size="var(--icon-size)"
-          />TypeScript
-        </li>
-        <li>
-          <SicssThree className="tech__icon" size="var(--icon-size)" />CSS
-        </li>
-        <li><Sihtml5 className="tech__icon" size="var(--icon-size)" />HTML</li>
-        <li>
-          <Sinetlify className="tech__icon" size="var(--icon-size)" />Netlify
-        </li>
-      </ul>
-      <div class="phone">
-        <div class="phone__speaker"></div>
-        <div class="phone__screen">
-          <img
-            src="/screenshots/kociolek-mobile-01.png"
-            class="project__img-mobile"
-          />
-        </div>
-        <div class="phone__button"></div>
+<li class="project">
+  <hgroup>
+    <h4>Kociołek</h4>
+    <p>Bufet i kawiarnia w Bydgoszczy.</p>
+  </hgroup>
+  <div class="project__figure">
+    <div class="tablet">
+      <div class="tablet__screen">
+        <img src="/screenshots/kociolek-01.png" class="project__img" />
       </div>
     </div>
-  </li>
-</ul>
+    <ul class="tech">
+      <li>
+        <Siremix size="var(--icon-size)" className="tech__icon" />Remix
+      </li>
+      <li><Sireact className="tech__icon" size="var(--icon-size)" />React</li>
+      <li>
+        <Sitypescript
+          className="tech__icon"
+          size="var(--icon-size)"
+        />TypeScript
+      </li>
+      <li>
+        <SicssThree className="tech__icon" size="var(--icon-size)" />CSS
+      </li>
+      <li><Sihtml5 className="tech__icon" size="var(--icon-size)" />HTML</li>
+    </ul>
+    <div class="phone">
+      <div class="phone__speaker"></div>
+      <div class="phone__screen">
+        <img
+          src="/screenshots/kociolek-mobile-01.png"
+          class="project__img-mobile"
+        />
+      </div>
+      <div class="phone__button"></div>
+    </div>
+  </div>
+</li>
 
 <style>
-  .section-container {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    padding: 0 var(--side-padding);
-    gap: var(--space-24);
-  }
-
   .project {
     grid-column: span 6;
   }
 
-  .project__header h4 {
+  .project hgroup p {
+    margin-bottom: var(--space-16);
+    font-style: italic;
   }
 
   .project__figure {
@@ -88,7 +85,7 @@ import {
     border-bottom: 4px solid var(--gray-11);
     border-radius: var(--radius-xxl);
     padding: var(--border);
-    margin-top: var(--space-96);
+    margin-top: var(--space-64);
   }
 
   .phone__screen {
@@ -118,8 +115,8 @@ import {
     display: flex;
     flex-wrap: wrap;
     justify-content: end;
-    margin-top: var(--space-8);
-    margin-right: var(--space-8);
+    margin-top: var(--space-16);
+    margin-right: var(--space-16);
     gap: var(--space-8);
   }
 

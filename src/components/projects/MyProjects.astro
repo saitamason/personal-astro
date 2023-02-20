@@ -1,0 +1,23 @@
+---
+import type { Project } from "../../utils/types";
+import LargeProject from "./LargeProject.astro";
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+---
+
+<ul class="section-container mid-col">
+  {projects.map((project) => <LargeProject project={project} />)}
+</ul>
+
+<style>
+  .section-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    padding: 0 var(--side-padding);
+    gap: var(--space-24);
+  }
+</style>

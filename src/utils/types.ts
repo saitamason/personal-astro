@@ -8,3 +8,12 @@ export type Links = {
 }[];
 
 export type Link = { text: string; url: string };
+
+export interface Project {
+  title: string;
+  subtitle: string;
+  image: {
+    full: string;
+    mobile: string;
+  };
+}
