@@ -1,6 +1,7 @@
 ---
 import type { Language, Project } from "../../utils/types";
 import LargeProject from "./LargeProject.astro";
+import MediumProject from "./MediumProject.astro";
 
 interface Props {
   projects: Project[];
@@ -12,7 +13,18 @@ const isEn = lang === "en";
 ---
 
 <ul class="section-container mid-col">
-  {projects.map((project) => <LargeProject project={project} isEn={isEn} />)}
+  {
+    projects.map((project, index) => {
+      if (index > 1) return;
+      return <LargeProject project={project} isEn={isEn} />;
+    })
+  }
+  {
+    projects.map((project, index) => {
+      if (index < 2 || index > 4) return;
+      return <MediumProject project={project} isEn={isEn} />;
+    })
+  }
 </ul>
 
 <style>
@@ -20,6 +32,7 @@ const isEn = lang === "en";
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     padding: 0 var(--side-padding);
-    gap: var(--space-64);
+    column-gap: var(--space-64);
+    row-gap: var(--space-128);
   }
 </style>

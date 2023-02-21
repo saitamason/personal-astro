@@ -1,6 +1,7 @@
 ---
-import type { Link, Project, Caption, Language } from "../utils/types";
+import type { Link, Caption, Language } from "../utils/types";
 import { getAge } from "../utils/utils.astro";
+import projects from "../data/projects";
 import Layout from "../layouts/Layout.astro";
 import Header from "../layouts/Header.astro";
 import HeroTitle from "../components/HeroTitle.astro";
@@ -8,8 +9,6 @@ import HeroFigures from "../components/HeroFigures.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import MyProjects from "../components/projects/MyProjects.astro";
 // import Intersection from "../components/Intersection.astro";
-
-import * as tech from "../utils/technologies.astro";
 
 const language: Language = "pl";
 const ageInYears = getAge();
@@ -28,47 +27,6 @@ const figcaptions: Caption[] = [
   { title: "Psycholog", subtitle: "Z wykształcenia" },
   { title: "Trener personalny", subtitle: "Wieczorami" },
   { title: "Producent muzyczny", subtitle: "W wolnych chwilach" },
-];
-
-const projects: Project[] = [
-  {
-    title: "Kociołek",
-    subtitle: "Bufet i kawiarnia w Bydgoszczy",
-    type: "commercial",
-    description:
-      "Oficjalna strona internetowa firmy Kociołek. Projekt obejmował zaprojektowanie układu strony, dobór kolorów, grafik i fontów oraz napisanie kodu TypeScript, CSS i HTML z wykorzystaniem frameworków Remix oraz React.",
-    image: {
-      full: "/screenshots/kociolek-01.png",
-      mobile: "/screenshots/kociolek-mobile-01.png",
-    },
-    technologies: [tech.Remix, tech.React, tech.TS, tech.CSS, tech.HTML],
-    link: {
-      text: "Netlify",
-      url: "https://kociolekbydgoszcz.pl",
-      lang: "pl",
-      icon: tech.Netlify,
-    },
-    source: "https://github.com/dawidlehai/kociolek-remix",
-  },
-  {
-    title: "Natio",
-    subtitle: "Informacje o krajach i ich sąsiadach",
-    type: "personal",
-    description:
-      "Aplikacja edukacyjna typu SPA napisana w JavaScript, Sass i HTML, która pozwala wyszukiwać i wyświetlać kraje, ich sąsiadów oraz informacje na ich temat. Możliwe jest również dodawanie krajów do ulubionych oraz śledzenie postępu odkrytych krajów.",
-    image: {
-      full: "/screenshots/natio-01.png",
-      mobile: "/screenshots/natio-mobile-01.png",
-    },
-    technologies: [tech.JS, tech.Sass, tech.HTML],
-    link: {
-      text: "Netlify",
-      url: "https://dawidlehai-natio.netlify.app/",
-      lang: "en",
-      icon: tech.Netlify,
-    },
-    source: "https://github.com/dawidlehai/kociolek-remix",
-  },
 ];
 ---
 

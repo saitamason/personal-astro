@@ -123,7 +123,7 @@ if (type === "course")
 
 <style>
   .project {
-    grid-column: span 6;
+    grid-column: span 4;
     display: grid;
     grid-template-columns: repeat(14, 1fr);
     grid-template-rows: min-content min-content min-content 1fr;
@@ -149,9 +149,9 @@ if (type === "course")
 
     background-color: var(--gray-15);
 
-    --border: var(--space-8);
+    --border: var(--space-4);
     border: 1px solid var(--gray-11);
-    border-radius: var(--radius-xxl);
+    border-radius: var(--radius-default);
     padding: var(--border);
     margin-top: var(--space-64);
     box-shadow: var(--shadow-default);
@@ -159,12 +159,11 @@ if (type === "course")
 
   .phone__screen {
     overflow: hidden;
-    border-radius: calc(var(--radius-xxl) - var(--border));
+    border-radius: calc(var(--radius-default) - var(--border));
   }
 
   .project__img-mobile {
     width: 100%;
-    aspect-ratio: 1/2;
   }
 
   .tablet__screen {
@@ -179,7 +178,6 @@ if (type === "course")
 
   .project__img {
     width: 100%;
-    aspect-ratio: 16/9;
   }
 
   .tech {
@@ -243,5 +241,6 @@ if (type === "course")
     justify-self: start;
     font-family: var(--font-sans);
     font-weight: var(--font-medium);
+    font-size: var(--font-small);
   }
 </style>

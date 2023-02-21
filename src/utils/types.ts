@@ -11,10 +11,18 @@ export interface Project {
   title: string;
   subtitle: string;
   type: "commercial" | "personal" | "course";
-  description: string;
+  size: "large" | "medium" | "small";
+  mobile: boolean;
+  course?: {
+    title: string;
+    url: string;
+    school: string;
+    schoolUrl: string;
+  };
+  description?: string;
   image: {
     full: string;
-    mobile: string;
+    mobile?: string;
   };
   technologies: Tech[];
   link: {

@@ -152,6 +152,9 @@ const url = getLanguageUrls(Astro.url.pathname);
       --radius-small: 1rem;
       --radius-default: 2rem;
       --radius-xxl: 3.5rem;
+
+      --shadow-default: -1.2rem 2rem 2.5rem -0.5rem rgb(0 0 0 / 0.1),
+        -0.8rem 0.8rem 1rem -0.6rem rgb(0 0 0 / 0.1);
     }
 
     /* Reset */
@@ -239,7 +242,7 @@ const url = getLanguageUrls(Astro.url.pathname);
       justify-content: center;
       text-align: center;
       line-height: var(--line-normal);
-      border-radius: var(--radius-default);
+      border-radius: 1000px;
       padding: 1.2ex 2ex 1.3ex 2ex;
       color: currentColor;
       gap: var(--space-8);
