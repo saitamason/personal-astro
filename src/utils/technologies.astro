@@ -9,8 +9,15 @@ import {
   Sijavascript,
   Sisass,
   Sigithub,
+  Siprisma,
+  Simongodb,
+  Sivercel,
+  Sileaflet,
+  Siphp,
   IconType,
 } from "@icons-pack/react-simple-icons";
+
+import { Link as PhosphorLink } from "phosphor-react";
 
 export interface Tech {
   name: string;
@@ -23,7 +30,7 @@ export const Remix: Tech = {
   name: "Remix",
   icon: Siremix,
   color: "#eee",
-  bg: "#000",
+  bg: "#111",
 };
 export const React: Tech = {
   name: "React",
@@ -72,5 +79,41 @@ export const GitHub: Tech = {
   icon: Sigithub,
   color: "#eee",
   bg: "#181717",
+};
+export const Prisma: Tech = {
+  name: "Prisma",
+  icon: Siprisma,
+  color: "#eee",
+  bg: "#2D3748",
+};
+export const MongoDB: Tech = {
+  name: "MongoDB",
+  icon: Simongodb,
+  color: "#47A248",
+  bg: "#132B13",
+};
+export const Vercel: Tech = {
+  name: "Vercel",
+  icon: Sivercel,
+  color: "#eee",
+  bg: "#111",
+};
+export const Leaflet: Tech = {
+  name: "Leaflet",
+  icon: Sileaflet,
+  color: "#33FF0A",
+  bg: "#0A3D00",
+};
+export const PHP: Tech = {
+  name: "PHP",
+  icon: Siphp,
+  color: "#fff",
+  bg: "#777BB4",
+};
+export const PhLink: Tech = {
+  name: "Link",
+  icon: PhosphorLink,
+  color: "var(--gray-14)",
+  bg: "var(--gray-3)",
 };
 ---
