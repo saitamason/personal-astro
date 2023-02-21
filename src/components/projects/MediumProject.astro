@@ -64,7 +64,7 @@ if (type === "course")
       <p class="project__type" style={{ color: projectType.color }}>
         {projectType.text}
       </p>
-      <h4>{title}</h4>
+      <h4 class="title">{title}</h4>
       <p class="subtitle">{subtitle}</p>
     </hgroup>
     <p>{description}</p>
@@ -129,14 +129,18 @@ if (type === "course")
     grid-template-rows: min-content min-content min-content 1fr;
   }
 
+  .title {
+    font-size: var(--font-5);
+  }
+
   .subtitle {
     margin-bottom: var(--space-16);
-    font-size: var(--font-large);
+    font-size: var(--font-base);
     font-style: italic;
   }
 
   .project__type {
-    font-size: var(--font-small);
+    font-size: var(--font-xs);
     display: inline-block;
     text-transform: uppercase;
     border-radius: var(--radius-small);
@@ -233,7 +237,7 @@ if (type === "course")
     display: flex;
     justify-content: start;
     align-items: center;
-    gap: var(--space-12);
+    gap: var(--space-8);
   }
 
   .button {

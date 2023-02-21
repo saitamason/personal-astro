@@ -91,6 +91,11 @@ const projects: Project[] = [
     subtitle: "Zaplanuj swoją podróż",
     type: "course",
     size: "medium",
+    course: {
+      title: "Advanced CSS and Sass: Flexbox, Grid, Animations and More!",
+      url: "https://www.udemy.com/course/advanced-css-and-sass/",
+      school: "Udemy",
+    },
     mobile: true,
     description:
       "Fikcyjna aplikacja dla serwisu zajmującego się rezerwacją hoteli, lotów i wynajmem samochodów.",

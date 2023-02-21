@@ -17,7 +17,6 @@ export interface Project {
     title: string;
     url: string;
     school: string;
-    schoolUrl: string;
   };
   description?: string;
   image: {
