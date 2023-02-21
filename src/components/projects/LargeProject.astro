@@ -1,19 +1,11 @@
 ---
-import {
-  Siremix,
-  Sireact,
-  Sitypescript,
-  SicssThree,
-  Sihtml5,
-} from "@icons-pack/react-simple-icons";
-
 import type { Project } from "../../utils/types";
 
 interface Props {
   project: Project;
 }
 
-const { title, subtitle, image } = Astro.props.project;
+const { title, subtitle, image, technologies } = Astro.props.project;
 ---
 
 <li class="project">
@@ -28,20 +20,14 @@ const { title, subtitle, image } = Astro.props.project;
       </div>
     </div>
     <ul class="tech">
-      <li>
-        <Siremix size="var(--icon-size)" className="tech__icon" />Remix
-      </li>
-      <li><Sireact className="tech__icon" size="var(--icon-size)" />React</li>
-      <li>
-        <Sitypescript
-          className="tech__icon"
-          size="var(--icon-size)"
-        />TypeScript
-      </li>
-      <li>
-        <SicssThree className="tech__icon" size="var(--icon-size)" />CSS
-      </li>
-      <li><Sihtml5 className="tech__icon" size="var(--icon-size)" />HTML</li>
+      {
+        technologies.map((tech) => (
+          <li>
+            <tech.icon size="var(--icon-size)" className="tech__icon" />
+            {tech.name}
+          </li>
+        ))
+      }
     </ul>
     <div class="phone">
       <div class="phone__speaker"></div>

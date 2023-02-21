@@ -1,3 +1,5 @@
+import type { IconType } from "@icons-pack/react-simple-icons";
+
 export interface Language {
   language: "en" | "pl";
 }
@@ -16,4 +18,5 @@ export interface Project {
     full: string;
     mobile: string;
   };
+  technologies: { name: string; icon: IconType }[];
 }

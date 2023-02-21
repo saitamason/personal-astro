@@ -1,4 +1,12 @@
 ---
+import {
+  Siremix,
+  Sireact,
+  Sitypescript,
+  SicssThree,
+  Sihtml5,
+} from "@icons-pack/react-simple-icons";
+
 import type { Links, Project } from "../utils/types";
 import { getAge } from "../utils/utils.astro";
 import Layout from "../layouts/Layout.astro";
@@ -29,6 +37,13 @@ const projects: Project[] = [
       full: "/screenshots/kociolek-01.png",
       mobile: "/screenshots/kociolek-mobile-01.png",
     },
+    technologies: [
+      { name: "Remix", icon: Siremix },
+      { name: "React", icon: Sireact },
+      { name: "TypeScript", icon: Sitypescript },
+      { name: "CSS", icon: SicssThree },
+      { name: "HTML", icon: Sihtml5 },
+    ],
   },
 ];
 ---
