@@ -11,6 +11,7 @@ export interface Project {
   title: string;
   subtitle: string;
   type: "commercial" | "personal" | "course";
+  description: string;
   image: {
     full: string;
     mobile: string;
