@@ -1,8 +1,6 @@
-import type { IconType } from "@icons-pack/react-simple-icons";
+import type { Tech } from "./technologies.astro";
 
-export interface Language {
-  language: "en" | "pl";
-}
+export type Language = "en" | "pl";
 
 export interface Link {
   text: string;
@@ -12,11 +10,19 @@ export interface Link {
 export interface Project {
   title: string;
   subtitle: string;
+  type: "commercial" | "personal" | "course";
   image: {
     full: string;
     mobile: string;
   };
-  technologies: { name: string; icon: IconType }[];
+  technologies: Tech[];
+  link: {
+    text: string;
+    url: string;
+    lang: string;
+    icon: Tech;
+  };
+  source?: string;
 }
 
 export interface Caption {

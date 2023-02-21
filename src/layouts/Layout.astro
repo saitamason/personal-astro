@@ -1,12 +1,11 @@
 ---
-import "@fontsource/quicksand";
-
 import type { Language } from "../utils/types";
 import { getLanguageUrls } from "../utils/utils.astro";
 
-interface Props extends Language {
+interface Props {
   title: string;
   description: string;
+  language: Language;
   children: any;
 }
 
@@ -53,10 +52,18 @@ const url = getLanguageUrls(Astro.url.pathname);
         var(--gray-13) 50dvh,
         var(--gray-15) 150dvh
       );
+
+      margin-bottom: 100rem;
     }
   </style>
 
   <style is:global>
+    @font-face {
+      font-family: "Inter";
+      src: local("Inter"),
+        url("/fonts/Inter-VariableFont_slnt,wght.ttf") format("truetype");
+    }
+
     @font-face {
       font-family: "Lora";
       src: local("Lora"),
@@ -74,11 +81,13 @@ const url = getLanguageUrls(Astro.url.pathname);
     /* Custom properties */
     :root {
       --font-serif: "Lora", serif;
-      --font-sans: "Quicksand", sans-serif;
+      --font-sans: "Inter", sans-serif;
 
       --font-normal: 400;
+      --font-medium: 500;
       --font-semibold: 600;
       --font-bold: 700;
+      --font-black: 900;
 
       --font-1: 11rem;
       --font-2: 7.58rem;
@@ -221,14 +230,20 @@ const url = getLanguageUrls(Astro.url.pathname);
     }
 
     .button {
-      display: block;
+      display: inline-block;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       line-height: var(--line-normal);
       border-radius: var(--radius-default);
-      padding: 1.2ex 2ex 1.35ex 2ex;
+      padding: 1.2ex 2ex 1.3ex 2ex;
+      color: currentColor;
+      gap: var(--space-8);
+    }
+
+    .button__icon {
+      --icon-size: 2.5ex;
       color: currentColor;
     }
   </style>

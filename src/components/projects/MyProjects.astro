@@ -1,16 +1,18 @@
 ---
-import type { Project } from "../../utils/types";
+import type { Language, Project } from "../../utils/types";
 import LargeProject from "./LargeProject.astro";
 
 interface Props {
   projects: Project[];
+  language: Language;
 }
 
-const { projects } = Astro.props;
+const { projects, language: lang } = Astro.props;
+const isEn = lang === "en";
 ---
 
 <ul class="section-container mid-col">
-  {projects.map((project) => <LargeProject project={project} />)}
+  {projects.map((project) => <LargeProject project={project} isEn={isEn} />)}
 </ul>
 
 <style>
@@ -18,6 +20,6 @@ const { projects } = Astro.props;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     padding: 0 var(--side-padding);
-    gap: var(--space-24);
+    gap: var(--space-64);
   }
 </style>

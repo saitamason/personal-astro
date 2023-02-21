@@ -1,13 +1,5 @@
 ---
-import {
-  Siremix,
-  Sireact,
-  Sitypescript,
-  SicssThree,
-  Sihtml5,
-} from "@icons-pack/react-simple-icons";
-
-import type { Link, Project, Caption } from "../utils/types";
+import type { Link, Project, Caption, Language } from "../utils/types";
 import { getAge } from "../utils/utils.astro";
 import Layout from "../layouts/Layout.astro";
 import Header from "../layouts/Header.astro";
@@ -17,7 +9,9 @@ import SectionHeader from "../components/SectionHeader.astro";
 import MyProjects from "../components/projects/MyProjects.astro";
 // import Intersection from "../components/Intersection.astro";
 
-const language = "pl";
+import * as tech from "../utils/technologies.astro";
+
+const language: Language = "pl";
 const ageInYears = getAge();
 
 const anchorLinks: Link[] = [
@@ -40,17 +34,36 @@ const projects: Project[] = [
   {
     title: "Kociołek",
     subtitle: "Bufet i kawiarnia w Bydgoszczy.",
+    type: "commercial",
     image: {
       full: "/screenshots/kociolek-01.png",
       mobile: "/screenshots/kociolek-mobile-01.png",
     },
-    technologies: [
-      { name: "Remix", icon: Siremix },
-      { name: "React", icon: Sireact },
-      { name: "TypeScript", icon: Sitypescript },
-      { name: "CSS", icon: SicssThree },
-      { name: "HTML", icon: Sihtml5 },
-    ],
+    technologies: [tech.Remix, tech.React, tech.TS, tech.CSS, tech.HTML],
+    link: {
+      text: "Netlify",
+      url: "https://kociolekbydgoszcz.pl",
+      lang: "pl",
+      icon: tech.Netlify,
+    },
+    source: "https://github.com/dawidlehai/kociolek-remix",
+  },
+  {
+    title: "Natio",
+    subtitle: "Wyświetlaj informacje na temat wybranego kraju i jego sąsiadów.",
+    type: "personal",
+    image: {
+      full: "/screenshots/natio-01.png",
+      mobile: "/screenshots/natio-mobile-01.png",
+    },
+    technologies: [tech.JS, tech.Sass, tech.HTML],
+    link: {
+      text: "dawidlehai-natio.netlify.app",
+      url: "https://dawidlehai-natio.netlify.app/",
+      lang: "en",
+      icon: tech.Netlify,
+    },
+    source: "https://github.com/dawidlehai/kociolek-remix",
   },
 ];
 ---
@@ -86,9 +99,7 @@ const projects: Project[] = [
     <section class="ignore-children">
       <SectionHeader id={anchorLinks[0]!.url.slice(1)}>Projekty</SectionHeader>
 
-      <MyProjects projects={projects} />
+      <MyProjects projects={projects} language={language} />
     </section>
   </main>
 </Layout>
-
-<style></style>

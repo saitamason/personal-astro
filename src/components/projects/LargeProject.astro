@@ -3,13 +3,47 @@ import type { Project } from "../../utils/types";
 
 interface Props {
   project: Project;
+  isEn: boolean;
 }
 
-const { title, subtitle, image, technologies } = Astro.props.project;
+const {
+  project: { title, subtitle, type, image, technologies, link },
+  isEn,
+} = Astro.props;
+
+interface ProjectType {
+  text: string;
+  color: string;
+}
+
+let projectType: Partial<ProjectType> = {};
+
+const commercialText = isEn ? "Commercial project" : "Projekt komercyjny";
+const personalText = isEn ? "Personal project" : "Projekt własny";
+const courseText = isEn ? "Course project" : "Projekt w ramach kursu";
+
+if (type === "commercial")
+  projectType = {
+    text: commercialText,
+    color: "var(--gray-12)",
+  } as ProjectType;
+
+if (type === "personal")
+  projectType = {
+    text: personalText,
+    color: "var(--gray-13)",
+  } as ProjectType;
+
+if (type === "course")
+  projectType = {
+    text: courseText,
+    color: "var(--gray-14)",
+  } as ProjectType;
 ---
 
 <li class="project">
   <hgroup>
+    <span>{projectType.text}</span>
     <h4>{title}</h4>
     <p>{subtitle}</p>
   </hgroup>
@@ -22,8 +56,12 @@ const { title, subtitle, image, technologies } = Astro.props.project;
     <ul class="tech">
       {
         technologies.map((tech) => (
-          <li>
-            <tech.icon size="var(--icon-size)" className="tech__icon" />
+          <li style={{ backgroundColor: tech.bg, color: tech.color }}>
+            <tech.icon
+              size="var(--icon-size)"
+              className="tech__icon"
+              title={tech.name}
+            />
             {tech.name}
           </li>
         ))
@@ -37,6 +75,13 @@ const { title, subtitle, image, technologies } = Astro.props.project;
       <div class="phone__button"></div>
     </div>
   </div>
+  <a href={link.url} hreflang={link.lang} class="button"
+    ><link.icon.icon
+      size="var(--icon-size)"
+      className="button__icon"
+      title={link.icon.name}
+    />{link.text}</a
+  >
 </li>
 
 <style>
@@ -49,6 +94,13 @@ const { title, subtitle, image, technologies } = Astro.props.project;
   .project hgroup p {
     margin-bottom: var(--space-16);
     font-style: italic;
+  }
+
+  .project hgroup span {
+    font-size: var(--font-small);
+    text-transform: uppercase;
+    padding: 0.8ex 1.1ex;
+    background-color: ;
   }
 
   .project__figure {
@@ -91,10 +143,6 @@ const { title, subtitle, image, technologies } = Astro.props.project;
   .tablet {
     grid-column: 1 / 7;
     grid-row: 1 / 2;
-    background-color: var(--bg-color);
-    border-radius: var(--radius-xxl);
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
   }
 
   .project__img {
@@ -107,22 +155,28 @@ const { title, subtitle, image, technologies } = Astro.props.project;
     grid-column: 1 / 6;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    gap: var(--space-16);
-    padding: var(--space-32);
-    background-color: var(--bg-color);
-    border-bottom-left-radius: var(--radius-default);
+    gap: var(--space-8);
+    margin-top: var(--space-16);
   }
 
   .tech li {
     border-radius: var(--radius-small);
     display: flex;
     justify-content: center;
+    font-size: var(--font-small);
     align-items: center;
     gap: var(--space-8);
+    font-family: var(--font-sans);
+    padding: 1ex 1.4ex;
+    font-weight: var(--font-medium);
   }
 
   .tech__icon {
     color: currentColor;
+  }
+
+  .button {
+    background-color: var(--gray-12);
+    justify-self: start;
   }
 </style>
