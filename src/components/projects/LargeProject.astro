@@ -42,6 +42,8 @@ const { title, subtitle, image, technologies } = Astro.props.project;
 <style>
   .project {
     grid-column: span 6;
+    display: grid;
+    grid-template-columns: 1fr;
   }
 
   .project hgroup p {
@@ -53,6 +55,7 @@ const { title, subtitle, image, technologies } = Astro.props.project;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: min-content 1fr;
+    --bg-color: var(--gray-14);
   }
 
   .phone {
@@ -80,11 +83,18 @@ const { title, subtitle, image, technologies } = Astro.props.project;
     width: 100%;
   }
 
+  .tablet__screen {
+    border-radius: var(--radius-default);
+    overflow: hidden;
+  }
+
   .tablet {
     grid-column: 1 / 7;
     grid-row: 1 / 2;
-    border-radius: var(--radius-default);
-    overflow: hidden;
+    background-color: var(--bg-color);
+    border-radius: var(--radius-xxl);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
   }
 
   .project__img {
@@ -97,30 +107,19 @@ const { title, subtitle, image, technologies } = Astro.props.project;
     grid-column: 1 / 6;
     display: flex;
     flex-wrap: wrap;
-    justify-content: end;
-    margin-top: var(--space-16);
-    margin-right: var(--space-16);
-    gap: var(--space-8);
+    justify-content: space-around;
+    gap: var(--space-16);
+    padding: var(--space-32);
+    background-color: var(--bg-color);
+    border-bottom-left-radius: var(--radius-default);
   }
 
   .tech li {
-    background-color: var(--gray-14);
-    padding: 0.8ex 1.4ex 0.9ex 1.4ex;
     border-radius: var(--radius-small);
     display: flex;
     justify-content: center;
     align-items: center;
     gap: var(--space-8);
-  }
-
-  .tech li:nth-child(1) {
-    background-color: var(--gray-11);
-  }
-  .tech li:nth-child(2) {
-    background-color: var(--gray-12);
-  }
-  .tech li:nth-child(3) {
-    background-color: var(--gray-13);
   }
 
   .tech__icon {
