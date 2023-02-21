@@ -1,6 +1,8 @@
 ---
+import type { Caption } from "../utils/types";
+
 interface Props {
-  captions: string[];
+  captions: Caption[];
 }
 
 const { captions } = Astro.props;
@@ -10,7 +12,10 @@ const { captions } = Astro.props;
   {
     captions.map((caption) => (
       <figure>
-        <figcaption>{caption}</figcaption>
+        <figcaption>
+          <p>{caption.subtitle}</p>
+          <h3>{caption.title}</h3>
+        </figcaption>
         <div class="figure-image" />
       </figure>
     ))
@@ -26,11 +31,6 @@ const { captions } = Astro.props;
     padding: 0 var(--side-padding);
   }
 
-  figure {
-    display: grid;
-    grid-template-columns: min-content 1fr;
-  }
-
   figure:nth-child(1) {
     margin-bottom: 60%;
   }
@@ -41,7 +41,7 @@ const { captions } = Astro.props;
     margin-bottom: 20%;
   }
 
-  figcaption {
+  figcaption h3 {
     font-size: var(--font-5);
     font-weight: var(--font-bold);
     color: var(--gray-3);
@@ -50,8 +50,10 @@ const { captions } = Astro.props;
     margin-bottom: var(--space-16);
   }
 
-  figcaption::after {
-    content: ".";
+  figcaption p {
+    font-size: var(--font-small);
+    text-transform: uppercase;
+    color: var(--gray-5);
   }
 
   .figure-image {

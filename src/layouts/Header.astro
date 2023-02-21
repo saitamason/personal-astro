@@ -1,12 +1,12 @@
 ---
 import { Translate } from "phosphor-react";
 
-import type { Language, Links, Link } from "../utils/types";
+import type { Language, Link } from "../utils/types";
 import { getSite, getSiteName, getLanguageUrls } from "../utils/utils.astro";
 import Navigation from "../components/Navigation.astro";
 
 interface Props extends Language {
-  links?: Links;
+  links?: Link[];
   cta?: Link;
 }
 

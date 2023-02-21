@@ -7,7 +7,7 @@ import {
   Sihtml5,
 } from "@icons-pack/react-simple-icons";
 
-import type { Links, Project } from "../utils/types";
+import type { Link, Project, Caption } from "../utils/types";
 import { getAge } from "../utils/utils.astro";
 import Layout from "../layouts/Layout.astro";
 import Header from "../layouts/Header.astro";
@@ -20,13 +20,20 @@ import MyProjects from "../components/projects/MyProjects.astro";
 const language = "pl";
 const ageInYears = getAge();
 
-const anchorLinks: Links = [
+const anchorLinks: Link[] = [
   { text: "Projekty", url: "#projekty" },
   { text: "Technologie", url: "#technologie" },
   { text: "Kursy", url: "#kursy" },
   { text: "Wykształcenie", url: "#wyksztalcenie" },
   { text: "Badania naukowe", url: "#badania" },
   { text: "Muzyka", url: "#muzyka" },
+];
+
+const figcaptions: Caption[] = [
+  { title: "Programista frontendu", subtitle: "Na co dzień" },
+  { title: "Psycholog", subtitle: "Z wykształcenia" },
+  { title: "Trener personalny", subtitle: "Wieczorami" },
+  { title: "Producent muzyczny", subtitle: "W wolnych chwilach" },
 ];
 
 const projects: Project[] = [
@@ -65,14 +72,7 @@ const projects: Project[] = [
         i&nbsp;dobrze wyglądające interfejsy użytkownika.
       </HeroTitle>
 
-      <HeroFigures
-        captions={[
-          "Programista frontendu",
-          "Psycholog",
-          "Trener personalny",
-          "Producent muzyczny",
-        ]}
-      />
+      <HeroFigures captions={figcaptions} />
     </section>
 
     <section class="ignore-children">

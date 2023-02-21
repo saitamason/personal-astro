@@ -4,12 +4,10 @@ export interface Language {
   language: "en" | "pl";
 }
 
-export type Links = {
+export interface Link {
   text: string;
   url: string;
-}[];
-
-export type Link = { text: string; url: string };
+}
 
 export interface Project {
   title: string;
@@ -19,4 +17,9 @@ export interface Project {
     mobile: string;
   };
   technologies: { name: string; icon: IconType }[];
+}
+
+export interface Caption {
+  title: string;
+  subtitle: string;
 }
