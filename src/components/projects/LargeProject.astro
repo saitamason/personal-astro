@@ -18,13 +18,13 @@ const { title, subtitle, image } = Astro.props.project;
 
 <li class="project">
   <hgroup>
-    <h4>Kociołek</h4>
-    <p>Bufet i kawiarnia w Bydgoszczy.</p>
+    <h4>{title}</h4>
+    <p>{subtitle}</p>
   </hgroup>
   <div class="project__figure">
     <div class="tablet">
       <div class="tablet__screen">
-        <img src="/screenshots/kociolek-01.png" class="project__img" />
+        <img src={image.full} class="project__img" />
       </div>
     </div>
     <ul class="tech">
@@ -46,10 +46,7 @@ const { title, subtitle, image } = Astro.props.project;
     <div class="phone">
       <div class="phone__speaker"></div>
       <div class="phone__screen">
-        <img
-          src="/screenshots/kociolek-mobile-01.png"
-          class="project__img-mobile"
-        />
+        <img src={image.mobile} class="project__img-mobile" />
       </div>
       <div class="phone__button"></div>
     </div>
