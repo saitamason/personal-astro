@@ -2,6 +2,7 @@
 import { GitHub } from "../../utils/technologies.astro";
 
 import type { Project } from "../../data/projects";
+import CourseInfo from "./CourseInfo.astro";
 
 interface Props {
   project: Project;
@@ -19,6 +20,8 @@ const {
     link,
     source,
     size,
+    mobile,
+    course,
   },
   isEn,
 } = Astro.props;
@@ -59,9 +62,15 @@ if (type === "course")
   } as ProjectType;
 
 const isMedium = size === "medium";
+const isSmall = size === "small";
 ---
 
-<li class:list={["project", { "project-medium": isMedium }]}>
+<li
+  class:list={[
+    "project",
+    { "project--medium": isMedium },
+    { "project--small": isSmall },
+  ]}>
   <div class="description">
     <hgroup>
       <p class="project__type" style={{ color: projectType.color }}>
@@ -73,6 +82,7 @@ const isMedium = size === "medium";
       </p>
     </hgroup>
     <p>{description}</p>
+    {type === "course" && <CourseInfo isEn={isEn} course={course!} />}
   </div>
   <div class="bg"></div>
   <div class="buttons">
@@ -117,13 +127,17 @@ const isMedium = size === "medium";
       ))
     }
   </ul>
-  <div class="phone">
-    <div class="phone__speaker"></div>
-    <div class="phone__screen">
-      <img src={image.mobile} class="project__img-mobile" />
-    </div>
-    <div class="phone__button"></div>
-  </div>
+  {
+    mobile && (
+      <div class="phone">
+        <div class="phone__speaker" />
+        <div class="phone__screen">
+          <img src={image.mobile} class="project__img-mobile" />
+        </div>
+        <div class="phone__button" />
+      </div>
+    )
+  }
 </li>
 
 <style>
@@ -133,11 +147,15 @@ const isMedium = size === "medium";
     grid-template-columns: repeat(14, 1fr);
     grid-template-rows: min-content min-content min-content 1fr;
   }
-  .project-medium {
+  .project--medium {
     grid-column: span 4;
   }
+  .project--small {
+    grid-column: span 3;
+  }
 
-  .project-medium .title {
+  .project--medium .title,
+  .project--small .title {
     font-size: var(--font-5);
   }
 
@@ -146,7 +164,8 @@ const isMedium = size === "medium";
     font-size: var(--font-large);
     font-style: italic;
   }
-  .project-medium .subtitle {
+  .project--medium .subtitle,
+  .project--small .subtitle {
     font-size: var(--font-base);
   }
 
@@ -154,8 +173,10 @@ const isMedium = size === "medium";
     font-size: var(--font-small);
     display: inline-block;
     text-transform: uppercase;
+    margin-bottom: var(--space-8);
   }
-  .project-medium .project__type {
+  .project--medium .project__type,
+  .project--small .project__type {
     font-size: var(--font-xs);
   }
 
@@ -174,9 +195,12 @@ const isMedium = size === "medium";
     margin-top: var(--space-64);
     box-shadow: var(--shadow-default);
   }
-  .project-medium .phone {
+  .project--medium .phone {
     --phone-radius: var(--radius-default);
     --border: var(--space-4);
+  }
+  .project--small .phone {
+    display: none;
   }
 
   .phone__screen {
@@ -198,6 +222,9 @@ const isMedium = size === "medium";
     grid-column: 1 / 14;
     grid-row: 1 / 2;
   }
+  .project--small .tablet {
+    grid-column: 1 / -1;
+  }
 
   .project__img {
     width: 100%;
@@ -214,6 +241,14 @@ const isMedium = size === "medium";
     gap: var(--space-8);
     margin-top: var(--space-16);
   }
+  .project--medium .tech {
+    margin-top: var(--space-12);
+  }
+  .project--small .tech {
+    grid-column: 1 / -1;
+    gap: var(--space-4);
+    margin-top: var(--space-12);
+  }
 
   .tech li {
     border-radius: var(--radius-xs);
@@ -226,6 +261,9 @@ const isMedium = size === "medium";
     padding: 1ex 1.4ex;
     font-weight: var(--font-medium);
   }
+  .project--small .tech li {
+    font-size: var(--font-xs);
+  }
 
   .tech__icon {
     color: currentColor;
@@ -235,6 +273,10 @@ const isMedium = size === "medium";
     grid-column: 2 / 13;
     grid-row: 3 / 4;
     padding: var(--space-32);
+  }
+  .project--small .description {
+    grid-column: 1 / -1;
+    padding: var(--space-24) 0;
   }
 
   .bg {
@@ -250,6 +292,18 @@ const isMedium = size === "medium";
     border-bottom-left-radius: var(--radius-small);
     z-index: -1;
   }
+  .project--small .bg {
+    grid-row: 1 / -1;
+    grid-column: 1 / -1;
+    border-top-right-radius: var(--radius-xxl);
+    border-top-left-radius: var(--radius-xxl);
+    background: linear-gradient(
+      to top left,
+      transparent 5%,
+      var(--gray-14),
+      transparent 50%
+    );
+  }
 
   .buttons {
     grid-column: 2 / 13;
@@ -258,6 +312,9 @@ const isMedium = size === "medium";
     justify-content: start;
     align-items: center;
     gap: var(--space-8);
+  }
+  .project--small .buttons {
+    grid-column: 1 / -1;
   }
 
   .button {

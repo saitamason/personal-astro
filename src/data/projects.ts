@@ -1,18 +1,20 @@
 import type { Tech } from "../utils/technologies.astro";
 import * as tech from "../utils/technologies.astro";
 
+export interface Course {
+  title: string;
+  url: string;
+  school: string;
+  teacher: string;
+}
+
 export interface Project {
   title: string;
   subtitle: string;
   type: "commercial" | "personal" | "course";
   size: "large" | "medium" | "small";
   mobile: boolean;
-  course?: {
-    title: string;
-    url: string;
-    school: string;
-    teacher: string;
-  };
+  course?: Course;
   description?: string;
   image: {
     full: string;
@@ -168,7 +170,6 @@ const projects: Project[] = [
       "Aplikacja, w której można założyć konto, zalogować się i zarządzać swoimi wydatkami.",
     image: {
       full: "/screenshots/remix-expenses-01.png",
-      mobile: "/screenshots/remix-expenses-mobile-01.png",
     },
     technologies: [
       tech.Remix,
@@ -203,7 +204,6 @@ const projects: Project[] = [
       "Aplikacja, w której możesz wyszukiwać, dodawać do zakładek oraz zapisać własne przepisy.",
     image: {
       full: "/screenshots/forkify-01.png",
-      mobile: "/screenshots/forkify-mobile-01.png",
     },
     technologies: [tech.JS, tech.Sass, tech.HTML],
     link: {
@@ -230,7 +230,6 @@ const projects: Project[] = [
       "Aplikacja, w której możesz dodawać treningi biegowe i rowerowe jako punkty na mapie.",
     image: {
       full: "/screenshots/mapty-01.png",
-      mobile: "/screenshots/mapty-mobile-01.png",
     },
     technologies: [tech.JS, tech.HTML, tech.CSS, tech.Leaflet],
     link: {
@@ -257,7 +256,6 @@ const projects: Project[] = [
       "Aplikacja demo, w której można dodawać i usuwać produkty z koszyka bez możliwości złożenia zamówienia.",
     image: {
       full: "/screenshots/delifood-01.png",
-      mobile: "/screenshots/delifood-mobile-01.png",
     },
     technologies: [tech.React, tech.JS, tech.CSS, tech.HTML],
     link: {
@@ -284,7 +282,6 @@ const projects: Project[] = [
       "Aplikacja demo, w której można dodawać swoje wydatki. Stan aplikacji ulega wyczyszczeniu po odświeżeniu strony.",
     image: {
       full: "/screenshots/react-expenses-tracker-01.png",
-      mobile: "/screenshots/react-expenses-tracker-mobile-01.png",
     },
     technologies: [tech.React, tech.JS, tech.CSS, tech.HTML],
     link: {
@@ -311,7 +308,6 @@ const projects: Project[] = [
       "Aplikacja demo, w której można zalogować się na jedno z predefiniowanych kont, a następnie wykonywać podstawowe czynności bankowe.",
     image: {
       full: "/screenshots/bankist-01.png",
-      mobile: "/screenshots/bankist-mobile-01.png",
     },
     technologies: [tech.JS, tech.CSS, tech.HTML],
     link: {
@@ -332,7 +328,6 @@ const projects: Project[] = [
       "Najstarsza strona jaką udało mi się zachować. Projekt edukacyjny z 2013 roku.",
     image: {
       full: "/screenshots/taktyki-01.png",
-      mobile: "/screenshots/taktyki-mobile-01.png",
     },
     technologies: [tech.CSS, tech.HTML, tech.PHP],
     link: {

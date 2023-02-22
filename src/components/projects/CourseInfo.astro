@@ -1,0 +1,23 @@
+---
+import type { Course } from '../../data/projects';
+
+interface Props {
+  isEn: boolean;
+  course: Course;
+}
+
+const {isEn, course} = Astro.props;
+---
+
+{isEn && (<p>The project was created as part of the <a href={course.url} title={course.title} hreflang='en'><em>{course.school}</em></a> course designed by {course.teacher}.</p>)}
+
+{!isEn && (<p>Projekt powstał w ramach kursu <a href={course.url} title={course.title} hreflang='en'><em>{course.school}</em></a> zaprojektowanego przez {course.teacher.split(" ")[0]}a {course.teacher.split(" ")[1]}a.</p>)}
+
+<style>
+  p {
+    margin-top: var(--space-12);
+    font-size: var(--font-small);
+    font-family: var(--font-sans);
+    color: var(--gray-5);
+  }
+</style>
