@@ -1,0 +1,23 @@
+---
+import type { Language } from "../../utils/types";
+import { courses } from "../../data/courses.astro";
+import Course from "./Course.astro";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+---
+
+<ul class="courses mid-col">
+  {courses.map((course) => <Course lang={lang} data={course} />)}
+</ul>
+
+<style>
+  .courses {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-64);
+  }
+</style>

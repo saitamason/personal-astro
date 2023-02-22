@@ -11,6 +11,7 @@ import HeroFigures from "../components/HeroFigures.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import MyProjects from "../components/projects/MyProjects.astro";
 import Skills from "../components/skills/Skills.astro";
+import Courses from "../components/courses/Courses.astro";
 // import Intersection from "../components/Intersection.astro";
 
 const language: Language = "pl";
@@ -81,6 +82,8 @@ const figcaptions: Caption[] = [
       <SectionHeader id={anchorLinks[2]!.url.slice(1)} icon={Book}>
         {anchorLinks[2]!.text}
       </SectionHeader>
+
+      <Courses lang={language} />
     </section>
   </main>
 </Layout>

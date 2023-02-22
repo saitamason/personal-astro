@@ -1,0 +1,55 @@
+---
+import type { CourseType } from "../../data/courses.astro";
+import type { Language } from "../../utils/types";
+
+interface Props {
+  lang: Language;
+  data: CourseType;
+}
+
+const { lang, data: course } = Astro.props;
+
+const text = {
+  author: {
+    en: ["by", course.author],
+    pl: [
+      "od",
+      `${course.author.split(" ")[0]}a ${course.author.split(" ")[1]}a`,
+    ],
+  },
+  platform: {
+    en: "on",
+    pl: "na",
+  },
+  length: {
+    en: [course.length, "hours of video materials"],
+    pl: [
+      `${String(course.length).replace(".", ",")}`,
+      "godzin materiałów video",
+    ],
+  },
+  link: {
+    en: "Check it out",
+    pl: "Zobacz",
+  },
+};
+---
+
+<li class="course">
+  <h3 lang="en" class="course__heading">{course.title}</h3>
+  <p class="course__source">
+    {text.author[lang][0]}
+    <strong>{text.author[lang][1]}</strong>
+    {text.platform[lang]}
+    {course.platform}
+  </p>
+  <p class="course__length">
+    <strong>{text.length[lang][0]}</strong>
+    {text.length[lang][1]}
+  </p>
+  <p>
+    {text.link[lang]}
+    {text.platform[lang]}
+    <a href={course.url} hreflang="en">{course.platform}</a>
+  </p>
+</li>

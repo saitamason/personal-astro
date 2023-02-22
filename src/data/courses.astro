@@ -1,8 +1,14 @@
 ---
+import * as tech from "../utils/technologies.astro";
+
 export interface CourseType {
   title: string;
   author: string;
-  platform: string;
+  tech: tech.Tech[];
+  platform: {
+    name: string;
+    icon: tech.Tech;
+  };
   length: number;
   url: string;
 }
@@ -11,56 +17,88 @@ export const courses: CourseType[] = [
   {
     title: "Remix.js — The Practical Guide",
     author: "Maximilian Schwarzmüller",
-    platform: "Udemy",
+    tech: [tech.Remix],
+    platform: {
+      name: "Udemy",
+      icon: tech.Udemy,
+    },
     length: 8.5,
     url: "https://www.udemy.com/course/remix-course/",
   },
   {
     title: "Understanding TypeScript — 2023 Edition",
     author: "Maximilian Schwarzmüller",
-    platform: "Udemy",
+    tech: [tech.TS],
+    platform: {
+      name: "Udemy",
+      icon: tech.Udemy,
+    },
     length: 15,
     url: "https://www.udemy.com/course/understanding-typescript/",
   },
   {
     title: "React — The Complete Guide (incl. Hooks, React Router, Redux)",
     author: "Maximilian Schwarzmüller",
-    platform: "Udemy",
+    tech: [tech.React, tech.Router, tech.Redux],
+    platform: {
+      name: "Udemy",
+      icon: tech.Udemy,
+    },
     length: 49.5,
     url: "https://www.udemy.com/course/react-the-complete-guide-incl-redux/",
   },
   {
     title: "Node.js, Express, MongoDB & More: The Complete Bootcamp 2023",
     author: "Jonas Schmedtmann",
-    platform: "Udemy",
+    tech: [tech.Nodejs, tech.Express, tech.MongoDB],
+    platform: {
+      name: "Udemy",
+      icon: tech.Udemy,
+    },
     length: 42,
     url: "https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/",
   },
   {
     title: "Advanced CSS and Sass: Flexbox, Grid, Animations and More!",
     author: "Jonas Schmedtmann",
-    platform: "Udemy",
+    tech: [tech.CSS, tech.Sass],
+    platform: {
+      name: "Udemy",
+      icon: tech.Udemy,
+    },
     length: 28,
     url: "https://www.udemy.com/course/advanced-css-and-sass/",
   },
   {
     title: "Git Complete: The definitive, step-by-step guide to Git",
     author: "Jason Taylor",
-    platform: "Udemy",
+    tech: [tech.Git],
+    platform: {
+      name: "Udemy",
+      icon: tech.Udemy,
+    },
     length: 6.5,
     url: "https://www.udemy.com/course/git-complete/",
   },
   {
     title: "The Complete JavaScript Course 2022: From Zero to Expert!",
     author: "Jonas Schmedtmann",
-    platform: "Udemy",
+    tech: [tech.JS],
+    platform: {
+      name: "Udemy",
+      icon: tech.Udemy,
+    },
     length: 69,
     url: "https://www.udemy.com/course/the-complete-javascript-course/",
   },
   {
     title: "Build Responsive Real-World Websites with HTML and CSS",
     author: "Jonas Schmedtmann",
-    platform: "Udemy",
+    tech: [tech.HTML, tech.CSS],
+    platform: {
+      name: "Udemy",
+      icon: tech.Udemy,
+    },
     length: 37.5,
     url: "https://www.udemy.com/course/design-and-develop-a-killer-website-with-html5-and-css3/",
   },
