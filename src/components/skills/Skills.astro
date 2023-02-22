@@ -1,5 +1,5 @@
 ---
-import type { Language } from "../../utils/types";
+import type { Language, SizeType } from "../../utils/types";
 import { skills } from "../../data/skills.astro";
 import SkillList from "./SkillList.astro";
 
@@ -8,39 +8,63 @@ interface Props {
 }
 
 const { lang } = Astro.props;
-const isEn = lang === "en";
 
-const headingAdvanced = isEn ? "Advanced" : "Poziom zaawansowany";
-const headingGood = isEn ? "Good" : "Poziom średniozaawansowany";
-const headingBasic = isEn ? "Basic" : "Poziom podstawowy";
-const headingOther = isEn ? "Tools" : "Narzędzia";
-
-const bgAdvanced = "linear-gradient(to right, var(--gray-14), transparent)";
-const bgGood = "linear-gradient(to right, var(--gray-13), transparent)";
-const bgBasic = "linear-gradient(to right, var(--gray-12), transparent)";
-const bgOther = "linear-gradient(to right, var(--gray-14), transparent)";
+const skillGroups = [
+  {
+    text: {
+      en: "Advanced",
+      pl: "Poziom zaawansowany",
+    },
+    bg: "linear-gradient(to right, var(--gray-14), transparent)",
+    size: "large",
+    row: "1 / 2",
+    skills: skills.advanced,
+  },
+  {
+    text: {
+      en: "Good",
+      pl: "Poziom średniozaawansowany",
+    },
+    bg: "linear-gradient(to right, var(--gray-13), transparent)",
+    size: "medium",
+    row: "2 / 3",
+    skills: skills.good,
+  },
+  {
+    text: {
+      en: "Basic",
+      pl: "Poziom podstawowy",
+    },
+    bg: "linear-gradient(to right, var(--gray-12), transparent)",
+    size: "small",
+    row: "3 / 4",
+    skills: skills.basic,
+  },
+  {
+    text: {
+      en: "Tools",
+      pl: "Narzędzia",
+    },
+    bg: "linear-gradient(to right, var(--gray-14), transparent)",
+    size: "small",
+    row: "4 / 5",
+    skills: skills.other,
+  },
+];
 ---
 
 <div class="skills-container mid-col">
-  <SkillList
-    skills={skills.advanced}
-    size="large"
-    gridRow="1 / 2"
-    bg={bgAdvanced}>
-    {headingAdvanced}
-  </SkillList>
-
-  <SkillList skills={skills.good} size="medium" gridRow="2 / 3" bg={bgGood}>
-    {headingGood}
-  </SkillList>
-
-  <SkillList skills={skills.basic} size="small" gridRow="3 / 4" bg={bgBasic}>
-    {headingBasic}
-  </SkillList>
-
-  <SkillList skills={skills.other} size="small" gridRow="4 / 5" bg={bgOther}>
-    {headingOther}
-  </SkillList>
+  {
+    skillGroups.map((group) => (
+      <SkillList
+        skills={group.skills}
+        size={group.size as SizeType}
+        gridRow={group.row}
+        bg={group.bg}>
+        {group.text[lang]}
+      </SkillList>
+    ))
+  }
 </div>
 
 <style>
