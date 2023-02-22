@@ -1,5 +1,5 @@
 ---
-import { Stack, Monitor } from "phosphor-react";
+import { Stack, Monitor, Book } from "phosphor-react";
 
 import type { Link, Caption, Language } from "../utils/types";
 import { getAge } from "../utils/utils.astro";
@@ -63,7 +63,7 @@ const figcaptions: Caption[] = [
 
     <section class="ignore-grid">
       <SectionHeader id={anchorLinks[0]!.url.slice(1)} icon={Monitor}>
-        Projekty
+        {anchorLinks[0]!.text}
       </SectionHeader>
 
       <MyProjects projects={projects} language={language} />
@@ -71,10 +71,16 @@ const figcaptions: Caption[] = [
 
     <section class="ignore-grid">
       <SectionHeader id={anchorLinks[1]!.url.slice(1)} icon={Stack}>
-        Technologie
+        {anchorLinks[1]!.text}
       </SectionHeader>
 
       <Skills lang={language} />
+    </section>
+
+    <section class="ignore-grid">
+      <SectionHeader id={anchorLinks[2]!.url.slice(1)} icon={Book}>
+        {anchorLinks[2]!.text}
+      </SectionHeader>
     </section>
   </main>
 </Layout>
