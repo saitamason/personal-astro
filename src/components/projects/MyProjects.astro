@@ -1,8 +1,7 @@
 ---
 import type { Language } from "../../utils/types";
 import type { Project } from "../../data/projects";
-import LargeProject from "./LargeProject.astro";
-import MediumProject from "./MediumProject.astro";
+import SingleProject from "./SingleProject.astro";
 
 interface Props {
   projects: Project[];
@@ -16,14 +15,8 @@ const isEn = lang === "en";
 <ul class="section-container mid-col">
   {
     projects.map((project, index) => {
-      if (index > 1) return;
-      return <LargeProject project={project} isEn={isEn} />;
-    })
-  }
-  {
-    projects.map((project, index) => {
-      if (index < 2 || index > 4) return;
-      return <MediumProject project={project} isEn={isEn} />;
+      if (index > 4) return;
+      return <SingleProject project={project} isEn={isEn} />;
     })
   }
 </ul>

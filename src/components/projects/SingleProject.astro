@@ -18,6 +18,7 @@ const {
     technologies,
     link,
     source,
+    size,
   },
   isEn,
 } = Astro.props;
@@ -56,16 +57,20 @@ if (type === "course")
     color: "var(--gray-5)",
     bg: "var(--gray-12)",
   } as ProjectType;
+
+const isMedium = size === "medium";
 ---
 
-<li class="project">
+<li class:list={["project", { "project-medium": isMedium }]}>
   <div class="description">
     <hgroup>
       <p class="project__type" style={{ color: projectType.color }}>
         {projectType.text}
       </p>
       <h4 class="title">{title}</h4>
-      <p class="subtitle">{subtitle}</p>
+      <p class="subtitle">
+        {subtitle}
+      </p>
     </hgroup>
     <p>{description}</p>
   </div>
@@ -123,27 +128,35 @@ if (type === "course")
 
 <style>
   .project {
-    grid-column: span 4;
+    grid-column: span 6;
     display: grid;
     grid-template-columns: repeat(14, 1fr);
     grid-template-rows: min-content min-content min-content 1fr;
   }
+  .project-medium {
+    grid-column: span 4;
+  }
 
-  .title {
+  .project-medium .title {
     font-size: var(--font-5);
   }
 
   .subtitle {
     margin-bottom: var(--space-16);
-    font-size: var(--font-base);
+    font-size: var(--font-large);
     font-style: italic;
+  }
+  .project-medium .subtitle {
+    font-size: var(--font-base);
   }
 
   .project__type {
-    font-size: var(--font-xs);
+    font-size: var(--font-small);
     display: inline-block;
     text-transform: uppercase;
-    border-radius: var(--radius-small);
+  }
+  .project-medium .project__type {
+    font-size: var(--font-xs);
   }
 
   .phone {
@@ -153,21 +166,27 @@ if (type === "course")
 
     background-color: var(--gray-15);
 
-    --border: var(--space-4);
+    --border: var(--space-8);
     border: 1px solid var(--gray-11);
-    border-radius: var(--radius-default);
+    --phone-radius: var(--radius-xxl);
+    border-radius: var(--phone-radius);
     padding: var(--border);
     margin-top: var(--space-64);
     box-shadow: var(--shadow-default);
   }
+  .project-medium .phone {
+    --phone-radius: var(--radius-default);
+    --border: var(--space-4);
+  }
 
   .phone__screen {
     overflow: hidden;
-    border-radius: calc(var(--radius-default) - var(--border));
+    border-radius: calc(var(--phone-radius) - var(--border));
   }
 
   .project__img-mobile {
     width: 100%;
+    aspect-ratio: 1/2;
   }
 
   .tablet__screen {
@@ -182,6 +201,7 @@ if (type === "course")
 
   .project__img {
     width: 100%;
+    aspect-ratio: 16/9;
   }
 
   .tech {
