@@ -14,13 +14,33 @@ const headingAdvanced = isEn ? "Advanced" : "Poziom zaawansowany";
 const headingGood = isEn ? "Good" : "Poziom średniozaawansowany";
 const headingBasic = isEn ? "Basic" : "Poziom podstawowy";
 const headingOther = isEn ? "Tools" : "Narzędzia";
+
+const bgAdvanced = "linear-gradient(to right, var(--gray-14), transparent)";
+const bgGood = "linear-gradient(to right, var(--gray-13), transparent)";
+const bgBasic = "linear-gradient(to right, var(--gray-12), transparent)";
+const bgOther = "linear-gradient(to right, var(--gray-14), transparent)";
 ---
 
 <div class="skills-container mid-col">
-  <SkillList skills={skills.advanced} size="large">{headingAdvanced}</SkillList>
-  <SkillList skills={skills.good} size="medium">{headingGood}</SkillList>
-  <SkillList skills={skills.basic} size="small">{headingBasic}</SkillList>
-  <SkillList skills={skills.other} size="small">{headingOther}</SkillList>
+  <SkillList
+    skills={skills.advanced}
+    size="large"
+    gridRow="1 / 2"
+    bg={bgAdvanced}>
+    {headingAdvanced}
+  </SkillList>
+
+  <SkillList skills={skills.good} size="medium" gridRow="2 / 3" bg={bgGood}>
+    {headingGood}
+  </SkillList>
+
+  <SkillList skills={skills.basic} size="small" gridRow="3 / 4" bg={bgBasic}>
+    {headingBasic}
+  </SkillList>
+
+  <SkillList skills={skills.other} size="small" gridRow="4 / 5" bg={bgOther}>
+    {headingOther}
+  </SkillList>
 </div>
 
 <style>
@@ -28,6 +48,5 @@ const headingOther = isEn ? "Tools" : "Narzędzia";
     padding: 0 var(--side-padding);
     display: grid;
     grid-template-columns: 2fr 6fr;
-    gap: var(--space-64);
   }
 </style>

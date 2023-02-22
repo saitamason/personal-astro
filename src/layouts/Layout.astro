@@ -107,6 +107,7 @@ const url = getLanguageUrls(Astro.url.pathname);
 
       --letter-spacing-1: -0.2rem;
       --letter-spacing-2: -0.15rem;
+      --letter-spacing-3: -0.1rem;
       --letter-spacing-4: -0.05rem;
       --letter-spacing-5: -0.02rem;
       --letter-spacing-loose: 0.2rem;
@@ -213,6 +214,13 @@ const url = getLanguageUrls(Astro.url.pathname);
       font-weight: var(--font-bold);
       line-height: var(--line-very-tight);
       letter-spacing: var(--letter-spacing-2);
+    }
+
+    h3 {
+      font-size: var(--font-3);
+      font-weight: var(--font-bold);
+      line-height: var(--line-tight);
+      letter-spacing: var(--letter-spacing-3);
     }
 
     h4 {
