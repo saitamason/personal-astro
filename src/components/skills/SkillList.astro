@@ -1,0 +1,41 @@
+---
+import type { Tech } from "../../utils/technologies.astro";
+import type { SizeType } from "../../utils/types";
+import Skill from "./Skill.astro";
+
+interface Props {
+  skills: Tech[];
+  size?: SizeType;
+}
+
+const { skills, size = "medium" } = Astro.props;
+---
+
+<section class={`skills skills--${size} ignore-grid`}>
+  <h3 class="skills__heading">
+    <slot />
+  </h3>
+
+  <ul class="skills__list">
+    {skills.map((skill) => <Skill tech={skill} size={size} />)}
+  </ul>
+</section>
+
+<style>
+  .skills__list {
+    display: flex;
+    gap: var(--space-32);
+  }
+  .skills--medium .skills__list {
+    gap: var(--space-24);
+  }
+  .skills--small .skills__list {
+    gap: var(--space-16);
+  }
+
+  .skills__heading {
+    display: grid;
+    grid-template-columns: min-content;
+    align-self: center;
+  }
+</style>

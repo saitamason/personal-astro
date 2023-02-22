@@ -1,4 +1,3 @@
-import type { Tech } from "../utils/technologies.astro";
 import * as tech from "../utils/technologies.astro";
 
 export interface Course {
@@ -20,12 +19,12 @@ export interface Project {
     full: string;
     mobile?: string;
   };
-  technologies: Tech[];
+  technologies: tech.Tech[];
   link: {
     text: string;
     url: string;
     lang: string;
-    icon: Tech;
+    icon: tech.Tech;
   };
   source?: string;
 }

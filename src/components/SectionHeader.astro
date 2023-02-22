@@ -1,17 +1,18 @@
 ---
-import { Code } from "phosphor-react";
+import type { Icon } from "phosphor-react";
 
 interface Props {
   id: string;
   children: any;
+  icon: Icon;
 }
 
-const { id } = Astro.props;
+const { id, icon: SectionIcon } = Astro.props;
 ---
 
 <div class="container mid-col" id={id}>
   <hgroup>
-    <Code size="var(--icon-size)" weight="duotone" />
+    <SectionIcon size="var(--icon-size)" weight="duotone" />
     <h2><slot /></h2>
   </hgroup>
 </div>

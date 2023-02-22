@@ -1,4 +1,6 @@
 ---
+import { Stack, Monitor } from "phosphor-react";
+
 import type { Link, Caption, Language } from "../utils/types";
 import { getAge } from "../utils/utils.astro";
 import projects from "../data/projects";
@@ -8,6 +10,7 @@ import HeroTitle from "../components/HeroTitle.astro";
 import HeroFigures from "../components/HeroFigures.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import MyProjects from "../components/projects/MyProjects.astro";
+import Skills from "../components/skills/Skills.astro";
 // import Intersection from "../components/Intersection.astro";
 
 const language: Language = "pl";
@@ -40,8 +43,8 @@ const figcaptions: Caption[] = [
     cta={{ text: "Zatrudnij mnie", url: "#praca" }}
   />
 
-  <main class="ignore-children">
-    <section class="ignore-children">
+  <main class="ignore-grid">
+    <section class="ignore-grid">
       <HeroTitle linkUrl={anchorLinks[0]!.url} linkText="Poznaj mnie lepiej">
         <strong>Programista frontendu</strong>, który tworzy przyjazne
         i&nbsp;dobrze wyglądające interfejsy użytkownika.
@@ -50,7 +53,7 @@ const figcaptions: Caption[] = [
       <HeroFigures captions={figcaptions} />
     </section>
 
-    <section class="ignore-children">
+    <section class="ignore-grid">
       <!-- <Intersection>
         {
           `Jestem ${ageInYears}-letnim programistą frontendu urodzonym i mieszkającym w Polsce, który uwielbia design oraz technologię. Jako osoba z wykształceniem psychologicznym zwracam uwagę na dostosowanie UI do potrzeb odbiorców. Jestem również certyfikowanym trenerem personalnym, a w wolnych chwilach czerpię radość z tworzenia muzyki.`
@@ -58,10 +61,20 @@ const figcaptions: Caption[] = [
       </Intersection> -->
     </section>
 
-    <section class="ignore-children">
-      <SectionHeader id={anchorLinks[0]!.url.slice(1)}>Projekty</SectionHeader>
+    <section class="ignore-grid">
+      <SectionHeader id={anchorLinks[0]!.url.slice(1)} icon={Monitor}>
+        Projekty
+      </SectionHeader>
 
       <MyProjects projects={projects} language={language} />
+    </section>
+
+    <section class="ignore-grid">
+      <SectionHeader id={anchorLinks[1]!.url.slice(1)} icon={Stack}>
+        Technologie
+      </SectionHeader>
+
+      <Skills lang={language} />
     </section>
   </main>
 </Layout>

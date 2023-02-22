@@ -1,0 +1,67 @@
+---
+import type { Tech } from "../../utils/technologies.astro";
+import type { SizeType } from "../../utils/types";
+
+interface Props {
+  tech: Tech;
+  size?: SizeType;
+}
+
+const { tech, size = "medium" } = Astro.props;
+---
+
+<li class={`skill skill--${size}`}>
+  <figure class="skill__figure">
+    <figcaption class="skill__caption">
+      {tech.name}
+    </figcaption>
+    <div class="skill__icon-container">
+      <tech.icon className="skill__icon" size="100%" title={tech.name} />
+    </div>
+  </figure>
+</li>
+
+<style define:vars={{ "icon-color": tech.color, "icon-bg": tech.bg }}>
+  .skill--large {
+    max-width: var(--space-192);
+  }
+  .skill--medium {
+    max-width: var(--space-144);
+  }
+  .skill--small {
+    max-width: var(--space-128);
+  }
+
+  .skill__figure {
+    display: grid;
+    gap: var(--space-12);
+  }
+  .skill--medium .skill__figure {
+    gap: var(--space-8);
+  }
+
+  .skill__icon-container {
+    background-color: var(--icon-bg);
+    display: grid;
+    place-content: center;
+    padding: 25%;
+    border-radius: var(--radius-default);
+  }
+
+  .skill__icon {
+    color: var(--icon-color);
+  }
+
+  .skill__caption {
+    font-size: var(--font-5);
+    font-weight: 900;
+    font-family: var(--font-sans);
+    color: var(--icon-bg);
+  }
+  .skill--medium .skill__caption {
+    font-size: var(--font-large);
+  }
+  .skill--small .skill__caption {
+    font-size: var(--font-base);
+  }
+</style>

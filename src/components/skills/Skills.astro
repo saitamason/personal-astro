@@ -1,0 +1,33 @@
+---
+import type { Language } from "../../utils/types";
+import { skills } from "../../data/skills.astro";
+import SkillList from "./SkillList.astro";
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const isEn = lang === "en";
+
+const headingAdvanced = isEn ? "Advanced" : "Poziom zaawansowany";
+const headingGood = isEn ? "Good" : "Poziom średniozaawansowany";
+const headingBasic = isEn ? "Basic" : "Poziom podstawowy";
+const headingOther = isEn ? "Tools" : "Narzędzia";
+---
+
+<div class="skills-container mid-col">
+  <SkillList skills={skills.advanced} size="large">{headingAdvanced}</SkillList>
+  <SkillList skills={skills.good} size="medium">{headingGood}</SkillList>
+  <SkillList skills={skills.basic} size="small">{headingBasic}</SkillList>
+  <SkillList skills={skills.other} size="small">{headingOther}</SkillList>
+</div>
+
+<style>
+  .skills-container {
+    padding: 0 var(--side-padding);
+    display: grid;
+    grid-template-columns: 2fr 6fr;
+    gap: var(--space-64);
+  }
+</style>

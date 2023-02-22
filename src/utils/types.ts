@@ -9,3 +9,5 @@ export interface Caption {
   title: string;
   subtitle: string;
 }
+
+export type SizeType = "large" | "medium" | "small";
