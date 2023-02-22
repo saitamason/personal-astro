@@ -15,7 +15,7 @@ const skillGroups = [
       en: "Advanced",
       pl: "Poziom zaawansowany",
     },
-    bg: "linear-gradient(to right, var(--gray-14), transparent)",
+    bg: "var(--gray-14)",
     size: "large",
     row: "1 / 2",
     skills: skills.advanced,
@@ -25,7 +25,7 @@ const skillGroups = [
       en: "Good",
       pl: "Poziom średniozaawansowany",
     },
-    bg: "linear-gradient(to right, var(--gray-13), transparent)",
+    bg: "var(--gray-13)",
     size: "medium",
     row: "2 / 3",
     skills: skills.good,
@@ -35,7 +35,7 @@ const skillGroups = [
       en: "Basic",
       pl: "Poziom podstawowy",
     },
-    bg: "linear-gradient(to right, var(--gray-12), transparent)",
+    bg: "var(--gray-12)",
     size: "small",
     row: "3 / 4",
     skills: skills.basic,
@@ -45,7 +45,7 @@ const skillGroups = [
       en: "Tools",
       pl: "Narzędzia",
     },
-    bg: "linear-gradient(to right, var(--gray-14), transparent)",
+    bg: "var(--gray-14)",
     size: "small",
     row: "4 / 5",
     skills: skills.other,
@@ -72,5 +72,6 @@ const skillGroups = [
     padding: 0 var(--side-padding);
     display: grid;
     grid-template-columns: 2fr 6fr;
+    column-gap: var(--space-64);
   }
 </style>

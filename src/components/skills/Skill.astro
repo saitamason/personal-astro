@@ -12,12 +12,12 @@ const { tech, size = "medium" } = Astro.props;
 
 <li class={`skill skill--${size}`}>
   <figure class="skill__figure">
-    <figcaption class="skill__caption">
-      {tech.name}
-    </figcaption>
     <div class="skill__icon-container">
       <tech.icon className="skill__icon" size="100%" title={tech.name} />
     </div>
+    <figcaption class="skill__caption">
+      {tech.name}
+    </figcaption>
   </figure>
 </li>
 
@@ -33,11 +33,23 @@ const { tech, size = "medium" } = Astro.props;
   }
 
   .skill__figure {
+    --radius: var(--radius-default);
+    --gap: var(--space-12);
+
     display: grid;
-    gap: var(--space-12);
+    background: linear-gradient(
+      to bottom,
+      transparent 50%,
+      var(--gray-15),
+      transparent
+    );
+    border-radius: var(--radius);
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    gap: var(--gap);
   }
   .skill--medium .skill__figure {
-    gap: var(--space-8);
+    --gap: var(--space-8);
   }
 
   .skill__icon-container {
@@ -45,7 +57,7 @@ const { tech, size = "medium" } = Astro.props;
     display: grid;
     place-content: center;
     padding: 25%;
-    border-radius: var(--radius-default);
+    border-radius: var(--radius);
   }
 
   .skill__icon {
@@ -53,10 +65,12 @@ const { tech, size = "medium" } = Astro.props;
   }
 
   .skill__caption {
-    font-size: var(--font-5);
+    font-size: var(--font-6);
     font-weight: var(--font-bold);
     line-height: var(--line-tight);
     color: var(--icon-bg);
+    text-align: center;
+    padding-bottom: var(--gap);
   }
   .skill--medium .skill__caption {
     font-size: var(--font-large);

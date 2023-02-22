@@ -6,11 +6,11 @@ import Skill from "./Skill.astro";
 interface Props {
   skills: Tech[];
   gridRow: string;
-  bg?: string;
+  bg: string;
   size?: SizeType;
 }
 
-const { skills, gridRow, bg = "transparent", size = "medium" } = Astro.props;
+const { skills, gridRow, bg, size = "medium" } = Astro.props;
 ---
 
 <section class={`skills skills--${size} ignore-grid`}>
@@ -27,16 +27,16 @@ const { skills, gridRow, bg = "transparent", size = "medium" } = Astro.props;
 
 <style define:vars={{ gridRow, bg }}>
   .skills {
-    --padding: var(--space-32);
+    --padding: var(--space-64);
   }
 
   .skills__list {
     grid-column: 2 / 3;
     grid-row: var(--gridRow);
     display: flex;
-    align-items: end;
+    align-items: start;
     gap: var(--space-32);
-    padding: var(--padding);
+    padding: var(--padding) 0;
   }
   .skills--medium .skills__list {
     gap: var(--space-24);
@@ -53,13 +53,13 @@ const { skills, gridRow, bg = "transparent", size = "medium" } = Astro.props;
     align-self: center;
     font-size: var(--font-5);
     letter-spacing: 0;
-    padding: var(--padding);
+    padding: var(--padding) 0;
   }
 
   .skills__bg {
     grid-column: 1 / 3;
     grid-row: var(--gridRow);
-    background: var(--bg);
+    background: linear-gradient(to right, transparent, var(--bg), transparent);
     z-index: -1;
   }
 </style>
