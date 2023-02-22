@@ -9,9 +9,9 @@ interface Props {
 const {isEn, course} = Astro.props;
 ---
 
-{isEn && (<p>The project was created as part of the <a href={course.url} title={course.title} hreflang='en'><em>{course.school}</em></a> course designed by {course.teacher}.</p>)}
+{isEn && (<p>The project was created as part of the <a href={course.url} title={course.title} hreflang='en'>{course.school}</a> course designed by {course.teacher}.</p>)}
 
-{!isEn && (<p>Projekt powstał w ramach kursu <a href={course.url} title={course.title} hreflang='en'><em>{course.school}</em></a> zaprojektowanego przez {course.teacher.split(" ")[0]}a {course.teacher.split(" ")[1]}a.</p>)}
+{!isEn && (<p>Projekt powstał w ramach kursu <a href={course.url} title={course.title} hreflang='en'>{course.school}</a> zaprojektowanego przez {course.teacher.split(" ")[0]}a {course.teacher.split(" ")[1]}a.</p>)}
 
 <style>
   p {
