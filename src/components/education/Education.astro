@@ -1,0 +1,5 @@
+---
+const education = await Astro.glob("../../content/pl/education/*.mdx");
+---
+
+{education.map((item) => <p>{item.frontmatter.school.name}</p>)}

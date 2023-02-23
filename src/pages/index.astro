@@ -1,7 +1,7 @@
 ---
 import { Stack, Monitor, Book } from "phosphor-react";
 
-import type { Link, Caption, Language } from "../utils/types";
+import type { Link, Caption, LanguageSelectionType } from "../utils/types";
 import { getAge } from "../utils/utils.astro";
 import projects from "../data/projects";
 import Layout from "../layouts/Layout.astro";
@@ -12,9 +12,10 @@ import SectionHeader from "../components/SectionHeader.astro";
 import MyProjects from "../components/projects/MyProjects.astro";
 import Skills from "../components/skills/Skills.astro";
 import Courses from "../components/courses/Courses.astro";
+import Education from "../components/education/Education.astro";
 // import Intersection from "../components/Intersection.astro";
 
-const language: Language = "pl";
+const language: LanguageSelectionType = "pl";
 const ageInYears = getAge();
 
 const anchorLinks: Link[] = [
@@ -84,6 +85,10 @@ const figcaptions: Caption[] = [
       </SectionHeader>
 
       <Courses lang={language} />
+    </section>
+
+    <section class="mid-col">
+      <Education />
     </section>
   </main>
 </Layout>

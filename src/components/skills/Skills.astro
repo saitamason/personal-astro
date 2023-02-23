@@ -1,10 +1,10 @@
 ---
-import type { Language, SizeType } from "../../utils/types";
+import type { LanguageSelectionType, SizeType } from "../../utils/types";
 import { skills } from "../../data/skills.astro";
 import SkillList from "./SkillList.astro";
 
 interface Props {
-  lang: Language;
+  lang: LanguageSelectionType;
 }
 
 const { lang } = Astro.props;

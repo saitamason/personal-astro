@@ -1,11 +1,11 @@
 ---
-import type { Language } from "../utils/types";
+import type { LanguageSelectionType } from "../utils/types";
 import { getLanguageUrls } from "../utils/utils.astro";
 
 interface Props {
   title: string;
   description: string;
-  language: Language;
+  language: LanguageSelectionType;
   children: any;
 }
 

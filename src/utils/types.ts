@@ -1,4 +1,4 @@
-export type Language = "en" | "pl";
+export type LanguageSelectionType = "en" | "pl";
 
 export interface Link {
   text: string;
@@ -11,3 +11,9 @@ export interface Caption {
 }
 
 export type SizeType = "large" | "medium" | "small";
+
+export interface LanguageVersionsType {
+  en?: string;
+  pl?: string;
+  default?: LanguageSelectionType;
+}
