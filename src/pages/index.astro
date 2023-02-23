@@ -1,5 +1,5 @@
 ---
-import { Stack, Monitor, Book } from "phosphor-react";
+import { Stack, Monitor, Book, GraduationCap } from "phosphor-react";
 
 import type { Link, Caption, LanguageSelectionType } from "../utils/types";
 import { getAge } from "../utils/utils.astro";
@@ -88,7 +88,11 @@ const figcaptions: Caption[] = [
     </section>
 
     <section class="mid-col">
-      <Education />
+      <SectionHeader id={anchorLinks[3]!.url.slice(1)} icon={GraduationCap}>
+        {anchorLinks[3]!.text}
+      </SectionHeader>
+
+      <Education lang={language} />
     </section>
   </main>
 </Layout>

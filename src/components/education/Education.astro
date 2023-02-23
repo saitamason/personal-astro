@@ -1,5 +1,28 @@
 ---
-const education = await Astro.glob("../../content/pl/education/*.mdx");
+import { getCollection } from "astro:content";
+
+import type { LanguageSelectionType } from "@utils/types";
+import EducationItem from "./EducationItem.astro";
+
+interface Props {
+  lang: LanguageSelectionType;
+}
+
+const { lang } = Astro.props;
+
+const educationList = await getCollection("education", ({ id }) => {
+  return id.startsWith(`${lang}/`);
+});
 ---
 
-{education.map((item) => <p>{item.frontmatter.school.name}</p>)}
+<ol class="list mid-col">
+  {educationList.map((item) => <EducationItem lang={lang} item={item} />)}
+</ol>
+
+<style>
+  .list {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 0 var(--side-padding);
+  }
+</style>

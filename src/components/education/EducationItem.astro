@@ -1,0 +1,104 @@
+---
+import type { LanguageSelectionType } from "@utils/types";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  lang: LanguageSelectionType;
+  item: CollectionEntry<"education">;
+}
+
+const {
+  lang,
+  item,
+  item: {
+    data: {
+      years: { from, to },
+      title: { content: title, lang: titleLang },
+      school: {
+        name: school,
+        lang: schoolLang,
+        logo: { filename: logo, aspectRatio },
+      },
+    },
+  },
+} = Astro.props;
+
+const { Content } = await item.render();
+
+const isTitleDiffLang = titleLang !== lang;
+const isSchoolDiffLang = schoolLang !== lang;
+---
+
+<li class="item">
+  <div class="item__logo-container">
+    <img
+      src={`/logos/${logo}`}
+      alt={school}
+      {...(isSchoolDiffLang && {lang: schoolLang})}
+      class="item__logo"
+    />
+  </div>
+
+  <h3 {...(isTitleDiffLang && {lang: titleLang})} class="item__heading">
+    {title}
+  </h3>
+
+  <p class="item__years">
+    <time datetime={from} class="item__year--from">
+      {from}
+    </time>
+    {
+      from !== to && (
+        <>
+          –{" "}
+          <time datetime={to} class="item__year--to">
+            {to}
+          </time>
+        </>
+      )
+    }
+  </p>
+
+  <div class="item__description">
+    <Content />
+  </div>
+</li>
+
+<style define:vars={{ aspectRatio }}>
+  .item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr;
+  }
+
+  .item__logo-container {
+    max-width: 10rem;
+    max-height: 10rem;
+    padding: var(--space-16);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--gray-15);
+    border: 1px solid var(--gray-14);
+    border-radius: var(--radius-default);
+    box-shadow: var(--shadow);
+  }
+
+  .item__logo {
+    width: 100%;
+    aspect-ratio: var(--aspectRatio);
+  }
+
+  .item__heading {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+  }
+
+  .item__years {
+  }
+
+  .item__description {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+  }
+</style>
