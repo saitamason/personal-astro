@@ -29,7 +29,7 @@ const isTitleDiffLang = titleLang !== lang;
 const isSchoolDiffLang = schoolLang !== lang;
 ---
 
-<li class="item">
+<li class="item ignore-grid">
   <div class="item__logo-container">
     <img
       src={`/logos/${logo}`}
@@ -43,21 +43,27 @@ const isSchoolDiffLang = schoolLang !== lang;
     {title}
   </h3>
 
-  <p class="item__years">
-    <time datetime={from} class="item__year--from">
-      {from}
-    </time>
-    {
-      from !== to && (
-        <>
-          –{" "}
-          <time datetime={to} class="item__year--to">
-            {to}
-          </time>
-        </>
-      )
-    }
-  </p>
+  <div class="item__near-logo">
+    <p class="item__school">
+      {school}
+    </p>
+
+    <p class="item__years">
+      <time datetime={from} class="item__year--from">
+        {from}
+      </time>
+      {
+        from !== to && (
+          <>
+            –
+            <time datetime={to} class="item__year--to">
+              {to}
+            </time>
+          </>
+        )
+      }
+    </p>
+  </div>
 
   <div class="item__description">
     <Content />
@@ -65,40 +71,76 @@ const isSchoolDiffLang = schoolLang !== lang;
 </li>
 
 <style define:vars={{ aspectRatio }}>
-  .item {
-    display: grid;
-    grid-template-columns: 1fr 1fr 3fr;
-  }
-
   .item__logo-container {
-    max-width: 10rem;
-    max-height: 10rem;
+    justify-self: center;
+    grid-row: 1 / 2;
+    width: 10rem;
     padding: var(--space-16);
 
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--gray-15);
-    border: 1px solid var(--gray-14);
-    border-radius: var(--radius-default);
-    box-shadow: var(--shadow);
+    background-color: var(--gray-14);
+    border-radius: 1000px;
   }
 
   .item__logo {
     width: 100%;
-    aspect-ratio: var(--aspectRatio);
+    aspect-ratio: 1 / 1;
   }
 
-  .item__heading {
-    grid-column: 3 / 4;
-    grid-row: 1 / 2;
+  .item__near-logo {
+    grid-row: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    height: 20rem;
+  }
+
+  .item__near-logo::before {
+    content: "";
+    /* background: red; */
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-right: 1px dashed var(--gray-10);
+    z-index: -1;
+  }
+
+  .item__school {
+    margin-top: var(--space-24);
+    max-width: 27ch;
+    text-align: center;
+    background-color: var(--gray-15);
   }
 
   .item__years {
+    display: flex;
+    justify-content: center;
+    gap: 0.5ex;
+    font-size: var(--font-6);
+    font-weight: var(--font-bold);
+    background-color: var(--gray-15);
+  }
+
+  .item__heading {
+    align-self: end;
+    grid-row: 3 / 4;
+    font-size: var(--font-4);
+    line-height: var(--line-very-tight);
+    letter-spacing: var(--letter-spacing-4);
+    padding: 0 var(--side-padding);
+    margin-bottom: var(--space-32);
   }
 
   .item__description {
-    grid-column: 3 / 4;
-    grid-row: 2 / 3;
+    grid-row: 4 / 5;
+    padding: 0 var(--side-padding);
+    hyphens: auto;
+    text-align: justify;
+    font-size: var(--font-small);
   }
 </style>
