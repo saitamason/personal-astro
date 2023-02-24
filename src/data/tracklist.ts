@@ -7,6 +7,12 @@ export interface TracksType {
 
 export const tracklist: TracksType[] = [
   {
+    name: "Featured Tracks",
+    genre: "Various",
+    length: "7:13",
+    url: "https://soundcloud.com/dawidlehai2/featured-tracks",
+  },
+  {
     name: "Hug",
     genre: "Electronic",
     length: "4:17",
@@ -29,12 +35,6 @@ export const tracklist: TracksType[] = [
     genre: "Drum & Bass",
     length: "5:15",
     url: "https://soundcloud.com/dawidlehai2/",
-  },
-  {
-    name: "Featured Tracks",
-    genre: "Various",
-    length: "7:13",
-    url: "https://soundcloud.com/dawidlehai2/featured-tracks",
   },
 ];
 
