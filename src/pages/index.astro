@@ -5,6 +5,7 @@ import {
   Books,
   GraduationCap,
   FileSearch,
+  MusicNotes,
 } from "phosphor-react";
 
 import type { Link, Caption, LanguageSelectionType } from "../utils/types";
@@ -105,6 +106,14 @@ const figcaptions: Caption[] = [
     <section class="ignore-grid">
       <SectionHeader id={anchorLinks[4]!.url.slice(1)} icon={FileSearch}>
         {anchorLinks[4]!.text}
+      </SectionHeader>
+
+      <ResearchList lang={language} />
+    </section>
+
+    <section class="ignore-grid">
+      <SectionHeader id={anchorLinks[5]!.url.slice(1)} icon={MusicNotes}>
+        {anchorLinks[5]!.text}
       </SectionHeader>
 
       <ResearchList lang={language} />
