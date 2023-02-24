@@ -1,5 +1,11 @@
 ---
-import { Stack, Monitor, Book, GraduationCap } from "phosphor-react";
+import {
+  Stack,
+  Monitor,
+  Books,
+  GraduationCap,
+  FileSearch,
+} from "phosphor-react";
 
 import type { Link, Caption, LanguageSelectionType } from "../utils/types";
 import { getAge } from "../utils/utils.astro";
@@ -80,7 +86,7 @@ const figcaptions: Caption[] = [
     </section>
 
     <section class="ignore-grid">
-      <SectionHeader id={anchorLinks[2]!.url.slice(1)} icon={Book}>
+      <SectionHeader id={anchorLinks[2]!.url.slice(1)} icon={Books}>
         {anchorLinks[2]!.text}
       </SectionHeader>
 
@@ -93,6 +99,12 @@ const figcaptions: Caption[] = [
       </SectionHeader>
 
       <Education lang={language} />
+    </section>
+
+    <section class="ignore-grid">
+      <SectionHeader id={anchorLinks[4]!.url.slice(1)} icon={FileSearch}>
+        {anchorLinks[4]!.text}
+      </SectionHeader>
     </section>
   </main>
 </Layout>

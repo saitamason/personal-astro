@@ -22,6 +22,30 @@ const educationCollection = defineCollection({
   }),
 });
 
+const researchCollection = defineCollection({
+  schema: z.object({
+    index: z.number(),
+    years: z.object({
+      from: z.string(),
+      to: z.string(),
+    }),
+    title: z.object({
+      content: z.string(),
+      lang: z.enum(["en", "pl"]),
+    }),
+    role: z.string(),
+    link: z
+      .object({
+        url: z.string().url(),
+        text: z.string(),
+        lang: z.enum(["en", "pl"]),
+        hreflang: z.enum(["en", "pl"]),
+      })
+      .optional(),
+  }),
+});
+
 export const collections = {
   education: educationCollection,
+  research: researchCollection,
 };
