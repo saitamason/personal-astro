@@ -1,16 +1,29 @@
 ---
+import { getCollection } from "astro:content";
+
 import type { LanguageSelectionType } from "@utils/types";
+import ResearchItem from "./ResearchItem.astro";
 
 interface Props {
   lang: LanguageSelectionType;
 }
 
 const { lang } = Astro.props;
+
+const researchList = await getCollection("research", ({ id }) => {
+  return id.startsWith(`${lang}/`);
+});
 ---
 
-<ul class="list mid-col"></ul>
+<ul class="list mid-col">
+  {researchList.map((item) => <ResearchItem item={item} />)}
+</ul>
 
 <style>
   .list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 var(--side-padding);
+    gap: var(--space-32);
   }
 </style>

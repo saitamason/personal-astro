@@ -38,7 +38,6 @@ const researchCollection = defineCollection({
       .object({
         url: z.string().url(),
         text: z.string(),
-        lang: z.enum(["en", "pl"]),
         hreflang: z.enum(["en", "pl"]),
       })
       .optional(),

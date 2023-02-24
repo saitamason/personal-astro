@@ -18,7 +18,8 @@ import SectionHeader from "../components/SectionHeader.astro";
 import MyProjects from "../components/projects/MyProjects.astro";
 import Skills from "../components/skills/Skills.astro";
 import Courses from "../components/courses/Courses.astro";
-import Education from "../components/education/Education.astro";
+import EducationList from "../components/education/EducationList.astro";
+import ResearchList from "@components/research/ResearchList.astro";
 // import Intersection from "../components/Intersection.astro";
 
 const language: LanguageSelectionType = "pl";
@@ -98,13 +99,15 @@ const figcaptions: Caption[] = [
         {anchorLinks[3]!.text}
       </SectionHeader>
 
-      <Education lang={language} />
+      <EducationList lang={language} />
     </section>
 
     <section class="ignore-grid">
       <SectionHeader id={anchorLinks[4]!.url.slice(1)} icon={FileSearch}>
         {anchorLinks[4]!.text}
       </SectionHeader>
+
+      <ResearchList lang={language} />
     </section>
   </main>
 </Layout>
