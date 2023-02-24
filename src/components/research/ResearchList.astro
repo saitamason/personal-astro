@@ -16,7 +16,18 @@ const researchList = await getCollection("research", ({ id }) => {
 ---
 
 <ul class="list mid-col">
-  {researchList.map((item) => <ResearchItem item={item} />)}
+  <div class="masonry">
+    <ResearchItem item={researchList[0]!} />
+    <ResearchItem item={researchList[3]!} />
+  </div>
+  <div class="masonry">
+    <ResearchItem item={researchList[1]!} />
+    <ResearchItem item={researchList[5]!} />
+  </div>
+  <div class="masonry">
+    <ResearchItem item={researchList[2]!} />
+    <ResearchItem item={researchList[4]!} />
+  </div>
 </ul>
 
 <style>
@@ -24,6 +35,13 @@ const researchList = await getCollection("research", ({ id }) => {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 0 var(--side-padding);
+    gap: var(--space-32);
+  }
+
+  .masonry {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
     gap: var(--space-32);
   }
 </style>
