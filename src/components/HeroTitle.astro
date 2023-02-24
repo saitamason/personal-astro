@@ -23,34 +23,38 @@ const { linkUrl: url, linkText: text } = Astro.props;
     align-items: center;
     flex-direction: column;
     padding: var(--space-128) var(--side-padding);
-    color: var(--text-color);
+    color: hsl(var(--a) 25%);
     --text-color: var(--gray-2);
   }
 
   .title h1 {
     position: relative;
     line-height: var(--line-tight);
-    margin-bottom: var(--space-24);
+    margin-bottom: var(--space-8);
+    font-size: var(--font-1);
+    font-weight: 900;
+    letter-spacing: var(--letter-spacing-1);
   }
 
   .title h1 span {
-    -webkit-text-stroke: 1px var(--text-color);
-    color: transparent;
-    font-style: italic;
+    /* -webkit-text-stroke: 1px var(--text-color); */
+    /* color: transparent; */
+    /* font-style: italic; */
+    color: hsl(var(--b) 50%);
   }
 
   .title p {
     font-size: var(--font-6);
     max-width: 40ch;
     text-align: center;
-    font-style: italic;
+    /* font-style: italic; */
     margin-bottom: var(--space-32);
-    color: var(--gray-3);
+    color: hsl(var(--a) 22%);
   }
 
   .button {
-    background-color: var(--gray-15);
-    color: var(--gray-4);
+    background-color: hsl(var(--b) 65%);
+    color: hsl(var(--b) 15%);
     font-size: var(--font-large);
   }
 </style>

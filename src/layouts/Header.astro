@@ -67,7 +67,7 @@ const siteName = getSiteName();
   }
 
   header a:where(:link, :visited) {
-    color: var(--link-color);
+    color: hsl(var(--a) 25%);
     font-weight: var(--weight);
   }
 
@@ -82,8 +82,8 @@ const siteName = getSiteName();
   }
 
   .logo-link {
-    font-weight: var(--font-semibold);
-    font-style: italic;
+    font-weight: 800;
+    color: hsl(var(--a) 25%);
     justify-self: start;
     font-size: var(--font-large);
   }
@@ -96,7 +96,7 @@ const siteName = getSiteName();
   }
 
   .button {
-    background-color: var(--gray-15);
-    color: var(--link-color);
+    background-color: hsl(var(--a) 25%);
+    color: hsl(var(--a) 90%);
   }
 </style>

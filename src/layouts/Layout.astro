@@ -47,11 +47,13 @@ const url = getLanguageUrls(Astro.url.pathname);
         1fr [start] minmax(min-content, var(--width-default))
         [end] 1fr;
 
-      background: linear-gradient(
-        to bottom,
-        var(--gray-13) 50dvh,
-        var(--gray-15) 150dvh
-      );
+      /* background: linear-gradient(
+        170deg,
+        hsl(var(--a) 90%) 0,
+        hsl(var(--d) 90%) 60dvh,
+        hsl(var(--b) 70%) 150dvh
+      ); */
+      background: var(--color-c);
 
       margin-bottom: 100rem;
     }
@@ -152,10 +154,15 @@ const url = getLanguageUrls(Astro.url.pathname);
       --gray-15: #fff;
 
       /* https://coolors.co/1b4354-f5ab49-fff0d3 */
-      --color-a: hsla(198, 51%, 22%, 1);
-      --color-b: hsla(34, 90%, 62%, 1);
-      --color-c: hsla(40, 100%, 91%, 1);
-      --color-d: hsla(350, 68%, 49%);
+      --color-a: hsl(198 51% 22%);
+      --color-b: hsl(34 90% 62%);
+      --color-c: hsl(40 100% 91%);
+      --color-d: hsl(333 84% 70%);
+
+      --a: 198 51%;
+      --b: 34 90%;
+      --c: 40 100%;
+      --d: 333 84%;
 
       --radius-xs: 0.5rem;
       --radius-small: 1rem;
@@ -164,6 +171,8 @@ const url = getLanguageUrls(Astro.url.pathname);
 
       --shadow-default: -1.2rem 2rem 2.5rem -0.5rem rgb(0 0 0 / 0.1),
         -0.8rem 0.8rem 1rem -0.6rem rgb(0 0 0 / 0.1);
+
+      --border-width: 1px;
     }
 
     /* Reset */
@@ -180,7 +189,7 @@ const url = getLanguageUrls(Astro.url.pathname);
 
     body {
       box-sizing: border-box;
-      font-family: var(--font-serif);
+      font-family: var(--font-sans);
       font-size: var(--font-base);
       line-height: var(--line-base);
       color: var(--gray-3);
@@ -209,12 +218,6 @@ const url = getLanguageUrls(Astro.url.pathname);
 
     img {
       display: block;
-    }
-
-    h1 {
-      font-size: var(--font-1);
-      font-weight: var(--font-bold);
-      letter-spacing: var(--letter-spacing-1);
     }
 
     h2 {
