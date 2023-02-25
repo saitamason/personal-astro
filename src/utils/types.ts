@@ -8,6 +8,10 @@ export interface Link {
 export interface Caption {
   title: string;
   subtitle: string;
+  img: {
+    filename: string;
+    alt: string;
+  };
 }
 
 export type SizeType = "large" | "medium" | "small";

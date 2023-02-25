@@ -16,7 +16,9 @@ const { captions } = Astro.props;
           <p>{caption.subtitle}</p>
           <h3>{caption.title}</h3>
         </figcaption>
-        <div class="figure-image" />
+        <div class="figure-image">
+          <img src={`/figures/${caption.img.filename}`} alt={caption.img.alt} />
+        </div>
       </figure>
     ))
   }
@@ -64,5 +66,11 @@ const { captions } = Astro.props;
     background-color: var(--gray-11);
     border-radius: var(--radius-default);
     position: relative;
+    overflow: hidden;
+  }
+
+  .figure-image img {
+    width: 100%;
+    aspect-ratio: 3/4;
   }
 </style>
