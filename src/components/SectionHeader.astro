@@ -12,7 +12,9 @@ const { id, icon: SectionIcon } = Astro.props;
 
 <div class="container mid-col" id={id}>
   <hgroup>
-    <SectionIcon size="var(--icon-size)" weight="duotone" />
+    <div class="icon-container">
+      <SectionIcon size="100%" weight="duotone" />
+    </div>
     <h2><slot /></h2>
   </hgroup>
 </div>
@@ -25,12 +27,25 @@ const { id, icon: SectionIcon } = Astro.props;
     display: flex;
     justify-content: start;
     align-items: center;
-    --icon-size: 10rem;
   }
 
   hgroup {
     display: flex;
     align-items: center;
     gap: var(--side-padding);
+  }
+
+  h2 {
+    color: hsl(var(--a) 25%);
+  }
+
+  .icon-container {
+    max-width: 10rem;
+    aspect-ratio: 1/1;
+    color: hsl(var(--a) 25%);
+    background-color: hsl(var(--a) 87%);
+    line-height: 1;
+    padding: var(--space-12);
+    border-radius: var(--radius-default);
   }
 </style>

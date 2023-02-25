@@ -67,18 +67,17 @@ const lang = id.split("/")[0];
     flex: 1 1 auto;
     padding: var(--space-32);
     padding-bottom: var(--space-24);
-    background-color: var(--gray-14);
+    background-color: hsl(var(--b) 90%);
     position: relative;
     overflow: hidden;
     clip-path: polygon(
-      calc(100% - var(--space-80) - 1px) 0,
-      100% calc(var(--space-80) + 1px),
+      calc(100% - var(--space-80)) 0,
+      100% calc(var(--space-80)),
       100% calc(100% + 1px),
       0 calc(100% + 1px),
       0 0
     );
     border-radius: var(--radius-small);
-    border: 1px solid var(--gray-13);
   }
   .item::before {
     content: "";
@@ -87,10 +86,8 @@ const lang = id.split("/")[0];
     position: absolute;
     top: 0;
     right: 0;
-    background-color: var(--gray-13);
+    background-color: hsl(var(--b) 75%);
     border-bottom-left-radius: var(--radius-small);
-    border-left: 1px solid var(--gray-12);
-    border-bottom: 1px solid var(--gray-12);
     box-shadow: 1rem 1rem 0 rgba(0 0 0 / 0.04);
   }
 
@@ -127,6 +124,7 @@ const lang = id.split("/")[0];
     column-gap: 1.5ex;
     line-height: var(--line-snug);
     margin-bottom: var(--space-12);
+    color: hsl(var(--b) 20%);
   }
 
   .link__icon-container {
@@ -135,7 +133,7 @@ const lang = id.split("/")[0];
     height: 5.2ex;
     width: 5.2ex;
     padding: 0.5ex;
-    background-color: var(--gray-13);
+    background-color: hsl(var(--b) 75%);
     border-radius: var(--radius-xs);
   }
 

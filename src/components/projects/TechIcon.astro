@@ -1,0 +1,45 @@
+---
+import type { Tech } from "@utils/technologies.astro";
+
+interface Props {
+  tech: Tech;
+  size: "large" | "medium" | "small";
+}
+
+const { tech, size } = Astro.props;
+---
+
+<li class={size}>
+  <tech.icon size="2.5ex" className="tech__icon" title={tech.name} />
+  {tech.name}
+</li>
+
+<style define:vars={{ bg: tech.bg, color: tech.color }}>
+  li {
+    border-radius: var(--radius-xs);
+    display: flex;
+    justify-content: center;
+    font-size: var(--font-small);
+    align-items: center;
+    gap: var(--space-8);
+    font-family: var(--font-sans);
+    padding: 1ex 1.4ex;
+    font-weight: var(--font-medium);
+    cursor: cursor;
+    color: hsl(var(--a) 25%);
+    background: hsl(var(--b) 64%);
+  }
+
+  li:hover {
+    background: var(--bg);
+    color: var(--color);
+  }
+
+  .small {
+    font-size: var(--font-xs);
+  }
+
+  .tech__icon {
+    color: currentColor;
+  }
+</style>

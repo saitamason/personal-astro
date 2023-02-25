@@ -3,6 +3,7 @@ import { GitHub } from "../../utils/technologies.astro";
 
 import type { Project } from "../../data/projects";
 import CourseInfo from "./CourseInfo.astro";
+import TechIcon from "./TechIcon.astro";
 
 interface Props {
   project: Project;
@@ -114,18 +115,7 @@ const isSmall = size === "small";
     </div>
   </div>
   <ul class="tech">
-    {
-      technologies.map((tech) => (
-        <li style={{ backgroundColor: tech.bg, color: tech.color }}>
-          <tech.icon
-            size="var(--icon-size)"
-            className="tech__icon"
-            title={tech.name}
-          />
-          {tech.name}
-        </li>
-      ))
-    }
+    {technologies.map((tech) => <TechIcon tech={tech} size={size} />)}
   </ul>
   {
     mobile && (
@@ -232,7 +222,6 @@ const isSmall = size === "small";
   }
 
   .tech {
-    --icon-size: 2.5ex;
     align-self: start;
     grid-column: 1 / 11;
     grid-row: 2 / 3;
@@ -248,25 +237,6 @@ const isSmall = size === "small";
     grid-column: 1 / -1;
     gap: var(--space-4);
     margin-top: var(--space-12);
-  }
-
-  .tech li {
-    border-radius: var(--radius-xs);
-    display: flex;
-    justify-content: center;
-    font-size: var(--font-small);
-    align-items: center;
-    gap: var(--space-8);
-    font-family: var(--font-sans);
-    padding: 1ex 1.4ex;
-    font-weight: var(--font-medium);
-  }
-  .project--small .tech li {
-    font-size: var(--font-xs);
-  }
-
-  .tech__icon {
-    color: currentColor;
   }
 
   .description {

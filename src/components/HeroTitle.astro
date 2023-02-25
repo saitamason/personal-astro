@@ -9,7 +9,7 @@ const { linkUrl: url, linkText: text } = Astro.props;
 ---
 
 <div class="title mid-col">
-  <h1><span>Dawid</span> Le Hai</h1>
+  <h1>Dawid Le Hai</h1>
   <p>
     <slot />
   </p>
@@ -36,13 +36,6 @@ const { linkUrl: url, linkText: text } = Astro.props;
     letter-spacing: var(--letter-spacing-1);
   }
 
-  .title h1 span {
-    /* -webkit-text-stroke: 1px var(--text-color); */
-    /* color: transparent; */
-    /* font-style: italic; */
-    color: hsl(var(--d) 50%);
-  }
-
   .title p {
     font-size: var(--font-6);
     max-width: 40ch;
@@ -53,7 +46,7 @@ const { linkUrl: url, linkText: text } = Astro.props;
   }
 
   .button {
-    background-color: hsl(var(--b) 65%);
+    background-color: hsl(var(--b) 67%);
     color: hsl(var(--b) 15%);
     font-size: var(--font-large);
   }

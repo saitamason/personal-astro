@@ -47,7 +47,11 @@ const url = getLanguageUrls(Astro.url.pathname);
         1fr [start] minmax(min-content, var(--width-default))
         [end] 1fr;
 
-      background-color: hsl(var(--b) 95%);
+      background: linear-gradient(
+        to bottom,
+        hsl(var(--b) 95%) 80vh,
+        #fff 150vh
+      );
 
       margin-bottom: 100rem;
     }
@@ -128,7 +132,7 @@ const url = getLanguageUrls(Astro.url.pathname);
       --space-256: 25.6rem;
 
       --side-padding: var(--space-32);
-      --width-default: 185rem;
+      --width-default: 192rem;
 
       --gray-0: #000;
       --gray-1: #111;
@@ -155,6 +159,8 @@ const url = getLanguageUrls(Astro.url.pathname);
 
       --a: 201 100%; /* 14% */
       --b: 40 97%; /* 64% */
+      --c: 0 69%; /* 50% */
+      --d: 51 55%; /* 82% */
 
       --radius-xs: 0.5rem;
       --radius-small: 1rem;
