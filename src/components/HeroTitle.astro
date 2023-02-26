@@ -1,5 +1,5 @@
 ---
-import { Triangle } from "phosphor-react";
+import { ArrowFatDown } from "phosphor-react";
 
 interface Props {
   linkUrl: string;
@@ -22,7 +22,7 @@ const { linkUrl: url, linkText: text } = Astro.props;
     <span class="button__text">{text}</span>
     <span class="button__icon-container">
       <span class="button__icon-fill">
-        <Triangle
+        <ArrowFatDown
           weight="fill"
           className="button__icon"
           size="var(--icon-size)"
@@ -95,9 +95,5 @@ const { linkUrl: url, linkText: text } = Astro.props;
     background-color: hsl(var(--a) 97.5%);
     color: hsl(var(--a) 63%);
     font-size: var(--font-base);
-  }
-
-  .button__icon {
-    transform: rotate(180deg) translate(-2.5%, -5%);
   }
 </style>
