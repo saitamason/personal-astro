@@ -394,6 +394,13 @@ const url = getLanguageUrls(Astro.url.pathname);
     }
 
     /* Utility classes */
+    .layout-grid {
+      display: grid;
+      grid-template-columns:
+        1fr [start] minmax(min-content, var(--width-default))
+        [end] 1fr;
+    }
+
     .ignore-grid {
       display: contents;
     }
