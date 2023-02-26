@@ -82,8 +82,8 @@ const figcaptions: Caption[] = [
   />
 
   <main class="ignore-grid">
-    <section class="ignore-grid">
-      <HeroTitle linkUrl={anchorLinks[0]!.url} linkText="Poznaj mnie lepiej">
+    <section class="hero mid-col">
+      <HeroTitle linkUrl={anchorLinks[0]!.url} linkText="Dowiedz się więcej">
         Programista frontendu, który tworzy przyjazne i&nbsp;dobrze wyglądające
         interfejsy użytkownika.
       </HeroTitle>
@@ -148,3 +148,11 @@ const figcaptions: Caption[] = [
     </section>
   </main>
 </Layout>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 0 var(--side-padding);
+  }
+</style>

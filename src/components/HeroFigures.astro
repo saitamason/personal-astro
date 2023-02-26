@@ -8,7 +8,7 @@ interface Props {
 const { captions } = Astro.props;
 ---
 
-<div class="figures mid-col">
+<div class="figures">
   {
     captions.map((caption) => (
       <figure>
@@ -33,7 +33,7 @@ const { captions } = Astro.props;
     padding: 0 var(--side-padding);
   }
 
-  figure:nth-child(1) {
+  /* figure:nth-child(1) {
     margin-bottom: 60%;
   }
   figure:nth-child(3) {
@@ -41,7 +41,7 @@ const { captions } = Astro.props;
   }
   figure:nth-child(2) {
     margin-bottom: 20%;
-  }
+  } */
 
   figcaption h3 {
     font-size: var(--font-5);

@@ -1,4 +1,6 @@
 ---
+import { Triangle } from "phosphor-react";
+
 interface Props {
   linkUrl: string;
   linkText: string;
@@ -8,46 +10,94 @@ interface Props {
 const { linkUrl: url, linkText: text } = Astro.props;
 ---
 
-<div class="title mid-col">
-  <h1>Dawid Le Hai</h1>
+<div class="title">
+  <hgroup class="ignore-grid">
+    <p>Człowiek wielu pasji</p>
+    <h1><span>Dawid</span><span><span class="le">Le</span> Hai</span></h1>
+  </hgroup>
   <p>
     <slot />
   </p>
-  <a href={url} class="button">{text}</a>
+  <a href={url} class="button">
+    <span class="button__text">{text}</span>
+    <span class="button__icon-container">
+      <span class="button__icon-fill">
+        <Triangle
+          weight="fill"
+          className="button__icon"
+          size="var(--icon-size)"
+        />
+      </span>
+    </span>
+  </a>
 </div>
 
 <style>
   .title {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    align-items: end;
     flex-direction: column;
-    padding: var(--space-128) var(--side-padding);
-    color: hsl(var(--a) 25%);
+    color: hsl(var(--a) 97.5%);
     --text-color: var(--gray-2);
   }
 
   .title h1 {
     position: relative;
-    line-height: var(--line-tight);
     margin-bottom: var(--space-8);
-    font-size: var(--font-1);
-    font-weight: 1000;
-    letter-spacing: var(--letter-spacing-1);
+    font-size: 15rem;
+    font-family: "Anton", "Poppins", sans-serif;
+    text-transform: uppercase;
+    display: grid;
+    justify-items: end;
+    line-height: 1;
+    grid-template-columns: 1fr;
   }
 
-  .title p {
+  .title h1 > span:last-child {
+    font-size: 1.8ex;
+    display: flex;
+    align-items: start;
+    gap: 0.15ex;
+  }
+
+  .title h1 > span > span {
+    font-size: 1.105ex;
+    padding: 0.2ex 0.225ex 0.185ex 0.225ex;
+    color: rgba(var(--white));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--radius-default);
+    margin-top: 0.1ex;
+    box-shadow: inset 0 0 0 var(--border-width) rgba(var(--black) / 0.1);
+  }
+
+  .title hgroup p {
+    text-transform: uppercase;
+    font-size: var(--font-small);
+    font-weight: 600;
+    letter-spacing: 0.8rem;
+    color: hsl(var(--b) 62%);
+    margin-bottom: var(--space-64);
+  }
+
+  .title > p {
     font-size: var(--font-6);
     max-width: 40ch;
-    text-align: center;
+    text-align: right;
     /* font-style: italic; */
     margin-bottom: var(--space-32);
-    color: hsl(var(--a) 22%);
+    margin-top: var(--space-32);
+    color: hsl(var(--a) 97.5%);
   }
 
   .button {
-    background-color: hsl(var(--b) 67%);
-    color: hsl(var(--b) 15%);
-    font-size: var(--font-large);
+    background-color: hsl(var(--a) 97.5%);
+    color: hsl(var(--a) 63%);
+    font-size: var(--font-base);
+  }
+
+  .button__icon {
+    transform: rotate(180deg) translate(-2.5%, -5%);
   }
 </style>
