@@ -16,8 +16,13 @@ const { captions } = Astro.props;
           <p>{caption.subtitle}</p>
           <h3>{caption.title}</h3>
         </figcaption>
-        <div class="figure-image">
-          <img src={`/figures/${caption.img.filename}`} alt={caption.img.alt} />
+        <div class="figure-image-container">
+          <div class="figure-image">
+            <img
+              src={`/figures/${caption.img.filename}`}
+              alt={caption.img.alt}
+            />
+          </div>
         </div>
         <div class="filler" />
       </figure>
@@ -43,16 +48,16 @@ const { captions } = Astro.props;
     background: rgb(var(--black) / 0.1);
   }
 
-  figure:nth-child(1) :is(.figure-image, .filler) {
+  figure:nth-child(1) :is(.figure-image-container, .filler) {
     grid-column: 1 / 2;
   }
-  figure:nth-child(2) :is(.figure-image, .filler) {
+  figure:nth-child(2) :is(.figure-image-container, .filler) {
     grid-column: 2 / 3;
   }
-  figure:nth-child(3) :is(.figure-image, .filler) {
+  figure:nth-child(3) :is(.figure-image-container, .filler) {
     grid-column: 3 / 4;
   }
-  figure:nth-child(4) :is(.figure-image, .filler) {
+  figure:nth-child(4) :is(.figure-image-container, .filler) {
     grid-column: 4 / 5;
   }
 
@@ -60,11 +65,10 @@ const { captions } = Astro.props;
     /* margin-top: 10%; */
   }
   figure:nth-child(2) .figure-image {
-    margin-bottom: 30%;
-    align-self: center;
+    margin-top: 33.333%;
   }
   figure:nth-child(3) .figure-image {
-    margin-top: 30%;
+    margin-top: 33.333%;
     align-self: center;
   }
   figure:nth-child(4) .figure-image {
@@ -73,7 +77,6 @@ const { captions } = Astro.props;
 
   figcaption {
     align-self: end;
-    margin-top: 3.9rem;
   }
 
   figcaption h3 {
@@ -93,8 +96,14 @@ const { captions } = Astro.props;
     margin: 0;
   }
 
-  .figure-image {
+  .figure-image-container {
     grid-row: 2 / 3;
+    width: 100%;
+    display: grid;
+    align-self: stretch;
+  }
+
+  .figure-image {
     width: 100%;
     aspect-ratio: 3/4;
     background-color: var(--gray-11);

@@ -1,4 +1,5 @@
 ---
+import { Star } from "phosphor-react";
 import type { Link } from "../utils/types";
 
 interface Props {
@@ -11,11 +12,30 @@ const { links } = Astro.props;
 <nav>
   <ul>
     {
-      links.map((link) => (
-        <li>
-          <a href={link.url}>{link.text}</a>
-        </li>
-      ))
+      links.map((link, index) => {
+        if (index === links.length - 1)
+          return (
+            <li>
+              <a href={link.url} class="button">
+                <span class="button__text">{link.text}</span>
+                <span class="button__icon-container">
+                  <span class="button__icon-fill">
+                    <Star
+                      weight="fill"
+                      className="button__icon"
+                      size="var(--icon-size)"
+                    />
+                  </span>
+                </span>
+              </a>
+            </li>
+          );
+        return (
+          <li>
+            <a href={link.url}>{link.text}</a>
+          </li>
+        );
+      })
     }
   </ul>
 </nav>
@@ -24,10 +44,28 @@ const { links } = Astro.props;
   ul {
     display: flex;
     gap: var(--gap);
-    align-items: center;
+    align-items: stretch;
+    height: 100%;
+  }
+
+  li {
+    height: 100%;
+    display: flex;
+    align-items: stretch;
   }
 
   a:is(:link, :visited) {
     color: hsl(var(--a) 25%);
+    display: flex;
+    align-items: center;
+  }
+
+  a.button {
+    background-color: hsl(var(--a) 97.5%);
+    color: hsl(var(--a) 63%);
+    font-size: var(--font-normal);
+  }
+
+  .button__icon {
   }
 </style>

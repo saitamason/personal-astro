@@ -31,8 +31,9 @@ const anchorLinks: Link[] = [
   { text: "Technologie", url: "#technologie" },
   { text: "Kursy", url: "#kursy" },
   { text: "Wykształcenie", url: "#wyksztalcenie" },
-  { text: "Badania naukowe", url: "#badania" },
+  { text: "Badania", url: "#badania" },
   { text: "Muzyka", url: "#muzyka" },
+  { text: "Zatrudnij mnie", url: "" },
 ];
 
 const figcaptions: Caption[] = [
@@ -75,11 +76,7 @@ const figcaptions: Caption[] = [
   language={language}
   title="Dawid Le Hai – Programista frontendu"
   description={`${ageInYears}-letni programista frontendu, psycholog, certyfikowany trener personalny, a także entuzjasta tworzenia muzyki.`}>
-  <Header
-    language={language}
-    links={anchorLinks}
-    cta={{ text: "Zatrudnij mnie", url: "#praca" }}
-  />
+  <Header language={language} links={anchorLinks} />
 
   <main class="ignore-grid">
     <section class="hero mid-col">

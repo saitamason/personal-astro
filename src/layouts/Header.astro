@@ -11,7 +11,7 @@ interface Props {
   cta?: Link;
 }
 
-const { language, links, cta } = Astro.props;
+const { language, links } = Astro.props;
 
 const isEn = language === "en";
 const langCode = isEn ? "pl" : "en";
@@ -22,36 +22,27 @@ const siteName = getSiteName();
 ---
 
 <header class="mid-col">
-  <a href={site} class="logo-link">{siteName}</a>
+  <div class="left">
+    <a href={site} class="logo-link">
+      <div class="logo"><span>Le</span></div>
+      <span>{siteName}</span>
+    </a>
+    <a
+      rel="alternate"
+      hreflang={langCode}
+      href={url[langCode]}
+      lang={langCode}
+      class="lang-link">
+      <Translate
+        size="2.5ex"
+        weight="duotone"
+        alt={isEn ? "Zmień język" : "Change language"}
+      />
+      {isEn ? "Polski" : "English"}
+    </a>
+  </div>
+
   {links && <Navigation links={links} />}
-  <nav>
-    <ul>
-      <li>
-        <a
-          rel="alternate"
-          hreflang={langCode}
-          href={url[langCode]}
-          lang={langCode}
-          class="lang-link">
-          <Translate
-            size="2.5ex"
-            weight="duotone"
-            alt={isEn ? "Zmień język" : "Change language"}
-          />
-          {isEn ? "Polski" : "English"}
-        </a>
-      </li>
-      {
-        cta && (
-          <li>
-            <a href={cta.url} class="button">
-              {cta.text}
-            </a>
-          </li>
-        )
-      }
-    </ul>
-  </nav>
 </header>
 
 <style>
@@ -59,10 +50,9 @@ const siteName = getSiteName();
     --gap: var(--space-24);
     --link-color: var(--gray-4);
     gap: var(--gap);
-    display: grid;
-    grid-template-columns: 1fr max-content minmax(max-content, 1fr);
-    align-items: center;
-    justify-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
     padding: var(--space-24) var(--side-padding);
   }
 
@@ -81,11 +71,40 @@ const siteName = getSiteName();
     gap: var(--gap);
   }
 
+  .left {
+    display: flex;
+    gap: var(--space-32);
+  }
+
+  .logo {
+    background: rgb(var(--black) / 0.1);
+    width: 4.5rem;
+    font-size: 2.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    color: hsl(var(--a) 97.5%);
+    font-family: "Anton", "Poppins", sans-serif;
+    text-transform: uppercase;
+    border-radius: var(--radius-xs);
+    letter-spacing: 0.05ex;
+    aspect-ratio: 1 / 1;
+  }
+
   .logo-link {
-    font-weight: 800;
+    font-weight: 700;
     color: hsl(var(--a) 25%);
     justify-self: start;
-    font-size: var(--font-large);
+    font-size: 2rem;
+    gap: var(--space-8);
+    display: flex;
+    align-items: stretch;
+  }
+
+  .logo-link > span {
+    display: flex;
+    align-items: center;
   }
 
   .lang-link {
@@ -93,10 +112,5 @@ const siteName = getSiteName();
     align-items: center;
     justify-content: center;
     gap: calc(var(--gap) / 4);
-  }
-
-  .button {
-    background-color: hsl(var(--a) 87%);
-    color: hsl(var(--a) 20%);
   }
 </style>
