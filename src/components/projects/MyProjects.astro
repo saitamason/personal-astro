@@ -1,18 +1,30 @@
 ---
-import type { Language } from "../../utils/types";
+import type { Icon } from "phosphor-react";
+
+import type { LanguageSelectionType } from "../../utils/types";
 import type { Project } from "../../data/projects";
 import SingleProject from "./SingleProject.astro";
 
 interface Props {
   projects: Project[];
-  language: Language;
+  language: LanguageSelectionType;
+  icon: Icon;
 }
 
-const { projects, language: lang } = Astro.props;
+const { projects, language: lang, icon: SectionIcon } = Astro.props;
 const isEn = lang === "en";
 ---
 
-<ul class="section-container mid-col">
+<div class="header-container mid-col">
+  <hgroup class="header">
+    <div class="icon-container">
+      <SectionIcon size="100%" weight="duotone" />
+    </div>
+    <h2 class="heading"><slot /></h2>
+  </hgroup>
+</div>
+
+<ul class="list-container mid-col">
   {
     projects.map((project, index) => {
       if (index > 13) return;
@@ -22,11 +34,21 @@ const isEn = lang === "en";
 </ul>
 
 <style>
-  .section-container {
+  .list-container {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     padding: 0 var(--side-padding);
     column-gap: var(--space-64);
     row-gap: var(--space-128);
+  }
+
+  .icon-container {
+    max-width: 10rem;
+    aspect-ratio: 1/1;
+    color: hsl(var(--a) 25%);
+    background-color: hsl(var(--a) 87%);
+    line-height: 1;
+    padding: var(--space-12);
+    border-radius: var(--radius-default);
   }
 </style>

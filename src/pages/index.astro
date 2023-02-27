@@ -88,12 +88,12 @@ const figcaptions: Caption[] = [
       <HeroFigures captions={figcaptions} />
     </section>
 
-    <section class="full-bleed layout-grid projects-bg">
-      <SectionHeader id={anchorLinks[0]!.url.slice(1)} icon={Monitor}>
+    <section
+      class="full-bleed layout-grid projects-bg"
+      id={anchorLinks[0]!.url.slice(1)}>
+      <MyProjects projects={projects} language={language} icon={Monitor}>
         {anchorLinks[0]!.text}
-      </SectionHeader>
-
-      <MyProjects projects={projects} language={language} />
+      </MyProjects>
     </section>
 
     <section class="ignore-grid">
