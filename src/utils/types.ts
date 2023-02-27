@@ -1,8 +1,12 @@
+import type { Icon } from "phosphor-react";
+
 export type LanguageSelectionType = "en" | "pl";
 
 export interface Link {
-  text: string;
+  heading: string;
+  subheading: string;
   url: string;
+  icon: Icon;
 }
 
 export interface Caption {

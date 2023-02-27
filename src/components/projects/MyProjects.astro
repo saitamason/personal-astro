@@ -1,45 +1,52 @@
 ---
-import type { Icon } from "phosphor-react";
-
-import type { LanguageSelectionType } from "../../utils/types";
+import type { LanguageSelectionType, Link } from "../../utils/types";
 import type { Project } from "../../data/projects";
 import SingleProject from "./SingleProject.astro";
 
 interface Props {
   projects: Project[];
   language: LanguageSelectionType;
-  icon: Icon;
+  link: Link;
 }
 
-const { projects, language: lang, icon: SectionIcon } = Astro.props;
+const { projects, language: lang, link } = Astro.props;
 const isEn = lang === "en";
 ---
 
-<div class="header-container mid-col">
-  <hgroup class="header">
+<div class="projects-section mid-col">
+  <div class="header-container">
     <div class="icon-container">
-      <SectionIcon size="100%" weight="duotone" />
+      <link.icon size="100%" weight="duotone" />
     </div>
-    <h2 class="heading"><slot /></h2>
-  </hgroup>
+    <hgroup class="header">
+      <p class="heading">{link.heading}</p>
+      <h2 class="subheading">{link.subheading}</h2>
+    </hgroup>
+    <p class="description">
+      <slot />
+    </p>
+  </div>
+
+  <ul class="list-container ignore-grid">
+    {
+      projects.map((project, index) => {
+        if (index > 13) return;
+        return <SingleProject project={project} isEn={isEn} />;
+      })
+    }
+  </ul>
 </div>
 
-<ul class="list-container mid-col">
-  {
-    projects.map((project, index) => {
-      if (index > 13) return;
-      return <SingleProject project={project} isEn={isEn} />;
-    })
-  }
-</ul>
-
 <style>
-  .list-container {
+  .projects-section {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     padding: 0 var(--side-padding);
-    column-gap: var(--space-64);
-    row-gap: var(--space-128);
+    gap: var(--space-32);
+  }
+
+  .header-container {
+    grid-column: span 6;
   }
 
   .icon-container {

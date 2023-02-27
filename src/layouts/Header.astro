@@ -21,31 +21,37 @@ const site = new URL("pl", getSite());
 const siteName = getSiteName();
 ---
 
-<header class="mid-col">
-  <div class="left">
-    <a href={site} class="logo-link">
-      <div class="logo"><span>Le</span></div>
-      <span>{siteName}</span>
-    </a>
-    <a
-      rel="alternate"
-      hreflang={langCode}
-      href={url[langCode]}
-      lang={langCode}
-      class="lang-link">
-      <Translate
-        size="2.5ex"
-        weight="duotone"
-        alt={isEn ? "Zmień język" : "Change language"}
-      />
-      {isEn ? "Polski" : "English"}
-    </a>
-  </div>
+<div class="full-bleed layout-grid header-bg">
+  <header class="mid-col">
+    <div class="left">
+      <a href={site} class="logo-link">
+        <div class="logo"><span>Le</span></div>
+        <span>{siteName}</span>
+      </a>
+      <a
+        rel="alternate"
+        hreflang={langCode}
+        href={url[langCode]}
+        lang={langCode}
+        class="lang-link">
+        <Translate
+          size="2.5ex"
+          weight="duotone"
+          alt={isEn ? "Zmień język" : "Change language"}
+        />
+        {isEn ? "Polski" : "English"}
+      </a>
+    </div>
 
-  {links && <Navigation links={links} />}
-</header>
+    {links && <Navigation links={links} />}
+  </header>
+</div>
 
 <style>
+  .header-bg {
+    background: hsl(var(--a) 63%);
+  }
+
   header {
     --gap: var(--space-24);
     --link-color: var(--gray-4);

@@ -27,13 +27,23 @@ const language: LanguageSelectionType = "pl";
 const ageInYears = getAge();
 
 const anchorLinks: Link[] = [
-  { text: "Projekty", url: "#projekty" },
-  { text: "Technologie", url: "#technologie" },
-  { text: "Kursy", url: "#kursy" },
-  { text: "Wykształcenie", url: "#wyksztalcenie" },
-  { text: "Działalność naukowa", url: "#badania" },
-  { text: "Muzyka", url: "#muzyka" },
-  { text: "Zatrudnij mnie", url: "" },
+  { heading: "Projekty", url: "#projekty", subheading: "", icon: Monitor },
+  { heading: "Technologie", url: "#technologie", subheading: "", icon: Stack },
+  { heading: "Kursy", url: "#kursy", subheading: "", icon: Books },
+  {
+    heading: "Wykształcenie",
+    url: "#wyksztalcenie",
+    subheading: "",
+    icon: GraduationCap,
+  },
+  {
+    heading: "Działalność naukowa",
+    url: "#badania",
+    subheading: "",
+    icon: FileSearch,
+  },
+  { heading: "Muzyka", url: "#muzyka", subheading: "", icon: MusicNotes },
+  { heading: "Zatrudnij mnie", url: "", subheading: "", icon: FileSearch },
 ];
 
 const figcaptions: Caption[] = [
@@ -79,58 +89,72 @@ const figcaptions: Caption[] = [
   <Header language={language} links={anchorLinks} />
 
   <main class="ignore-grid">
-    <section class="hero mid-col">
-      <HeroTitle linkUrl={anchorLinks[0]!.url} linkText="Dowiedz się więcej">
-        Programista frontendu, który tworzy przyjazne i&nbsp;dobrze wyglądające
-        interfejsy użytkownika.
-      </HeroTitle>
+    <section class="full-bleed layout-grid hero-bg">
+      <div class="hero mid-col">
+        <HeroTitle linkUrl={anchorLinks[0]!.url} linkText="Dowiedz się więcej">
+          Programista frontendu, który tworzy przyjazne i&nbsp;dobrze
+          wyglądające interfejsy użytkownika.
+        </HeroTitle>
 
-      <HeroFigures captions={figcaptions} />
+        <HeroFigures captions={figcaptions} />
+      </div>
     </section>
 
     <section
       class="full-bleed layout-grid projects-bg"
       id={anchorLinks[0]!.url.slice(1)}>
-      <MyProjects projects={projects} language={language} icon={Monitor}>
-        {anchorLinks[0]!.text}
-      </MyProjects>
+      <MyProjects
+        projects={projects}
+        language={language}
+        link={anchorLinks[0]!}
+      />
     </section>
 
     <section class="ignore-grid">
-      <SectionHeader id={anchorLinks[1]!.url.slice(1)} icon={Stack}>
-        {anchorLinks[1]!.text}
+      <SectionHeader
+        id={anchorLinks[1]!.url.slice(1)}
+        icon={anchorLinks[1]!.icon}>
+        {anchorLinks[1]!.heading}
       </SectionHeader>
 
       <Skills lang={language} />
     </section>
 
     <section class="ignore-grid">
-      <SectionHeader id={anchorLinks[2]!.url.slice(1)} icon={Books}>
-        {anchorLinks[2]!.text}
+      <SectionHeader
+        id={anchorLinks[2]!.url.slice(1)}
+        icon={anchorLinks[2]!.icon}>
+        {anchorLinks[2]!.heading}
       </SectionHeader>
 
       <Courses lang={language} />
     </section>
 
     <section class="ignore-grid">
-      <SectionHeader id={anchorLinks[3]!.url.slice(1)} icon={GraduationCap}>
-        {anchorLinks[3]!.text}
+      <SectionHeader
+        id={anchorLinks[3]!.url.slice(1)}
+        icon={anchorLinks[3]!.icon}>
+        {anchorLinks[3]!.heading}
       </SectionHeader>
 
       <EducationList lang={language} />
     </section>
 
     <section class="ignore-grid">
-      <SectionHeader id={anchorLinks[4]!.url.slice(1)} icon={FileSearch}>
-        {anchorLinks[4]!.text}
+      <SectionHeader
+        id={anchorLinks[4]!.url.slice(1)}
+        icon={anchorLinks[4]!.icon}>
+        {anchorLinks[4]!.heading}
       </SectionHeader>
 
       <ResearchList lang={language} />
     </section>
 
     <section class="ignore-grid">
-      <SectionHeader id={anchorLinks[5]!.url.slice(1)} icon={MusicNotes}>
-        {anchorLinks[5]!.text}
+      <SectionHeader
+        id={anchorLinks[5]!.url.slice(1)}
+        icon={anchorLinks[5]!.icon}>
+        {anchorLinks[5]!.heading}
       </SectionHeader>
 
       <ResearchList lang={language} />
@@ -148,8 +172,10 @@ const figcaptions: Caption[] = [
     gap: var(--space-64);
   }
 
-  .projects-bg {
-    background: rgb(var(--white));
+  .hero-bg {
+    background: hsl(var(--a) 63%);
     border-radius: var(--radius-xxl);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
   }
 </style>
