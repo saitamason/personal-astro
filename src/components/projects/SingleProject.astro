@@ -23,6 +23,7 @@ const {
     size,
     mobile,
     course,
+    color,
   },
   isEn,
 } = Astro.props;
@@ -87,17 +88,22 @@ const isSmall = size === "small";
   </div>
   <div class="bg"></div>
   <div class="buttons">
-    <a
-      href={link.url}
-      hreflang={link.lang}
-      class="button"
-      style={{ backgroundColor: link.icon.bg, color: link.icon.color }}
-      ><link.icon.icon
-        size="var(--icon-size)"
-        className="button__icon"
-        title={link.icon.name}
-      />{visitText}</a
-    >
+    {
+      link && (
+        <a
+          href={link.url}
+          hreflang={link.lang}
+          class="button"
+          style={{ backgroundColor: link.icon.bg, color: link.icon.color }}>
+          <link.icon.icon
+            size="var(--icon-size)"
+            className="button__icon"
+            title={link.icon.name}
+          />
+          {visitText}
+        </a>
+      )
+    }
     <a
       href={source}
       class="button"
@@ -111,7 +117,7 @@ const isSmall = size === "small";
   </div>
   <div class="tablet">
     <div class="tablet__screen">
-      <img src={image.full} class="project__img" />
+      {image?.full && <img src={image.full} class="project__img" />}
     </div>
   </div>
   <ul class="tech">
@@ -122,7 +128,9 @@ const isSmall = size === "small";
       <div class="phone">
         <div class="phone__speaker" />
         <div class="phone__screen">
-          <img src={image.mobile} class="project__img-mobile" />
+          {image?.mobile && (
+            <img src={image.mobile} class="project__img-mobile" />
+          )}
         </div>
         <div class="phone__button" />
       </div>
@@ -130,12 +138,13 @@ const isSmall = size === "small";
   }
 </li>
 
-<style>
+<style define:vars={{ h: color.h, s: color.s, l: color.l }}>
   .project {
     grid-column: span 6;
     display: grid;
     grid-template-columns: repeat(14, 1fr);
     grid-template-rows: min-content min-content min-content 1fr;
+    /* background: hsl(var(--h) var(--s) var(--l)); */
   }
   .project--medium {
     grid-column: span 4;
@@ -252,12 +261,6 @@ const isSmall = size === "small";
   .bg {
     grid-column: 2 / 13;
     grid-row: 2 / -1;
-    background: linear-gradient(
-      to top left,
-      transparent,
-      var(--gray-14),
-      transparent
-    );
     border-bottom-right-radius: var(--radius-small);
     border-bottom-left-radius: var(--radius-small);
     z-index: -1;

@@ -19,6 +19,11 @@ export interface Project {
     full: string;
     mobile?: string;
   };
+  color: {
+    h: string;
+    s: string;
+    l: string;
+  };
   technologies: tech.Tech[];
   link?: {
     text: string;
@@ -50,6 +55,11 @@ const projects: Project[] = [
       icon: tech.Netlify,
     },
     source: "https://github.com/dawidlehai/kociolek-remix",
+    color: {
+      h: "45",
+      s: "80%",
+      l: "88%",
+    },
   },
   {
     title: "Natio",
@@ -71,6 +81,11 @@ const projects: Project[] = [
       icon: tech.Netlify,
     },
     source: "https://github.com/dawidlehai/kociolek-remix",
+    color: {
+      h: "346",
+      s: "74%",
+      l: "59%",
+    },
   },
   {
     title: "Omnifood",
@@ -98,6 +113,11 @@ const projects: Project[] = [
       icon: tech.Netlify,
     },
     source: "https://github.com/dawidlehai/omnifood",
+    color: {
+      h: "39",
+      s: "85%",
+      l: "96%",
+    },
   },
   {
     title: "Nexter",
@@ -125,6 +145,11 @@ const projects: Project[] = [
       icon: tech.Netlify,
     },
     source: "https://github.com/dawidlehai/nexter",
+    color: {
+      h: "210",
+      s: "44%",
+      l: "10%",
+    },
   },
   {
     title: "Trillo",
@@ -152,6 +177,11 @@ const projects: Project[] = [
       icon: tech.Netlify,
     },
     source: "https://github.com/dawidlehai/trillo",
+    color: {
+      h: "346",
+      s: "96%",
+      l: "58%",
+    },
   },
   {
     title: "Remix Expenses",
@@ -186,6 +216,11 @@ const projects: Project[] = [
       icon: tech.Vercel,
     },
     source: "https://github.com/dawidlehai/remix-expenses",
+    color: {
+      h: "248",
+      s: "90%",
+      l: "31%",
+    },
   },
   {
     title: "Forkify",
@@ -212,6 +247,11 @@ const projects: Project[] = [
       icon: tech.Netlify,
     },
     source: "https://github.com/dawidlehai/forkify",
+    color: {
+      h: "23",
+      s: "86%",
+      l: "73%",
+    },
   },
   {
     title: "Mapty",
@@ -238,6 +278,11 @@ const projects: Project[] = [
       icon: tech.Netlify,
     },
     source: "https://github.com/dawidlehai/mapty",
+    color: {
+      h: "159",
+      s: "100%",
+      l: "40%",
+    },
   },
   {
     title: "Delifood",
@@ -264,6 +309,11 @@ const projects: Project[] = [
       icon: tech.Netlify,
     },
     source: "https://github.com/dawidlehai/delifood",
+    color: {
+      h: "174",
+      s: "57%",
+      l: "40%",
+    },
   },
   {
     title: "React Expenses",
@@ -290,6 +340,11 @@ const projects: Project[] = [
       icon: tech.Netlify,
     },
     source: "https://github.com/dawidlehai/react-expenses-tracker",
+    color: {
+      h: "278",
+      s: "47%",
+      l: "80%",
+    },
   },
   {
     title: "Bankist",
@@ -316,6 +371,11 @@ const projects: Project[] = [
       icon: tech.Netlify,
     },
     source: "https://github.com/dawidlehai/bankist",
+    color: {
+      h: "0",
+      s: "0%",
+      l: "95%",
+    },
   },
   {
     title: "Protektor",
@@ -335,6 +395,11 @@ const projects: Project[] = [
       lang: "pl",
       icon: tech.PhLink,
     },
+    color: {
+      h: "52",
+      s: "96%",
+      l: "59%",
+    },
   },
   {
     title: "Taktyki negocjacji",
@@ -353,6 +418,11 @@ const projects: Project[] = [
       url: "http://taktyki.jcom.pl/",
       lang: "pl",
       icon: tech.PhLink,
+    },
+    color: {
+      h: "51",
+      s: "23%",
+      l: "68%",
     },
   },
 ];
