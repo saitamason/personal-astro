@@ -318,6 +318,25 @@ const projects: Project[] = [
     source: "https://github.com/dawidlehai/bankist",
   },
   {
+    title: "Protektor",
+    subtitle: "Dystrybutor materiałów budowlanych",
+    type: "commercial",
+    size: "small",
+    mobile: false,
+    description:
+      "Oficjalna strona internetowa firmy Protektor-Polska Sp. z o.o. z 2014 roku.",
+    image: {
+      full: "/screenshots/protektor-01.png",
+    },
+    technologies: [tech.CSS, tech.HTML],
+    link: {
+      text: "Strona",
+      url: "https://protektor-polska.pl/",
+      lang: "pl",
+      icon: tech.PhLink,
+    },
+  },
+  {
     title: "Taktyki negocjacji",
     subtitle: "Zastosowanie i metody obrony",
     type: "personal",
@@ -330,9 +349,9 @@ const projects: Project[] = [
     },
     technologies: [tech.CSS, tech.HTML, tech.PHP],
     link: {
-      text: "Netlify",
+      text: "Strona",
       url: "http://taktyki.jcom.pl/",
-      lang: "en",
+      lang: "pl",
       icon: tech.PhLink,
     },
   },
