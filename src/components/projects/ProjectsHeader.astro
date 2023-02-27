@@ -20,8 +20,18 @@ const { link } = Astro.props;
         </p>
         <h2 class="subheading">{link.subheading}</h2>
       </hgroup>
-      <div class="rounder--left"><div class="rounder__box--left"></div></div>
-      <div class="rounder--right"><div class="rounder__box--right"></div></div>
+      <div class="rounder rounder--top-left">
+        <div class="rounder__box rounder__box--top-left"></div>
+      </div>
+      <div class="rounder rounder--top-right">
+        <div class="rounder__box rounder__box--top-right"></div>
+      </div>
+      <div class="rounder rounder--bottom-right">
+        <div class="rounder__box rounder__box--bottom-right"></div>
+      </div>
+      <div class="rounder rounder--bottom-left">
+        <div class="rounder__box rounder__box--bottom-left"></div>
+      </div>
     </div>
   </div>
 
@@ -33,17 +43,14 @@ const { link } = Astro.props;
 <style>
   .projects-section {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: 1fr 1fr;
     padding: 0 var(--side-padding);
     gap: var(--space-32);
   }
 
   .header-container {
-    grid-column: span 6;
     background: hsl(var(--a) 63%);
     position: relative;
-    border-bottom-right-radius: var(--radius-default);
-    border-bottom-left-radius: var(--radius-default);
     padding: var(--space-96);
     position: relative;
   }
@@ -99,41 +106,55 @@ const { link } = Astro.props;
     text-align: justify;
   }
 
-  .rounder--left,
-  .rounder--right {
+  .rounder {
     position: absolute;
     width: var(--radius-xxl);
     height: var(--radius-xxl);
     background: hsl(var(--a) 63%);
-    top: 0;
     z-index: -1;
   }
 
-  .rounder--left {
+  .rounder--top-left {
+    top: 0;
     left: 0;
     transform: translateX(-100%);
   }
-  .rounder--right {
+  .rounder--top-right {
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+  }
+  .rounder--bottom-left {
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+  }
+  .rounder--bottom-right {
+    bottom: 0;
     right: 0;
     transform: translateX(100%);
   }
 
-  .rounder__box--left,
-  .rounder__box--right {
+  .rounder__box {
     width: 100%;
     height: 100%;
     background: var(--a-darker);
   }
 
-  .rounder__box--left {
+  .rounder__box--top-left {
     border-top-right-radius: var(--radius-xxl);
   }
-  .rounder__box--right {
+  .rounder__box--top-right {
     border-top-left-radius: var(--radius-xxl);
+  }
+  .rounder__box--bottom-left {
+    border-bottom-right-radius: var(--radius-xxl);
+  }
+  .rounder__box--bottom-right {
+    border-bottom-left-radius: var(--radius-xxl);
   }
 
   .filler {
-    grid-column: span 6;
     border-radius: var(--radius-default);
     padding: var(--space-96);
     padding-bottom: var(--space-64);
@@ -151,7 +172,7 @@ const { link } = Astro.props;
   .header-container::before {
     content: "";
     width: 50vw;
-    height: calc(100% - var(--space-32));
+    height: calc(100% - var(--space-64));
     --color: var(--darker);
     background: repeating-linear-gradient(
         -45deg,
@@ -161,7 +182,7 @@ const { link } = Astro.props;
         transparent 2.5rem
       ),
       var(--a-full);
-    bottom: 0;
+    top: var(--space-32);
     left: calc(var(--space-32) * -1);
     position: absolute;
     transform: translateX(-100%);
