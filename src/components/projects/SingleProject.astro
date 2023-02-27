@@ -175,38 +175,16 @@ const isSmall = size === "small";
 </li>
 
 <style define:vars={{ h: color.h, s: color.s, l: color.l }}>
-  .project:nth-of-type(2)::before {
-    content: "";
-    width: 100vw;
-    height: 100%;
-    --color: var(--a-darker);
-    background: repeating-linear-gradient(
-      -45deg,
-      var(--a-full),
-      var(--a-full) 0.5rem,
-      var(--color) 0.5rem,
-      var(--color) 2.5rem
-    );
-    top: 0;
-    right: 0;
-    position: absolute;
-    transform: translateX(100%);
-  }
   .project {
     grid-column: span 6;
     display: grid;
     grid-template-columns: repeat(14, 1fr);
     grid-template-rows: repeat(3, min-content) 1fr;
     border-radius: var(--radius-default);
-    background: var(--darker);
-    padding: var(--space-96);
+    /* background: var(--darker); */
     padding-bottom: 0;
     position: relative;
     margin-top: var(--space-64);
-  }
-  .project:nth-of-type(2) {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
   }
   .project--medium {
     grid-column: span 4;
@@ -216,7 +194,7 @@ const isSmall = size === "small";
   }
 
   .description {
-    grid-column: 1 / -1;
+    grid-column: 3 / -3;
     grid-row: 1 / 2;
     color: var(--white-a);
   }
@@ -224,6 +202,7 @@ const isSmall = size === "small";
   .project__info {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    margin-top: var(--space-64);
   }
 
   .project__type-icon-container {
@@ -294,19 +273,18 @@ const isSmall = size === "small";
     position: absolute;
   } */
   .phone {
-    grid-column: 12 / 15;
-    grid-row: 2 / 3;
+    grid-column: 11 / 15;
+    grid-row: 2 / -1;
     align-self: start;
 
     background-color: hsl(var(--h) var(--s) 97.5%);
 
-    --border: var(--space-4);
+    --border: var(--space-8);
     --phone-radius: var(--radius-default);
-    border-radius: var(--phone-radius);
-    padding: var(--border);
-    /* margin-top: var(--space-64); */
-    /* transform: translateX(50%); */
-    /* box-shadow: var(--shadow-default); */
+    border-radius: calc(var(--border) + var(--phone-radius));
+    padding: var(--space-4);
+    margin-top: var(--space-64);
+    box-shadow: var(--shadow-default);
     position: relative;
   }
   .project--medium .phone {
@@ -319,7 +297,7 @@ const isSmall = size === "small";
 
   .phone__screen {
     overflow: hidden;
-    border-radius: calc(var(--phone-radius) - var(--border));
+    border-radius: calc(var(--phone-radius) + var(--space-4));
   }
 
   .project__img-mobile {
@@ -333,7 +311,7 @@ const isSmall = size === "small";
   }
 
   .tablet {
-    grid-column: 1 / 11;
+    grid-column: 1 / 13;
     grid-row: 2 / 3;
     border-radius: calc(var(--space-8) + var(--radius-default));
     overflow: hidden;
@@ -352,12 +330,12 @@ const isSmall = size === "small";
 
   .tech {
     align-self: start;
-    grid-column: 1 / 15;
+    grid-column: 1 / -1;
     grid-row: 3 / 4;
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-8);
-    margin-top: var(--space-16);
+    margin-top: var(--space-8);
   }
   .project--medium .tech {
     margin-top: var(--space-12);
@@ -369,10 +347,10 @@ const isSmall = size === "small";
   }
 
   .bg {
-    grid-column: 1 / -1;
+    grid-column: 2 / -2;
     grid-row: 1 / -1;
-    border-bottom-right-radius: var(--radius-small);
-    border-bottom-left-radius: var(--radius-small);
+    border-radius: var(--radius-default);
+    background: var(--darker);
     z-index: -1;
   }
   .project--small .bg {
@@ -389,7 +367,7 @@ const isSmall = size === "small";
   }
 
   .buttons {
-    grid-column: 1 / -1;
+    grid-column: 3 / -3;
     grid-row: 4 / 5;
     margin-top: var(--space-48);
     display: flex;
