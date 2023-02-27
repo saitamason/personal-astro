@@ -47,7 +47,7 @@ const url = getLanguageUrls(Astro.url.pathname);
         1fr [start] minmax(min-content, var(--width-default))
         [end] 1fr;
 
-      background: var(--white-a);
+      background: var(--a-darker);
 
       margin-bottom: 100rem;
     }
@@ -262,6 +262,7 @@ const url = getLanguageUrls(Astro.url.pathname);
       --letter-spacing-4: -0.05rem;
       --letter-spacing-5: -0.02rem;
       --letter-spacing-loose: 0.2rem;
+      --letter-spacing-very-loose: 0.8rem;
 
       --space-1: 0.1rem;
       --space-2: 0.2rem;
@@ -311,7 +312,9 @@ const url = getLanguageUrls(Astro.url.pathname);
       --white: 255 255 255;
       --black: 0 0 0;
       --white-a: hsl(var(--a) 97.5%);
+      --white-b: hsl(var(--b) 97.5%);
       --a-full: hsl(var(--a) 63%);
+      --a-darker: #e4503c;
       --b-full: hsl(var(--b) 62%);
       --darker: rgb(var(--black) / 0.1);
 
@@ -319,6 +322,7 @@ const url = getLanguageUrls(Astro.url.pathname);
       --radius-s: 0.75rem;
       --radius-small: 1rem;
       --radius-default: 1.2rem;
+      --radius-old: 1.5rem;
       --radius-xxl: 3.5rem;
 
       --shadow-default: -1.2rem 2rem 2.5rem -0.5rem rgb(0 0 0 / 0.1),
@@ -429,10 +433,11 @@ const url = getLanguageUrls(Astro.url.pathname);
       font-weight: 700;
       word-spacing: 0.2ex;
       overflow: hidden;
+      position: relative;
     }
 
     .button__text {
-      padding: 1.2ex 3.2ex 1.2ex 1.8ex;
+      padding: 1.2ex 6.2ex 1.2ex 1.8ex;
     }
 
     .button__icon {
@@ -459,7 +464,8 @@ const url = getLanguageUrls(Astro.url.pathname);
       background: hsl(var(--b) 62%);
       height: 100%;
       width: 3.4ex;
-      position: relative;
+      position: absolute;
+      right: 0;
       border-left: var(--border-width) solid currentColor;
     }
   </style>

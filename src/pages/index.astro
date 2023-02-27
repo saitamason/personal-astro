@@ -21,6 +21,7 @@ import Skills from "../components/skills/Skills.astro";
 import Courses from "../components/courses/Courses.astro";
 import EducationList from "../components/education/EducationList.astro";
 import ResearchList from "@components/research/ResearchList.astro";
+import ProjectsHeader from "@components/projects/ProjectsHeader.astro";
 // import Intersection from "../components/Intersection.astro";
 
 const language: LanguageSelectionType = "pl";
@@ -105,26 +106,31 @@ const figcaptions: Caption[] = [
       </div>
     </section>
 
-    <section
-      class="full-bleed layout-grid projects-bg"
-      id={anchorLinks[0]!.url.slice(1)}>
-      <MyProjects
-        projects={projects}
-        language={language}
-        link={anchorLinks[0]!}>
-        <p>
-          Programowanie to pasja, którą rozwijam od dziecka. To ona skłoniła
-          mnie do nauki w technikum z klasą o profilu informatycznym, a
-          następnie do studiowania informatyki. Różne wydarzenia sprawiły
-          jednak, że zainteresowałem się również psychologią. Dopiero po latach
-          nauki w tej dziedzinie zdecydowałem się powrócić do pierwotnej pasji.
-        </p>
-        <p>
-          Wszystko to sprawiło, że w moim portfolio znajdują się przede
-          wszystkim projekty napisane w ramach różnych kursów, kilka projektów z
-          dawnych lat oraz kilka nowszych projektów personalnych i komercyjnych.
-        </p>
-      </MyProjects>
+    <section class="ignore-grid">
+      <div
+        class="full-bleed layout-grid projects-bg"
+        id={anchorLinks[0]!.url.slice(1)}>
+        <ProjectsHeader link={anchorLinks[0]!}>
+          <p>
+            Programowanie to pasja, którą rozwijam od dziecka. To ona skłoniła
+            mnie do nauki w technikum z klasą o profilu informatycznym, a
+            następnie do studiowania informatyki. Różne wydarzenia sprawiły
+            jednak, że zainteresowałem się również psychologią. Dopiero po
+            latach nauki w tej dziedzinie zdecydowałem się powrócić do
+            pierwotnej pasji.
+          </p>
+          <p>
+            Wszystko to sprawiło, że w moim portfolio znajdują się przede
+            wszystkim projekty napisane w ramach różnych kursów, kilka projektów
+            z dawnych lat oraz kilka nowszych projektów personalnych i
+            komercyjnych.
+          </p>
+        </ProjectsHeader>
+      </div>
+
+      <div class="full-bleed layout-grid projects-list-bg">
+        <MyProjects projects={projects} language={language} />
+      </div>
     </section>
 
     <section class="ignore-grid">
@@ -194,5 +200,16 @@ const figcaptions: Caption[] = [
     border-radius: var(--radius-xxl);
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+  }
+
+  .projects-bg {
+    overflow: hidden;
+  }
+
+  .projects-list-bg {
+    overflow: hidden;
+    margin-top: var(--space-32);
+    background: hsl(var(--a) 63%);
+    border-top-left-radius: var(--radius-xxl);
   }
 </style>

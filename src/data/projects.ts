@@ -8,6 +8,7 @@ export interface Course {
 }
 
 export interface Project {
+  year: number;
   title: string;
   subtitle: string;
   type: "commercial" | "personal" | "course";
@@ -24,6 +25,7 @@ export interface Project {
     s: string;
     l: string;
   };
+  bg?: string;
   technologies: tech.Tech[];
   link?: {
     text: string;
@@ -36,6 +38,7 @@ export interface Project {
 
 const projects: Project[] = [
   {
+    year: 2023,
     title: "Kociołek",
     subtitle: "Bufet i kawiarnia w Bydgoszczy",
     type: "commercial",
@@ -57,11 +60,12 @@ const projects: Project[] = [
     source: "https://github.com/dawidlehai/kociolek-remix",
     color: {
       h: "45",
-      s: "80%",
-      l: "88%",
+      s: "97%",
+      l: "48%",
     },
   },
   {
+    year: 2023,
     title: "Natio",
     subtitle: "Informacje o krajach i ich sąsiadach",
     type: "personal",
@@ -88,6 +92,7 @@ const projects: Project[] = [
     },
   },
   {
+    year: 2022,
     title: "Omnifood",
     subtitle: "Catering wspomagany SI",
     type: "course",
@@ -120,6 +125,7 @@ const projects: Project[] = [
     },
   },
   {
+    year: 2022,
     title: "Nexter",
     subtitle: "Luksusowe domy i apartamenty",
     type: "course",
@@ -152,6 +158,7 @@ const projects: Project[] = [
     },
   },
   {
+    year: 2022,
     title: "Trillo",
     subtitle: "Zaplanuj swoją podróż",
     type: "course",
@@ -184,6 +191,7 @@ const projects: Project[] = [
     },
   },
   {
+    year: 2023,
     title: "Remix Expenses",
     subtitle: "Zarządzaj swoimi wydatkami",
     type: "course",
@@ -223,6 +231,7 @@ const projects: Project[] = [
     },
   },
   {
+    year: 2022,
     title: "Forkify",
     subtitle: "Wyszukuj i dodawaj przepisy",
     type: "course",
@@ -254,6 +263,7 @@ const projects: Project[] = [
     },
   },
   {
+    year: 2022,
     title: "Mapty",
     subtitle: "Śledź swoje treningi na mapie",
     type: "course",
@@ -285,6 +295,7 @@ const projects: Project[] = [
     },
   },
   {
+    year: 2022,
     title: "Delifood",
     subtitle: "Zamów pyszne jedzenie",
     type: "course",
@@ -316,6 +327,7 @@ const projects: Project[] = [
     },
   },
   {
+    year: 2022,
     title: "React Expenses",
     subtitle: "Śledź swoje wydatki",
     type: "course",
@@ -347,6 +359,7 @@ const projects: Project[] = [
     },
   },
   {
+    year: 2022,
     title: "Bankist",
     subtitle: "Prosty sposób na bankowość",
     type: "course",
@@ -378,6 +391,7 @@ const projects: Project[] = [
     },
   },
   {
+    year: 2014,
     title: "Protektor",
     subtitle: "Dystrybutor materiałów budowlanych",
     type: "commercial",
@@ -402,6 +416,7 @@ const projects: Project[] = [
     },
   },
   {
+    year: 2013,
     title: "Taktyki negocjacji",
     subtitle: "Zastosowanie i metody obrony",
     type: "personal",
