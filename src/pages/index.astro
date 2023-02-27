@@ -27,7 +27,12 @@ const language: LanguageSelectionType = "pl";
 const ageInYears = getAge();
 
 const anchorLinks: Link[] = [
-  { heading: "Projekty", url: "#projekty", subheading: "", icon: Monitor },
+  {
+    heading: "Projekty",
+    url: "#projekty",
+    subheading: "Kilka projektów...",
+    icon: Monitor,
+  },
   { heading: "Technologie", url: "#technologie", subheading: "", icon: Stack },
   { heading: "Kursy", url: "#kursy", subheading: "", icon: Books },
   {
@@ -106,8 +111,20 @@ const figcaptions: Caption[] = [
       <MyProjects
         projects={projects}
         language={language}
-        link={anchorLinks[0]!}
-      />
+        link={anchorLinks[0]!}>
+        <p>
+          Programowanie to pasja, którą rozwijam od dziecka. To ona skłoniła
+          mnie do nauki w technikum z klasą o profilu informatycznym, a
+          następnie do studiowania informatyki. Różne wydarzenia sprawiły
+          jednak, że zainteresowałem się również psychologią. Dopiero latach
+          nauki w tej dziedzinie zdecydowałem się powrócić do pierwotnej pasji.
+        </p>
+        <p>
+          Wszystko to sprawiło, że w moim portfolio znajdują się przede
+          wszystkim projekty napisane w ramach różnych kursów, kilka projektów z
+          dawnych lat oraz kilka nowszych projektów personalnych i komercyjnych.
+        </p>
+      </MyProjects>
     </section>
 
     <section class="ignore-grid">

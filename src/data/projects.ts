@@ -15,12 +15,12 @@ export interface Project {
   mobile: boolean;
   course?: Course;
   description?: string;
-  image: {
+  image?: {
     full: string;
     mobile?: string;
   };
   technologies: tech.Tech[];
-  link: {
+  link?: {
     text: string;
     url: string;
     lang: string;

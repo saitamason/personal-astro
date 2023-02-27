@@ -47,7 +47,7 @@ const url = getLanguageUrls(Astro.url.pathname);
         1fr [start] minmax(min-content, var(--width-default))
         [end] 1fr;
 
-      background: hsl(var(--a) 97.5%);
+      background: var(--white-a);
 
       margin-bottom: 100rem;
     }
@@ -310,6 +310,10 @@ const url = getLanguageUrls(Astro.url.pathname);
       --b: 46 99%; /* 62% */
       --white: 255 255 255;
       --black: 0 0 0;
+      --white-a: hsl(var(--a) 97.5%);
+      --a-full: hsl(var(--a) 63%);
+      --b-full: hsl(var(--b) 62%);
+      --darker: rgb(var(--black) / 0.1);
 
       --radius-xs: 0.5rem;
       --radius-s: 0.75rem;
@@ -390,7 +394,7 @@ const url = getLanguageUrls(Astro.url.pathname);
     }
 
     p {
-      margin-bottom: var(--space-12);
+      margin-bottom: var(--space-24);
     }
 
     /* Utility classes */
@@ -440,7 +444,7 @@ const url = getLanguageUrls(Astro.url.pathname);
       width: 3.2ex;
       height: 3.2ex;
       background: hsl(var(--a) 63%);
-      color: hsl(var(--a) 97.5%);
+      color: var(--white-a);
       border-radius: 100px;
       display: flex;
       justify-content: center;
