@@ -160,7 +160,7 @@ const projects: Project[] = [
   {
     year: 2022,
     title: "Trillo",
-    subtitle: "Zaplanuj swoją podróż",
+    subtitle: "Wyszukiwarka hoteli i lotów",
     type: "course",
     size: "medium",
     course: {

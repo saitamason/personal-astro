@@ -26,12 +26,15 @@ const { tech, size } = Astro.props;
     padding: 1ex 1.4ex;
     font-weight: var(--font-medium);
     cursor: cursor;
-    /* color: hsl(var(--h) var(--s) 97.5%); */
-    color: var(--a-darker);
-    background: var(--b-full);
+    /* color: var(--a-darker);
+    background: var(--b-full); */
+    color: var(--color);
+    background: var(--bg);
     border: var(--border-width) solid var(--a-full);
+    /* color: hsl(236, 49%, 69%); */
   }
 
+  .medium,
   .small {
     font-size: var(--font-xs);
   }

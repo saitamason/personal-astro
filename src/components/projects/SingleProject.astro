@@ -75,7 +75,7 @@ const isSmall = size === "small";
     { "project--medium": isMedium },
     { "project--small": isSmall },
   ]}>
-  <div class="description">
+  <div class="header">
     <div class="project__info">
       <p class="project__type" style={{ color: projectType.color }}>
         <time datetime={String(year)}>{year}</time><span
@@ -118,7 +118,8 @@ const isSmall = size === "small";
         {subtitle}
       </p>
     </hgroup>
-
+  </div>
+  <div class="description">
     <!-- <p>{description}</p> -->
     {type === "course" && <CourseInfo isEn={isEn} course={course!} />}
   </div>
@@ -179,7 +180,7 @@ const isSmall = size === "small";
     grid-column: span 6;
     display: grid;
     grid-template-columns: repeat(14, 1fr);
-    grid-template-rows: repeat(3, min-content) 1fr;
+    grid-template-rows: repeat(4, min-content) 1fr;
     border-radius: var(--radius-default);
     /* background: var(--darker); */
     padding-bottom: 0;
@@ -193,10 +194,15 @@ const isSmall = size === "small";
     grid-column: span 3;
   }
 
-  .description {
+  .header {
     grid-column: 3 / -3;
     grid-row: 1 / 2;
     color: var(--white-a);
+    margin-bottom: var(--space-24);
+  }
+  .project--medium .header,
+  .project--small .header {
+    margin-bottom: var(--space-12);
   }
 
   .project__info {
@@ -224,10 +230,10 @@ const isSmall = size === "small";
   .project--medium .title,
   .project--small .title {
     font-size: var(--font-5);
+    letter-spacing: var(--letter-spacing-4);
   }
 
   .subtitle {
-    margin-bottom: var(--space-48);
     font-size: var(--font-large);
   }
   .project--medium .subtitle,
@@ -241,11 +247,15 @@ const isSmall = size === "small";
     font-weight: 600;
     color: var(--white-a);
     line-height: 1;
+    margin-bottom: var(--space-8);
+  }
+  .project--medium time,
+  .project--small time {
+    font-size: var(--font-base);
   }
 
   .project__type {
     grid-column: 1 / 3;
-    display: inline-block;
     text-transform: uppercase;
   }
   .project__type span {
@@ -254,10 +264,19 @@ const isSmall = size === "small";
     font-weight: 600;
     letter-spacing: var(--letter-spacing-very-loose);
     color: var(--b-full);
+    display: flex;
+    line-height: var(--line-very-tight);
   }
-  .project--medium .project__type,
-  .project--small .project__type {
-    font-size: var(--font-xs);
+  .project--medium .project__type span,
+  .project--small .project__type span {
+    font-size: var(--font-small);
+    letter-spacing: 0;
+  }
+
+  .description {
+    grid-column: 3 / -5;
+    grid-row: 4 / 5;
+    color: var(--white-a);
   }
 
   /* .project:first-of-type .phone::before {
@@ -317,7 +336,6 @@ const isSmall = size === "small";
     overflow: hidden;
     background: hsl(var(--h) var(--s) 97.5%);
     border: var(--border-width) solid var(--a-full);
-    /* padding: var(--space-8); */
   }
   .project--small .tablet {
     grid-column: 1 / -1;
@@ -336,14 +354,6 @@ const isSmall = size === "small";
     flex-wrap: wrap;
     gap: var(--space-8);
     margin-top: var(--space-8);
-  }
-  .project--medium .tech {
-    margin-top: var(--space-12);
-  }
-  .project--small .tech {
-    grid-column: 1 / -1;
-    gap: var(--space-4);
-    margin-top: var(--space-12);
   }
 
   .bg {
@@ -368,7 +378,7 @@ const isSmall = size === "small";
 
   .buttons {
     grid-column: 3 / -3;
-    grid-row: 4 / 5;
+    grid-row: 5 / 6;
     margin-top: var(--space-48);
     display: flex;
     justify-content: start;
