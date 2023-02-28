@@ -16,11 +16,11 @@ const {
     title,
     subtitle,
     type,
-    description,
     image,
     technologies,
     link,
     source,
+    description,
     size,
     mobile,
     course,
@@ -120,7 +120,8 @@ const isSmall = size === "small";
     </hgroup>
   </div>
   <div class="description">
-    <!-- <p>{description}</p> -->
+    <span class="shape"></span>
+    <p>{description}</p>
     {type === "course" && <CourseInfo isEn={isEn} course={course!} />}
   </div>
   <div class="bg"></div>
@@ -274,10 +275,25 @@ const isSmall = size === "small";
   }
 
   .description {
-    grid-column: 3 / -5;
+    grid-column: 3 / -3;
     grid-row: 4 / 5;
     color: var(--white-a);
+    margin-top: var(--space-32);
   }
+  .project--medium .description,
+  .project--small .description {
+    margin-top: var(--space-24);
+  }
+
+  .shape {
+    float: right;
+    width: 20%;
+    padding-bottom: 6%;
+  }
+
+  /* .project :is(:first-of-type, :nth-of-type(2)) :where(.description p) {
+    shape-outside: polygon(10px 10px, 20px 20px, 30px 30px);
+  } */
 
   /* .project:first-of-type .phone::before {
     content: "";
@@ -298,17 +314,19 @@ const isSmall = size === "small";
 
     background-color: hsl(var(--h) var(--s) 97.5%);
 
+    --padding: var(--space-4);
     --border: var(--space-8);
     --phone-radius: var(--radius-default);
     border-radius: calc(var(--border) + var(--phone-radius));
-    padding: var(--space-4);
+    padding: var(--padding);
     margin-top: var(--space-64);
     box-shadow: var(--shadow-default);
     position: relative;
   }
   .project--medium .phone {
-    --phone-radius: var(--radius-default);
+    --phone-radius: var(--radius-small);
     --border: var(--space-4);
+    --padding: 0.2rem;
   }
   .project--small .phone {
     display: none;
@@ -379,7 +397,6 @@ const isSmall = size === "small";
   .buttons {
     grid-column: 3 / -3;
     grid-row: 5 / 6;
-    margin-top: var(--space-48);
     display: flex;
     justify-content: start;
     align-self: end;

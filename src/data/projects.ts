@@ -45,7 +45,7 @@ const projects: Project[] = [
     size: "large",
     mobile: true,
     description:
-      "Oficjalna strona internetowa firmy Kociołek. Projekt obejmował zaprojektowanie układu strony, dobór kolorów, grafik i fontów oraz napisanie kodu TypeScript, CSS i HTML z wykorzystaniem frameworków Remix oraz React.",
+      "Strona internetowa firmy Kociołek. Projekt obejmował zaprojektowanie układu strony, dobór kolorów, grafik i fontów oraz napisanie kodu TypeScript, CSS i HTML z wykorzystaniem frameworków Remix oraz React.",
     image: {
       full: "/screenshots/kociolek-01.png",
       mobile: "/screenshots/kociolek-mobile-01.png",
@@ -72,7 +72,7 @@ const projects: Project[] = [
     size: "large",
     mobile: true,
     description:
-      "Aplikacja edukacyjna typu SPA napisana w JavaScript, Sass i HTML, która pozwala wyszukiwać i wyświetlać kraje, ich sąsiadów oraz informacje na ich temat. Możliwe jest również dodawanie krajów do ulubionych oraz śledzenie postępu odkrytych krajów.",
+      "Aplikacja edukacyjna typu SPA napisana w JavaScript, Sass i HTML, która pozwala wyświetlać informacje o krajach i ich sąsiadach, a także dodawać kraje do ulubionych oraz śledzić swój postęp nauki.",
     image: {
       full: "/screenshots/natio-01.png",
       mobile: "/screenshots/natio-mobile-01.png",
@@ -105,7 +105,7 @@ const projects: Project[] = [
     },
     mobile: true,
     description:
-      "Strona domowa dla fikcyjnej firmy zajmującej się przygotowywaniem diety pudełkowej dobieranej z pomocą SI.",
+      "Strona domowa dla fikcyjnej firmy zajmującej się personalizowaniem diety z pomocą SI.",
     image: {
       full: "/screenshots/omnifood-01.png",
       mobile: "/screenshots/omnifood-mobile-01.png",
