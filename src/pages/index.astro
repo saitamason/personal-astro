@@ -131,6 +131,9 @@ const figcaptions: Caption[] = [
 
       <div class="full-bleed layout-grid projects-list-bg">
         <MyProjects projects={projects} language={language} />
+      </div>
+
+      <div class="full-bleed layout-grid projects-carousel-bg">
         <ProjectsCarousel projects={projects} language={language} />
       </div>
     </section>
@@ -195,5 +198,10 @@ const figcaptions: Caption[] = [
     padding-top: var(--space-128);
     padding-bottom: var(--space-256);
     gap: var(--space-64);
+  }
+
+  .projects-carousel-bg {
+    margin-top: var(--space-128);
+    /* background: var(--a-darker); */
   }
 </style>

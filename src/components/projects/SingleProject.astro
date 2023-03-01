@@ -3,8 +3,8 @@ import { GitHub } from "../../utils/technologies.astro";
 
 import type { Project } from "../../data/projects";
 import CourseInfo from "./CourseInfo.astro";
-import TechIcon from "./TechIcon.astro";
-import { Books, Coins, UserFocus } from "phosphor-react";
+import { ArrowFatRight, Books, Coins, UserFocus } from "phosphor-react";
+import TechList from "./TechList.astro";
 
 interface Props {
   project: Project;
@@ -41,8 +41,8 @@ let projectType: Partial<ProjectType> = {};
 const commercialText = isEn ? "Commercial project" : "Projekt komercyjny";
 const personalText = isEn ? "Personal project" : "Projekt personalny";
 const courseText = isEn ? "Course project" : "Projekt w ramach kursu";
-const sourceText = isEn ? "Source code" : "Kod źródłowy";
-const visitText = isEn ? "Visit website" : "Sprawdź";
+const sourceText = isEn ? "Source code" : "GitHub";
+const visitText = isEn ? "Visit website" : "Wyświetl";
 
 if (type === "commercial")
   projectType = {
@@ -132,10 +132,10 @@ const isSmall = size === "small";
           <span class="button__text">{visitText}</span>
           <span class="button__icon-container">
             <span class="button__icon-fill">
-              <link.icon.icon
+              <ArrowFatRight
                 size="var(--icon-size)"
+                weight="fill"
                 className="button__icon"
-                title={link.icon.name}
               />
             </span>
           </span>
@@ -160,9 +160,7 @@ const isSmall = size === "small";
       {image?.full && <img src={image.full} class="project__img" />}
     </div>
   </div>
-  <ul class="tech">
-    {technologies.map((tech) => <TechIcon tech={tech} size={size} />)}
-  </ul>
+  <TechList size={size} technologies={technologies} />
   {
     mobile && (
       <div class="phone">
@@ -191,7 +189,7 @@ const isSmall = size === "small";
     grid-column: span 4;
   }
   .project--small {
-    scroll-snap-align: center;
+    scroll-snap-align: start;
     flex: 0 0 40rem;
     margin: 0;
     padding: var(--space-32) 0;
@@ -214,17 +212,24 @@ const isSmall = size === "small";
     margin-bottom: var(--space-12);
   }
   .project--small .header {
-    grid-column: 1 / -1;
+    grid-column: 2 / -2;
+    margin-bottom: var(--space-4);
   }
 
   .project__info {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin-top: var(--space-64);
+    margin-top: 5.8rem;
+  }
+  .project--medium .project__info {
+    margin-top: 4rem;
+  }
+  .project--small .project__info {
+    margin-top: var(--space-32);
   }
 
   .project__type-icon-container {
-    height: var(--space-80);
+    height: var(--space-64);
     aspect-ratio: 1/1;
     color: var(--white-a);
     line-height: 1;
@@ -232,7 +237,11 @@ const isSmall = size === "small";
     border-radius: var(--radius-s);
     grid-column: 3 / 4;
     justify-self: end;
-    border: var(--border-width) solid var(--a-full);
+    box-shadow: 0 0 0 var(--border-width) var(--a-full);
+  }
+  .project--small .project__type-icon-container {
+    height: var(--space-48);
+    padding: var(--space-8);
   }
 
   .title {
@@ -294,9 +303,11 @@ const isSmall = size === "small";
   .project--medium .description,
   .project--small .description {
     margin-top: var(--space-24);
+    margin-bottom: calc(var(--space-8) * -1);
   }
   .project--small .description {
-    grid-column: 1 / -1;
+    grid-column: 2 / -2;
+    margin-bottom: calc(var(--space-12) * -1);
   }
 
   .shape {
@@ -374,21 +385,13 @@ const isSmall = size === "small";
   }
   .project--small .tablet {
     grid-column: 1 / -1;
+    border-left: none;
+    border-right: none;
   }
 
   .project__img {
     width: 100%;
     aspect-ratio: 16/9;
-  }
-
-  .tech {
-    align-self: start;
-    grid-column: 1 / -1;
-    grid-row: 3 / 4;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-8);
-    margin-top: var(--space-8);
   }
 
   .bg {
@@ -399,7 +402,7 @@ const isSmall = size === "small";
     z-index: -1;
   }
   .project--small .bg {
-    display: none;
+    grid-column: 1 / -1;
   }
 
   .buttons {
@@ -412,7 +415,7 @@ const isSmall = size === "small";
     transform: translateY(50%);
   }
   .project--small .buttons {
-    transform: none;
+    grid-column: 2 / -2;
   }
 
   .button {

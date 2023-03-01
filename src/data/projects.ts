@@ -193,7 +193,7 @@ const projects: Project[] = [
   {
     year: 2023,
     title: "Remix Expenses",
-    subtitle: "Zarządzaj swoimi wydatkami",
+    subtitle: "Menedżer wydatków",
     type: "course",
     size: "small",
     course: {
@@ -203,8 +203,7 @@ const projects: Project[] = [
       teacher: "Maximilian Schwarzmüller",
     },
     mobile: false,
-    description:
-      "Aplikacja, w której można założyć konto, zalogować się i zarządzać swoimi wydatkami.",
+    description: "Załóż konto, zaloguj się i zarządzaj swoimi wydatkami.",
     image: {
       full: "/screenshots/remix-expenses-01.png",
     },
@@ -233,7 +232,7 @@ const projects: Project[] = [
   {
     year: 2022,
     title: "Forkify",
-    subtitle: "Wyszukuj i dodawaj przepisy",
+    subtitle: "Katalog przepisów kulinarnych",
     type: "course",
     size: "small",
     course: {
@@ -243,8 +242,7 @@ const projects: Project[] = [
       teacher: "Jonas Schmedtmann",
     },
     mobile: false,
-    description:
-      "Aplikacja, w której możesz wyszukiwać, dodawać do zakładek oraz zapisać własne przepisy.",
+    description: "Wyszukuj, dodawaj do zakładek oraz zapisuj własne przepisy.",
     image: {
       full: "/screenshots/forkify-01.png",
     },
@@ -265,7 +263,7 @@ const projects: Project[] = [
   {
     year: 2022,
     title: "Mapty",
-    subtitle: "Śledź swoje treningi na mapie",
+    subtitle: "Dziennik treningowy z mapą",
     type: "course",
     size: "small",
     course: {
@@ -275,8 +273,7 @@ const projects: Project[] = [
       teacher: "Jonas Schmedtmann",
     },
     mobile: false,
-    description:
-      "Aplikacja, w której możesz dodawać treningi biegowe i rowerowe jako punkty na mapie.",
+    description: "Dodawaj treningi biegowe i rowerowe jako punkty na mapie.",
     image: {
       full: "/screenshots/mapty-01.png",
     },
@@ -297,7 +294,7 @@ const projects: Project[] = [
   {
     year: 2022,
     title: "Delifood",
-    subtitle: "Zamów pyszne jedzenie",
+    subtitle: "Sklep z żywnością",
     type: "course",
     size: "small",
     course: {
@@ -308,7 +305,7 @@ const projects: Project[] = [
     },
     mobile: false,
     description:
-      "Aplikacja demo, w której można dodawać i usuwać produkty z koszyka bez możliwości złożenia zamówienia.",
+      "Dodawaj i usuwaj produkty z koszyka oraz złóż sztuczne zamówienie.",
     image: {
       full: "/screenshots/delifood-01.png",
     },
@@ -329,7 +326,7 @@ const projects: Project[] = [
   {
     year: 2022,
     title: "React Expenses",
-    subtitle: "Śledź swoje wydatki",
+    subtitle: "Dziennik wydatków",
     type: "course",
     size: "small",
     course: {
@@ -339,8 +336,7 @@ const projects: Project[] = [
       teacher: "Maximilian Schwarzmüller",
     },
     mobile: false,
-    description:
-      "Aplikacja demo, w której można dodawać swoje wydatki. Stan aplikacji ulega wyczyszczeniu po odświeżeniu strony.",
+    description: "Dodawaj swoje wydatki i sortuj je z podziałem na rok.",
     image: {
       full: "/screenshots/react-expenses-tracker-01.png",
     },
@@ -361,7 +357,7 @@ const projects: Project[] = [
   {
     year: 2022,
     title: "Bankist",
-    subtitle: "Prosty sposób na bankowość",
+    subtitle: "Bankowy panel zarządzania",
     type: "course",
     size: "small",
     course: {
@@ -371,8 +367,7 @@ const projects: Project[] = [
       teacher: "Jonas Schmedtmann",
     },
     mobile: false,
-    description:
-      "Aplikacja demo, w której można zalogować się na jedno z predefiniowanych kont, a następnie wykonywać podstawowe czynności bankowe.",
+    description: "Zaloguj się na konto i przetestuj podstawowe akcje UI.",
     image: {
       full: "/screenshots/bankist-01.png",
     },
@@ -398,7 +393,7 @@ const projects: Project[] = [
     size: "small",
     mobile: false,
     description:
-      "Oficjalna strona internetowa firmy Protektor-Polska Sp. z o.o. z 2014 roku.",
+      "Oficjalna strona internetowa firmy Protektor-Polska Sp. z o.o., którą wykonałem od podstaw na zamówienie w czasach nauki w technikum.",
     image: {
       full: "/screenshots/protektor-01.png",
     },
@@ -423,7 +418,7 @@ const projects: Project[] = [
     size: "small",
     mobile: false,
     description:
-      "Najstarsza strona jaką udało mi się zachować. Projekt edukacyjny z 2013 roku.",
+      "Najstarsza strona jaką udało mi się zachować. Projekt edukacyjny w ramach konkursu Wyższej Szkoły Gospodarki.",
     image: {
       full: "/screenshots/taktyki-01.png",
     },

@@ -1,0 +1,28 @@
+---
+import type { Tech } from "@utils/technologies.astro";
+import type { SizeType } from "@utils/types";
+import TechIcon from "./TechIcon.astro";
+
+interface Props {
+  technologies: Tech[];
+  size: SizeType;
+}
+
+const { technologies, size } = Astro.props;
+---
+
+<ul class="tech">
+  {technologies.map((tech) => <TechIcon tech={tech} size={size} />)}
+</ul>
+
+<style>
+  .tech {
+    align-self: start;
+    grid-column: 1 / -1;
+    grid-row: 3 / 4;
+    display: flex;
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+    overflow: hidden;
+  }
+</style>
