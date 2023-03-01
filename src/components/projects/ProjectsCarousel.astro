@@ -2,7 +2,7 @@
 import type { LanguageSelectionType } from "../../utils/types";
 import type { Project } from "../../data/projects";
 import SingleProject from "./SingleProject.astro";
-import { ArrowCircleRight } from "phosphor-react";
+import { ArrowCircleRight, ArrowRight } from "phosphor-react";
 
 interface Props {
   projects: Project[];
@@ -15,8 +15,11 @@ const isEn = lang === "en";
 
 <script>
   const list = document.getElementById("projects-list") as HTMLDivElement;
+  const instructions = document.querySelector(
+    ".instructions"
+  ) as HTMLParagraphElement;
 
-  if (list) {
+  if (list && instructions) {
     list.style.cursor = "grab";
 
     let pos = {
@@ -42,8 +45,11 @@ const isEn = lang === "en";
       list.style.scrollSnapType = "x mandatory";
       list.style.scrollBehavior = "smooth";
 
-      if (pos.dx > 0) list.scrollLeft -= 100;
-      if (pos.dx < 0) list.scrollLeft += 100;
+      if (pos.dx > 0) list.scrollLeft -= 150;
+      if (pos.dx < 0) list.scrollLeft += 150;
+
+      if (list.scrollWidth - list.clientWidth - 150 < list.scrollLeft)
+        instructions.classList.add("instructions--hidden");
     };
 
     list.addEventListener("mousedown", (event) => {
@@ -63,6 +69,10 @@ const isEn = lang === "en";
 </script>
 
 <div class="projects-section mid-col">
+  <p class="instructions">
+    Przesuń, aby zobaczyć więcej
+    <ArrowRight size="2rem" weight="regular" className="instructions__icon" />
+  </p>
   <ul class="list-container ignore-grid" id="projects-list">
     {
       projects.map((project, index) => {
@@ -89,6 +99,21 @@ const isEn = lang === "en";
 </div>
 
 <style>
+  .instructions {
+    display: flex;
+    gap: var(--space-8);
+    align-items: center;
+    color: var(--white-a);
+    font-size: var(--font-small);
+    padding: 0 var(--side-padding);
+    justify-content: end;
+    opacity: 1;
+    transition: opacity 1s;
+  }
+  .instructions--hidden {
+    opacity: 0;
+  }
+
   .projects-section {
     position: relative;
     overflow: hidden;
