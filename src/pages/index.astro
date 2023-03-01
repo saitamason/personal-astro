@@ -140,23 +140,21 @@ const figcaptions: Caption[] = [
           <Fragment slot="heading">Chcesz zobaczyć jeszcze więcej?</Fragment>
           <Fragment slot="info">
             Sprawdź mój profil <strong>@dawidlehai</strong> na GitHub. Znajdziesz
-            tam projekty, nad którymi pracuję obecnie oraz projekty, na które nie
-            starczyło już tutaj miejsca.
+            tam projekty, na które nie starczyło już tutaj miejsca oraz te, nad którymi
+            pracuję obecnie.
           </Fragment>
         </ProjectsCarousel>
       </div>
 
-      <GraphicProjects>
+      <GraphicProjects lang={language}>
+        <Fragment slot="subheading">Inne projekty</Fragment>
         <Fragment slot="heading">Projekty graficzne</Fragment>
         <Fragment slot="text">
           <p>
             Od czasu do czasu lubię także zaprojektować coś innego niż UI.
-            Czasem zajmuję się obróbką grafiki, a także tworzeniem plakatów,
-            ulotek i broszur.
-          </p>
-          <p>
-            Nie nazwałbym się jednak grafikiem komputerowym i dużo bardziej
-            lubię pracę w kodzie.
+            Zajmowałem się już obróbką zdjęć i grafiki, a także tworzeniem
+            plakatów, ulotek i broszur. Oprócz tego zaprojektowałem kilka
+            logotypów oraz własnego fonta.
           </p>
         </Fragment>
       </GraphicProjects>
@@ -226,6 +224,6 @@ const figcaptions: Caption[] = [
 
   .projects-carousel-bg {
     margin-top: 15.6rem;
-    /* background: var(--a-darker); */
+    margin-bottom: var(--space-128);
   }
 </style>
