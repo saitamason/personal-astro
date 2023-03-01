@@ -82,9 +82,9 @@ const isEn = lang === "en";
     }
     <li class="end">
       <article>
-        <h3>
+        <h4>
           <slot name="heading" />
-        </h3>
+        </h4>
         <p>
           <slot name="info" />
         </p>
@@ -148,10 +148,11 @@ const isEn = lang === "en";
     display: grid;
     grid-template-columns: 1fr;
   }
-  .end h3 {
+  .end h4 {
     font-size: var(--font-4);
     display: flex;
     flex-direction: column;
+    line-height: var(--line-very-tight);
     letter-spacing: var(--letter-spacing-2);
     margin-bottom: var(--space-32);
   }
