@@ -22,6 +22,7 @@ import Courses from "../components/courses/Courses.astro";
 import EducationList from "../components/education/EducationList.astro";
 import ResearchList from "@components/research/ResearchList.astro";
 import ProjectsHeader from "@components/projects/ProjectsHeader.astro";
+import ProjectsCarousel from "@components/projects/ProjectsCarousel.astro";
 // import Intersection from "../components/Intersection.astro";
 
 const language: LanguageSelectionType = "pl";
@@ -130,6 +131,7 @@ const figcaptions: Caption[] = [
 
       <div class="full-bleed layout-grid projects-list-bg">
         <MyProjects projects={projects} language={language} />
+        <ProjectsCarousel projects={projects} language={language} />
       </div>
     </section>
 

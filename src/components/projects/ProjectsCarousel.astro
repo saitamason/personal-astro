@@ -1,0 +1,112 @@
+---
+import type { LanguageSelectionType } from "../../utils/types";
+import type { Project } from "../../data/projects";
+import SingleProject from "./SingleProject.astro";
+
+interface Props {
+  projects: Project[];
+  language: LanguageSelectionType;
+}
+
+const { projects, language: lang } = Astro.props;
+const isEn = lang === "en";
+---
+
+<script>
+  const list = document.getElementById("projects-list") as HTMLDivElement;
+
+  if (list) {
+    list.style.cursor = "grab";
+
+    let pos = {
+      left: 0,
+      x: 0,
+      dx: 0,
+    };
+
+    const mouseMoveHandler = (event: MouseEvent) => {
+      pos.dx = event.clientX - pos.x;
+      list.scrollLeft = pos.left - pos.dx;
+
+      list.style.scrollSnapType = "none";
+      list.style.scrollBehavior = "auto";
+    };
+
+    const mouseUpHandler = () => {
+      document.removeEventListener("mousemove", mouseMoveHandler);
+      document.removeEventListener("mouseup", mouseUpHandler);
+
+      list.style.cursor = "grab";
+      list.style.removeProperty("user-select");
+      list.style.scrollSnapType = "x mandatory";
+      list.style.scrollBehavior = "smooth";
+
+      if (pos.dx > 0) list.scrollLeft -= 100;
+      if (pos.dx < 0) list.scrollLeft += 100;
+    };
+
+    list.addEventListener("mousedown", (event) => {
+      list.style.cursor = "grabbing";
+      list.style.userSelect = "none";
+
+      pos = {
+        left: list.scrollLeft,
+        x: event.clientX,
+        dx: 0,
+      };
+
+      document.addEventListener("mousemove", mouseMoveHandler);
+      document.addEventListener("mouseup", mouseUpHandler);
+    });
+  }
+</script>
+
+<div class="projects-section mid-col">
+  <ul class="list-container ignore-grid" id="projects-list">
+    {
+      projects.map((project, index) => {
+        if (index < 5) return;
+        return <SingleProject project={project} isEn={isEn} />;
+      })
+    }
+  </ul>
+</div>
+
+<style>
+  .projects-section {
+    margin-top: var(--space-128);
+    position: relative;
+  }
+
+  .list-container {
+    display: flex;
+    gap: var(--space-32);
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overflow-x: scroll;
+    scroll-padding: 0 var(--side-padding);
+    padding-bottom: var(--space-24);
+  }
+
+  .projects-section::after {
+    content: "";
+    width: var(--side-padding);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: linear-gradient(to right, transparent, var(--a-full));
+    z-index: 1;
+  }
+
+  .projects-section::before {
+    content: "";
+    width: var(--side-padding);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to left, transparent, var(--a-full));
+    z-index: 1;
+  }
+</style>

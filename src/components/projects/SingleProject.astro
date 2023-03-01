@@ -184,7 +184,6 @@ const isSmall = size === "small";
     grid-template-rows: repeat(4, min-content) 1fr;
     border-radius: var(--radius-default);
     /* background: var(--darker); */
-    padding-bottom: 0;
     position: relative;
     margin-top: var(--space-64);
   }
@@ -192,7 +191,15 @@ const isSmall = size === "small";
     grid-column: span 4;
   }
   .project--small {
-    grid-column: span 3;
+    scroll-snap-align: start;
+    flex: 0 0 40rem;
+    margin: 0;
+  }
+  .project--small:first-of-type {
+    margin-left: var(--side-padding);
+  }
+  .project--small:last-of-type {
+    margin-right: var(--side-padding);
   }
 
   .header {
@@ -404,7 +411,7 @@ const isSmall = size === "small";
     transform: translateY(50%);
   }
   .project--small .buttons {
-    grid-column: 1 / -1;
+    transform: none;
   }
 
   .button {
