@@ -70,7 +70,8 @@ const isEn = lang === "en";
 
 <div class="projects-section mid-col">
   <p class="instructions">
-    Przesuń, aby zobaczyć więcej
+    {isEn && "Swipe to see more"}
+    {!isEn && "Przesuń, aby zobaczyć więcej"}
     <ArrowRight size="2rem" weight="regular" className="instructions__icon" />
   </p>
   <ul class="list-container ignore-grid" id="projects-list">
@@ -82,9 +83,12 @@ const isEn = lang === "en";
     }
     <li class="end">
       <article>
-        <h4>
-          <slot name="heading" />
-        </h4>
+        <hgroup>
+          <p><slot name="subheading" /></p>
+          <h4>
+            <slot name="heading" />
+          </h4>
+        </hgroup>
         <p>
           <slot name="info" />
         </p>
@@ -148,8 +152,29 @@ const isEn = lang === "en";
     display: grid;
     grid-template-columns: 1fr;
   }
+
+  .end hgroup {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .end hgroup p {
+    font-size: var(--font-normal);
+    color: var(--b-full);
+    font-weight: 600;
+    margin-bottom: var(--space-12);
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-very-loose);
+  }
+
   .end h4 {
     font-size: var(--font-4);
+    line-height: var(--line-very-tight);
+    letter-spacing: var(--letter-spacing-2);
+    margin-bottom: var(--space-32);
+  }
+  .end h4 span:first-of-type {
+    font-size: var(--font-base);
     display: flex;
     flex-direction: column;
     line-height: var(--line-very-tight);

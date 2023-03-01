@@ -23,6 +23,7 @@ import EducationList from "../components/education/EducationList.astro";
 import ResearchList from "@components/research/ResearchList.astro";
 import ProjectsHeader from "@components/projects/ProjectsHeader.astro";
 import ProjectsCarousel from "@components/projects/ProjectsCarousel.astro";
+import GraphicProjects from "@components/projects/GraphicProjects.astro";
 // import Intersection from "../components/Intersection.astro";
 
 const language: LanguageSelectionType = "pl";
@@ -135,9 +136,8 @@ const figcaptions: Caption[] = [
 
       <div class="full-bleed layout-grid projects-carousel-bg">
         <ProjectsCarousel projects={projects} language={language}>
-          <Fragment slot="heading">
-            <span>O rany!</span><span>Chcesz zobaczyć jeszcze więcej?</span>
-          </Fragment>
+          <Fragment slot="subheading">To nie wszystko</Fragment>
+          <Fragment slot="heading">Chcesz zobaczyć jeszcze więcej?</Fragment>
           <Fragment slot="info">
             Sprawdź mój profil <strong>@dawidlehai</strong> na GitHub. Znajdziesz
             tam projekty, nad którymi pracuję obecnie oraz projekty, na które nie
@@ -145,6 +145,21 @@ const figcaptions: Caption[] = [
           </Fragment>
         </ProjectsCarousel>
       </div>
+
+      <GraphicProjects>
+        <Fragment slot="heading">Projekty graficzne</Fragment>
+        <Fragment slot="text">
+          <p>
+            Od czasu do czasu lubię także zaprojektować coś innego niż UI.
+            Czasem zajmuję się obróbką grafiki, a także tworzeniem plakatów,
+            ulotek i broszur.
+          </p>
+          <p>
+            Nie nazwałbym się jednak grafikiem komputerowym i dużo bardziej
+            lubię pracę w kodzie.
+          </p>
+        </Fragment>
+      </GraphicProjects>
     </section>
 
     <section class="ignore-grid">
