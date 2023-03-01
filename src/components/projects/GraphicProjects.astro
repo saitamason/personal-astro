@@ -1,5 +1,6 @@
 ---
 import type { LanguageSelectionType } from "@utils/types";
+import FontGrid from "./FontGrid.astro";
 
 interface Props {
   lang: LanguageSelectionType;
@@ -38,7 +39,6 @@ const isEn = lang === "en";
     </figcaption>
   </figure>
   <figure class="small-img-container">
-    <img src="/img/sknipp.png" class="small-img" />
     <figcaption class="small-cap">
       {
         !isEn &&
@@ -49,6 +49,7 @@ const isEn = lang === "en";
           "Logotype for the Student Science Club of Neurosciences and Cognitive Psychology operating at the Faculty of Psychology of Kazimierz Wielki University."
       }
     </figcaption>
+    <img src="/img/sknipp.png" class="small-img" />
   </figure>
   <figure class="medium-img-container ignore-grid">
     <img src="/img/tim-lider.png" class="medium-img" />
@@ -61,6 +62,22 @@ const isEn = lang === "en";
         isEn &&
           "Birthday illustration for my friend in the theme of League of Legends. In collaboration with Magdalena Ostasz."
       }
+    </figcaption>
+  </figure>
+  <figure class="font-fig ignore-grid">
+    <div class="font-container">
+      <FontGrid />
+      <!-- <div class="font-subheading">An awesome yet strange font</div> -->
+    </div>
+    <figcaption class="font-cap">
+      <h4>Mason Font</h4>
+      <p>
+        <span>Nietuzinkowy</span>
+        <span>Niesamowity</span>
+        <span>Kosmiczny</span>
+        <span>Ciekawy</span>
+        <span>Dziwny</span>
+      </p>
     </figcaption>
   </figure>
 </section>
@@ -131,10 +148,13 @@ const isEn = lang === "en";
     grid-row: 3 / 5;
   }
   .medium-cap {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
     margin-left: var(--side-padding);
     padding-bottom: var(--space-8);
     align-self: start;
     position: relative;
+    margin-top: var(--space-32);
   }
   .medium-cap::after {
     content: "";
@@ -149,8 +169,11 @@ const isEn = lang === "en";
 
   .small-img-container {
     grid-column: 1 / 2;
+    grid-row: 4 / 5;
     margin: var(--side-padding);
     margin-right: 0;
+    margin-bottom: var(--space-32);
+    align-self: end;
   }
   .small-img {
     width: 100%;
@@ -164,6 +187,52 @@ const isEn = lang === "en";
 
   .small-cap {
     color: var(--white-a);
-    margin-top: var(--space-8);
+    margin-bottom: var(--space-8);
+  }
+
+  .font-container {
+    grid-column: 1 / 5;
+    margin: var(--side-padding);
+  }
+
+  .font-cap {
+    grid-column: 5 / 7;
+    margin: var(--side-padding);
+    font-weight: 400;
+  }
+
+  .font-cap h4 {
+    font-family: "Mason", var(--font-sans);
+    font-size: 11rem;
+    font-weight: 400;
+    text-transform: lowercase;
+    line-height: 0.75;
+    margin-bottom: var(--space-32);
+  }
+
+  .font-cap p {
+    font-family: "Mason", var(--font-sans);
+    font-size: 8rem;
+    font-weight: 400;
+    text-transform: lowercase;
+    line-height: 0.75;
+  }
+  .font-cap p span {
+    display: block;
+  }
+  .font-cap p span:nth-of-type(1) {
+    color: hsl(var(--a) 95%);
+  }
+  .font-cap p span:nth-of-type(2) {
+    color: hsl(var(--a) 90%);
+  }
+  .font-cap p span:nth-of-type(3) {
+    color: hsl(var(--a) 85%);
+  }
+  .font-cap p span:nth-of-type(4) {
+    color: hsl(var(--a) 80%);
+  }
+  .font-cap p span:nth-of-type(5) {
+    color: hsl(var(--a) 75%);
   }
 </style>

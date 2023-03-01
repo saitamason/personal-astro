@@ -55,6 +55,11 @@ const url = getLanguageUrls(Astro.url.pathname);
 
   <style is:global>
     @font-face {
+      font-family: "Mason";
+      src: url("/fonts/mason_font.ttf") format("truetype");
+    }
+
+    @font-face {
       font-family: "Poppins";
       src: local("Poppins"), url("/fonts/Poppins-Thin.ttf") format("truetype");
       font-weight: 100;
