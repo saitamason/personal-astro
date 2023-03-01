@@ -3,7 +3,7 @@ import { GitHub } from "../../utils/technologies.astro";
 
 import type { Project } from "../../data/projects";
 import CourseInfo from "./CourseInfo.astro";
-import { ArrowFatRight, Books, Coins, UserFocus } from "phosphor-react";
+import { ArrowFatRight, Books, Coins, User } from "phosphor-react";
 import TechList from "./TechList.astro";
 
 interface Props {
@@ -94,11 +94,7 @@ const isSmall = size === "small";
         }
         {
           type === "personal" && (
-            <UserFocus
-              size="100%"
-              weight="duotone"
-              className="project__type-icon"
-            />
+            <User size="100%" weight="duotone" className="project__type-icon" />
           )
         }
         {

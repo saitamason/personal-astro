@@ -171,7 +171,7 @@ const projects: Project[] = [
     },
     mobile: true,
     description:
-      "Fikcyjna aplikacja dla serwisu zajmującego się rezerwacją hoteli, lotów i wynajmem samochodów.",
+      "Szata graficzna dla serwisu zajmującego się rezerwacją hoteli, lotów i wynajmem samochodów.",
     image: {
       full: "/screenshots/trillo-01.png",
       mobile: "/screenshots/trillo-mobile-01.png",
