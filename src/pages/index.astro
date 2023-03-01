@@ -134,7 +134,16 @@ const figcaptions: Caption[] = [
       </div>
 
       <div class="full-bleed layout-grid projects-carousel-bg">
-        <ProjectsCarousel projects={projects} language={language} />
+        <ProjectsCarousel projects={projects} language={language}>
+          <Fragment slot="heading">
+            <span>O rany!</span><span>Chcesz zobaczyć jeszcze więcej?</span>
+          </Fragment>
+          <Fragment slot="info">
+            Sprawdź mój profil <strong>@dawidlehai</strong> na GitHub. Znajdziesz
+            tam projekty, nad którymi pracuję obecnie oraz projekty, na które nie
+            starczyło już tutaj miejsca.
+          </Fragment>
+        </ProjectsCarousel>
       </div>
     </section>
 
@@ -201,7 +210,7 @@ const figcaptions: Caption[] = [
   }
 
   .projects-carousel-bg {
-    margin-top: var(--space-128);
+    margin-top: var(--space-144);
     /* background: var(--a-darker); */
   }
 </style>

@@ -318,7 +318,7 @@ const url = getLanguageUrls(Astro.url.pathname);
       --a-darker: #e4503c;
       --b-full: hsl(var(--b) 62%);
       --darker: rgb(var(--black) / 0.1);
-      --font-dark: hsl(var(--a) 25%);
+      --font-dark: hsl(var(--a) 20%);
 
       --radius-xs: 0.5rem;
       --radius-s: 0.75rem;
@@ -430,12 +430,13 @@ const url = getLanguageUrls(Astro.url.pathname);
       text-align: center;
       line-height: var(--line-normal);
       border-radius: var(--radius-xs);
-      color: currentColor;
       text-transform: uppercase;
       font-weight: 700;
       word-spacing: 0.2ex;
       overflow: hidden;
       position: relative;
+      background: var(--white-a);
+      color: var(--a-full);
     }
 
     .button__text {

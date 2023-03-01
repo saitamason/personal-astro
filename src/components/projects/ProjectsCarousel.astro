@@ -2,6 +2,7 @@
 import type { LanguageSelectionType } from "../../utils/types";
 import type { Project } from "../../data/projects";
 import SingleProject from "./SingleProject.astro";
+import { ArrowCircleRight } from "phosphor-react";
 
 interface Props {
   projects: Project[];
@@ -69,6 +70,20 @@ const isEn = lang === "en";
         return <SingleProject project={project} isEn={isEn} />;
       })
     }
+    <li class="end">
+      <article>
+        <h3>
+          <slot name="heading" />
+        </h3>
+        <p>
+          <slot name="info" />
+        </p>
+        <a href="https://github.com/dawidlehai/" hreflang="en" class="goto">
+          GitHub
+          <ArrowCircleRight size="4rem" className="goto__icon" weight="fill" />
+        </a>
+      </article>
+    </li>
   </ul>
   <div class="bar-cover"></div>
 </div>
@@ -96,5 +111,36 @@ const isEn = lang === "en";
     height: 20px;
     background: var(--a-full);
     bottom: 0;
+  }
+
+  .end {
+    flex: 0 0 45rem;
+    padding: var(--space-32);
+    color: var(--white-a);
+    align-self: center;
+  }
+  .end article {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .end h3 {
+    font-size: var(--font-4);
+    display: flex;
+    flex-direction: column;
+    letter-spacing: var(--letter-spacing-2);
+    margin-bottom: var(--space-32);
+  }
+  .end p {
+    color: var(--font-dark);
+  }
+  .goto:where(:link, :visited) {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    font-size: var(--font-large);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--white-a);
+    justify-self: end;
   }
 </style>
