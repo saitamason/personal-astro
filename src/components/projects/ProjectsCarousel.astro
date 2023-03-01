@@ -70,17 +70,21 @@ const isEn = lang === "en";
       })
     }
   </ul>
+  <div class="bar-cover"></div>
 </div>
 
 <style>
   .projects-section {
     margin-top: var(--space-128);
     position: relative;
+    background: var(--a-darker);
+    border-radius: var(--radius-default);
+    overflow: hidden;
   }
 
   .list-container {
     display: flex;
-    gap: var(--space-32);
+    gap: var(--space-48);
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     overflow-x: scroll;
@@ -88,25 +92,33 @@ const isEn = lang === "en";
     padding-bottom: var(--space-24);
   }
 
-  .projects-section::after {
-    content: "";
-    width: var(--side-padding);
-    height: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: linear-gradient(to right, transparent, var(--a-full));
-    z-index: 1;
-  }
-
   .projects-section::before {
     content: "";
+    position: absolute;
     width: var(--side-padding);
     height: 100%;
-    position: absolute;
     top: 0;
     left: 0;
-    background: linear-gradient(to left, transparent, var(--a-full));
     z-index: 1;
+    background: linear-gradient(to left, transparent, var(--a-darker));
+  }
+
+  .projects-section::after {
+    content: "";
+    position: absolute;
+    width: var(--side-padding);
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background: linear-gradient(to right, transparent, var(--a-darker));
+  }
+
+  .bar-cover {
+    width: 100%;
+    position: absolute;
+    height: 20px;
+    background: var(--a-darker);
+    bottom: 0;
   }
 </style>

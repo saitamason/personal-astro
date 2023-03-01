@@ -191,9 +191,10 @@ const isSmall = size === "small";
     grid-column: span 4;
   }
   .project--small {
-    scroll-snap-align: start;
+    scroll-snap-align: center;
     flex: 0 0 40rem;
     margin: 0;
+    padding: var(--space-32) 0;
   }
   .project--small:first-of-type {
     margin-left: var(--side-padding);
@@ -211,6 +212,9 @@ const isSmall = size === "small";
   .project--medium .header,
   .project--small .header {
     margin-bottom: var(--space-12);
+  }
+  .project--small .header {
+    grid-column: 1 / -1;
   }
 
   .project__info {
@@ -291,11 +295,17 @@ const isSmall = size === "small";
   .project--small .description {
     margin-top: var(--space-24);
   }
+  .project--small .description {
+    grid-column: 1 / -1;
+  }
 
   .shape {
     float: right;
     width: 20%;
     padding-bottom: 6%;
+  }
+  .project--small .shape {
+    display: none;
   }
 
   /* .project :is(:first-of-type, :nth-of-type(2)) :where(.description p) {
@@ -389,16 +399,7 @@ const isSmall = size === "small";
     z-index: -1;
   }
   .project--small .bg {
-    grid-row: 1 / -1;
-    grid-column: 1 / -1;
-    border-top-right-radius: var(--radius-xxl);
-    border-top-left-radius: var(--radius-xxl);
-    background: linear-gradient(
-      to top left,
-      transparent 5%,
-      var(--gray-14),
-      transparent 50%
-    );
+    display: none;
   }
 
   .buttons {

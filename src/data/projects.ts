@@ -105,7 +105,7 @@ const projects: Project[] = [
     },
     mobile: true,
     description:
-      "Strona domowa dla fikcyjnej firmy zajmującej się personalizowaniem diety z pomocą SI.",
+      "Strona domowa dla fikcyjnej firmy zajmującej się dietami pudełkowymi z pomocą SI.",
     image: {
       full: "/screenshots/omnifood-01.png",
       mobile: "/screenshots/omnifood-mobile-01.png",
