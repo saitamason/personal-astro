@@ -1,35 +1,45 @@
 ---
 import type { Tech } from "../../utils/technologies.astro";
-import type { SizeType } from "../../utils/types";
+
+export type SkillLevelType = "advanced" | "good" | "basic" | "other";
 
 interface Props {
   tech: Tech;
-  size?: SizeType;
+  type: SkillLevelType;
 }
 
-const { tech, size = "medium" } = Astro.props;
+const { tech, type } = Astro.props;
 ---
 
-<li class={`skill skill--${size}`}>
-  <figure class="skill__figure">
-    <div class="skill__icon-container">
-      <tech.icon className="skill__icon" size="100%" title={tech.name} />
+<li class="ignore-grid">
+  <figure class="ignore-grid">
+    <div class={`skill skill--${type}`}>
+      <div class="skill__figure">
+        <div class="skill__icon-container">
+          <tech.icon className="skill__icon" size="100%" title={tech.name} />
+        </div>
+      </div>
     </div>
-    <figcaption class="skill__caption">
+    <figcaption class="skill__name">
       {tech.name}
     </figcaption>
   </figure>
 </li>
 
 <style define:vars={{ "icon-color": tech.color, "icon-bg": tech.bg }}>
-  .skill--large {
-    max-width: var(--space-192);
+  .skill {
+    padding: var(--space-4);
+    border-radius: calc(var(--radius-default) + var(--space-4));
   }
-  .skill--medium {
-    max-width: var(--space-144);
+  .skill--advanced {
+    background: var(--white-a);
   }
-  .skill--small {
-    max-width: var(--space-128);
+  .skill--good {
+    background: var(--b-full);
+  }
+  .skill--basic,
+  .skill--other {
+    background: var(--a-darker);
   }
 
   .skill__figure {
@@ -37,45 +47,44 @@ const { tech, size = "medium" } = Astro.props;
     --gap: var(--space-12);
 
     display: grid;
-    background: linear-gradient(
-      to bottom,
-      transparent 50%,
-      var(--gray-15),
-      transparent
-    );
     border-radius: var(--radius);
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
     gap: var(--gap);
   }
-  .skill--medium .skill__figure {
-    --gap: var(--space-8);
-  }
 
   .skill__icon-container {
-    background-color: var(--icon-bg);
+    background-color: var(--a-darker);
     display: grid;
     place-content: center;
     padding: 25%;
     border-radius: var(--radius);
+    transition: background-color 0.5s;
+  }
+  .skill:hover .skill__icon-container {
+    background-color: var(--icon-bg);
   }
 
   .skill__icon {
+    color: var(--white-a);
+    transition: color 0.5s;
+  }
+  .skill:hover .skill__icon {
     color: var(--icon-color);
   }
 
-  .skill__caption {
+  .skill__name {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    color: var(--white-a);
     font-size: var(--font-6);
-    font-weight: var(--font-bold);
-    line-height: var(--line-tight);
-    color: var(--gray-3);
-    text-align: center;
-    padding-bottom: var(--gap);
+    letter-spacing: var(--letter-spacing-4);
+    font-weight: 800;
+    margin-bottom: var(--space-16);
+    opacity: 0;
+    transition: opacity 0.5s;
   }
-  .skill--medium .skill__caption {
-    font-size: var(--font-large);
-  }
-  .skill--small .skill__caption {
-    font-size: var(--font-base);
+  .skill:hover + .skill__name {
+    opacity: 1;
   }
 </style>

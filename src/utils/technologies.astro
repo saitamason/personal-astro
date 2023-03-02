@@ -31,6 +31,7 @@ import {
   Siudemy,
   Sireactrouter,
   Siredux,
+  Siopenai,
   IconType,
 } from "@icons-pack/react-simple-icons";
 
@@ -43,6 +44,12 @@ export interface Tech {
   bg: string;
 }
 
+export const ChatGpt: Tech = {
+  name: "ChatGPT",
+  icon: Siopenai,
+  color: "#8566eb",
+  bg: "#150D30",
+};
 export const Redux: Tech = {
   name: "Redux",
   icon: Siredux,
@@ -76,7 +83,7 @@ export const Jest: Tech = {
 export const Vite: Tech = {
   name: "Vite",
   icon: Sivite,
-  color: "#646CFF",
+  color: "#999eff",
   bg: "#00033D",
 };
 export const Webpack: Tech = {

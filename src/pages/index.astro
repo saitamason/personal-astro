@@ -17,13 +17,13 @@ import HeroTitle from "../components/HeroTitle.astro";
 import HeroFigures from "../components/HeroFigures.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import MyProjects from "../components/projects/MyProjects.astro";
-import Skills from "../components/skills/Skills.astro";
 import Courses from "../components/courses/Courses.astro";
 import EducationList from "../components/education/EducationList.astro";
 import ResearchList from "@components/research/ResearchList.astro";
 import ProjectsHeader from "@components/projects/ProjectsHeader.astro";
 import ProjectsCarousel from "@components/projects/ProjectsCarousel.astro";
 import GraphicProjects from "@components/projects/GraphicProjects.astro";
+import SkillsHeader from "@components/skills/SkillsHeader.astro";
 // import Intersection from "../components/Intersection.astro";
 
 const language: LanguageSelectionType = "pl";
@@ -36,7 +36,12 @@ const anchorLinks: Link[] = [
     subheading: "Projekty, które wiele mnie nauczyły",
     icon: LayoutIcon,
   },
-  { heading: "Technologie", url: "#technologie", subheading: "", icon: Stack },
+  {
+    heading: "Umiejętności",
+    url: "#umiejetnosci",
+    subheading: "Technologie, na których skupiam swoją uwagę",
+    icon: Stack,
+  },
   { heading: "Kursy", url: "#kursy", subheading: "", icon: Books },
   {
     heading: "Wykształcenie",
@@ -161,13 +166,22 @@ const figcaptions: Caption[] = [
     </section>
 
     <section class="ignore-grid">
-      <SectionHeader
-        id={anchorLinks[1]!.url.slice(1)}
-        icon={anchorLinks[1]!.icon}>
-        {anchorLinks[1]!.heading}
-      </SectionHeader>
-
-      <Skills lang={language} />
+      <div
+        class="full-bleed layout-grid skills-bg"
+        id={anchorLinks[1]!.url.slice(1)}>
+        <SkillsHeader link={anchorLinks[1]!}>
+          <p>
+            W ostatnim czasie skupiłem się na rozwoju wiedzy z zakresu
+            technologii i frameworków webowych. Ukończyłem kilka interesujących
+            kursów, napisałem multum projektów i walczyłem z setkami linijek
+            kodu, aby przygotować się na większe wyzwania.
+          </p>
+          <p>
+            Obecnie dalej pogłębiam swoją wiedzę w takich frameworkach jak
+            React, Remix, czy Astro i zagłębiam się w tematach związanych z UX.
+          </p>
+        </SkillsHeader>
+      </div>
     </section>
 
     <section class="ignore-grid">
@@ -225,5 +239,9 @@ const figcaptions: Caption[] = [
   .projects-carousel-bg {
     margin-top: 15.6rem;
     margin-bottom: var(--space-144);
+  }
+
+  .skills-bg {
+    margin-top: var(--space-256);
   }
 </style>

@@ -1,77 +1,36 @@
 ---
-import type { LanguageSelectionType, SizeType } from "../../utils/types";
 import { skills } from "../../data/skills.astro";
-import SkillList from "./SkillList.astro";
-
-interface Props {
-  lang: LanguageSelectionType;
-}
-
-const { lang } = Astro.props;
-
-const skillGroups = [
-  {
-    text: {
-      en: "Advanced",
-      pl: "Poziom zaawansowany",
-    },
-    bg: "var(--gray-14)",
-    size: "large",
-    row: "1 / 2",
-    skills: skills.advanced,
-  },
-  {
-    text: {
-      en: "Good",
-      pl: "Poziom średniozaawansowany",
-    },
-    bg: "var(--gray-13)",
-    size: "medium",
-    row: "2 / 3",
-    skills: skills.good,
-  },
-  {
-    text: {
-      en: "Basic",
-      pl: "Poziom podstawowy",
-    },
-    bg: "var(--gray-12)",
-    size: "small",
-    row: "3 / 4",
-    skills: skills.basic,
-  },
-  {
-    text: {
-      en: "Tools",
-      pl: "Narzędzia",
-    },
-    bg: "var(--gray-14)",
-    size: "small",
-    row: "4 / 5",
-    skills: skills.other,
-  },
-];
+import Skill from "./Skill.astro";
 ---
 
-<div class="skills-container mid-col">
-  {
-    skillGroups.map((group) => (
-      <SkillList
-        skills={group.skills}
-        size={group.size as SizeType}
-        gridRow={group.row}
-        bg={group.bg}>
-        {group.text[lang]}
-      </SkillList>
-    ))
-  }
+<div class="list-container" id="tech-list">
+  <ol class="list" id="tech-list">
+    {skills.advanced.map((item) => <Skill tech={item} type="advanced" />)}
+    {skills.good.map((item) => <Skill tech={item} type="good" />)}
+    {skills.basic.map((item) => <Skill tech={item} type="basic" />)}
+    {skills.other.map((item) => <Skill tech={item} type="other" />)}
+  </ol>
 </div>
 
 <style>
-  .skills-container {
-    padding: 0 var(--side-padding);
+  .list-container {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+    align-self: end;
+  }
+
+  .list {
     display: grid;
-    grid-template-columns: 2fr 6fr;
-    column-gap: var(--space-64);
+    grid-template-columns: repeat(7, 1fr);
+    overflow: hidden;
+
+    gap: var(--space-8);
+  }
+</style>
+
+<style is:global>
+  #tech-name {
+    width: 100%;
+    height: 20px;
   }
 </style>
