@@ -11,14 +11,10 @@ interface Props {
 const { tech, type } = Astro.props;
 ---
 
-<li class="ignore-grid">
-  <figure class="ignore-grid">
-    <div class={`skill skill--${type}`}>
-      <div class="skill__figure">
-        <div class="skill__icon-container">
-          <tech.icon className="skill__icon" size="100%" title={tech.name} />
-        </div>
-      </div>
+<li class={`skill skill--${type}`}>
+  <figure class="skill__figure">
+    <div class="skill__icon-container">
+      <tech.icon className="skill__icon" size="100%" title={tech.name} />
     </div>
     <figcaption class="skill__name">
       {tech.name}
@@ -30,6 +26,7 @@ const { tech, type } = Astro.props;
   .skill {
     padding: var(--space-4);
     border-radius: calc(var(--radius-default) + var(--space-4));
+    position: relative;
   }
   .skill--advanced {
     background: var(--white-a);
@@ -74,17 +71,17 @@ const { tech, type } = Astro.props;
   }
 
   .skill__name {
-    grid-column: 1 / -1;
-    grid-row: 1 / 2;
-    color: var(--white-a);
-    font-size: var(--font-6);
-    letter-spacing: var(--letter-spacing-4);
-    font-weight: 800;
-    margin-bottom: var(--space-16);
-    opacity: 0;
-    transition: opacity 0.5s;
-  }
-  .skill:hover + .skill__name {
-    opacity: 1;
+    font-size: var(--font-small);
+    font-weight: 500;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    background: green;
+    padding: var(--space-8) 0;
+    border-top-left-radius: calc(var(--radius-default) + var(--space-4));
+    border-top-right-radius: calc(var(--radius-default) + var(--space-4));
+    transform: translateY(-100%);
   }
 </style>
