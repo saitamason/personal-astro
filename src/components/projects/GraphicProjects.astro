@@ -66,10 +66,14 @@ const isEn = lang === "en";
   </figure>
   <figure class="font-fig ignore-grid">
     <div class="font-container">
-      <FontGrid />
-      <!-- <div class="font-subheading">An awesome yet strange font</div> -->
+      <FontGrid>
+        <figcaption class="font-desc">
+          Font typu <em>display</em> składający się z podstawowych znaków języka
+          angielskiego.
+        </figcaption>
+      </FontGrid>
     </div>
-    <figcaption class="font-cap">
+    <div class="font-name">
       <h4>Mason Font</h4>
       <p>
         <span>Nietuzinkowy</span>
@@ -78,7 +82,7 @@ const isEn = lang === "en";
         <span>Ciekawy</span>
         <span>Dziwny</span>
       </p>
-    </figcaption>
+    </div>
   </figure>
 </section>
 
@@ -192,47 +196,56 @@ const isEn = lang === "en";
 
   .font-container {
     grid-column: 1 / 5;
+    grid-row: 5 / 7;
     margin: var(--side-padding);
   }
 
-  .font-cap {
+  .font-name {
     grid-column: 5 / 7;
     margin: var(--side-padding);
     font-weight: 400;
   }
 
-  .font-cap h4 {
+  .font-name h4 {
     font-family: "Mason", var(--font-sans);
     font-size: 11rem;
     font-weight: 400;
     text-transform: lowercase;
     line-height: 0.75;
     margin-bottom: var(--space-32);
+    color: hsl(var(--b) 97.5%);
   }
 
-  .font-cap p {
+  .font-name p {
     font-family: "Mason", var(--font-sans);
     font-size: 8rem;
     font-weight: 400;
     text-transform: lowercase;
     line-height: 0.75;
   }
-  .font-cap p span {
+  .font-name p span {
     display: block;
   }
-  .font-cap p span:nth-of-type(1) {
-    color: hsl(var(--a) 95%);
+  .font-name p span:nth-of-type(1) {
+    color: hsl(var(--b) 95%);
   }
-  .font-cap p span:nth-of-type(2) {
-    color: hsl(var(--a) 90%);
+  .font-name p span:nth-of-type(2) {
+    color: hsl(var(--b) 90%);
   }
-  .font-cap p span:nth-of-type(3) {
-    color: hsl(var(--a) 85%);
+  .font-name p span:nth-of-type(3) {
+    color: hsl(var(--b) 85%);
   }
-  .font-cap p span:nth-of-type(4) {
-    color: hsl(var(--a) 80%);
+  .font-name p span:nth-of-type(4) {
+    color: hsl(var(--b) 80%);
   }
-  .font-cap p span:nth-of-type(5) {
-    color: hsl(var(--a) 75%);
+  .font-name p span:nth-of-type(5) {
+    color: hsl(var(--b) 75%);
+  }
+
+  .font-desc {
+    max-width: 35ch;
+    font-family: var(--font-sans);
+    margin: var(--space-16);
+    margin-right: 0;
   }
 </style>

@@ -1,5 +1,5 @@
 <div class="font-grid" aria-hidden="true">
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Aa
       <div class="line"></div>
@@ -8,7 +8,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Bb
       <div class="line"></div>
@@ -17,7 +17,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Cc
       <div class="line"></div>
@@ -26,7 +26,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Dd
       <div class="line"></div>
@@ -35,7 +35,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Ee
       <div class="line"></div>
@@ -44,7 +44,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Ff
       <div class="line"></div>
@@ -53,7 +53,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Gg
       <div class="line"></div>
@@ -62,7 +62,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Hh
       <div class="line"></div>
@@ -71,7 +71,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Ii
       <div class="line"></div>
@@ -80,7 +80,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Jj
       <div class="line"></div>
@@ -89,7 +89,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Kk
       <div class="line"></div>
@@ -98,7 +98,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Ll
       <div class="line"></div>
@@ -107,7 +107,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Mm
       <div class="line"></div>
@@ -116,7 +116,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Nn
       <div class="line"></div>
@@ -125,7 +125,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Oo
       <div class="line"></div>
@@ -134,7 +134,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Pp
       <div class="line"></div>
@@ -143,7 +143,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Qq
       <div class="line"></div>
@@ -152,7 +152,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Rr
       <div class="line"></div>
@@ -161,7 +161,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Ss
       <div class="line"></div>
@@ -170,7 +170,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Tt
       <div class="line"></div>
@@ -179,7 +179,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Uu
       <div class="line"></div>
@@ -188,7 +188,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Vv
       <div class="line"></div>
@@ -197,7 +197,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Ww
       <div class="line"></div>
@@ -206,7 +206,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Xx
       <div class="line"></div>
@@ -215,7 +215,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Yy
       <div class="line"></div>
@@ -224,7 +224,7 @@
       <div class="line"></div>
     </div>
   </div>
-  <div>
+  <div class="letter-box">
     <div class="letter">
       Zz
       <div class="line"></div>
@@ -233,6 +233,9 @@
       <div class="line"></div>
     </div>
   </div>
+  <div class="last">
+    <slot />
+  </div>
 </div>
 
 <style>
@@ -240,9 +243,10 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     font-family: "Mason", var(--font-sans);
+    gap: var(--space-8);
   }
 
-  .font-grid > div {
+  .letter-box {
     font-size: 9.6rem;
     aspect-ratio: 1 / 1;
     line-height: 1;
@@ -250,7 +254,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: var(--space-4);
     background: var(--a-darker);
     color: hsl(var(--b) 80%);
     overflow: hidden;
@@ -280,5 +283,9 @@
   }
   .line:nth-of-type(4) {
     bottom: 0.1ex;
+  }
+
+  .last {
+    grid-column: span 2;
   }
 </style>
