@@ -17,7 +17,7 @@ import HeroTitle from "../components/HeroTitle.astro";
 import HeroFigures from "../components/HeroFigures.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import MyProjects from "../components/projects/MyProjects.astro";
-import Courses from "../components/courses/Courses.astro";
+import Courses from "../components/skills/Courses.astro";
 import EducationList from "../components/education/EducationList.astro";
 import ResearchList from "@components/research/ResearchList.astro";
 import ProjectsHeader from "@components/projects/ProjectsHeader.astro";
@@ -42,7 +42,6 @@ const anchorLinks: Link[] = [
     subheading: "Technologie, na których skupiam swoją uwagę",
     icon: Stack,
   },
-  { heading: "Kursy", url: "#kursy", subheading: "", icon: Books },
   {
     heading: "Wykształcenie",
     url: "#wyksztalcenie",
@@ -183,16 +182,8 @@ const figcaptions: Caption[] = [
           </p>
         </SkillsHeader>
       </div>
-    </section>
 
-    <section class="ignore-grid">
-      <SectionHeader
-        id={anchorLinks[2]!.url.slice(1)}
-        icon={anchorLinks[2]!.icon}>
-        {anchorLinks[2]!.heading}
-      </SectionHeader>
-
-      <Courses lang={language} />
+      <Courses lang={language}>Ukończone kursy</Courses>
     </section>
 
     <section class="ignore-grid">
@@ -244,5 +235,6 @@ const figcaptions: Caption[] = [
 
   .skills-bg {
     margin-top: var(--space-256);
+    margin-bottom: var(--space-192);
   }
 </style>

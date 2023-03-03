@@ -38,7 +38,7 @@ const isEn = lang === "en";
       }
     </figcaption>
   </figure>
-  <figure class="small-img-container">
+  <figure class="small-figure">
     <figcaption class="small-cap">
       {
         !isEn &&
@@ -49,7 +49,9 @@ const isEn = lang === "en";
           "Logotype for the Student Science Club of Neurosciences and Cognitive Psychology operating at the Faculty of Psychology of Kazimierz Wielki University."
       }
     </figcaption>
-    <img src="/img/sknipp.png" class="small-img" />
+    <div class="small-img-container">
+      <img src="/img/sknipp.png" class="small-img" />
+    </div>
   </figure>
   <figure class="medium-img-container ignore-grid">
     <img src="/img/tim-lider.png" class="medium-img" />
@@ -173,7 +175,7 @@ const isEn = lang === "en";
     z-index: -1;
   }
 
-  .small-img-container {
+  .small-figure {
     grid-column: 1 / 2;
     grid-row: 4 / 5;
     margin: var(--side-padding);
@@ -181,9 +183,12 @@ const isEn = lang === "en";
     margin-bottom: var(--space-32);
     align-self: end;
   }
+  .small-img-container {
+  }
   .small-img {
     width: 100%;
     border-radius: var(--radius-default);
+    aspect-ratio: 1 / 1;
   }
 
   figcaption {

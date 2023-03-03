@@ -1,0 +1,86 @@
+---
+import type { CourseType } from "@data/courses.astro";
+import type { LanguageSelectionType } from "@utils/types";
+import { ChalkboardTeacher, HourglassHigh } from "phosphor-react";
+
+interface Props {
+  course: CourseType;
+  lang: LanguageSelectionType;
+}
+
+const { course, lang } = Astro.props;
+---
+
+<li class="ignore-grid">
+  <p class="year"><time datetime={course.year}>{course.year}</time></p>
+  <p class="title" lang="en">
+    <a href={course.url} hreflang="en">{course.title}</a>
+  </p>
+  <p class="author">
+    <ChalkboardTeacher size="3rem" className="icon" />
+    <span>{course.author}</span>
+  </p>
+  <p class="platform">
+    <course.platform.icon.icon size="2.4rem" className="icon" />
+    <span>{course.platform.name}</span>
+  </p>
+  <p class="length">
+    <HourglassHigh size="2.4rem" weight="duotone" className="icon" />
+    {lang === "en" && <>{course.length} hours</>}
+    {
+      lang === "pl" && (
+        <>
+          {String(course.length).replace(".", ",")}{" "}
+          {course.length === 42 ? "godziny" : "godzin"}
+        </>
+      )
+    }
+  </p>
+  <p class="techs">
+    {
+      course.tech.map((tech) => (
+        <tech.icon size="3.2rem" title={tech.name} className="icon" />
+      ))
+    }
+  </p>
+</li>
+
+<style>
+  p {
+    margin: 0;
+    padding: var(--space-24) 0;
+    padding-right: var(--space-64);
+    display: flex;
+    align-items: center;
+    border-bottom: var(--border-width) solid var(--a-darker);
+    gap: var(--space-4);
+  }
+
+  .year {
+    font-weight: 600;
+    padding-left: 0;
+    padding-right: var(--space-16);
+  }
+
+  a:is(:link, :visited) {
+    color: var(--b-full);
+    font-weight: 700;
+  }
+
+  .author {
+    gap: var(--space-8);
+  }
+
+  .title {
+    padding-right: 0;
+  }
+
+  .techs {
+    gap: var(--space-12);
+    padding-right: 0;
+  }
+
+  .icon {
+    color: var(--b-full);
+  }
+</style>

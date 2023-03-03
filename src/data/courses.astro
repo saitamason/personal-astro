@@ -2,6 +2,7 @@
 import * as tech from "@utils/technologies.astro";
 
 export interface CourseType {
+  year: string;
   title: string;
   author: string;
   tech: tech.Tech[];
@@ -15,6 +16,7 @@ export interface CourseType {
 
 export const courses: CourseType[] = [
   {
+    year: "2023",
     title: "Remix.js – The Practical Guide",
     author: "Maximilian Schwarzmüller",
     tech: [tech.Remix],
@@ -26,6 +28,7 @@ export const courses: CourseType[] = [
     url: "https://www.udemy.com/course/remix-course/",
   },
   {
+    year: "2023",
     title: "Understanding TypeScript – 2023 Edition",
     author: "Maximilian Schwarzmüller",
     tech: [tech.TS],
@@ -37,6 +40,7 @@ export const courses: CourseType[] = [
     url: "https://www.udemy.com/course/understanding-typescript/",
   },
   {
+    year: "2022",
     title: "React – The Complete Guide (incl. Hooks, React Router, Redux)",
     author: "Maximilian Schwarzmüller",
     tech: [tech.React, tech.Router, tech.Redux],
@@ -48,6 +52,7 @@ export const courses: CourseType[] = [
     url: "https://www.udemy.com/course/react-the-complete-guide-incl-redux/",
   },
   {
+    year: "2022",
     title: "Node.js, Express, MongoDB & More: The Complete Bootcamp 2023",
     author: "Jonas Schmedtmann",
     tech: [tech.Nodejs, tech.Express, tech.MongoDB],
@@ -59,6 +64,7 @@ export const courses: CourseType[] = [
     url: "https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/",
   },
   {
+    year: "2022",
     title: "Advanced CSS and Sass: Flexbox, Grid, Animations and More!",
     author: "Jonas Schmedtmann",
     tech: [tech.CSS, tech.Sass],
@@ -70,6 +76,7 @@ export const courses: CourseType[] = [
     url: "https://www.udemy.com/course/advanced-css-and-sass/",
   },
   {
+    year: "2022",
     title: "Git Complete: The definitive, step-by-step guide to Git",
     author: "Jason Taylor",
     tech: [tech.Git],
@@ -81,6 +88,7 @@ export const courses: CourseType[] = [
     url: "https://www.udemy.com/course/git-complete/",
   },
   {
+    year: "2022",
     title: "The Complete JavaScript Course 2022: From Zero to Expert!",
     author: "Jonas Schmedtmann",
     tech: [tech.JS],
@@ -92,6 +100,7 @@ export const courses: CourseType[] = [
     url: "https://www.udemy.com/course/the-complete-javascript-course/",
   },
   {
+    year: "2022",
     title: "Build Responsive Real-World Websites with HTML and CSS",
     author: "Jonas Schmedtmann",
     tech: [tech.HTML, tech.CSS],

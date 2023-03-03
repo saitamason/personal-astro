@@ -1,0 +1,53 @@
+---
+import type { LanguageSelectionType } from "@utils/types";
+import { courses } from "@data/courses.astro";
+import CourseItem from "./CourseItem.astro";
+import { Books } from "phosphor-react";
+
+interface Props {
+  lang: LanguageSelectionType;
+}
+
+const { lang } = Astro.props;
+---
+
+<section class="mid-col">
+  <hgroup>
+    <div class="icon-container">
+      <Books size="100%" width="duotone" className="icon" />
+    </div>
+    <h3><slot /></h3>
+  </hgroup>
+  <ol>
+    {courses.map((course) => <CourseItem course={course} lang={lang} />)}
+  </ol>
+</section>
+
+<style>
+  section {
+    margin: 0 var(--side-padding);
+    color: #fff;
+  }
+
+  hgroup {
+    margin-bottom: var(--space-48);
+    display: flex;
+    align-items: center;
+    gap: var(--space-24);
+  }
+
+  .icon-container {
+    padding: var(--space-12);
+    width: 7.8rem;
+    line-height: 0;
+    aspect-ratio: 1 / 1;
+    background: var(--a-darker);
+    border-radius: var(--radius-small);
+  }
+
+  ol {
+    border-top: var(--border-width) solid var(--a-darker);
+    display: grid;
+    grid-template-columns: min-content 1fr repeat(4, max-content);
+  }
+</style>
