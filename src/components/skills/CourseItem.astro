@@ -1,7 +1,7 @@
 ---
 import type { CourseType } from "@data/courses.astro";
 import type { LanguageSelectionType } from "@utils/types";
-import { ChalkboardTeacher, HourglassHigh } from "phosphor-react";
+import { CaretRight, ChalkboardTeacher, HourglassHigh } from "phosphor-react";
 
 interface Props {
   course: CourseType;
@@ -14,18 +14,35 @@ const { course, lang } = Astro.props;
 <li class="ignore-grid">
   <p class="year"><time datetime={course.year}>{course.year}</time></p>
   <p class="title" lang="en">
-    <a href={course.url} hreflang="en">{course.title}</a>
+    <course.platform.icon.icon
+      size="2.4rem"
+      className="icon"
+      title={course.platform.name}
+    />
+    {course.title}
+  </p>
+  <p class="techs">
+    {
+      course.tech.map((tech) => (
+        <tech.icon size="3.2rem" title={tech.name} className="icon" />
+      ))
+    }
   </p>
   <p class="author">
-    <ChalkboardTeacher size="3rem" className="icon" />
+    <ChalkboardTeacher
+      size="3rem"
+      className="icon"
+      alt={lang === "en" ? "Author" : "Autor"}
+    />
     <span>{course.author}</span>
   </p>
-  <p class="platform">
-    <course.platform.icon.icon size="2.4rem" className="icon" />
-    <span>{course.platform.name}</span>
-  </p>
   <p class="length">
-    <HourglassHigh size="2.4rem" weight="duotone" className="icon" />
+    <HourglassHigh
+      size="2.4rem"
+      weight="duotone"
+      className="icon"
+      alt={lang === "en" ? "Length" : "Czas trwania"}
+    />
     {lang === "en" && <>{course.length} hours</>}
     {
       lang === "pl" && (
@@ -36,51 +53,120 @@ const { course, lang } = Astro.props;
       )
     }
   </p>
-  <p class="techs">
-    {
-      course.tech.map((tech) => (
-        <tech.icon size="3.2rem" title={tech.name} className="icon" />
-      ))
-    }
+  <p class="link">
+    <a href={course.url} hreflang="en"
+      ><CaretRight size="3.2rem" weight="regular" className="icon" />
+      <CaretRight size="3.2rem" weight="fill" className="icon-hidden" /></a
+    >
   </p>
 </li>
 
 <style>
+  li:hover p {
+    background: var(--white-a);
+    color: var(--a-full);
+  }
+  li:hover :where(.icon, .icon-hidden) {
+    color: var(--a-full);
+  }
+  li:hover p:first-of-type {
+    border-top-left-radius: var(--radius-default);
+    border-bottom-left-radius: var(--radius-default);
+    margin: 0;
+  }
+  li:hover p:last-of-type {
+    border-top-right-radius: var(--radius-default);
+    border-bottom-right-radius: var(--radius-default);
+    margin: 0;
+  }
+  li:hover .link .icon-hidden {
+    transform: translateX(50%);
+    opacity: 1;
+  }
+  li:hover .link .icon {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+
   p {
     margin: 0;
-    padding: var(--space-24) 0;
-    padding-right: var(--space-64);
+    padding: var(--space-24);
+    padding-right: var(--space-32);
     display: flex;
     align-items: center;
-    border-bottom: var(--border-width) solid var(--a-darker);
-    gap: var(--space-4);
+    border-bottom: var(--border-width) solid var(--a-full);
+    gap: var(--space-8);
+    background: var(--a-darker);
+    transition: background 0.2s, color 0.2s, border-radius 0.2s, margin 0.4s;
+  }
+  p:first-of-type {
+    margin-left: calc(var(--side-padding) / 2);
+  }
+  p:last-of-type {
+    margin-right: calc(var(--side-padding) / 2);
+  }
+  li:last-of-type p {
+    border: none;
+  }
+  li:last-of-type p:first-of-type {
+    border-bottom-left-radius: var(--radius-default);
+  }
+  li:last-of-type p:last-of-type {
+    border-bottom-right-radius: var(--radius-default);
+  }
+  li:first-of-type p:first-of-type {
+    border-top-left-radius: var(--radius-default);
+  }
+  li:first-of-type p:last-of-type {
+    border-top-right-radius: var(--radius-default);
   }
 
   .year {
     font-weight: 600;
-    padding-left: 0;
-    padding-right: var(--space-16);
+    padding-right: 0;
+    padding-left: var(--space-24);
   }
 
-  a:is(:link, :visited) {
-    color: var(--b-full);
-    font-weight: 700;
+  .title {
+    padding-right: var(--space-24);
+    font-weight: 600;
+  }
+
+  .techs {
+    gap: var(--space-12);
   }
 
   .author {
     gap: var(--space-8);
   }
 
-  .title {
-    padding-right: 0;
+  .length {
   }
 
-  .techs {
-    gap: var(--space-12);
-    padding-right: 0;
+  .link {
+    padding: 0;
+    line-height: 0;
+  }
+  .link a {
+    display: block;
+    padding: var(--space-24);
+    padding-right: var(--space-32);
+    position: relative;
+    display: grid;
+  }
+  .link .icon,
+  .link .icon-hidden {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    transition: color 0.2s, opacity 0.2s, transform 0.5s;
+  }
+  .link .icon-hidden {
+    opacity: 0;
   }
 
-  .icon {
+  .icon,
+  .icon-hidden {
     color: var(--b-full);
+    transition: color 0.2s;
   }
 </style>
