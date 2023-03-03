@@ -13,8 +13,10 @@ const { tech, type } = Astro.props;
 
 <li class={`skill skill--${type}`}>
   <figure class="skill__figure">
-    <div class="skill__icon-container">
-      <tech.icon className="skill__icon" size="100%" title={tech.name} />
+    <div class="skill__border">
+      <div class="skill__icon-container">
+        <tech.icon className="skill__icon" size="100%" title={tech.name} />
+      </div>
     </div>
     <figcaption class="skill__name">
       {tech.name}
@@ -24,29 +26,30 @@ const { tech, type } = Astro.props;
 
 <style define:vars={{ "icon-color": tech.color, "icon-bg": tech.bg }}>
   .skill {
-    padding: var(--space-4);
-    border-radius: calc(var(--radius-default) + var(--space-4));
     position: relative;
   }
-  .skill--advanced {
+  .skill--advanced .skill__border {
     background: var(--white-a);
   }
-  .skill--good {
+  .skill--good .skill__border {
     background: var(--b-full);
   }
-  .skill--basic,
-  .skill--other {
+  .skill--basic .skill__border,
+  .skill--other .skill__border {
     background: var(--a-darker);
+  }
+
+  .skill__border {
+    padding: var(--space-4);
+    border-radius: calc(var(--radius-default) + var(--space-4));
   }
 
   .skill__figure {
     --radius: var(--radius-default);
-    --gap: var(--space-12);
+    --gap: var(--space-4);
 
     display: grid;
-    border-radius: var(--radius);
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
+
     gap: var(--gap);
   }
 
@@ -56,10 +59,19 @@ const { tech, type } = Astro.props;
     place-content: center;
     padding: 25%;
     border-radius: var(--radius);
-    transition: background-color 0.5s;
+    box-shadow: 0 0 0 var(--space-4) var(--a-darker);
+    transition: background-color 0.5s,
+      transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .skill:hover .skill__icon-container {
     background-color: var(--icon-bg);
+    transform: translateY(-3rem);
+  }
+  .skill--advanced .skill__icon-container {
+    box-shadow: 0 0 0 var(--space-4) var(--white-a);
+  }
+  .skill--good .skill__icon-container {
+    box-shadow: 0 0 0 var(--space-4) var(--b-full);
   }
 
   .skill__icon {
@@ -71,17 +83,18 @@ const { tech, type } = Astro.props;
   }
 
   .skill__name {
-    font-size: var(--font-small);
+    font-size: var(--font-xs);
     font-weight: 500;
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     text-align: center;
-    background: green;
-    padding: var(--space-8) 0;
-    border-top-left-radius: calc(var(--radius-default) + var(--space-4));
-    border-top-right-radius: calc(var(--radius-default) + var(--space-4));
-    transform: translateY(-100%);
+    margin-bottom: var(--space-8);
+    color: hsl(var(--a) 25%);
+    position: absolute;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  .skill:hover .skill__name {
+    opacity: 1;
   }
 </style>
