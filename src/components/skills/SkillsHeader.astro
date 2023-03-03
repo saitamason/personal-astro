@@ -34,16 +34,17 @@ const { link } = Astro.props;
 <style>
   .skills-section {
     display: grid;
-    grid-template-columns: 2fr 3fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: max-content 1fr;
     padding: 0 var(--side-padding);
     gap: var(--space-32);
-    column-gap: var(--space-128);
+    align-items: start;
   }
 
   .header-container {
     background: hsl(var(--a) 63%);
-    padding: var(--space-96) 0;
-    padding-bottom: var(--space-32);
+    padding: var(--space-96);
+    padding-bottom: var(--space-16);
   }
 
   .header {
@@ -95,8 +96,8 @@ const { link } = Astro.props;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 0;
+    padding: var(--space-96);
+    padding-top: var(--space-16);
     color: var(--font-dark);
-    max-width: 48ch;
   }
 </style>

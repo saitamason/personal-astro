@@ -2,7 +2,6 @@
 import {
   Stack,
   Layout as LayoutIcon,
-  Books,
   GraduationCap,
   FileSearch,
   MusicNotes,
@@ -45,7 +44,7 @@ const anchorLinks: Link[] = [
   {
     heading: "Wykształcenie",
     url: "#wyksztalcenie",
-    subheading: "",
+    subheading: "Wykształcenie i działalność naukowa",
     icon: GraduationCap,
   },
   {
@@ -188,9 +187,9 @@ const figcaptions: Caption[] = [
 
     <section class="ignore-grid">
       <SectionHeader
-        id={anchorLinks[3]!.url.slice(1)}
-        icon={anchorLinks[3]!.icon}>
-        {anchorLinks[3]!.heading}
+        id={anchorLinks[2]!.url.slice(1)}
+        icon={anchorLinks[2]!.icon}>
+        {anchorLinks[2]!.heading}
       </SectionHeader>
 
       <EducationList lang={language} />
