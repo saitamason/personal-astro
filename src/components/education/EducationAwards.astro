@@ -17,24 +17,24 @@ export interface AwardType {
 const awards: { pl: AwardType[]; en: AwardType[] } = {
   pl: [
     {
-      title: "Najlepszy absolwent",
+      title: "Najlepszy absolwent Uniwersytetu",
       year: "2021/2022",
       desc: "Nagroda Rektora Uniwersytetu Kazimierza Wielkiego dla Najlepszego Absolwenta roku akademickiego 2021/2022 za działalność pozanaukową.",
     },
     {
-      title: "Najlepszy absolwent i student",
+      title: "Najlepszy absolwent i student Kolegium II",
       year: "2021/2022",
-      desc: "Wyróżnienie Rady Kolegium II UKW dla najlepszego absolwenta i studenta roku akademickiego 2021/2022 w Kolegium II za bardzo dobre wyniki w nauce i działalność pozanaukową.",
+      desc: "Wyróżnienie Rady Kolegium II UKW dla najlepszego absolwenta i studenta roku akademickiego 2021/2022 za bardzo dobre wyniki w nauce i działalność pozanaukową.",
     },
     {
       title: "Najlepsza praca magisterska",
       year: "2021/2022",
-      desc: "Wyróżnienie Rady Kolegium II UKW za najlepszą pracę magisterską na kierunku psychologia w roku akademickim 2021/2022.",
+      desc: "Wyróżnienie Rady Kolegium II Uniwersytetu Kazimierza Wielkiego za najlepszą pracę magisterską na kierunku psychologia w roku akademickim 2021/2022.",
     },
     {
       title: "Stypendium za osiągnięcia naukowe",
       year: "2018/2022",
-      desc: "4-letnie stypendium Rektora Uniwersytetu Kazimierza Wielkiego za osiągnięcia naukowe.",
+      desc: "Stypendium Rektora Uniwersytetu Kazimierza Wielkiego za osiągnięcia naukowe. Stypendium otrzymywałem przez 4 lata od 2018 roku.",
     },
   ],
   en: [
@@ -46,7 +46,7 @@ const awards: { pl: AwardType[]; en: AwardType[] } = {
     {
       title: "Najlepszy absolwent i student",
       year: "2021/2022",
-      desc: "Wyróżnienie Rady Kolegium II UKW dla najlepszego absolwenta i studenta roku akademickiego 2021/2022 w Kolegium II za bardzo dobre wyniki w nauce i działalność pozanaukową.",
+      desc: "Wyróżnienie Rady Kolegium II UKW dla najlepszego absolwenta i studenta roku akademickiego 2021/2022 za bardzo dobre wyniki w nauce i działalność pozanaukową.",
     },
     {
       title: "Najlepsza praca magisterska",
@@ -76,7 +76,7 @@ const awards: { pl: AwardType[]; en: AwardType[] } = {
 
 <style>
   .section {
-    margin-top: var(--space-64);
+    margin-top: var(--space-144);
     display: grid;
     padding: 0 var(--side-padding);
     grid-template-columns: repeat(4, 1fr);
@@ -86,10 +86,10 @@ const awards: { pl: AwardType[]; en: AwardType[] } = {
   .header {
     display: flex;
     align-items: center;
+    justify-content: center;
     color: var(--white-a);
-    padding: var(--space-32);
-    border: var(--border-width) solid var(--a-darker);
-    border-radius: var(--radius-default);
+    grid-column: span 4;
+    margin-bottom: var(--space-32);
   }
 
   /* .header__icon-container {
