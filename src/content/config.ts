@@ -2,6 +2,7 @@ import { z, defineCollection } from "astro:content";
 
 const educationCollection = defineCollection({
   schema: z.object({
+    gpa: z.number(),
     lang: z.enum(["en", "pl"]),
     years: z.object({
       from: z.string(),

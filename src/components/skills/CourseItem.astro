@@ -80,17 +80,20 @@ const { course, lang } = Astro.props;
     margin: 0;
   }
   li:hover .link .icon-hidden {
-    transform: translateX(50%);
+    transform: translateX(40%);
     opacity: 1;
   }
   li:hover .link .icon {
     opacity: 0;
-    transform: translateX(50%);
+    transform: translateX(40%);
+  }
+  li:hover .link {
+    background: var(--b-full);
   }
 
   p {
     margin: 0;
-    padding: var(--space-24);
+    padding: var(--space-32) var(--space-24);
     padding-right: var(--space-32);
     display: flex;
     align-items: center;
@@ -146,6 +149,7 @@ const { course, lang } = Astro.props;
   .link {
     padding: 0;
     line-height: 0;
+    transition: background 0.2s;
   }
   .link a {
     display: block;

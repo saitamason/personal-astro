@@ -23,6 +23,7 @@ import ProjectsHeader from "@components/projects/ProjectsHeader.astro";
 import ProjectsCarousel from "@components/projects/ProjectsCarousel.astro";
 import GraphicProjects from "@components/projects/GraphicProjects.astro";
 import SkillsHeader from "@components/skills/SkillsHeader.astro";
+import EducationHeader from "@components/education/EducationHeader.astro";
 // import Intersection from "../components/Intersection.astro";
 
 const language: LanguageSelectionType = "pl";
@@ -46,12 +47,6 @@ const anchorLinks: Link[] = [
     url: "#wyksztalcenie",
     subheading: "Wykształcenie i działalność naukowa",
     icon: GraduationCap,
-  },
-  {
-    heading: "Działalność naukowa",
-    url: "#badania",
-    subheading: "",
-    icon: FileSearch,
   },
   { heading: "Muzyka", url: "#muzyka", subheading: "", icon: MusicNotes },
   { heading: "Zatrudnij mnie", url: "", subheading: "", icon: FileSearch },
@@ -186,20 +181,34 @@ const figcaptions: Caption[] = [
     </section>
 
     <section class="ignore-grid">
-      <SectionHeader
-        id={anchorLinks[2]!.url.slice(1)}
-        icon={anchorLinks[2]!.icon}>
-        {anchorLinks[2]!.heading}
-      </SectionHeader>
+      <div
+        class="full-bleed layout-grid education-bg"
+        id={anchorLinks[2]!.url.slice(1)}>
+        <EducationHeader link={anchorLinks[2]!}>
+          <p>
+            Programowanie to pasja, którą rozwijam od dziecka. To ona skłoniła
+            mnie do nauki w technikum z klasą o profilu informatycznym, a
+            następnie do studiowania informatyki. Różne wydarzenia sprawiły
+            jednak, że zainteresowałem się również psychologią. Dopiero po
+            latach nauki w tej dyscyplinie zdecydowałem się powrócić do
+            pierwotnej pasji.
+          </p>
+          <p>
+            Podczas pięciu lat studiów psychologicznych wykazywałem się dużym
+            zainteresowaniem w sferze badań naukowych, a także udzielałem się na
+            forum studenckim chcąc usprawnić proces nauczania.
+          </p>
+        </EducationHeader>
 
-      <EducationList lang={language} />
+        <EducationList lang={language} />
+      </div>
     </section>
 
     <section class="ignore-grid">
       <SectionHeader
-        id={anchorLinks[4]!.url.slice(1)}
-        icon={anchorLinks[4]!.icon}>
-        {anchorLinks[4]!.heading}
+        id={anchorLinks[3]!.url.slice(1)}
+        icon={anchorLinks[3]!.icon}>
+        {anchorLinks[3]!.heading}
       </SectionHeader>
 
       <ResearchList lang={language} />
@@ -207,9 +216,9 @@ const figcaptions: Caption[] = [
 
     <section class="ignore-grid">
       <SectionHeader
-        id={anchorLinks[5]!.url.slice(1)}
-        icon={anchorLinks[5]!.icon}>
-        {anchorLinks[5]!.heading}
+        id={anchorLinks[4]!.url.slice(1)}
+        icon={anchorLinks[4]!.icon}>
+        {anchorLinks[4]!.heading}
       </SectionHeader>
 
       <ResearchList lang={language} />
@@ -234,6 +243,10 @@ const figcaptions: Caption[] = [
 
   .skills-bg {
     margin-top: var(--space-256);
-    margin-bottom: var(--space-144);
+    margin-bottom: var(--space-96);
+  }
+
+  .education-bg {
+    margin-top: var(--space-256);
   }
 </style>

@@ -1,6 +1,7 @@
 ---
 import type { LanguageSelectionType } from "@utils/types";
 import type { CollectionEntry } from "astro:content";
+import { Brain, Database, DesktopTower, Star, Swap } from "phosphor-react";
 
 interface Props {
   lang: LanguageSelectionType;
@@ -12,6 +13,7 @@ const {
   item,
   item: {
     data: {
+      gpa,
       years: { from, to },
       title: { content: title, lang: titleLang },
       school: {
@@ -20,6 +22,7 @@ const {
         logo: { filename: logo, aspectRatio },
       },
     },
+    slug,
   },
 } = Astro.props;
 
@@ -39,15 +42,31 @@ const isSchoolDiffLang = schoolLang !== lang;
     />
   </div>
 
-  <h3 {...(isTitleDiffLang && {lang: titleLang})} class="item__heading">
-    {title}
-  </h3>
+  <hgroup class="header">
+    <h3 {...(isTitleDiffLang && {lang: titleLang})} class="item__heading">
+      {title}
+    </h3>
+    <div class="icon-container">
+      {
+        slug === "ukw" && (
+          <Brain weight="duotone" size="3rem" className="icon" />
+        )
+      }
+      {slug === "inn" && <Swap weight="duotone" size="3rem" className="icon" />}
+      {
+        slug === "utp" && (
+          <Database weight="duotone" size="3rem" className="icon" />
+        )
+      }
+      {
+        slug === "zse" && (
+          <DesktopTower weight="duotone" size="3rem" className="icon" />
+        )
+      }
+    </div>
+  </hgroup>
 
   <div class="item__near-logo">
-    <p class="item__school">
-      {school}
-    </p>
-
     <p class="item__years">
       <time datetime={from} class="item__year--from">
         {from}
@@ -63,9 +82,21 @@ const isSchoolDiffLang = schoolLang !== lang;
         )
       }
     </p>
+
+    <p class="item__school">
+      {school}
+    </p>
   </div>
 
   <div class="item__description">
+    <div class="gpa-container">
+      <Star weight="duotone" size="2rem" className="gpa-icon" />
+      <span>GPA:</span>
+      <span>
+        {lang === "en" && gpa}
+        {lang === "pl" && String(gpa).replace(".", ",")}
+      </span>
+    </div>
     <Content />
   </div>
 </li>
@@ -73,6 +104,7 @@ const isSchoolDiffLang = schoolLang !== lang;
 <style define:vars={{ aspectRatio }}>
   .item__logo-container {
     justify-self: center;
+    align-self: end;
     grid-row: 1 / 2;
     width: 10rem;
     padding: var(--space-16);
@@ -80,8 +112,16 @@ const isSchoolDiffLang = schoolLang !== lang;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--gray-14);
     border-radius: 1000px;
+  }
+  li:nth-of-type(1) .item__logo-container {
+    width: 9.5rem;
+  }
+  li:nth-of-type(2) .item__logo-container {
+    width: 15rem;
+  }
+  li:nth-of-type(2) .item__logo {
+    aspect-ratio: var(--aspectRatio);
   }
 
   .item__logo {
@@ -96,53 +136,90 @@ const isSchoolDiffLang = schoolLang !== lang;
     align-items: center;
     position: relative;
     height: 20rem;
+    color: var(--white-a);
   }
 
   .item__near-logo::before {
     content: "";
-    /* background: red; */
     position: absolute;
     width: 50%;
     height: 100%;
     top: 0;
     left: 0;
-    border-right: 1px dashed var(--gray-10);
+    border-right: var(--border-width) solid var(--a-darker);
     z-index: -1;
   }
 
   .item__school {
     margin: 0;
-    margin-top: var(--space-24);
+    margin-top: -0.5rem;
     max-width: 27ch;
     text-align: center;
-    background-color: var(--gray-15);
+    background-color: var(--a-full);
   }
 
   .item__years {
     margin: 0;
+    margin-top: var(--space-24);
     display: flex;
     justify-content: center;
-    gap: 0.5ex;
+    gap: 0.1ex;
     font-size: var(--font-6);
     font-weight: var(--font-bold);
-    background-color: var(--gray-15);
+    background-color: var(--a-full);
+    color: var(--b-full);
+  }
+
+  .header {
+    grid-row: 3 / 4;
+    padding: var(--space-32);
+    padding-bottom: var(--space-16);
+    background: var(--a-darker);
+    border-top-left-radius: var(--radius-default);
+    border-top-right-radius: var(--radius-default);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .item__heading {
-    align-self: end;
-    grid-row: 3 / 4;
-    font-size: var(--font-4);
+    font-size: var(--font-6);
     line-height: var(--line-very-tight);
     letter-spacing: var(--letter-spacing-4);
-    padding: 0 var(--space-32);
-    margin-bottom: var(--space-32);
+    color: var(--white-a);
+    max-width: 11ch;
+  }
+
+  .icon-container {
+    padding: var(--space-12);
+    color: var(--white-a);
+    border: var(--border-width) solid var(--a-full);
+    border-radius: var(--radius-small);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .gpa-container {
+    display: flex;
+    gap: var(--space-4);
+    align-items: center;
+    margin-bottom: var(--space-16);
+    font-size: var(--font-base);
+    font-weight: 600;
+  }
+  .gpa-container > span:last-child {
+    color: var(--b-full);
+    font-weight: 600;
   }
 
   .item__description {
     grid-row: 4 / 5;
     padding: 0 var(--space-32);
-    hyphens: auto;
-    text-align: justify;
     font-size: var(--font-small);
+    background: var(--a-darker);
+    border-bottom-left-radius: var(--radius-default);
+    border-bottom-right-radius: var(--radius-default);
+    color: var(--white-a);
   }
 </style>
