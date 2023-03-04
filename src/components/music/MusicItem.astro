@@ -1,0 +1,116 @@
+---
+import type { TrackType } from "@data/tracklist";
+import { SoundCloud } from "@utils/technologies.astro";
+import type { LanguageSelectionType } from "@utils/types";
+import { HourglassHigh } from "phosphor-react";
+
+interface Props {
+  lang: LanguageSelectionType;
+  track: TrackType;
+}
+
+const { track, lang } = Astro.props;
+---
+
+<li class="track">
+  <h3 class="heading">{track.name}</h3>
+
+  <div class="image-container">
+    <img
+      src={`/img/${track.name.toLowerCase().split(" ")[0]}.jpg`}
+      alt={`${track.name} ${lang === "en" ? "Cover Photo" : "- Okładka"}`}
+      class="image"
+    />
+  </div>
+  <p class="info">
+    <span class="genre">{track.genre}</span>
+    <span class="length">
+      <HourglassHigh weight="duotone" size="1.8ex" className="icon" />
+      {track.length}
+    </span>
+  </p>
+
+  <a href={track.url} hreflang="en" class="button"
+    ><span class="button__text">SoundCloud</span>
+    <span class="button__icon-container">
+      <span class="button__icon-fill">
+        <SoundCloud.icon
+          size="var(--icon-size)"
+          className="button__icon"
+          title="GitHub"
+        />
+      </span>
+    </span></a
+  >
+</li>
+
+<style>
+  .track:first-of-type {
+    box-shadow: 0 0 0 calc(var(--border-width) * 1) var(--b-full);
+    background: radial-gradient(
+      circle at top,
+      var(--b-full),
+      var(--a-darker) 40%
+    );
+  }
+  .track:first-of-type .heading {
+    text-shadow: 0 0.2rem 0.1rem rgba(0 0 0 / 0.2);
+  }
+
+  .track {
+    padding: var(--space-32);
+    padding-bottom: 0;
+    background: var(--a-darker);
+    border-radius: var(--radius-default);
+    color: var(--white-a);
+  }
+
+  .image-container {
+    border-radius: var(--radius-small);
+    padding: var(--space-8);
+    background: var(--white-a);
+  }
+
+  .image {
+    width: 100%;
+    border-radius: var(--radius-xs);
+  }
+
+  .heading {
+    font-size: var(--font-6);
+    margin-bottom: var(--space-16);
+  }
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--space-16);
+    margin-bottom: var(--space-12);
+  }
+
+  .genre {
+    border-radius: var(--radius-xs);
+    color: var(--white-a);
+    font-weight: 500;
+    font-size: var(--font-xs);
+    padding: var(--space-4) var(--space-8);
+    border: var(--border-width) solid var(--a-full);
+  }
+
+  .length {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .button {
+    background-color: var(--white-a);
+    color: var(--a-full);
+    font-size: var(--font-small);
+    box-shadow: 0 0 0 var(--border-width) var(--a-full);
+    float: left;
+    transform: translateY(50%);
+  }
+</style>

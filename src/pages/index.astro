@@ -3,8 +3,8 @@ import {
   Stack,
   Layout as LayoutIcon,
   GraduationCap,
-  FileSearch,
-  MusicNotes,
+  Sliders,
+  Handshake,
 } from "phosphor-react";
 
 import type { Link, Caption, LanguageSelectionType } from "../utils/types";
@@ -14,7 +14,6 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../layouts/Header.astro";
 import HeroTitle from "../components/HeroTitle.astro";
 import HeroFigures from "../components/HeroFigures.astro";
-import SectionHeader from "../components/SectionHeader.astro";
 import MyProjects from "../components/projects/MyProjects.astro";
 import Courses from "../components/skills/Courses.astro";
 import EducationList from "../components/education/EducationList.astro";
@@ -25,6 +24,10 @@ import GraphicProjects from "@components/projects/GraphicProjects.astro";
 import SkillsHeader from "@components/skills/SkillsHeader.astro";
 import EducationHeader from "@components/education/EducationHeader.astro";
 import EducationAwards from "@components/education/EducationAwards.astro";
+import MusicHeader from "@components/music/MusicHeader.astro";
+import MusicList from "@components/music/MusicList.astro";
+import HireHeader from "@components/HireHeader.astro";
+import Footer from "@components/Footer.astro";
 // import Intersection from "../components/Intersection.astro";
 
 const language: LanguageSelectionType = "pl";
@@ -49,8 +52,13 @@ const anchorLinks: Link[] = [
     subheading: "Wykształcenie i działalność naukowa",
     icon: GraduationCap,
   },
-  { heading: "Muzyka", url: "#muzyka", subheading: "", icon: MusicNotes },
-  { heading: "Zatrudnij mnie", url: "", subheading: "", icon: FileSearch },
+  { heading: "Muzyka", url: "#muzyka", subheading: "", icon: Sliders },
+  {
+    heading: "Zatrudnij mnie",
+    url: "#zatrudnij-mnie",
+    subheading: "Pracujmy razem!",
+    icon: Handshake,
+  },
 ];
 
 const figcaptions: Caption[] = [
@@ -203,29 +211,47 @@ const figcaptions: Caption[] = [
 
         <EducationList lang={language} />
         <EducationAwards lang={language} />
+        <ResearchList lang={language} />
       </div>
     </section>
 
     <section class="ignore-grid">
-      <SectionHeader
-        id={anchorLinks[3]!.url.slice(1)}
-        icon={anchorLinks[3]!.icon}>
-        {anchorLinks[3]!.heading}
-      </SectionHeader>
+      <div
+        class="full-bleed layout-grid music-bg"
+        id={anchorLinks[3]!.url.slice(1)}>
+        <MusicHeader link={anchorLinks[3]!}>
+          <p>
+            Chociaż muzykiem nie jestem, to czerpię ogromną radość z tworzenia
+            utworów. Kiedy komponuję nie ograniczają mnie ramy jednego gatunku i
+            chętnie eksperymentuję z różnymi dźwiękami.
+          </p>
+          <p>Wszystkie moje utwory znajdziesz w serwisie SoundCloud.</p>
+        </MusicHeader>
 
-      <ResearchList lang={language} />
+        <MusicList lang={language} />
+      </div>
     </section>
 
     <section class="ignore-grid">
-      <SectionHeader
-        id={anchorLinks[4]!.url.slice(1)}
-        icon={anchorLinks[4]!.icon}>
-        {anchorLinks[4]!.heading}
-      </SectionHeader>
-
-      <ResearchList lang={language} />
+      <div
+        class="full-bleed layout-grid music-bg"
+        id={anchorLinks[4]!.url.slice(1)}>
+        <HireHeader link={anchorLinks[4]!}>
+          <p>
+            Poszukuję miejsca w przyjaznym zespole, w którym mógłbym dalej
+            rozwijać swoje umiejętności programistyczne i designerskie, a także
+            umiejętności związane z organizacją pracy przy większych projektach.
+          </p>
+          <p>
+            Jeżeli przydałby Ci się ktoś taki jak ja w zespole, to zapraszam do
+            kontaktu przez LinkedIn.
+          </p>
+        </HireHeader>
+      </div>
     </section>
   </main>
+
+  <Footer />
 </Layout>
 
 <style>
@@ -249,6 +275,10 @@ const figcaptions: Caption[] = [
   }
 
   .education-bg {
+    margin-top: var(--space-256);
+  }
+
+  .music-bg {
     margin-top: var(--space-256);
   }
 </style>

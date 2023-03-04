@@ -1,0 +1,25 @@
+---
+import type { LanguageSelectionType } from "@utils/types";
+import tracklist from "@data/tracklist";
+import MusicItem from "./MusicItem.astro";
+
+interface Props {
+  lang: LanguageSelectionType;
+}
+
+const { lang } = Astro.props;
+---
+
+<ul class="mid-col">
+  {tracklist.map((track) => <MusicItem lang={lang} track={track} />)}
+</ul>
+
+<style>
+  ul {
+    margin-top: var(--space-80);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 0 var(--side-padding);
+    gap: var(--space-32);
+  }
+</style>

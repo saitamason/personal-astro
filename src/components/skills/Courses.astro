@@ -29,8 +29,12 @@ const { lang } = Astro.props;
     color: #fff;
   }
 
+  h3 {
+    font-size: var(--font-4);
+  }
+
   hgroup {
-    margin-bottom: var(--space-48);
+    margin-bottom: var(--space-80);
     display: flex;
     align-items: center;
     gap: var(--space-24);
@@ -39,8 +43,8 @@ const { lang } = Astro.props;
 
   .icon-container {
     padding: var(--space-12);
-    width: 7.8rem;
-    line-height: 0;
+    width: 7rem;
+    line-height: 1;
     aspect-ratio: 1 / 1;
     background: var(--a-darker);
     border-radius: var(--radius-small);

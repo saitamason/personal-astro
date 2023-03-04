@@ -32,6 +32,7 @@ import {
   Sireactrouter,
   Siredux,
   Siopenai,
+  Sisoundcloud,
   IconType,
 } from "@icons-pack/react-simple-icons";
 
@@ -44,6 +45,12 @@ export interface Tech {
   bg: string;
 }
 
+export const SoundCloud: Tech = {
+  name: "SoundCloud",
+  icon: Sisoundcloud,
+  color: "#FF3300",
+  bg: "#3D0C00",
+};
 export const ChatGpt: Tech = {
   name: "ChatGPT",
   icon: Siopenai,

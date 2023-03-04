@@ -1,11 +1,11 @@
-export interface TracksType {
+export interface TrackType {
   name: string;
   genre: string;
   length: string;
   url: string;
 }
 
-export const tracklist: TracksType[] = [
+export const tracklist: TrackType[] = [
   {
     name: "Featured Tracks",
     genre: "Various",
@@ -34,7 +34,7 @@ export const tracklist: TracksType[] = [
     name: "Utsettelse",
     genre: "Drum & Bass",
     length: "5:15",
-    url: "https://soundcloud.com/dawidlehai2/",
+    url: "https://soundcloud.com/dawidlehai2/utsettelse",
   },
 ];
 

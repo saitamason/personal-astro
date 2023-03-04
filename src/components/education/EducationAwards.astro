@@ -1,5 +1,6 @@
 ---
 import type { LanguageSelectionType } from "@utils/types";
+import { Star } from "phosphor-react";
 import EducationAwardItem from "./EducationAwardItem.astro";
 
 interface Props {
@@ -62,6 +63,9 @@ const awards: { pl: AwardType[]; en: AwardType[] } = {
     <!-- <div class="header__icon-container">
       <Trophy weight="duotone" size="100%" className="header__icon" />
     </div> -->
+    <div class="icon-container">
+      <Star weight="duotone" size="100%" className="icon" />
+    </div>
     <h3 class="heading">Nagrody i&nbsp;wyróżnienia</h3>
   </hgroup>
 
@@ -76,20 +80,19 @@ const awards: { pl: AwardType[]; en: AwardType[] } = {
 
 <style>
   .section {
-    margin-top: var(--space-144);
+    margin-top: var(--space-192);
     display: grid;
     padding: 0 var(--side-padding);
     grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-32);
   }
 
   .header {
     display: flex;
     align-items: center;
-    justify-content: center;
     color: var(--white-a);
     grid-column: span 4;
-    margin-bottom: var(--space-32);
+    margin-bottom: var(--space-80);
+    gap: var(--space-24);
   }
 
   /* .header__icon-container {
@@ -102,7 +105,6 @@ const awards: { pl: AwardType[]; en: AwardType[] } = {
 
   .heading {
     font-size: var(--font-4);
-    text-align: center;
   }
 
   .list {
@@ -110,5 +112,14 @@ const awards: { pl: AwardType[]; en: AwardType[] } = {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--space-32);
+  }
+
+  .icon-container {
+    padding: var(--space-12);
+    width: 7rem;
+    line-height: 1;
+    aspect-ratio: 1 / 1;
+    background: var(--a-darker);
+    border-radius: var(--radius-small);
   }
 </style>

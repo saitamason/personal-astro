@@ -1,0 +1,145 @@
+---
+import type { Link } from "@utils/types";
+import { ArrowCircleRight } from "phosphor-react";
+
+interface Props {
+  link: Link;
+}
+
+const { link } = Astro.props;
+---
+
+<div class="hire-section mid-col">
+  <div class="header-container">
+    <div class="header-fill">
+      <hgroup class="header">
+        <div class="icon-container">
+          <link.icon size="100%" weight="duotone" />
+        </div>
+        <p class="heading">
+          <span>05</span><span>{link.heading}</span>
+        </p>
+        <h2 class="subheading">{link.subheading}</h2>
+      </hgroup>
+    </div>
+  </div>
+
+  <div class="filler">
+    <slot />
+    <div class="gto-container">
+      <a
+        href="https://www.linkedin.com/in/dawidlehai/"
+        hreflang="en"
+        class="goto">
+        LinkedIn
+        <ArrowCircleRight size="4rem" className="goto__icon" weight="fill" />
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .hire-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 var(--side-padding);
+    gap: var(--space-32);
+  }
+
+  .header-container {
+    background: hsl(var(--a) 63%);
+    position: relative;
+    padding: var(--space-96);
+    position: relative;
+  }
+
+  .header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .icon-container {
+    height: var(--space-80);
+    aspect-ratio: 1/1;
+    color: var(--white-a);
+    background: var(--darker);
+    line-height: 1;
+    padding: var(--space-12);
+    border-radius: var(--radius-s);
+    grid-column: 3 / 4;
+    justify-self: end;
+    position: relative;
+  }
+
+  .heading {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: hsl(var(--b) 62%);
+  }
+
+  .heading span:first-child {
+    display: block;
+    font-size: var(--font-5);
+    color: var(--white-a);
+    font-weight: 700;
+  }
+
+  .heading span:last-child {
+    letter-spacing: 0.8rem;
+  }
+
+  .subheading {
+    color: var(--white-a);
+    font-size: var(--font-3);
+    grid-column: 1 / -1;
+    margin-top: var(--space-24);
+    text-align: right;
+  }
+
+  .description {
+    color: var(--white-a);
+    hyphens: auto;
+    text-align: justify;
+  }
+
+  .rounder {
+    position: absolute;
+    width: var(--radius-xxl);
+    height: var(--radius-xxl);
+    background: hsl(var(--a) 63%);
+    z-index: -1;
+  }
+
+  .filler {
+    border-radius: var(--radius-default);
+    padding: var(--space-96);
+    padding-bottom: var(--space-64);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    color: var(--font-dark);
+    hyphens: auto;
+    text-align: justify;
+  }
+
+  .gto-container {
+    display: flex;
+    justify-content: end;
+  }
+
+  .goto:where(:link, :visited) {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    font-size: var(--font-base);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--white-a);
+    justify-self: end;
+  }
+</style>
