@@ -47,7 +47,7 @@ const url = getLanguageUrls(Astro.url.pathname);
         1fr [start] minmax(min-content, var(--width-default))
         [end] 1fr;
 
-      background: var(--a-full);
+      background: linear-gradient(to bottom, var(--c2), var(--c1) 20vh);
     }
   </style>
 
@@ -324,6 +324,19 @@ const url = getLanguageUrls(Astro.url.pathname);
       --darker: rgb(var(--black) / 0.1);
       --font-dark: hsl(var(--a) 23%);
 
+      --c1: #f3e1ca;
+      --c1dark: #83725d;
+      --c2: #c3dbd5;
+      --c2dark: #264039;
+      --c3: #d33b0e;
+      --c3dark: #38322e;
+      --c4: #007050;
+      --c5: #9ac3c2;
+      --c6: #de6a20;
+      --c7: #7a2420;
+
+      --white: #fff;
+
       --radius-xs: 0.5rem;
       --radius-s: 0.75rem;
       --radius-small: 1rem;
@@ -439,13 +452,13 @@ const url = getLanguageUrls(Astro.url.pathname);
       word-spacing: 0.2ex;
       overflow: hidden;
       position: relative;
-      background: var(--white-a);
-      color: var(--a-full);
-      transition: transform 0.3s;
+      background: var(--white);
+      color: var(--c1dark);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .button__text {
-      padding: 1.2ex 6.2ex 1.2ex 1.8ex;
+      padding: 1.2ex 1.8ex 1.2ex 1.8ex;
     }
 
     .button__icon {
@@ -456,29 +469,25 @@ const url = getLanguageUrls(Astro.url.pathname);
       --icon-size: 60%;
       width: 3.2ex;
       height: 3.2ex;
-      background: hsl(var(--a) 63%);
-      color: var(--white-a);
-      border-radius: 100px;
+      color: var(--white);
       display: flex;
       justify-content: center;
       align-items: center;
-      position: absolute;
-      top: 50%;
-      left: 0;
-      transform: translate(calc(-50% - (var(--border-width) / 2)), -50%);
     }
 
     .button__icon-container {
-      background: hsl(var(--b) 62%);
+      background: var(--c5);
       height: 100%;
-      width: 3.4ex;
-      position: absolute;
+      width: 4.4ex;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       right: 0;
-      border-left: var(--border-width) solid currentColor;
     }
 
     a.button:where(:hover) {
       transform: translateY(-15%);
+      box-shadow: 0 0.3rem 0.2rem rgb(var(--black) / 0.1);
     }
     a.button:where(:active) {
       transform: translateY(0);
