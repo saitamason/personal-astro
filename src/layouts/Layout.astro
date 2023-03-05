@@ -338,6 +338,7 @@ const url = getLanguageUrls(Astro.url.pathname);
       --c8: #448088;
 
       --white: #fff;
+      --blackRGB: 0 0 0;
 
       --radius-xs: 0.5rem;
       --radius-s: 0.75rem;
@@ -449,14 +450,14 @@ const url = getLanguageUrls(Astro.url.pathname);
       text-align: center;
       line-height: var(--line-normal);
       border-radius: var(--radius-xs);
-      text-transform: uppercase;
-      font-weight: 700;
+      font-weight: 500;
       word-spacing: 0.2ex;
       overflow: hidden;
       position: relative;
       background: var(--white);
-      color: var(--c1dark);
-      transition: transform 0.3s, box-shadow 0.3s;
+      color: var(--c8);
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0.2rem 0.1rem rgb(var(--blackRGB) / 0.07);
     }
 
     .button__text {
@@ -488,11 +489,12 @@ const url = getLanguageUrls(Astro.url.pathname);
     }
 
     a.button:where(:hover) {
-      transform: translateY(-15%);
-      box-shadow: 0 0.3rem 0.2rem rgb(var(--black) / 0.1);
+      transform: translateY(-0.4rem);
+      box-shadow: 0 0.6rem 1rem rgb(var(--blackRGB) / 0.05);
     }
     a.button:where(:active) {
       transform: translateY(0);
+      box-shadow: 0 0.1rem 0.2rem rgb(var(--blackRGB) / 0.05);
     }
 
     .goto__icon {
