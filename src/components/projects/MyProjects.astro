@@ -16,7 +16,7 @@ const isEn = lang === "en";
   <ul class="list-container ignore-grid">
     {
       projects.map((project, index) => {
-        if (index > 4) return;
+        if (index > 1) return;
         return <SingleProject project={project} isEn={isEn} />;
       })
     }

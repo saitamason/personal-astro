@@ -158,7 +158,7 @@ const isSmall = size === "small";
   </div>
   <TechList size={size} technologies={technologies} />
   {
-    mobile && (
+    mobile && size !== "small" && (
       <div class="phone">
         <div class="phone__screen">
           {image?.mobile && (
