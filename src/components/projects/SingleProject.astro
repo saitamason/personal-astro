@@ -232,7 +232,7 @@ const isSmall = size === "small";
     border-radius: var(--radius-s);
     grid-column: 3 / 4;
     justify-self: end;
-    box-shadow: 0 0 0 var(--border-width) var(--c1);
+    background: var(--c3);
   }
   .project--small .project__type-icon-container {
     height: var(--space-48);
@@ -262,7 +262,7 @@ const isSmall = size === "small";
     display: block;
     font-size: var(--font-large);
     font-weight: 600;
-    color: var(--c3);
+    color: var(--c3dark);
     line-height: 1;
     margin-bottom: var(--space-8);
   }
@@ -279,7 +279,7 @@ const isSmall = size === "small";
     font-size: var(--font-normal);
     font-weight: 600;
     letter-spacing: var(--letter-spacing-very-loose);
-    color: var(--c4);
+    color: var(--c3);
     display: flex;
     line-height: var(--line-very-tight);
   }
@@ -360,6 +360,7 @@ const isSmall = size === "small";
     border-radius: calc(var(--space-8) + var(--radius-default));
     overflow: hidden;
   }
+
   .project--small .tablet {
     grid-column: 1 / -1;
     border-left: none;
@@ -375,9 +376,12 @@ const isSmall = size === "small";
     grid-column: 2 / -2;
     grid-row: 1 / -1;
     border-radius: var(--radius-default);
-    background: linear-gradient(160deg, var(--c7), transparent 50%),
-      linear-gradient(40deg, transparent 75%, var(--c3)),
-      linear-gradient(to bottom, var(--c6), var(--c1), var(--c2));
+    background: linear-gradient(
+      to bottom,
+      var(--c3medium),
+      var(--c1),
+      var(--c2)
+    );
     box-shadow: var(--shadow-button);
     z-index: -1;
   }
