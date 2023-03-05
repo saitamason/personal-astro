@@ -26,34 +26,9 @@ const { tech, size } = Astro.props;
     padding: 1ex 1.4ex;
     font-weight: var(--font-medium);
     cursor: cursor;
-    /* color: var(--a-darker);
-    background: var(--b-full); */
     color: var(--color);
     background: var(--bg);
-    border: var(--border-width) solid var(--a-full);
     position: relative;
-  }
-
-  li::after {
-    content: "";
-    width: var(--space-8);
-    height: var(--border-width);
-    position: absolute;
-    background: var(--a-full);
-    right: 0;
-    top: 50%;
-    transform: translate(100%, -50%);
-  }
-
-  li:last-of-type::after {
-    content: "";
-    width: 500%;
-    height: var(--border-width);
-    position: absolute;
-    background: var(--a-full);
-    right: -1px;
-    top: 50%;
-    transform: translate(100%, -50%);
   }
 
   .medium {
@@ -63,10 +38,6 @@ const { tech, size } = Astro.props;
   .small {
     font-size: var(--font-xxs);
     gap: 0.6rem;
-  }
-
-  .small:first-of-type {
-    border-left: none;
   }
 
   .tech__icon {

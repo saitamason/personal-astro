@@ -108,7 +108,7 @@ const projects: Project[] = [
     image: {
       full: "/screenshots/remix-expenses-01.png",
     },
-    technologies: [tech.Remix, tech.React, tech.TS, tech.Prisma],
+    technologies: [tech.Remix, tech.React, tech.TS],
     link: {
       text: "Vercel",
       url: "https://dawidlehai-remix-expenses.vercel.app/",

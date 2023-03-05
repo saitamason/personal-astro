@@ -24,7 +24,6 @@ const { captions } = Astro.props;
             />
           </div>
         </div>
-        <div class="filler" />
       </figure>
     ))
   }
@@ -39,21 +38,6 @@ const { captions } = Astro.props;
     align-items: start;
   }
 
-  .filler {
-    grid-row: 2 / 3;
-    border-radius: var(--radius-default);
-    width: 100%;
-    align-self: stretch;
-    --color: rgb(var(--black) / 0.1);
-    background: repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 0.5rem,
-      var(--color) 0.5rem,
-      var(--color) 2.5rem
-    );
-  }
-
   figure:nth-child(1) :is(.figure-image-container, .filler) {
     grid-column: 1 / 2;
   }
@@ -66,17 +50,6 @@ const { captions } = Astro.props;
   figure:nth-child(4) :is(.figure-image-container, .filler) {
     grid-column: 4 / 5;
   }
-  /* 
-  figure:nth-child(1) .figure-image {
-  }
-  figure:nth-child(2) .figure-image {
-    align-self: end;
-  }
-  figure:nth-child(3) .figure-image {
-  }
-  figure:nth-child(4) .figure-image {
-    align-self: end;
-  } */
 
   figcaption {
     align-self: end;
@@ -86,7 +59,7 @@ const { captions } = Astro.props;
     font-size: var(--font-5);
     font-weight: 700;
     color: var(--c3dark);
-    letter-spacing: var(--letter-spacing-4);
+    letter-spacing: var(--letter-spacing-3);
     line-height: var(--line-tight);
     display: grid;
   }

@@ -51,13 +51,14 @@ const { link } = Astro.props;
     height: var(--space-80);
     aspect-ratio: 1/1;
     color: var(--white);
-    background: var(--c8);
+    background: radial-gradient(circle at top left, var(--c8light), var(--c8));
     line-height: 1;
     padding: var(--space-12);
     border-radius: var(--radius-s);
     grid-column: 3 / 4;
     justify-self: end;
     position: relative;
+    box-shadow: var(--shadow-button-strong);
   }
 
   .heading {

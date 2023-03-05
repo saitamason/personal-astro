@@ -11,18 +11,23 @@ interface Props {
 const { technologies, size } = Astro.props;
 ---
 
-<ul class="tech">
+<ul class={`tech tech--${size}`}>
   {technologies.map((tech) => <TechIcon tech={tech} size={size} />)}
 </ul>
 
 <style>
   .tech {
     align-self: start;
-    grid-column: 1 / -1;
+    grid-column: 3 / -3;
     grid-row: 3 / 4;
     display: flex;
+    gap: var(--space-8);
+    margin-top: var(--space-16);
+  }
+
+  .tech--small {
+    grid-column: 2 / -2;
+    margin-top: var(--space-12);
     gap: var(--space-4);
-    margin-top: var(--space-8);
-    overflow: hidden;
   }
 </style>

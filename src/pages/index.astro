@@ -247,15 +247,26 @@ const figcaptions: Caption[] = [
   }
 
   .projects-bg {
-    background: linear-gradient(to bottom, var(--c6light), transparent);
+    background: linear-gradient(
+        to bottom left,
+        var(--c3light),
+        transparent 30rem
+      ),
+      linear-gradient(to bottom right, var(--c7), transparent 30rem),
+      linear-gradient(to bottom, var(--c6light), var(--c1));
   }
 
   .projects-list-bg {
+    background: var(--c1);
+    padding-bottom: var(--space-32);
+    z-index: -1;
   }
 
   .projects-carousel-bg {
-    margin-top: 15.6rem;
-    margin-bottom: var(--space-144);
+    padding-top: var(--space-144);
+    padding-bottom: var(--space-144);
+    background: var(--c1);
+    z-index: -1;
   }
 
   .skills-bg {

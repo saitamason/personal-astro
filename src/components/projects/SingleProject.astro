@@ -177,7 +177,6 @@ const isSmall = size === "small";
     grid-template-columns: repeat(14, 1fr);
     grid-template-rows: repeat(4, min-content) 1fr;
     border-radius: var(--radius-default);
-    /* background: var(--darker); */
     position: relative;
     margin-top: var(--space-64);
   }
@@ -200,7 +199,7 @@ const isSmall = size === "small";
   .header {
     grid-column: 3 / -3;
     grid-row: 1 / 2;
-    color: var(--white-a);
+    color: var(--c3dark);
     margin-bottom: var(--space-24);
   }
   .project--medium .header,
@@ -227,13 +226,13 @@ const isSmall = size === "small";
   .project__type-icon-container {
     height: var(--space-64);
     aspect-ratio: 1/1;
-    color: var(--white-a);
+    color: var(--white);
     line-height: 1;
     padding: var(--space-12);
     border-radius: var(--radius-s);
     grid-column: 3 / 4;
     justify-self: end;
-    box-shadow: 0 0 0 var(--border-width) var(--a-full);
+    box-shadow: 0 0 0 var(--border-width) var(--c1);
   }
   .project--small .project__type-icon-container {
     height: var(--space-48);
@@ -252,6 +251,7 @@ const isSmall = size === "small";
 
   .subtitle {
     font-size: var(--font-large);
+    color: var(--c3dark);
   }
   .project--medium .subtitle,
   .project--small .subtitle {
@@ -262,7 +262,7 @@ const isSmall = size === "small";
     display: block;
     font-size: var(--font-large);
     font-weight: 600;
-    color: var(--white-a);
+    color: var(--c3);
     line-height: 1;
     margin-bottom: var(--space-8);
   }
@@ -276,11 +276,10 @@ const isSmall = size === "small";
     text-transform: uppercase;
   }
   .project__type span {
-    color: var(--a-full);
     font-size: var(--font-normal);
     font-weight: 600;
     letter-spacing: var(--letter-spacing-very-loose);
-    color: var(--b-full);
+    color: var(--c4);
     display: flex;
     line-height: var(--line-very-tight);
   }
@@ -293,7 +292,7 @@ const isSmall = size === "small";
   .description {
     grid-column: 3 / -3;
     grid-row: 4 / 5;
-    color: var(--white-a);
+    color: var(--c2dark);
     margin-top: var(--space-32);
   }
   .project--medium .description,
@@ -315,28 +314,12 @@ const isSmall = size === "small";
     display: none;
   }
 
-  /* .project :is(:first-of-type, :nth-of-type(2)) :where(.description p) {
-    shape-outside: polygon(10px 10px, 20px 20px, 30px 30px);
-  } */
-
-  /* .project:first-of-type .phone::before {
-    content: "";
-    width: 50%;
-    height: 100%;
-    border-bottom-right-radius: var(--phone-radius);
-    border-top-right-radius: var(--phone-radius);
-    box-shadow: 0 0 0 var(--space-8) var(--bg);
-    background: red;
-    top: 0;
-    right: 0;
-    position: absolute;
-  } */
   .phone {
     grid-column: 11 / 15;
     grid-row: 2 / -1;
     align-self: start;
 
-    background-color: hsl(var(--h) var(--s) 97.5%);
+    background-color: var(--white);
 
     --padding: var(--space-4);
     --border: var(--space-8);
@@ -376,8 +359,6 @@ const isSmall = size === "small";
     grid-row: 2 / 3;
     border-radius: calc(var(--space-8) + var(--radius-default));
     overflow: hidden;
-    background: hsl(var(--h) var(--s) 97.5%);
-    border: var(--border-width) solid var(--a-full);
   }
   .project--small .tablet {
     grid-column: 1 / -1;
@@ -394,7 +375,10 @@ const isSmall = size === "small";
     grid-column: 2 / -2;
     grid-row: 1 / -1;
     border-radius: var(--radius-default);
-    background: var(--darker);
+    background: linear-gradient(160deg, var(--c7), transparent 50%),
+      linear-gradient(40deg, transparent 75%, var(--c3)),
+      linear-gradient(to bottom, var(--c6), var(--c1), var(--c2));
+    box-shadow: var(--shadow-button);
     z-index: -1;
   }
   .project--small .bg {
@@ -415,9 +399,14 @@ const isSmall = size === "small";
   }
 
   .button {
-    background-color: var(--white-a);
-    color: var(--a-full);
     font-size: var(--font-small);
-    box-shadow: 0 0 0 var(--border-width) var(--a-full);
+  }
+
+  .button:nth-of-type(2) {
+    color: var(--c6);
+  }
+
+  .button:nth-of-type(2) .button__icon-container {
+    background: var(--c6);
   }
 </style>
