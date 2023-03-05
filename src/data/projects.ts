@@ -207,15 +207,7 @@ const projects: Project[] = [
     image: {
       full: "/screenshots/remix-expenses-01.png",
     },
-    technologies: [
-      tech.Remix,
-      tech.React,
-      tech.Prisma,
-      tech.MongoDB,
-      tech.TS,
-      tech.CSS,
-      tech.HTML,
-    ],
+    technologies: [tech.Remix, tech.React, tech.TS, tech.Prisma],
     link: {
       text: "Vercel",
       url: "https://dawidlehai-remix-expenses.vercel.app/",
