@@ -441,6 +441,7 @@ const url = getLanguageUrls(Astro.url.pathname);
       position: relative;
       background: var(--white-a);
       color: var(--a-full);
+      transition: transform 0.3s;
     }
 
     .button__text {
@@ -474,6 +475,20 @@ const url = getLanguageUrls(Astro.url.pathname);
       position: absolute;
       right: 0;
       border-left: var(--border-width) solid currentColor;
+    }
+
+    a.button:where(:hover) {
+      transform: translateY(-15%);
+    }
+    a.button:where(:active) {
+      transform: translateY(0);
+    }
+
+    .goto__icon {
+      transition: transform 0.5s;
+    }
+    .goto:where(:hover, :active) .goto__icon {
+      transform: translateX(30%);
     }
   </style>
 </html>

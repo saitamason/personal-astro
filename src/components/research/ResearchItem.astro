@@ -54,7 +54,7 @@ const lang = id.split("/")[0];
           href={link.url}
           {...(link.hreflang !== lang && { lang: link.hreflang })}>
           {link.text}
-          <ArrowCircleRight size="3.6ex" weight="fill" />
+          <ArrowCircleRight size="3.6ex" weight="fill" className="goto__icon" />
         </a>
       </div>
     )
