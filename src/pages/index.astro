@@ -27,6 +27,7 @@ import MusicHeader from "@components/music/MusicHeader.astro";
 import MusicList from "@components/music/MusicList.astro";
 import HireHeader from "@components/HireHeader.astro";
 import Footer from "@components/Footer.astro";
+import Wave from "@components/decorators/Wave.astro";
 // import Intersection from "../components/Intersection.astro";
 
 const language: LanguageSelectionType = "pl";
@@ -118,6 +119,8 @@ const figcaptions: Caption[] = [
       <div
         class="full-bleed layout-grid projects-bg"
         id={anchorLinks[0]!.url.slice(1)}>
+        <Wave bg="var(--c1)" />
+
         <ProjectsHeader link={anchorLinks[0]!}>
           <p>
             W moim portfolio znajdziesz kilka większych projektów oraz wiele
@@ -239,16 +242,15 @@ const figcaptions: Caption[] = [
     grid-template-columns: 1fr 2fr;
     padding: 0 var(--side-padding);
     padding-top: var(--space-128);
-    padding-bottom: var(--space-256);
+    padding-bottom: var(--space-144);
     gap: var(--space-64);
   }
 
   .projects-bg {
-    background: linear-gradient(to bottom, transparent, var(--c3light));
+    background: linear-gradient(to bottom, var(--c6light), transparent);
   }
 
   .projects-list-bg {
-    background: var(--c3light);
   }
 
   .projects-carousel-bg {
