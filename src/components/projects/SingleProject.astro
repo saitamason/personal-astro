@@ -376,13 +376,8 @@ const isSmall = size === "small";
     grid-column: 2 / -2;
     grid-row: 1 / -1;
     border-radius: var(--radius-default);
-    background: linear-gradient(
-      to bottom,
-      var(--c3medium),
-      var(--c1),
-      var(--c2)
-    );
-    box-shadow: var(--shadow-button);
+    background: var(--c1light);
+    box-shadow: var(--shadow-card);
     z-index: -1;
   }
   .project--small .bg {
@@ -404,6 +399,7 @@ const isSmall = size === "small";
 
   .button {
     font-size: var(--font-small);
+    box-shadow: var(--shadow-button), 0 0 0 var(--border-width) var(--c1);
   }
 
   .button:nth-of-type(2) {
