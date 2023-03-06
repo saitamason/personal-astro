@@ -4,7 +4,7 @@ import { ArrowCircleRight } from "phosphor-react";
 
 interface Props {
   item: CollectionEntry<"research">;
-  mark: boolean;
+  mark?: boolean;
 }
 
 const {
@@ -13,7 +13,7 @@ const {
     id,
     data: { years, title, role, link },
   },
-  mark,
+  mark = false,
 } = Astro.props;
 
 const { Content } = await item.render();
