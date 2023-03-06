@@ -63,11 +63,11 @@ const { course, lang } = Astro.props;
 
 <style>
   li:hover p {
-    background: var(--white-a);
-    color: var(--a-full);
+    background: var(--c8);
+    color: var(--white);
   }
   li:hover :where(.icon, .icon-hidden) {
-    color: var(--a-full);
+    color: var(--white);
   }
   li:hover p:first-of-type {
     border-top-left-radius: var(--radius-default);
@@ -88,7 +88,7 @@ const { course, lang } = Astro.props;
     transform: translateX(40%);
   }
   li:hover .link {
-    background: var(--b-full);
+    background: var(--c6);
   }
 
   p {
@@ -97,9 +97,10 @@ const { course, lang } = Astro.props;
     padding-right: var(--space-32);
     display: flex;
     align-items: center;
-    border-bottom: var(--border-width) solid var(--a-full);
+    border-bottom: var(--border-width) solid var(--c7light);
     gap: var(--space-8);
-    background: var(--a-darker);
+    background: var(--white);
+    color: var(--c8dark);
     transition: background 0.2s, color 0.2s, border-radius 0.2s, margin 0.4s;
   }
   p:first-of-type {
@@ -170,7 +171,7 @@ const { course, lang } = Astro.props;
 
   .icon,
   .icon-hidden {
-    color: var(--b-full);
+    color: var(--c6dark);
     transition: color 0.2s;
   }
 </style>

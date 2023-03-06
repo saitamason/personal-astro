@@ -29,19 +29,20 @@ const { tech, type } = Astro.props;
     position: relative;
   }
   .skill--advanced .skill__border {
-    background: var(--white-a);
+    background: var(--white);
   }
   .skill--good .skill__border {
-    background: var(--b-full);
+    background: var(--white);
   }
   .skill--basic .skill__border,
   .skill--other .skill__border {
-    background: var(--a-darker);
+    background: var(--white);
   }
 
   .skill__border {
     padding: var(--space-4);
     border-radius: calc(var(--radius-default) + var(--space-4));
+    box-shadow: var(--shadow-button);
   }
 
   .skill__figure {
@@ -54,12 +55,12 @@ const { tech, type } = Astro.props;
   }
 
   .skill__icon-container {
-    background-color: var(--a-darker);
+    background-color: var(--c6);
     display: grid;
     place-content: center;
     padding: 25%;
     border-radius: var(--radius);
-    box-shadow: 0 0 0 var(--space-4) var(--a-darker);
+    box-shadow: 0 0 0 var(--space-4) var(--white);
     transition: background-color 0.5s,
       transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   }
@@ -68,14 +69,17 @@ const { tech, type } = Astro.props;
     transform: translateY(-3rem);
   }
   .skill--advanced .skill__icon-container {
-    box-shadow: 0 0 0 var(--space-4) var(--white-a);
+    box-shadow: 0 0 0 var(--space-4) var(--white);
   }
-  .skill--good .skill__icon-container {
-    box-shadow: 0 0 0 var(--space-4) var(--b-full);
+  .skill--basic .skill__icon-container {
+    background: var(--c8);
+  }
+  .skill--other .skill__icon-container {
+    background: var(--c8);
   }
 
   .skill__icon {
-    color: var(--white-a);
+    color: var(--white);
     transition: color 0.5s;
   }
   .skill:hover .skill__icon {
@@ -88,7 +92,7 @@ const { tech, type } = Astro.props;
     width: 100%;
     text-align: center;
     margin-bottom: var(--space-8);
-    color: hsl(var(--a) 25%);
+    color: var(--c6dark);
     position: absolute;
     bottom: 0;
     opacity: 0;
@@ -100,6 +104,6 @@ const { tech, type } = Astro.props;
   }
   .skill--basic .skill__name,
   .skill--other .skill__name {
-    color: var(--white-a);
+    color: var(--c8dark);
   }
 </style>
