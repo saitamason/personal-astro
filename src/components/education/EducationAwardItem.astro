@@ -36,12 +36,13 @@ const { award, index } = Astro.props;
 
 <style>
   .container {
-    color: var(--font-dark);
+    color: var(--c2dark);
     padding: var(--space-32);
-    border: var(--border-width) solid var(--a-darker);
     border-radius: var(--radius-default);
     align-self: start;
     position: relative;
+    box-shadow: var(--shadow-button-strong);
+    background: var(--white);
   }
 
   .header {
@@ -51,7 +52,7 @@ const { award, index } = Astro.props;
   }
 
   .year {
-    color: var(--b-full);
+    color: var(--c10);
     font-weight: 700;
     margin-bottom: var(--space-8);
     margin-top: var(--space-24);
@@ -66,15 +67,14 @@ const { award, index } = Astro.props;
     align-items: center;
     justify-content: center;
     align-self: start;
-    color: var(--white-a);
+    color: var(--c4);
     padding: var(--space-12);
-    border: var(--border-width) solid var(--a-darker);
+    border: var(--border-width) solid var(--c2light);
     border-radius: var(--radius-small);
-    background: var(--a-darker);
   }
 
   .heading {
-    color: var(--white-a);
+    color: var(--c4);
     font-size: var(--font-6);
   }
 

@@ -42,30 +42,6 @@ const isSchoolDiffLang = schoolLang !== lang;
     />
   </div>
 
-  <hgroup class="header">
-    <h3 {...(isTitleDiffLang && {lang: titleLang})} class="item__heading">
-      {title}
-    </h3>
-    <div class="icon-container">
-      {
-        slug === "ukw" && (
-          <Brain weight="duotone" size="3rem" className="icon" />
-        )
-      }
-      {slug === "inn" && <Swap weight="duotone" size="3rem" className="icon" />}
-      {
-        slug === "utp" && (
-          <Database weight="duotone" size="3rem" className="icon" />
-        )
-      }
-      {
-        slug === "zse" && (
-          <DesktopTower weight="duotone" size="3rem" className="icon" />
-        )
-      }
-    </div>
-  </hgroup>
-
   <div class="item__near-logo">
     <p class="item__years">
       <time datetime={from} class="item__year--from">
@@ -88,16 +64,46 @@ const isSchoolDiffLang = schoolLang !== lang;
     </p>
   </div>
 
-  <div class="item__description">
-    <div class="gpa-container">
-      <Star weight="duotone" size="2rem" className="gpa-icon" />
-      <span>GPA:</span>
-      <span>
-        {lang === "en" && gpa}
-        {lang === "pl" && String(gpa).replace(".", ",")}
-      </span>
+  <div class="card">
+    <hgroup class="header">
+      <h3 {...(isTitleDiffLang && {lang: titleLang})} class="item__heading">
+        {title}
+      </h3>
+      <div class="icon-container">
+        {
+          slug === "ukw" && (
+            <Brain weight="duotone" size="3rem" className="icon" />
+          )
+        }
+        {
+          slug === "inn" && (
+            <Swap weight="duotone" size="3rem" className="icon" />
+          )
+        }
+        {
+          slug === "utp" && (
+            <Database weight="duotone" size="3rem" className="icon" />
+          )
+        }
+        {
+          slug === "zse" && (
+            <DesktopTower weight="duotone" size="3rem" className="icon" />
+          )
+        }
+      </div>
+    </hgroup>
+
+    <div class="item__description">
+      <div class="gpa-container">
+        <Star weight="duotone" size="2rem" className="gpa-icon" />
+        <span>GPA:</span>
+        <span>
+          {lang === "en" && gpa}
+          {lang === "pl" && String(gpa).replace(".", ",")}
+        </span>
+      </div>
+      <Content />
     </div>
-    <Content />
   </div>
 </li>
 
@@ -136,7 +142,7 @@ const isSchoolDiffLang = schoolLang !== lang;
     align-items: center;
     position: relative;
     height: 20rem;
-    color: var(--white-a);
+    color: var(--c3dark);
   }
 
   .item__near-logo::before {
@@ -146,7 +152,7 @@ const isSchoolDiffLang = schoolLang !== lang;
     height: 100%;
     top: 0;
     left: 0;
-    border-right: var(--border-width) solid var(--a-darker);
+    border-right: var(--border-width) solid var(--c2medium);
     z-index: -1;
   }
 
@@ -155,7 +161,7 @@ const isSchoolDiffLang = schoolLang !== lang;
     margin-top: -0.5rem;
     max-width: 27ch;
     text-align: center;
-    background-color: var(--a-full);
+    background-color: var(--c2light);
   }
 
   .item__years {
@@ -166,17 +172,14 @@ const isSchoolDiffLang = schoolLang !== lang;
     gap: 0.1ex;
     font-size: var(--font-6);
     font-weight: var(--font-bold);
-    background-color: var(--a-full);
-    color: var(--b-full);
+    background-color: var(--c2light);
+    color: var(--c10);
   }
 
   .header {
     grid-row: 3 / 4;
     padding: var(--space-32);
     padding-bottom: var(--space-16);
-    background: var(--a-darker);
-    border-top-left-radius: var(--radius-default);
-    border-top-right-radius: var(--radius-default);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -186,14 +189,14 @@ const isSchoolDiffLang = schoolLang !== lang;
     font-size: var(--font-6);
     line-height: var(--line-very-tight);
     letter-spacing: var(--letter-spacing-4);
-    color: var(--white-a);
+    color: var(--c4);
     max-width: 11ch;
   }
 
   .icon-container {
     padding: var(--space-12);
-    color: var(--white-a);
-    border: var(--border-width) solid var(--a-full);
+    color: var(--c4);
+    border: var(--border-width) solid var(--c2light);
     border-radius: var(--radius-small);
     display: flex;
     align-items: center;
@@ -207,9 +210,10 @@ const isSchoolDiffLang = schoolLang !== lang;
     margin-bottom: var(--space-16);
     font-size: var(--font-base);
     font-weight: 600;
+    color: var(--c10);
   }
   .gpa-container > span:last-child {
-    color: var(--b-full);
+    color: var(--c4);
     font-weight: 600;
   }
 
@@ -217,9 +221,12 @@ const isSchoolDiffLang = schoolLang !== lang;
     grid-row: 4 / 5;
     padding: 0 var(--space-32);
     font-size: var(--font-small);
-    background: var(--a-darker);
-    border-bottom-left-radius: var(--radius-default);
-    border-bottom-right-radius: var(--radius-default);
-    color: var(--white-a);
+    color: var(--c2dark);
+  }
+
+  .card {
+    background: var(--white);
+    border-radius: var(--radius-default);
+    box-shadow: var(--shadow-button-strong);
   }
 </style>

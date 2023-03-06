@@ -116,11 +116,11 @@ const figcaptions: Caption[] = [
     </section>
 
     <section class="ignore-grid">
+      <Wave bgTop="var(--c1)" bgBottom="var(--c6light)" />
+
       <div
         class="full-bleed layout-grid projects-bg"
         id={anchorLinks[0]!.url.slice(1)}>
-        <Wave bg="var(--c1)" />
-
         <ProjectsHeader link={anchorLinks[0]!}>
           <p>
             W moim portfolio znajdziesz kilka większych projektów oraz wiele
@@ -155,11 +155,11 @@ const figcaptions: Caption[] = [
     </section>
 
     <section class="ignore-grid">
+      <Wave bgTop="var(--c6light)" bgBottom="var(--c7light)" />
+
       <div
         class="full-bleed layout-grid skills-bg"
         id={anchorLinks[1]!.url.slice(1)}>
-        <Wave bg="var(--c6light)" />
-
         <SkillsHeader link={anchorLinks[1]!}>
           <p>
             Ostatnio skupiłem się na nauce technologii i frameworków webowych.
@@ -176,6 +176,8 @@ const figcaptions: Caption[] = [
     </section>
 
     <section class="ignore-grid">
+      <Wave bgTop="var(--c7light)" bgBottom="var(--c2light)" />
+
       <div
         class="full-bleed layout-grid education-bg"
         id={anchorLinks[2]!.url.slice(1)}>
@@ -274,10 +276,12 @@ const figcaptions: Caption[] = [
 
   .courses-bg {
     background: var(--c7light);
+    padding-bottom: var(--space-144);
   }
 
   .education-bg {
-    margin-top: var(--space-256);
+    background: var(--c2light);
+    z-index: -1;
   }
 
   .music-bg {

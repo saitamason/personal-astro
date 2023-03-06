@@ -37,7 +37,6 @@ const { link } = Astro.props;
   }
 
   .header-container {
-    background: hsl(var(--a) 63%);
     position: relative;
     padding: var(--space-96);
     position: relative;
@@ -51,8 +50,8 @@ const { link } = Astro.props;
   .icon-container {
     height: var(--space-80);
     aspect-ratio: 1/1;
-    color: var(--white-a);
-    background: var(--darker);
+    color: var(--white);
+    background: var(--c4);
     line-height: 1;
     padding: var(--space-12);
     border-radius: var(--radius-s);
@@ -66,13 +65,13 @@ const { link } = Astro.props;
     grid-row: 1 / 2;
     text-transform: uppercase;
     font-weight: 600;
-    color: hsl(var(--b) 62%);
+    color: var(--c10);
   }
 
   .heading span:first-child {
     display: block;
     font-size: var(--font-5);
-    color: var(--white-a);
+    color: var(--c10);
     font-weight: 700;
   }
 
@@ -81,7 +80,7 @@ const { link } = Astro.props;
   }
 
   .subheading {
-    color: var(--white-a);
+    color: var(--c4);
     font-size: var(--font-3);
     grid-column: 1 / -1;
     margin-top: var(--space-24);
@@ -112,7 +111,7 @@ const { link } = Astro.props;
     flex-direction: column;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    color: var(--font-dark);
+    color: var(--c2dark);
     hyphens: auto;
     text-align: justify;
   }
