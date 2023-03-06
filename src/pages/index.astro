@@ -158,6 +158,8 @@ const figcaptions: Caption[] = [
       <div
         class="full-bleed layout-grid skills-bg"
         id={anchorLinks[1]!.url.slice(1)}>
+        <Wave bg="var(--c6light)" />
+
         <SkillsHeader link={anchorLinks[1]!}>
           <p>
             Ostatnio skupiłem się na nauce technologii i frameworków webowych.
@@ -168,7 +170,9 @@ const figcaptions: Caption[] = [
         </SkillsHeader>
       </div>
 
-      <Courses lang={language}>Ukończone kursy</Courses>
+      <div class="full-bleed layout-grid courses-bg">
+        <Courses lang={language}>Ukończone kursy</Courses>
+      </div>
     </section>
 
     <section class="ignore-grid">
@@ -247,13 +251,7 @@ const figcaptions: Caption[] = [
   }
 
   .projects-bg {
-    background: linear-gradient(
-        to bottom left,
-        var(--c3light),
-        transparent 30rem
-      ),
-      linear-gradient(to bottom right, var(--c7), transparent 30rem),
-      var(--c6light);
+    background: var(--c6light);
   }
 
   .projects-list-bg {
@@ -270,8 +268,12 @@ const figcaptions: Caption[] = [
   }
 
   .skills-bg {
-    margin-top: var(--space-64);
-    margin-bottom: var(--space-96);
+    padding-bottom: var(--space-96);
+    background: var(--c7light);
+  }
+
+  .courses-bg {
+    background: var(--c7light);
   }
 
   .education-bg {
