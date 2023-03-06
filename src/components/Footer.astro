@@ -3,27 +3,32 @@ import * as tech from "@utils/technologies.astro";
 import TechIcon from "./projects/TechIcon.astro";
 ---
 
-<footer class="mid-col">
-  <p>Created with</p>
-  <ul>
-    <TechIcon tech={tech.SiAstro} size="large" />
-    <TechIcon tech={tech.TS} size="large" />
-    <TechIcon tech={tech.CSS} size="large" />
-    <TechIcon tech={tech.HTML} size="large" />
-  </ul>
+<footer class="full-bleed layout-grid">
+  <div class="mid-col container">
+    <p>Created with</p>
+    <ul>
+      <TechIcon tech={tech.SiAstro} size="large" />
+      <TechIcon tech={tech.TS} size="large" />
+      <TechIcon tech={tech.CSS} size="large" />
+      <TechIcon tech={tech.HTML} size="large" />
+    </ul>
+  </div>
 </footer>
 
 <style>
   footer {
-    margin-top: var(--space-256);
+    color: var(--c11dark);
+    background: linear-gradient(to top, var(--white), var(--c11));
+  }
+
+  .container {
     padding: 0 var(--side-padding);
-    display: flex;
-    color: var(--white-a);
+    padding-top: var(--space-256);
+    padding-bottom: calc(var(--side-padding) * 2);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: var(--space-12);
-    margin-bottom: calc(var(--side-padding) * 2);
   }
 
   footer p {
@@ -34,5 +39,6 @@ import TechIcon from "./projects/TechIcon.astro";
 
   ul {
     display: flex;
+    gap: var(--space-8);
   }
 </style>

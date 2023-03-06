@@ -65,10 +65,14 @@ const { course, lang } = Astro.props;
 <style>
   .line {
     grid-column: 1 / -1;
-    background: var(--c7);
+    background: var(--c7dark);
     width: calc(100% - var(--side-padding) * 2);
     height: var(--border-width);
     margin: 0 var(--side-padding);
+  }
+
+  li:first-of-type .line {
+    display: none;
   }
 
   li:hover p {
@@ -99,7 +103,7 @@ const { course, lang } = Astro.props;
 
   p {
     margin: 0;
-    padding: var(--space-32) var(--space-24);
+    padding: var(--space-32) var(--space-32);
     padding-right: var(--space-32);
     display: flex;
     align-items: center;
@@ -129,6 +133,12 @@ const { course, lang } = Astro.props;
     border-top-right-radius: var(--radius-default);
   }
 
+  .icon,
+  .icon-hidden {
+    color: var(--c6dark);
+    transition: color 0.2s;
+  }
+
   .year {
     font-weight: 600;
     padding-right: 0;
@@ -138,6 +148,7 @@ const { course, lang } = Astro.props;
   .title {
     padding-right: var(--space-24);
     font-weight: 600;
+    color: var(--c6medium);
   }
 
   .techs {
@@ -147,8 +158,12 @@ const { course, lang } = Astro.props;
   .author {
     gap: var(--space-8);
   }
+  .author .icon {
+    color: var(--c8);
+  }
 
-  .length {
+  .length .icon {
+    color: var(--c8);
   }
 
   .link {
@@ -171,11 +186,5 @@ const { course, lang } = Astro.props;
   }
   .link .icon-hidden {
     opacity: 0;
-  }
-
-  .icon,
-  .icon-hidden {
-    color: var(--c6dark);
-    transition: color 0.2s;
   }
 </style>

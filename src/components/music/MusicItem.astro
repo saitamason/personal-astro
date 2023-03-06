@@ -47,30 +47,27 @@ const { track, lang } = Astro.props;
 </li>
 
 <style>
-  .track:first-of-type {
-    box-shadow: 0 0 0 calc(var(--border-width) * 1) var(--b-full);
-    background: radial-gradient(
-      circle at top,
-      var(--b-full),
-      var(--a-darker) 40%
-    );
-  }
-  .track:first-of-type .heading {
-    text-shadow: 0 0.2rem 0.1rem rgba(0 0 0 / 0.2);
-  }
-
   .track {
     padding: var(--space-32);
     padding-bottom: 0;
-    background: var(--a-darker);
+    background: var(--c3medium);
     border-radius: var(--radius-default);
-    color: var(--white-a);
+    color: var(--white);
+    box-shadow: var(--shadow-button-strong);
+  }
+
+  .track:first-of-type {
+    box-shadow: var(--shadow-button-strong), 0 0 0 var(--space-12) var(--c11);
+    background: var(--c11dark);
+  }
+  .track:first-of-type .genre {
+    border-color: var(--c11);
   }
 
   .image-container {
     border-radius: var(--radius-small);
     padding: var(--space-8);
-    background: var(--white-a);
+    background: var(--white);
   }
 
   .image {
@@ -93,11 +90,11 @@ const { track, lang } = Astro.props;
 
   .genre {
     border-radius: var(--radius-xs);
-    color: var(--white-a);
+    color: var(--white);
     font-weight: 500;
     font-size: var(--font-xs);
     padding: var(--space-4) var(--space-8);
-    border: var(--border-width) solid var(--a-full);
+    border: var(--border-width) solid var(--c1);
   }
 
   .length {
@@ -113,10 +110,12 @@ const { track, lang } = Astro.props;
   }
 
   .button {
-    background-color: var(--white-a);
-    color: var(--a-full);
     font-size: var(--font-small);
-    box-shadow: 0 0 0 var(--border-width) var(--a-full);
     float: left;
+    color: var(--c3);
+  }
+
+  .button__icon-container {
+    background: var(--c3);
   }
 </style>

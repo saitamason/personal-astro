@@ -108,6 +108,24 @@ const isSchoolDiffLang = schoolLang !== lang;
 </li>
 
 <style define:vars={{ aspectRatio }}>
+  .item:last-of-type .item__heading {
+    color: var(--c6);
+  }
+  .item:last-of-type .card {
+    box-shadow: var(--shadow-button-strong),
+      0 0 0 var(--space-12) var(--c6light);
+  }
+  .item:last-of-type .icon-container {
+    color: var(--c6);
+    border-color: var(--c6light);
+  }
+  .item:last-of-type .item__description {
+    color: var(--c10dark);
+  }
+  .item:last-of-type .item__years {
+    color: var(--c6dark);
+  }
+
   .item__logo-container {
     justify-self: center;
     align-self: end;
@@ -142,7 +160,7 @@ const isSchoolDiffLang = schoolLang !== lang;
     align-items: center;
     position: relative;
     height: 20rem;
-    color: var(--c3dark);
+    color: var(--c10);
   }
 
   .item__near-logo::before {
@@ -162,6 +180,7 @@ const isSchoolDiffLang = schoolLang !== lang;
     max-width: 27ch;
     text-align: center;
     background-color: var(--c2light);
+    font-weight: 500;
   }
 
   .item__years {
@@ -173,7 +192,7 @@ const isSchoolDiffLang = schoolLang !== lang;
     font-size: var(--font-6);
     font-weight: var(--font-bold);
     background-color: var(--c2light);
-    color: var(--c10);
+    color: var(--c4);
   }
 
   .header {
@@ -213,8 +232,8 @@ const isSchoolDiffLang = schoolLang !== lang;
     color: var(--c10);
   }
   .gpa-container > span:last-child {
-    color: var(--c4);
-    font-weight: 600;
+    color: var(--c6);
+    font-weight: 700;
   }
 
   .item__description {

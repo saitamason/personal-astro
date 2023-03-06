@@ -26,7 +26,7 @@ const researchList = await getCollection("research", ({ id }) => {
 
   <ul class="list">
     <div class="masonry">
-      <ResearchItem item={researchList[0]!} />
+      <ResearchItem item={researchList[0]!} mark={true} />
       <ResearchItem item={researchList[3]!} />
     </div>
     <div class="masonry">
@@ -56,7 +56,7 @@ const researchList = await getCollection("research", ({ id }) => {
   hgroup {
     display: flex;
     align-items: center;
-    color: var(--white-a);
+    color: var(--c4);
     margin-bottom: var(--space-80);
     gap: var(--space-24);
     padding: 0 var(--side-padding);
@@ -64,7 +64,7 @@ const researchList = await getCollection("research", ({ id }) => {
 
   h3 {
     font-size: var(--font-4);
-    color: var(--white-a);
+    color: var(--c4);
   }
 
   .masonry {
@@ -78,7 +78,7 @@ const researchList = await getCollection("research", ({ id }) => {
     width: 7rem;
     line-height: 1;
     aspect-ratio: 1 / 1;
-    background: var(--a-darker);
     border-radius: var(--radius-small);
+    border: var(--border-width) solid var(--c2medium);
   }
 </style>

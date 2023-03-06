@@ -4,6 +4,7 @@ import { ArrowCircleRight } from "phosphor-react";
 
 interface Props {
   item: CollectionEntry<"research">;
+  mark: boolean;
 }
 
 const {
@@ -12,6 +13,7 @@ const {
     id,
     data: { years, title, role, link },
   },
+  mark,
 } = Astro.props;
 
 const { Content } = await item.render();
@@ -19,7 +21,7 @@ const { Content } = await item.render();
 const lang = id.split("/")[0];
 ---
 
-<li class="item">
+<li class={`item ${mark ? "marked" : ""}`}>
   <p class="years">
     <time class="from" datetime={years.from}>{years.from}</time>
     {
@@ -62,33 +64,27 @@ const lang = id.split("/")[0];
 </li>
 
 <style>
+  .item.marked {
+    box-shadow: var(--shadow-button-strong),
+      0 0 0 var(--space-12) var(--c6light);
+    color: var(--c10dark);
+  }
+  .item.marked .role {
+    color: var(--c6);
+  }
+  .item.marked .goto:where(:link, :visited) {
+    color: var(--c6);
+  }
+
   .item {
     flex: 1 1 auto;
     padding: var(--space-32);
     padding-bottom: var(--space-8);
-    background-color: var(--a-darker);
+    background-color: var(--white);
     position: relative;
-    overflow: hidden;
-    clip-path: polygon(
-      calc(100% - var(--space-64)) 0,
-      100% calc(var(--space-64)),
-      100% calc(100% + 1px),
-      0 calc(100% + 1px),
-      0 0
-    );
     border-radius: var(--radius-small);
-    color: var(--white-a);
-  }
-  .item::before {
-    content: "";
-    width: var(--space-64);
-    height: var(--space-64);
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: var(--b-full);
-    border-bottom-left-radius: var(--radius-small);
-    box-shadow: 0.8rem 0.8rem 0 rgba(0 0 0 / 0.04);
+    color: var(--c2dark);
+    box-shadow: var(--shadow-button-strong);
   }
 
   .years {
@@ -96,7 +92,7 @@ const lang = id.split("/")[0];
     font-weight: 700;
     display: flex;
     gap: var(--space-2);
-    color: var(--b-full);
+    color: var(--c10light);
   }
 
   .role {
@@ -104,6 +100,7 @@ const lang = id.split("/")[0];
     margin-bottom: var(--space-8);
     font-size: var(--font-base);
     line-height: var(--line-snugish);
+    color: var(--c4);
   }
 
   .title {
@@ -112,7 +109,7 @@ const lang = id.split("/")[0];
     line-height: var(--line-normal);
     letter-spacing: 0;
     margin-bottom: var(--space-24);
-    color: var(--b-full);
+    color: var(--c10);
   }
 
   .description {
@@ -132,7 +129,7 @@ const lang = id.split("/")[0];
     font-size: var(--font-small);
     font-weight: 800;
     text-transform: uppercase;
-    color: var(--white-a);
+    color: var(--c4);
     justify-self: end;
   }
 </style>

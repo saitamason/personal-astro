@@ -204,6 +204,8 @@ const figcaptions: Caption[] = [
     </section>
 
     <section class="ignore-grid">
+      <Wave bgTop="var(--c2light)" bgBottom="var(--c1)" />
+
       <div
         class="full-bleed layout-grid music-bg"
         id={anchorLinks[3]!.url.slice(1)}>
@@ -221,8 +223,10 @@ const figcaptions: Caption[] = [
     </section>
 
     <section class="ignore-grid">
+      <Wave bgTop="var(--c1)" bgBottom="var(--c11)" />
+
       <div
-        class="full-bleed layout-grid music-bg"
+        class="full-bleed layout-grid hire-bg"
         id={anchorLinks[4]!.url.slice(1)}>
         <HireHeader link={anchorLinks[4]!}>
           <p>
@@ -281,10 +285,15 @@ const figcaptions: Caption[] = [
 
   .education-bg {
     background: var(--c2light);
+    padding-bottom: var(--space-144);
     z-index: -1;
   }
 
   .music-bg {
-    margin-top: var(--space-256);
+    padding-bottom: var(--space-144);
+  }
+
+  .hire-bg {
+    background: var(--c11);
   }
 </style>

@@ -45,6 +45,19 @@ const { award, index } = Astro.props;
     background: var(--white);
   }
 
+  .container:first-of-type {
+    box-shadow: var(--shadow-button-strong),
+      0 0 0 var(--space-12) var(--c6light);
+    color: var(--c10dark);
+  }
+  .container:first-of-type .icon-container {
+    color: var(--c6);
+    border: var(--border-width) solid var(--c6light);
+  }
+  .container:first-of-type .heading {
+    color: var(--c6);
+  }
+
   .header {
     display: grid;
     grid-template-columns: 1fr;
