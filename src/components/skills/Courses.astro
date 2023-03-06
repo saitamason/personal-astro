@@ -25,7 +25,6 @@ const { lang } = Astro.props;
 
 <style>
   section {
-    margin: 0 calc(var(--side-padding) / 2);
   }
 
   h3 {
@@ -38,7 +37,7 @@ const { lang } = Astro.props;
     display: flex;
     align-items: center;
     gap: var(--space-24);
-    padding: 0 calc(var(--side-padding) / 2);
+    padding: 0 var(--side-padding);
   }
 
   .icon-container {

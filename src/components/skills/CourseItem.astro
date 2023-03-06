@@ -12,6 +12,7 @@ const { course, lang } = Astro.props;
 ---
 
 <li class="ignore-grid">
+  <div class="line"></div>
   <p class="year"><time datetime={course.year}>{course.year}</time></p>
   <p class="title" lang="en">
     <course.platform.icon.icon
@@ -62,22 +63,27 @@ const { course, lang } = Astro.props;
 </li>
 
 <style>
-  li:hover p {
-    background: var(--c8);
-    color: var(--white);
+  .line {
+    grid-column: 1 / -1;
+    background: var(--c7);
+    width: calc(100% - var(--side-padding) * 2);
+    height: var(--border-width);
+    margin: 0 var(--side-padding);
   }
-  li:hover :where(.icon, .icon-hidden) {
+
+  li:hover p {
+    background: var(--white);
+  }
+  li:hover .link :where(.icon, .icon-hidden) {
     color: var(--white);
   }
   li:hover p:first-of-type {
     border-top-left-radius: var(--radius-default);
     border-bottom-left-radius: var(--radius-default);
-    margin: 0;
   }
   li:hover p:last-of-type {
     border-top-right-radius: var(--radius-default);
     border-bottom-right-radius: var(--radius-default);
-    margin: 0;
   }
   li:hover .link .icon-hidden {
     transform: translateX(40%);
@@ -97,17 +103,15 @@ const { course, lang } = Astro.props;
     padding-right: var(--space-32);
     display: flex;
     align-items: center;
-    border-bottom: var(--border-width) solid var(--c7light);
     gap: var(--space-8);
-    background: var(--white);
     color: var(--c8dark);
-    transition: background 0.2s, color 0.2s, border-radius 0.2s, margin 0.4s;
+    transition: background 0.2s, color 0.2s, border-radius 0.2s;
   }
   p:first-of-type {
-    margin-left: calc(var(--side-padding) / 2);
+    padding-left: var(--side-padding);
   }
   p:last-of-type {
-    margin-right: calc(var(--side-padding) / 2);
+    padding-right: calc(var(--side-padding) / 2);
   }
   li:last-of-type p {
     border: none;
