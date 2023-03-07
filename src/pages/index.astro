@@ -33,85 +33,157 @@ import Wave from "@components/decorators/Wave.astro";
 const language: LanguageSelectionType = "pl";
 const ageInYears = getAge();
 
-const anchorLinks: Link[] = [
-  {
-    heading: "Projekty",
-    url: "#projekty",
-    subheading: "Projekty, które wiele mnie nauczyły",
-    icon: LayoutIcon,
-  },
-  {
-    heading: "Umiejętności",
-    url: "#umiejetnosci",
-    subheading: "Technologie, na których skupiam swoją uwagę",
-    icon: Stack,
-  },
-  {
-    heading: "Wykształcenie",
-    url: "#wyksztalcenie",
-    subheading: "Wykształcenie i działalność naukowa",
-    icon: GraduationCap,
-  },
-  { heading: "Muzyka", url: "#muzyka", subheading: "", icon: Sliders },
-  {
-    heading: "Zatrudnij mnie",
-    url: "#zatrudnij-mnie",
-    subheading: "Pracujmy razem!",
-    icon: Handshake,
-  },
-];
+const anchorLinks: { pl: Link[]; en: Link[] } = {
+  pl: [
+    {
+      heading: "Projekty",
+      url: "#projekty",
+      subheading: "Projekty, które wiele mnie nauczyły",
+      icon: LayoutIcon,
+    },
+    {
+      heading: "Umiejętności",
+      url: "#umiejetnosci",
+      subheading: "Technologie, na których skupiam swoją uwagę",
+      icon: Stack,
+    },
+    {
+      heading: "Wykształcenie",
+      url: "#wyksztalcenie",
+      subheading: "Wykształcenie i działalność naukowa",
+      icon: GraduationCap,
+    },
+    {
+      heading: "Muzyka",
+      url: "#muzyka",
+      subheading: "Moja muzyka",
+      icon: Sliders,
+    },
+    {
+      heading: "Zatrudnij mnie",
+      url: "#zatrudnij-mnie",
+      subheading: "Pracujmy razem!",
+      icon: Handshake,
+    },
+  ],
+  en: [
+    {
+      heading: "Projects",
+      url: "#projects",
+      subheading: "Projects that taught me a lot",
+      icon: LayoutIcon,
+    },
+    {
+      heading: "Skills",
+      url: "#skills",
+      subheading: "Technologies on which I focus my attention",
+      icon: Stack,
+    },
+    {
+      heading: "Education",
+      url: "#education",
+      subheading: "Education and scientific activity",
+      icon: GraduationCap,
+    },
+    { heading: "Music", url: "#music", subheading: "My music", icon: Sliders },
+    {
+      heading: "Hire me",
+      url: "#hire-me",
+      subheading: "Let's work together!",
+      icon: Handshake,
+    },
+  ],
+};
 
-const figcaptions: Caption[] = [
-  {
-    title: "Programista frontendu",
-    subtitle: "Na co dzień",
-    img: {
-      filename: "ukiyo1.png",
-      alt: "",
+const figcaptions: { en: Caption[]; pl: Caption[] } = {
+  pl: [
+    {
+      title: "Programista frontendu",
+      subtitle: "Na co dzień",
+      img: {
+        filename: "ukiyo1.png",
+        alt: "",
+      },
     },
-  },
-  {
-    title: "Magister psychologii",
-    subtitle: "Z wykształcenia",
-    img: {
-      filename: "ukiyo2.png",
-      alt: "",
+    {
+      title: "Magister psychologii",
+      subtitle: "Z wykształcenia",
+      img: {
+        filename: "ukiyo2.png",
+        alt: "",
+      },
     },
-  },
-  {
-    title: "Trener personalny",
-    subtitle: "Po południu",
-    img: {
-      filename: "ukiyo3.png",
-      alt: "",
+    {
+      title: "Trener personalny",
+      subtitle: "Po południu",
+      img: {
+        filename: "ukiyo3.png",
+        alt: "",
+      },
     },
-  },
-  {
-    title: "Producent muzyczny",
-    subtitle: "A wieczorem",
-    img: {
-      filename: "ukiyo4.png",
-      alt: "",
+    {
+      title: "Producent muzyczny",
+      subtitle: "A wieczorem",
+      img: {
+        filename: "ukiyo4.png",
+        alt: "",
+      },
     },
-  },
-];
+  ],
+  en: [
+    {
+      title: "Frontend developer",
+      subtitle: "On a daily basis",
+      img: {
+        filename: "ukiyo1.png",
+        alt: "",
+      },
+    },
+    {
+      title: "Psychology",
+      subtitle: "Degree in",
+      img: {
+        filename: "ukiyo2.png",
+        alt: "",
+      },
+    },
+    {
+      title: "Personal trainer",
+      subtitle: "Po południu",
+      img: {
+        filename: "ukiyo3.png",
+        alt: "",
+      },
+    },
+    {
+      title: "Music producer",
+      subtitle: "A wieczorem",
+      img: {
+        filename: "ukiyo4.png",
+        alt: "",
+      },
+    },
+  ],
+};
 ---
 
 <Layout
   language={language}
   title="Dawid Le Hai – Programista frontendu"
   description={`${ageInYears}-letni programista frontendu, psycholog, certyfikowany trener personalny, a także entuzjasta tworzenia muzyki.`}>
-  <Header language={language} links={anchorLinks} />
+  <Header language={language} links={anchorLinks[language]} />
 
   <main class="ignore-grid">
     <section class="full-bleed layout-grid hero-bg">
       <div class="hero mid-col">
-        <HeroTitle linkUrl={anchorLinks[0]!.url} linkText="Dowiedz się więcej">
+        <HeroTitle
+          linkUrl={anchorLinks[language][0]!.url}
+          linkText="Dowiedz się więcej">
           Programista frontendu, który tworzy przyjazne i&nbsp;dobrze
           wyglądające interfejsy użytkownika.
         </HeroTitle>
 
-        <HeroFigures captions={figcaptions} />
+        <HeroFigures captions={figcaptions[language]} />
       </div>
     </section>
 
@@ -120,8 +192,8 @@ const figcaptions: Caption[] = [
 
       <div
         class="full-bleed layout-grid projects-bg"
-        id={anchorLinks[0]!.url.slice(1)}>
-        <ProjectsHeader link={anchorLinks[0]!}>
+        id={anchorLinks[language][0]!.url.slice(1)}>
+        <ProjectsHeader link={anchorLinks[language][0]!}>
           <p>
             W moim portfolio znajdziesz kilka większych projektów oraz wiele
             projektów, które napisałem w ramach kursów frontendowych. Każdy z
@@ -159,8 +231,8 @@ const figcaptions: Caption[] = [
 
       <div
         class="full-bleed layout-grid skills-bg"
-        id={anchorLinks[1]!.url.slice(1)}>
-        <SkillsHeader link={anchorLinks[1]!}>
+        id={anchorLinks[language][1]!.url.slice(1)}>
+        <SkillsHeader link={anchorLinks[language][1]!}>
           <p>
             Ostatnio skupiłem się na nauce technologii i frameworków webowych.
             Ukończyłem kilka interesujących kursów, napisałem wiele projektów i
@@ -180,8 +252,8 @@ const figcaptions: Caption[] = [
 
       <div
         class="full-bleed layout-grid education-bg"
-        id={anchorLinks[2]!.url.slice(1)}>
-        <EducationHeader link={anchorLinks[2]!}>
+        id={anchorLinks[language][2]!.url.slice(1)}>
+        <EducationHeader link={anchorLinks[language][2]!}>
           <p>
             Programowanie to pasja, którą rozwijam od dziecka. To ona skłoniła
             mnie do nauki w technikum z klasą o profilu informatycznym, a
@@ -208,8 +280,8 @@ const figcaptions: Caption[] = [
 
       <div
         class="full-bleed layout-grid music-bg"
-        id={anchorLinks[3]!.url.slice(1)}>
-        <MusicHeader link={anchorLinks[3]!}>
+        id={anchorLinks[language][3]!.url.slice(1)}>
+        <MusicHeader link={anchorLinks[language][3]!}>
           <p>
             Chociaż muzykiem nie jestem, to czerpię ogromną radość z tworzenia
             utworów. Kiedy komponuję nie ograniczają mnie ramy jednego gatunku i
@@ -227,8 +299,8 @@ const figcaptions: Caption[] = [
 
       <div
         class="full-bleed layout-grid hire-bg"
-        id={anchorLinks[4]!.url.slice(1)}>
-        <HireHeader link={anchorLinks[4]!}>
+        id={anchorLinks[language][4]!.url.slice(1)}>
+        <HireHeader link={anchorLinks[language][4]!}>
           <p>
             Poszukuję miejsca w przyjaznym zespole, w którym mógłbym dalej
             rozwijać swoje umiejętności programistyczne i designerskie, a także
