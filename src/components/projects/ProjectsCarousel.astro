@@ -78,7 +78,7 @@ const isEn = lang === "en";
     {
       projects.map((project, index) => {
         if (index < 2) return;
-        return <SingleProject project={project} isEn={isEn} />;
+        return <SingleProject project={project} lang={lang} />;
       })
     }
     <li class="end">

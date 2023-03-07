@@ -10,12 +10,15 @@ export interface Course {
 export interface Project {
   year: number;
   title: string;
-  subtitle: string;
+  subtitle: { en: string; pl: string };
   type: "commercial" | "personal" | "course";
   size: "large" | "medium" | "small";
   mobile: boolean;
   course?: Course;
-  description?: string;
+  description?: {
+    pl: string;
+    en: string;
+  };
   image?: {
     full: string;
     mobile?: string;
@@ -40,12 +43,17 @@ const projects: Project[] = [
   {
     year: 2023,
     title: "Kociołek",
-    subtitle: "Bufet i kawiarnia w Bydgoszczy",
+    subtitle: {
+      pl: "Bufet i kawiarnia w Bydgoszczy",
+      en: "Buffet and cafe in Bydgoszcz",
+    },
     type: "commercial",
     size: "large",
     mobile: true,
-    description:
-      "Strona internetowa firmy Kociołek. Projekt obejmował zaprojektowanie układu strony, dobór kolorów, grafik i fontów oraz napisanie kodu TypeScript, CSS i HTML z wykorzystaniem frameworków Remix oraz React.",
+    description: {
+      pl: "Strona internetowa firmy Kociołek. Projekt obejmował zaprojektowanie układu strony, dobór kolorów, grafik i fontów oraz napisanie kodu TypeScript, CSS i HTML z wykorzystaniem frameworków Remix oraz React.",
+      en: "Home page of the Kociołek company. The project involved designing the page layout, choosing colors, graphics and fonts, and writing TypeScript, CSS, and HTML code using Remix and React frameworks.",
+    },
     image: {
       full: "/screenshots/kociolek-01.png",
       mobile: "/screenshots/kociolek-mobile-01.png",
@@ -67,12 +75,17 @@ const projects: Project[] = [
   {
     year: 2023,
     title: "Natio",
-    subtitle: "Informacje o krajach i ich sąsiadach",
+    subtitle: {
+      pl: "Informacje o krajach i ich sąsiadach",
+      en: "Information about countries and their neighbors",
+    },
     type: "personal",
     size: "large",
     mobile: true,
-    description:
-      "Aplikacja edukacyjna typu SPA napisana w JavaScript, Sass i HTML, która pozwala wyświetlać informacje o krajach i ich sąsiadach, a także dodawać kraje do ulubionych oraz śledzić swój postęp nauki.",
+    description: {
+      pl: "Aplikacja edukacyjna typu SPA napisana w JavaScript, Sass i HTML, która pozwala wyświetlać informacje o krajach i ich sąsiadach, a także dodawać kraje do ulubionych oraz śledzić swój postęp nauki.",
+      en: "A SPA-type educational application written in JavaScript, Sass, and HTML that allows you view information about countries and their neighbors, as well as add countries to favorites and track your learning progress.",
+    },
     image: {
       full: "/screenshots/natio-01.png",
       mobile: "/screenshots/natio-mobile-01.png",
@@ -94,7 +107,7 @@ const projects: Project[] = [
   {
     year: 2023,
     title: "Remix Expenses",
-    subtitle: "Menedżer wydatków",
+    subtitle: { pl: "Menedżer wydatków", en: "An expense manager" },
     type: "course",
     size: "small",
     course: {
@@ -104,7 +117,10 @@ const projects: Project[] = [
       teacher: "Maximilian Schwarzmüller",
     },
     mobile: false,
-    description: "Załóż konto, zaloguj się i zarządzaj swoimi wydatkami.",
+    description: {
+      pl: "Załóż konto, zaloguj się i zarządzaj swoimi wydatkami.",
+      en: "Create an account, log in and manage your expenses.",
+    },
     image: {
       full: "/screenshots/remix-expenses-01.png",
     },
@@ -125,7 +141,7 @@ const projects: Project[] = [
   {
     year: 2022,
     title: "Delifood",
-    subtitle: "Sklep z żywnością",
+    subtitle: { pl: "Sklep z żywnością", en: "A food store" },
     type: "course",
     size: "small",
     course: {
@@ -135,8 +151,10 @@ const projects: Project[] = [
       teacher: "Maximilian Schwarzmüller",
     },
     mobile: false,
-    description:
-      "Dodawaj i usuwaj produkty z koszyka oraz złóż sztuczne zamówienie.",
+    description: {
+      pl: "Dodawaj i usuwaj produkty z koszyka oraz złóż sztuczne zamówienie.",
+      en: "Add and remove products from the cart and submit a fake order.",
+    },
     image: {
       full: "/screenshots/delifood-01.png",
     },
@@ -157,7 +175,7 @@ const projects: Project[] = [
   {
     year: 2022,
     title: "React Expenses",
-    subtitle: "Dziennik wydatków",
+    subtitle: { pl: "Dziennik wydatków", en: "An expense logger" },
     type: "course",
     size: "small",
     course: {
@@ -167,7 +185,10 @@ const projects: Project[] = [
       teacher: "Maximilian Schwarzmüller",
     },
     mobile: false,
-    description: "Dodawaj swoje wydatki i sortuj je z podziałem na rok.",
+    description: {
+      pl: "Dodawaj swoje wydatki i sortuj je z podziałem na rok.",
+      en: "Add your expenses and sort them by year.",
+    },
     image: {
       full: "/screenshots/react-expenses-tracker-01.png",
     },
@@ -188,7 +209,7 @@ const projects: Project[] = [
   {
     year: 2022,
     title: "Forkify",
-    subtitle: "Katalog przepisów kulinarnych",
+    subtitle: { pl: "Katalog przepisów kulinarnych", en: "A recipe catalog" },
     type: "course",
     size: "small",
     course: {
@@ -198,7 +219,10 @@ const projects: Project[] = [
       teacher: "Jonas Schmedtmann",
     },
     mobile: false,
-    description: "Wyszukuj, dodawaj do zakładek oraz zapisuj własne przepisy.",
+    description: {
+      pl: "Wyszukuj, dodawaj do zakładek oraz zapisuj własne przepisy.",
+      en: "Search, bookmark and add your own recipes.",
+    },
     image: {
       full: "/screenshots/forkify-01.png",
     },
@@ -219,7 +243,7 @@ const projects: Project[] = [
   {
     year: 2022,
     title: "Omnifood",
-    subtitle: "Catering wspomagany SI",
+    subtitle: { pl: "Catering wspomagany SI", en: "AI-powered catering" },
     type: "course",
     size: "small",
     course: {
@@ -229,8 +253,10 @@ const projects: Project[] = [
       teacher: "Jonas Schmedtmann",
     },
     mobile: true,
-    description:
-      "Strona domowa dla firmy zajmującej się dietami pudełkowymi z pomocą SI.",
+    description: {
+      pl: "Strona domowa dla firmy zajmującej się dietami pudełkowymi z pomocą SI.",
+      en: "Home page for a fictional AI-powered food subscription service.",
+    },
     image: {
       full: "/screenshots/omnifood-01.png",
       mobile: "/screenshots/omnifood-mobile-01.png",
@@ -252,7 +278,10 @@ const projects: Project[] = [
   {
     year: 2022,
     title: "Nexter",
-    subtitle: "Luksusowe domy i apartamenty",
+    subtitle: {
+      pl: "Luksusowe domy i apartamenty",
+      en: "Luxury homes and apartments",
+    },
     type: "course",
     size: "small",
     course: {
@@ -262,8 +291,10 @@ const projects: Project[] = [
       teacher: "Jonas Schmedtmann",
     },
     mobile: true,
-    description:
-      "Strona domowa dla firmy zajmującej się sprzedażą luksusowych domów.",
+    description: {
+      pl: "Strona domowa dla firmy zajmującej się sprzedażą luksusowych domów.",
+      en: "Demo landing page for a fictional company that sells luxury homes.",
+    },
     image: {
       full: "/screenshots/nexter-01.png",
       mobile: "/screenshots/nexter-mobile-01.png",
@@ -285,7 +316,10 @@ const projects: Project[] = [
   {
     year: 2022,
     title: "Trillo",
-    subtitle: "Wyszukiwarka hoteli i lotów",
+    subtitle: {
+      pl: "Wyszukiwarka hoteli i lotów",
+      en: "Hotel and flight search platform",
+    },
     type: "course",
     size: "small",
     course: {
@@ -295,8 +329,10 @@ const projects: Project[] = [
       teacher: "Jonas Schmedtmann",
     },
     mobile: true,
-    description:
-      "Szata graficzna dla serwisu zajmującego się rezerwacją hoteli.",
+    description: {
+      pl: "Szata graficzna dla serwisu zajmującego się rezerwacją hoteli.",
+      en: "Layout for a fictional hotel booking service.",
+    },
     image: {
       full: "/screenshots/trillo-01.png",
       mobile: "/screenshots/trillo-mobile-01.png",
@@ -318,7 +354,10 @@ const projects: Project[] = [
   {
     year: 2022,
     title: "Mapty",
-    subtitle: "Dziennik treningowy z mapą",
+    subtitle: {
+      pl: "Dziennik treningowy z mapą",
+      en: "Workout tracker with a map.",
+    },
     type: "course",
     size: "small",
     course: {
@@ -328,7 +367,10 @@ const projects: Project[] = [
       teacher: "Jonas Schmedtmann",
     },
     mobile: false,
-    description: "Dodawaj treningi biegowe i rowerowe jako punkty na mapie.",
+    description: {
+      pl: "Dodawaj treningi biegowe i rowerowe jako punkty na mapie.",
+      en: "Add running and cycling workouts to a map.",
+    },
     image: {
       full: "/screenshots/mapty-01.png",
     },
@@ -349,7 +391,10 @@ const projects: Project[] = [
   {
     year: 2022,
     title: "Bankist",
-    subtitle: "Bankowy panel zarządzania",
+    subtitle: {
+      pl: "Bankowy panel zarządzania",
+      en: "Banking management panel",
+    },
     type: "course",
     size: "small",
     course: {
@@ -359,7 +404,10 @@ const projects: Project[] = [
       teacher: "Jonas Schmedtmann",
     },
     mobile: false,
-    description: "Zaloguj się na konto i przetestuj podstawowe akcje UI.",
+    description: {
+      pl: "Zaloguj się na konto i przetestuj podstawowe akcje UI.",
+      en: "Demo banking app. Sort transactions, transfer money and more.",
+    },
     image: {
       full: "/screenshots/bankist-01.png",
     },
@@ -380,12 +428,17 @@ const projects: Project[] = [
   {
     year: 2014,
     title: "Protektor",
-    subtitle: "Dystrybutor materiałów budowlanych",
+    subtitle: {
+      pl: "Dystrybutor materiałów budowlanych",
+      en: "Building materials distributor",
+    },
     type: "commercial",
     size: "small",
     mobile: false,
-    description:
-      "Oficjalna strona internetowa firmy Protektor-Polska Sp. z o.o., którą wykonałem od podstaw na zamówienie w czasach nauki w technikum.",
+    description: {
+      pl: "Oficjalna strona internetowa firmy Protektor-Polska Sp. z o.o., którą wykonałem od podstaw na zamówienie w czasach nauki w technikum.",
+      en: "The official website of Protektor-Polska Sp. z o.o., which I created from scratch when I was studying at a technical school.",
+    },
     image: {
       full: "/screenshots/protektor-01.png",
     },
@@ -405,12 +458,14 @@ const projects: Project[] = [
   {
     year: 2013,
     title: "Taktyki negocjacji",
-    subtitle: "Zastosowanie i metody obrony",
+    subtitle: { pl: "Zastosowanie i metody obrony", en: "Negotiation tactics" },
     type: "personal",
     size: "small",
     mobile: false,
-    description:
-      "Najstarsza strona jaką udało mi się zachować. Projekt edukacyjny w ramach konkursu Wyższej Szkoły Gospodarki.",
+    description: {
+      pl: "Najstarsza strona jaką udało mi się zachować. Projekt edukacyjny w ramach konkursu Wyższej Szkoły Gospodarki.",
+      en: "The oldest page I managed to keep. An educational project that was part of the competition of the University of Economy.",
+    },
     image: {
       full: "/screenshots/taktyki-01.png",
     },

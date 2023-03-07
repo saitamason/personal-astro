@@ -9,7 +9,6 @@ interface Props {
 }
 
 const { projects, language: lang } = Astro.props;
-const isEn = lang === "en";
 ---
 
 <div class="projects-section mid-col">
@@ -17,7 +16,7 @@ const isEn = lang === "en";
     {
       projects.map((project, index) => {
         if (index > 1) return;
-        return <SingleProject project={project} isEn={isEn} />;
+        return <SingleProject project={project} lang={lang} />;
       })
     }
   </ul>

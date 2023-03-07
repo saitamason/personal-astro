@@ -5,10 +5,11 @@ import type { Project } from "../../data/projects";
 import CourseInfo from "./CourseInfo.astro";
 import { ArrowFatRight, Books, Coins, User } from "phosphor-react";
 import TechList from "./TechList.astro";
+import type { LanguageSelectionType } from "@utils/types";
 
 interface Props {
   project: Project;
-  isEn: boolean;
+  lang: LanguageSelectionType;
 }
 
 const {
@@ -27,8 +28,10 @@ const {
     color,
     year,
   },
-  isEn,
+  lang,
 } = Astro.props;
+
+const isEn = lang === "en";
 
 interface ProjectType {
   text: string;
@@ -111,13 +114,13 @@ const isSmall = size === "small";
     <hgroup>
       <h4 class="title">{title}</h4>
       <p class="subtitle">
-        {subtitle}
+        {subtitle[lang]}
       </p>
     </hgroup>
   </div>
   <div class="description">
     <span class="shape"></span>
-    <p>{description}</p>
+    <p>{description ? description[lang] : ""}</p>
     {type === "course" && <CourseInfo isEn={isEn} course={course!} />}
   </div>
   <div class="bg"></div>
