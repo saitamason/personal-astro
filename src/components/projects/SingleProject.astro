@@ -203,7 +203,7 @@ const isSmall = size === "small";
   .header {
     grid-column: 3 / -3;
     grid-row: 1 / 2;
-    color: var(--c6dark);
+    color: var(--c11dark);
     margin-bottom: var(--space-24);
   }
   .project--medium .header,
@@ -230,13 +230,13 @@ const isSmall = size === "small";
   .project__type-icon-container {
     height: var(--space-64);
     aspect-ratio: 1/1;
-    color: var(--white);
+    color: var(--c11dark);
     line-height: 1;
     padding: var(--space-12);
     border-radius: var(--radius-s);
     grid-column: 3 / 4;
     justify-self: end;
-    background: var(--c8light2);
+    border: var(--border-width) solid var(--c6light);
   }
   .project--small .project__type-icon-container {
     height: var(--space-48);
@@ -255,7 +255,7 @@ const isSmall = size === "small";
 
   .subtitle {
     font-size: var(--font-large);
-    color: var(--c3dark);
+    color: var(--c11dark);
   }
   .project--medium .subtitle,
   .project--small .subtitle {
@@ -266,7 +266,7 @@ const isSmall = size === "small";
     display: block;
     font-size: var(--font-large);
     font-weight: 600;
-    color: var(--c3dark);
+    color: var(--c11dark);
     line-height: 1;
     margin-bottom: var(--space-8);
   }
@@ -296,7 +296,7 @@ const isSmall = size === "small";
   .description {
     grid-column: 3 / -3;
     grid-row: 4 / 5;
-    color: var(--c2dark);
+    color: var(--c11darker);
     margin-top: var(--space-32);
   }
   .project--medium .description,
@@ -382,7 +382,7 @@ const isSmall = size === "small";
     grid-column: 2 / -2;
     grid-row: 1 / -1;
     border-radius: var(--radius-default);
-    background: var(--c1light);
+    background: var(--white);
     box-shadow: var(--shadow-card);
     z-index: -1;
   }
@@ -405,13 +405,20 @@ const isSmall = size === "small";
 
   .button {
     font-size: var(--font-small);
+    color: var(--c11dark);
+    box-shadow: var(--shadow-button),
+      0 0 0.1rem 0.1rem rgb(var(--blackRGB) / 0.1);
+  }
+
+  .button__icon-container {
+    background: var(--c11dark);
   }
 
   .button:nth-of-type(2) {
-    color: var(--c6);
+    color: var(--c8);
   }
 
   .button:nth-of-type(2) .button__icon-container {
-    background: var(--c6);
+    background: var(--c8);
   }
 </style>
