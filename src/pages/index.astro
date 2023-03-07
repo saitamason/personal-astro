@@ -169,7 +169,9 @@ const figcaptions: { en: Caption[]; pl: Caption[] } = {
 
 <Layout
   language={language}
-  title="Dawid Le Hai – Programista frontendu"
+  title={`Dawid Le Hai – ${
+    language === "en" ? "Frontend developer" : "Programista frontendu"
+  }`}
   description={`${ageInYears}-letni programista frontendu, psycholog, certyfikowany trener personalny, a także entuzjasta tworzenia muzyki.`}>
   <Header language={language} links={anchorLinks[language]} />
 
