@@ -178,9 +178,29 @@ const figcaptions: { en: Caption[]; pl: Caption[] } = {
       <div class="hero mid-col">
         <HeroTitle
           linkUrl={anchorLinks[language][0]!.url}
-          linkText="Dowiedz się więcej">
-          Programista frontendu, który tworzy przyjazne i&nbsp;dobrze
-          wyglądające interfejsy użytkownika.
+          linkText={language === "en" ? "Learn more" : "Dowiedz się więcej"}>
+          <Fragment slot="subtitle">
+            {language === "pl" && "Człowiek wielu pasji"}
+            {language === "en" && "A man of many passions"}
+          </Fragment>
+          <Fragment slot="desc">
+            {
+              language === "pl" && (
+                <>
+                  Programista frontendu, który tworzy przyjazne i&nbsp;dobrze
+                  wyglądające interfejsy użytkownika.
+                </>
+              )
+            }
+            {
+              language === "en" && (
+                <>
+                  Frontend developer who creates user-friendly and good looking
+                  interfaces.
+                </>
+              )
+            }
+          </Fragment>
         </HeroTitle>
 
         <HeroFigures captions={figcaptions[language]} />
@@ -194,18 +214,40 @@ const figcaptions: { en: Caption[]; pl: Caption[] } = {
         class="full-bleed layout-grid projects-bg"
         id={anchorLinks[language][0]!.url.slice(1)}>
         <ProjectsHeader link={anchorLinks[language][0]!}>
-          <p>
-            W moim portfolio znajdziesz kilka większych projektów oraz wiele
-            projektów, które napisałem w ramach kursów frontendowych. Każdy z
-            nich nauczył mnie czegoś nowego lub pozwolił mi doskonalić swoje
-            umiejętności.
-          </p>
-          <p>
-            Obecnie poszukuję pracy przy profesjonalnych projektach
-            komercyjnych, w celu uzyskania większego doświadczenia zawodowego
-            oraz dalszego rozwoju swojej wiedzy i umiejętności związanych z
-            programowaniem frontendu.
-          </p>
+          {
+            language === "en" && (
+              <>
+                <p>
+                  In my portfolio, you will find primarily projects I wrote as
+                  part of frontend courses. Each of them taught me something new
+                  or helped me improve my skills.
+                </p>
+                <p>
+                  I am currently looking to work with commercial projects to
+                  gain more professional experience and further develop my
+                  knowledge and skills related to frontend programming.
+                </p>
+              </>
+            )
+          }
+          {
+            language === "pl" && (
+              <>
+                <p>
+                  W moim portfolio znajdziesz przede wszystkim projekty, które
+                  napisałem w ramach kursów frontendowych. Każdy z nich nauczył
+                  mnie czegoś nowego lub pozwolił mi doskonalić swoje
+                  umiejętności.
+                </p>
+                <p>
+                  Obecnie poszukuję pracy przy profesjonalnych projektach
+                  komercyjnych, w celu uzyskania większego doświadczenia
+                  zawodowego oraz dalszego rozwoju swojej wiedzy i umiejętności
+                  związanych z programowaniem frontendu.
+                </p>
+              </>
+            )
+          }
         </ProjectsHeader>
       </div>
 

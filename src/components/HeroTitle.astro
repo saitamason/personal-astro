@@ -12,11 +12,11 @@ const { linkUrl: url, linkText: text } = Astro.props;
 
 <div class="title">
   <hgroup class="ignore-grid">
-    <p>Człowiek wielu pasji</p>
+    <p><slot name="subtitle" /></p>
     <h1><span>Dawid</span><span><span class="le">Le</span> Hai</span></h1>
   </hgroup>
   <p>
-    <slot />
+    <slot name="desc" />
   </p>
   <a href={url} class="button">
     <span class="button__text">{text}</span>
@@ -65,7 +65,7 @@ const { linkUrl: url, linkText: text } = Astro.props;
     text-transform: uppercase;
     font-size: var(--font-small);
     font-weight: 600;
-    letter-spacing: 0.8rem;
+    letter-spacing: 0.4rem;
     color: var(--c4);
     margin-bottom: var(--space-48);
   }
