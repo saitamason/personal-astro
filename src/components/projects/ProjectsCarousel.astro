@@ -47,9 +47,6 @@ const isEn = lang === "en";
 
       if (pos.dx > 0) list.scrollLeft -= 150;
       if (pos.dx < 0) list.scrollLeft += 150;
-
-      if (list.scrollWidth - list.clientWidth - 150 < list.scrollLeft)
-        instructions.classList.add("instructions--hidden");
     };
 
     list.addEventListener("mousedown", (event) => {
@@ -64,6 +61,11 @@ const isEn = lang === "en";
 
       document.addEventListener("mousemove", mouseMoveHandler);
       document.addEventListener("mouseup", mouseUpHandler);
+    });
+
+    list.addEventListener("scroll", () => {
+      if (list.scrollWidth - list.clientWidth - 150 < list.scrollLeft)
+        instructions.classList.add("instructions--hidden");
     });
   }
 </script>

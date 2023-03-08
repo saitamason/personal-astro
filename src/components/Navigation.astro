@@ -78,10 +78,12 @@ const { links } = Astro.props;
     transition: transform 0.2s;
   }
 
-  nav.top-nav a:is(:hover) {
+  nav.top-nav a:is(:hover),
+  .header .lang-link:is(:hover) {
     transform: translateY(-0.4rem);
   }
-  nav.top-nav a:is(:active) {
+  nav.top-nav a:is(:active),
+  .header .lang-link:is(:active) {
     transform: translateY(0);
   }
 

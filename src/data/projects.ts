@@ -76,8 +76,8 @@ const projects: Project[] = [
     year: 2023,
     title: "Natio",
     subtitle: {
-      pl: "Informacje o krajach i ich sąsiadach",
-      en: "Information about countries and their neighbors",
+      pl: "Kraje i ich sąsiedzi",
+      en: "Countries and their neighbors",
     },
     type: "personal",
     size: "large",
