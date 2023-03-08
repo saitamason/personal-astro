@@ -84,7 +84,7 @@ const projects: Project[] = [
     mobile: true,
     description: {
       pl: "Aplikacja edukacyjna typu SPA napisana w JavaScript, Sass i HTML, która pozwala wyświetlać informacje o krajach i ich sąsiadach, a także dodawać kraje do ulubionych oraz śledzić swój postęp nauki.",
-      en: "A SPA-type educational application written in JavaScript, Sass, and HTML that allows you view information about countries and their neighbors, as well as add countries to favorites and track your learning progress.",
+      en: "A SPA-type educational application written in JavaScript, Sass, and HTML that allows you to view information about countries and their neighbors, as well as add countries to favorites and track your learning progress.",
     },
     image: {
       full: "/screenshots/natio-01.png",

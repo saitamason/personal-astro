@@ -11,7 +11,11 @@ const { lang } = Astro.props;
 ---
 
 <ul class="mid-col">
-  {tracklist.map((track) => <MusicItem lang={lang} track={track} />)}
+  {
+    tracklist.map((track, index) => (
+      <MusicItem lang={lang} track={track} index={index} />
+    ))
+  }
 </ul>
 
 <style>

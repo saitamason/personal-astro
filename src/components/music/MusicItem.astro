@@ -7,13 +7,16 @@ import { HourglassHigh } from "phosphor-react";
 interface Props {
   lang: LanguageSelectionType;
   track: TrackType;
+  index: number;
 }
 
-const { track, lang } = Astro.props;
+const { track, lang, index } = Astro.props;
 ---
 
 <li class="track">
-  <h3 class="heading">{track.name}</h3>
+  <h3 class="heading">
+    {index === 0 && lang === "pl" ? "Wybrane utwory" : <>{track.name}</>}
+  </h3>
 
   <div class="image-container">
     <img
@@ -23,7 +26,9 @@ const { track, lang } = Astro.props;
     />
   </div>
   <p class="info">
-    <span class="genre">{track.genre}</span>
+    <span class="genre"
+      >{index === 0 && lang === "pl" ? "Różne" : <>{track.genre}</>}</span
+    >
     <span class="length">
       <HourglassHigh weight="duotone" size="1.8ex" className="icon" />
       {track.length}

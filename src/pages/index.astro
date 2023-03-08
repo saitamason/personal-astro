@@ -76,7 +76,7 @@ const anchorLinks: { pl: Link[]; en: Link[] } = {
     {
       heading: "Skills",
       url: "#skills",
-      subheading: "Technologies on which I focus my attention",
+      subheading: "Technologies I am focused on",
       icon: Stack,
     },
     {
@@ -259,12 +259,33 @@ const figcaptions: { en: Caption[]; pl: Caption[] } = {
 
       <div class="full-bleed layout-grid projects-carousel-bg">
         <ProjectsCarousel projects={projects} language={language}>
-          <Fragment slot="subheading">To nie wszystko</Fragment>
-          <Fragment slot="heading">Chcesz zobaczyć więcej projektów?</Fragment>
+          <Fragment slot="subheading">
+            {language === "pl" && "To nie wszystko"}
+            {language === "en" && "That's not all"}
+          </Fragment>
+          <Fragment slot="heading">
+            {language === "pl" && "Chcesz zobaczyć więcej projektów?"}
+            {language === "en" && "Want to see more projects?"}
+          </Fragment>
           <Fragment slot="info">
-            Sprawdź mój profil <strong>@dawidlehai</strong> na GitHub. Znajdziesz
-            tam projekty, na które nie starczyło już tutaj miejsca oraz te, nad którymi
-            pracuję obecnie.
+            {
+              language === "pl" && (
+                <>
+                  Sprawdź mój profil <strong>@dawidlehai</strong> na GitHub.
+                  Znajdziesz tam projekty, na które nie starczyło już tutaj
+                  miejsca oraz te, nad którymi pracuję obecnie.
+                </>
+              )
+            }
+            {
+              language === "en" && (
+                <>
+                  Check out my profile on GitHub. You will find projects there
+                  that I couldn't fit in here and those that I am currently
+                  working on.
+                </>
+              )
+            }
           </Fragment>
         </ProjectsCarousel>
       </div>
@@ -278,16 +299,23 @@ const figcaptions: { en: Caption[]; pl: Caption[] } = {
         id={anchorLinks[language][1]!.url.slice(1)}>
         <SkillsHeader link={anchorLinks[language][1]!}>
           <p>
-            Ostatnio skupiłem się na nauce technologii i frameworków webowych.
-            Ukończyłem kilka interesujących kursów, napisałem wiele projektów i
-            walczyłem z setkami linijek kodu, aby przygotować się na większe
-            wyzwania.
+            {
+              language === "pl" &&
+                "Ostatnio skupiłem się na nauce technologii i frameworków webowych. Ukończyłem kilka interesujących kursów, napisałem wiele projektów i walczyłem z setkami linijek kodu, aby przygotować się na większe wyzwania."
+            }
+            {
+              language === "en" &&
+                "Lately, I focused on learning web technologies and frameworks. I took some interesting courses, wrote many projects and struggled with hundreds of lines of code to prepare myself for bigger challenges."
+            }
           </p>
         </SkillsHeader>
       </div>
 
       <div class="full-bleed layout-grid courses-bg">
-        <Courses lang={language}>Ukończone kursy</Courses>
+        <Courses lang={language}>
+          {language === "pl" && "Ukończone kursy"}
+          {language === "en" && "Courses completed"}
+        </Courses>
       </div>
     </section>
 
@@ -298,19 +326,45 @@ const figcaptions: { en: Caption[]; pl: Caption[] } = {
         class="full-bleed layout-grid education-bg"
         id={anchorLinks[language][2]!.url.slice(1)}>
         <EducationHeader link={anchorLinks[language][2]!}>
-          <p>
-            Programowanie to pasja, którą rozwijam od dziecka. To ona skłoniła
-            mnie do nauki w technikum z klasą o profilu informatycznym, a
-            następnie do studiowania informatyki. Różne wydarzenia sprawiły
-            jednak, że zainteresowałem się również psychologią. Dopiero po
-            latach nauki w tej dyscyplinie zdecydowałem się powrócić do
-            pierwotnej pasji.
-          </p>
-          <p>
-            Podczas pięciu lat studiów psychologicznych wykazywałem się dużym
-            zainteresowaniem w sferze badań naukowych, a także udzielałem się na
-            forum studenckim chcąc usprawnić proces nauczania.
-          </p>
+          {
+            language === "pl" && (
+              <>
+                <p>
+                  Programowanie to pasja, którą rozwijam od dziecka. To ona
+                  skłoniła mnie do nauki w technikum z klasą o profilu
+                  informatycznym, a następnie do studiowania informatyki. Różne
+                  wydarzenia sprawiły jednak, że zainteresowałem się również
+                  psychologią. Dopiero po latach nauki w tej dyscyplinie
+                  zdecydowałem się powrócić do pierwotnej pasji.
+                </p>
+                <p>
+                  Podczas pięciu lat studiów psychologicznych wykazywałem się
+                  dużym zainteresowaniem w sferze badań naukowych, a także
+                  udzielałem się na forum studenckim chcąc usprawnić proces
+                  nauczania.
+                </p>
+              </>
+            )
+          }
+          {
+            language === "en" && (
+              <>
+                <p>
+                  Programming is a passion that I have been developing since
+                  childhood. It encouraged me to study in a technical high
+                  school with an IT profile class, and then to study computer
+                  science. Various events, however, also made me interested in
+                  psychology. Only after years of studying psychology did I
+                  decide to return to my original passion.
+                </p>
+                <p>
+                  During my five years of psychology studies, I showed great
+                  interest in scientific research and participated in the
+                  student forum to improve the teaching process.
+                </p>
+              </>
+            )
+          }
         </EducationHeader>
 
         <EducationList lang={language} />
@@ -326,12 +380,30 @@ const figcaptions: { en: Caption[]; pl: Caption[] } = {
         class="full-bleed layout-grid music-bg"
         id={anchorLinks[language][3]!.url.slice(1)}>
         <MusicHeader link={anchorLinks[language][3]!}>
-          <p>
-            Chociaż muzykiem nie jestem, to czerpię ogromną radość z tworzenia
-            utworów. Kiedy komponuję nie ograniczają mnie ramy jednego gatunku i
-            chętnie eksperymentuję z różnymi dźwiękami.
-          </p>
-          <p>Wszystkie moje utwory znajdziesz w serwisie SoundCloud.</p>
+          {
+            language === "pl" && (
+              <>
+                <p>
+                  Chociaż muzykiem nie jestem, to czerpię ogromną radość z
+                  tworzenia utworów. Kiedy komponuję nie ograniczają mnie ramy
+                  jednego gatunku i chętnie eksperymentuję z różnymi dźwiękami.
+                </p>
+                <p>Wszystkie moje utwory znajdziesz w serwisie SoundCloud.</p>
+              </>
+            )
+          }
+          {
+            language === "en" && (
+              <>
+                <p>
+                  Even though I'm not a musician, I enormously enjoy creating
+                  tracks. When I'm composing, I'm not limited by a genre and I'm
+                  happy to experiment with different sounds.
+                </p>
+                <p>You can find all of my tracks on SoundCloud.</p>
+              </>
+            )
+          }
         </MusicHeader>
 
         <MusicList lang={language} />
@@ -345,15 +417,37 @@ const figcaptions: { en: Caption[]; pl: Caption[] } = {
         class="full-bleed layout-grid hire-bg"
         id={anchorLinks[language][4]!.url.slice(1)}>
         <HireHeader link={anchorLinks[language][4]!}>
-          <p>
-            Poszukuję miejsca w przyjaznym zespole, w którym mógłbym dalej
-            rozwijać swoje umiejętności programistyczne i designerskie, a także
-            umiejętności związane z organizacją pracy przy większych projektach.
-          </p>
-          <p>
-            Jeżeli przydałby Ci się ktoś taki jak ja, to zapraszam do kontaktu
-            przez LinkedIn.
-          </p>
+          {
+            language === "pl" && (
+              <>
+                <p>
+                  Poszukuję miejsca w zespole, w którym mógłbym dalej rozwijać
+                  swoje umiejętności programistyczne i designerskie, a także
+                  umiejętności związane z organizacją pracy przy większych
+                  projektach.
+                </p>
+                <p>
+                  Jeżeli przydałby Ci się ktoś taki jak ja, to zapraszam do
+                  kontaktu przez LinkedIn.
+                </p>
+              </>
+            )
+          }
+          {
+            language === "en" && (
+              <>
+                <p>
+                  I am looking for a place in a team where I could further
+                  develop my programming and design skills, as well as skills
+                  related to the organization of large projects workflow.
+                </p>
+                <p>
+                  If you'd like to hire someone like me, feel free to contact me
+                  via LinkedIn.
+                </p>
+              </>
+            )
+          }
         </HireHeader>
       </div>
     </section>

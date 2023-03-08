@@ -81,14 +81,6 @@ const { course, lang } = Astro.props;
   li:hover .link :where(.icon, .icon-hidden) {
     color: var(--white);
   }
-  li:hover p:first-of-type {
-    border-top-left-radius: var(--radius-default);
-    border-bottom-left-radius: var(--radius-default);
-  }
-  li:hover p:last-of-type {
-    border-top-right-radius: var(--radius-default);
-    border-bottom-right-radius: var(--radius-default);
-  }
   li:hover .link .icon-hidden {
     transform: translateX(40%);
     opacity: 1;
@@ -119,18 +111,6 @@ const { course, lang } = Astro.props;
   }
   li:last-of-type p {
     border: none;
-  }
-  li:last-of-type p:first-of-type {
-    border-bottom-left-radius: var(--radius-default);
-  }
-  li:last-of-type p:last-of-type {
-    border-bottom-right-radius: var(--radius-default);
-  }
-  li:first-of-type p:first-of-type {
-    border-top-left-radius: var(--radius-default);
-  }
-  li:first-of-type p:last-of-type {
-    border-top-right-radius: var(--radius-default);
   }
 
   .icon,

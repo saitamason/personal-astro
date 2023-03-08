@@ -19,7 +19,7 @@ const { link } = Astro.props;
         <p class="heading">
           <span>04</span><span>{link.heading}</span>
         </p>
-        <h2 class="subheading">Moja muzyka</h2>
+        <h2 class="subheading">{link.subheading}</h2>
       </hgroup>
     </div>
   </div>
@@ -120,8 +120,6 @@ const { link } = Astro.props;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     color: var(--c3dark);
-    hyphens: auto;
-    text-align: justify;
   }
 
   .gto-container {

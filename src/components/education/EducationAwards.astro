@@ -40,19 +40,24 @@ const awards: { pl: AwardType[]; en: AwardType[] } = {
   ],
   en: [
     {
-      title: "Najlepszy absolwent",
+      title: "Award for the best graduate of the University",
       year: "2021/2022",
-      desc: "Nagroda Rektora Uniwersytetu Kazimierza Wielkiego dla Najlepszego Absolwenta roku akademickiego 2021/2022 za działalność pozanaukową.",
+      desc: "Award of the Rector of the Kazimierz Wielki University for the Best Graduate of the academic year 2021/2022 for non-scientific activity.",
     },
     {
-      title: "Najlepszy absolwent i student",
+      title: "Award for the best graduate and student",
       year: "2021/2022",
-      desc: "Wyróżnienie Rady Kolegium II UKW dla najlepszego absolwenta i studenta roku akademickiego 2021/2022 za bardzo dobre wyniki w nauce i działalność pozanaukową.",
+      desc: "Award of the Council of Kolegium II of the UKW for the best graduate and student of the academic year 2021/2022 for very good academic results and non-scientific activities.",
     },
     {
-      title: "Najlepsza praca magisterska",
+      title: "Award for the best master's thesis",
       year: "2021/2022",
-      desc: "Wyróżnienie Rady Kolegium II UKW za najlepszą pracę magisterską na kierunku psychologia w roku akademickim 2021/2022.",
+      desc: "Award of the Council of the Kolegium II of the Kazimierz Wielki University for the best master's thesis in the field of psychology in the academic year 2021/2022.",
+    },
+    {
+      title: "Scholarship for scientific achievements",
+      year: "2018/2022",
+      desc: "Scholarship of the Rector of the Kazimierz Wielki University for scientific achievements, received for 4 years from 2018.",
     },
   ],
 };
@@ -60,13 +65,13 @@ const awards: { pl: AwardType[]; en: AwardType[] } = {
 
 <section class="section mid-col">
   <hgroup class="header">
-    <!-- <div class="header__icon-container">
-      <Trophy weight="duotone" size="100%" className="header__icon" />
-    </div> -->
     <div class="icon-container">
       <Star weight="duotone" size="100%" className="icon" />
     </div>
-    <h3 class="heading">Nagrody i&nbsp;wyróżnienia</h3>
+    <h3 class="heading">
+      {lang === "pl" && "Nagrody i wyróżnienia"}
+      {lang === "en" && "Academic awards"}
+    </h3>
   </hgroup>
 
   <ul class="list">
