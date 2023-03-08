@@ -10,7 +10,51 @@ interface Props {
 const { linkUrl: url, linkText: text } = Astro.props;
 ---
 
-<div class="title">
+<script>
+  const header = document.getElementById("header-container") as HTMLDivElement;
+  const hero = document.querySelector(".js-hero") as HTMLDivElement;
+
+  if (header && hero) {
+    let prevScroll = window.scrollY;
+    let headerPos = -120;
+
+    const scrollEventHandler = () => {
+      const currScroll = window.scrollY;
+      const diff = prevScroll - currScroll;
+
+      if (prevScroll < currScroll) headerPos += diff;
+      if (prevScroll > currScroll) headerPos += diff;
+
+      if (headerPos > 0) headerPos = 0;
+      if (headerPos < -120) headerPos = -120;
+
+      header.style.transform = `translateY(${headerPos}%)`;
+
+      prevScroll = currScroll;
+    };
+
+    const makeHeaderSticky = (entries: IntersectionObserverEntry[]) => {
+      const [entry] = entries;
+      if (entry?.isIntersecting) {
+        headerPos = -120;
+        header.classList.remove("sticky");
+        document.removeEventListener("scroll", scrollEventHandler);
+      } else {
+        header.classList.add("sticky");
+        document.addEventListener("scroll", scrollEventHandler);
+      }
+    };
+
+    const heroObserver = new IntersectionObserver(makeHeaderSticky, {
+      root: null,
+      threshold: 0,
+    });
+
+    heroObserver.observe(hero);
+  }
+</script>
+
+<div class="title js-hero">
   <hgroup class="ignore-grid">
     <p><slot name="subtitle" /></p>
     <h1><span>Dawid</span><span><span class="le">Le</span> Hai</span></h1>

@@ -21,7 +21,7 @@ const site = new URL("pl", getSite());
 const siteName = getSiteName();
 ---
 
-<div class="full-bleed layout-grid header-bg">
+<div class="full-bleed layout-grid header-bg" id="header-container">
   <input aria-hidden="true" type="checkbox" id="menustate" />
   <header class="header mid-col">
     <div class="left">
@@ -66,6 +66,7 @@ const siteName = getSiteName();
     backdrop-filter: blur(4px);
     box-shadow: 0 0 2rem rgb(var(--blackRGB) / 0.1);
     margin-bottom: calc(var(--side-padding) * 4 / 3);
+    transform: translateY(-120%);
   }
 
   .sticky .header {
