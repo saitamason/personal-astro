@@ -1,5 +1,5 @@
 ---
-import { Translate } from "phosphor-react";
+import { List, Translate, X } from "phosphor-react";
 
 import type { LanguageSelectionType, Link } from "../utils/types";
 import { getSite, getSiteName, getLanguageUrls } from "../utils/utils.astro";
@@ -22,7 +22,8 @@ const siteName = getSiteName();
 ---
 
 <div class="full-bleed layout-grid header-bg">
-  <header class="mid-col">
+  <input aria-hidden="true" type="checkbox" id="menustate" />
+  <header class="header mid-col mobile">
     <div class="left">
       <a href={site} class="logo-link">
         <div class="logo"><span>Le</span></div>
@@ -44,11 +45,44 @@ const siteName = getSiteName();
     </div>
 
     {links && <Navigation links={links} />}
+
+    <label for="menustate" aria-hidden="true" class="menu-button">
+      <List size="100%" weight="bold" className="menu-button__open" />
+      <X size="100%" weight="bold" className="menu-button__close" />
+    </label>
   </header>
 </div>
 
-<style>
-  header {
+<style is:global>
+  .header.mobile .logo-link > span:nth-child(2) {
+    display: none;
+  }
+
+  #menustate,
+  header.header :is(.menu-button, .menu-button__close) {
+    display: none;
+  }
+
+  header.header.mobile :is(.menu-button, .menu-button__open) {
+    display: flex;
+  }
+
+  #menustate:checked ~ header.header :is(.menu-button__close, .top-nav) {
+    display: flex;
+  }
+
+  #menustate:checked ~ header.header .menu-button__open {
+    display: none;
+  }
+
+  .menu-button {
+    height: 4rem;
+    align-self: center;
+    color: var(--c8dark);
+    cursor: pointer;
+  }
+
+  header.header {
     --gap: var(--space-24);
     --link-color: var(--gray-4);
     gap: var(--gap);
@@ -56,29 +90,20 @@ const siteName = getSiteName();
     justify-content: space-between;
     align-items: stretch;
     padding: var(--side-padding);
+    position: relative;
   }
 
-  header a:where(:link, :visited) {
+  header.header a:where(:link, :visited) {
     color: var(--c2dark);
     font-weight: var(--weight);
   }
 
-  nav {
-    justify-self: end;
-  }
-
-  ul {
-    display: flex;
-    align-items: center;
-    gap: var(--gap);
-  }
-
-  .left {
+  .header .left {
     display: flex;
     gap: var(--space-32);
   }
 
-  .logo {
+  .header .logo {
     background: var(--c3);
     width: 4.5rem;
     font-size: 2.4rem;
@@ -94,7 +119,7 @@ const siteName = getSiteName();
     aspect-ratio: 1 / 1;
   }
 
-  .logo-link {
+  .header .logo-link {
     font-weight: 700;
     color: var(--c3);
     justify-self: start;
@@ -104,12 +129,12 @@ const siteName = getSiteName();
     align-items: stretch;
   }
 
-  .logo-link > span {
+  .header .logo-link > span {
     display: flex;
     align-items: center;
   }
 
-  .lang-link {
+  .header .lang-link {
     display: flex;
     align-items: center;
     justify-content: center;

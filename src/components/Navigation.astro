@@ -9,7 +9,7 @@ interface Props {
 const { links } = Astro.props;
 ---
 
-<nav>
+<nav class="top-nav">
   <ul>
     {
       links.map((link, index) => {
@@ -36,32 +36,52 @@ const { links } = Astro.props;
   </ul>
 </nav>
 
-<style>
-  ul {
+<style is:global>
+  .mobile .top-nav {
+    display: none;
+    position: absolute;
+    right: var(--side-padding);
+    top: 100%;
+    z-index: 999;
+  }
+  .mobile .top-nav ul {
+    flex-direction: column;
+    border-radius: var(--radius-default);
+    border-top-right-radius: 0;
+    background: rgb(var(--whiteRGB) / 0.9);
+    padding: var(--space-16);
+    backdrop-filter: blur(4px);
+    align-items: stretch;
+  }
+  .mobile .top-nav ul a:where(:link, :visited) {
+    width: 100%;
+  }
+
+  .top-nav ul {
     display: flex;
     gap: var(--gap);
     align-items: stretch;
     height: 100%;
   }
 
-  li {
+  .top-nav li {
     height: 100%;
     display: flex;
     align-items: stretch;
   }
 
-  a:is(:link, :visited) {
+  nav.top-nav a:is(:link, :visited) {
     color: var(--c2dark);
     display: flex;
     align-items: center;
   }
 
-  a.button {
+  .top-nav a.button {
     color: var(--c6dark);
     font-size: var(--font-normal);
   }
 
-  .button__icon-container {
+  .top-nav .button__icon-container {
     background: var(--c6);
   }
 </style>
