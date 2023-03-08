@@ -105,9 +105,13 @@ const { course, lang } = Astro.props;
   }
   p:first-of-type {
     padding-left: var(--side-padding);
+    border-top-left-radius: var(--radius-default);
+    border-bottom-left-radius: var(--radius-default);
   }
   p:last-of-type {
     padding-right: calc(var(--side-padding) / 2);
+    border-top-right-radius: var(--radius-default);
+    border-bottom-right-radius: var(--radius-default);
   }
   li:last-of-type p {
     border: none;
