@@ -23,7 +23,7 @@ const siteName = getSiteName();
 
 <div class="full-bleed layout-grid header-bg">
   <input aria-hidden="true" type="checkbox" id="menustate" />
-  <header class="header mid-col mobile">
+  <header class="header mid-col">
     <div class="left">
       <a href={site} class="logo-link">
         <div class="logo"><span>Le</span></div>
@@ -54,6 +54,24 @@ const siteName = getSiteName();
 </div>
 
 <style is:global>
+  .sticky {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    background: linear-gradient(
+      to bottom,
+      var(--white),
+      rgb(var(--whiteRGB) / 0.9)
+    );
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 2rem rgb(var(--blackRGB) / 0.1);
+    margin-bottom: calc(var(--side-padding) * 4 / 3);
+  }
+
+  .sticky .header {
+    padding: calc(var(--side-padding) / 3) var(--side-padding);
+  }
+
   .header.mobile .logo-link > span:nth-child(2) {
     display: none;
   }

@@ -41,7 +41,7 @@ const { links } = Astro.props;
     display: none;
     position: absolute;
     right: var(--side-padding);
-    top: 100%;
+    top: calc(100% + var(--side-padding) / 4);
     z-index: 999;
   }
   .mobile .top-nav ul {
@@ -52,6 +52,7 @@ const { links } = Astro.props;
     padding: var(--space-16);
     backdrop-filter: blur(4px);
     align-items: stretch;
+    box-shadow: var(--shadow-default);
   }
   .mobile .top-nav ul a:where(:link, :visited) {
     width: 100%;
@@ -74,10 +75,28 @@ const { links } = Astro.props;
     color: var(--c2dark);
     display: flex;
     align-items: center;
+    transition: transform 0.2s;
   }
 
-  .top-nav a.button {
+  nav.top-nav a:is(:hover) {
+    transform: translateY(-0.4rem);
+  }
+  nav.top-nav a:is(:active) {
+    transform: translateY(0);
+  }
+
+  .sticky nav.top-nav ul a.button {
+    border: var(--border-width) solid var(--c5);
+    color: var(--c8);
+    box-shadow: none;
+  }
+  .sticky .top-nav .button__icon-container {
+    background: var(--c5);
+  }
+
+  nav.top-nav ul a.button {
     color: var(--c6dark);
+    font-weight: 500;
     font-size: var(--font-normal);
   }
 
