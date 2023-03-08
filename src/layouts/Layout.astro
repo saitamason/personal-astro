@@ -28,6 +28,14 @@ const url = getLanguageUrls(Astro.url.pathname);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
 
+    <link rel="preload" href="/fonts/Anton-Regular.ttf" />
+    <link rel="preload" href="/fonts/Poppins-Regular.ttf" />
+    <link rel="preload" href="/fonts/Poppins-Italic.ttf" />
+    <link rel="preload" href="/fonts/Poppins-Medium.ttf" />
+    <link rel="preload" href="/fonts/Poppins-SemiBold.ttf" />
+    <link rel="preload" href="/fonts/Poppins-Bold.ttf" />
+    <link rel="preload" href="/fonts/Poppins-ExtraBold.ttf" />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate" hreflang="en" href={url.en} />
     <link rel="alternate" hreflang="pl" href={url.pl} />
@@ -98,13 +106,6 @@ const url = getLanguageUrls(Astro.url.pathname);
     }
 
     @font-face {
-      font-family: "Poppins";
-      src: local("Poppins"), url("/fonts/Poppins-Black.ttf") format("truetype");
-      font-weight: 900;
-      font-style: normal;
-    }
-
-    @font-face {
       font-family: "Anton";
       src: local("Anton"), url("/fonts/Anton-Regular.ttf") format("truetype");
       font-weight: normal;
@@ -120,7 +121,6 @@ const url = getLanguageUrls(Astro.url.pathname);
       --font-medium: 500;
       --font-semibold: 600;
       --font-bold: 700;
-      --font-black: 900;
 
       --font-1: 11rem;
       --font-2: 7.58rem;
