@@ -15,9 +15,10 @@ const { language, links } = Astro.props;
 
 const isEn = language === "en";
 const langCode = isEn ? "pl" : "en";
-const url = getLanguageUrls(Astro.url.pathname);
+const url = getLanguageUrls();
 
-const site = new URL("pl", getSite());
+let site = getSite();
+if (!isEn) site = new URL("pl", getSite());
 const siteName = getSiteName();
 ---
 

@@ -1,0 +1,517 @@
+---
+import {
+  Stack,
+  Layout as LayoutIcon,
+  GraduationCap,
+  Sliders,
+  Handshake,
+} from "phosphor-react";
+
+import type { Link, Caption, LanguageSelectionType } from "../utils/types";
+import projects from "../data/projects";
+import Layout from "../layouts/Layout.astro";
+import Header from "../layouts/Header.astro";
+import HeroTitle from "../components/HeroTitle.astro";
+import HeroFigures from "../components/HeroFigures.astro";
+import MyProjects from "../components/projects/MyProjects.astro";
+import Courses from "../components/skills/Courses.astro";
+import EducationList from "../components/education/EducationList.astro";
+import ResearchList from "@components/research/ResearchList.astro";
+import ProjectsHeader from "@components/projects/ProjectsHeader.astro";
+import ProjectsCarousel from "@components/projects/ProjectsCarousel.astro";
+import SkillsHeader from "@components/skills/SkillsHeader.astro";
+import EducationHeader from "@components/education/EducationHeader.astro";
+import EducationAwards from "@components/education/EducationAwards.astro";
+import MusicHeader from "@components/music/MusicHeader.astro";
+import MusicList from "@components/music/MusicList.astro";
+import HireHeader from "@components/HireHeader.astro";
+import Footer from "@components/Footer.astro";
+import Wave from "@components/decorators/Wave.astro";
+// import Intersection from "../components/Intersection.astro";
+
+interface Props {
+  lang: LanguageSelectionType;
+}
+const { lang: language } = Astro.props;
+
+const anchorLinks: { pl: Link[]; en: Link[] } = {
+  pl: [
+    {
+      heading: "Projekty",
+      url: "#projekty",
+      subheading: "Projekty, które wiele mnie nauczyły",
+      icon: LayoutIcon,
+    },
+    {
+      heading: "Umiejętności",
+      url: "#umiejetnosci",
+      subheading: "Technologie, na których skupiam swoją uwagę",
+      icon: Stack,
+    },
+    {
+      heading: "Wykształcenie",
+      url: "#wyksztalcenie",
+      subheading: "Wykształcenie i działalność naukowa",
+      icon: GraduationCap,
+    },
+    {
+      heading: "Muzyka",
+      url: "#muzyka",
+      subheading: "Moja muzyka",
+      icon: Sliders,
+    },
+    {
+      heading: "Zatrudnij mnie",
+      url: "#zatrudnij-mnie",
+      subheading: "Pracujmy razem!",
+      icon: Handshake,
+    },
+  ],
+  en: [
+    {
+      heading: "Projects",
+      url: "#projects",
+      subheading: "Projects that taught me a lot",
+      icon: LayoutIcon,
+    },
+    {
+      heading: "Skills",
+      url: "#skills",
+      subheading: "Technologies I am focused on",
+      icon: Stack,
+    },
+    {
+      heading: "Education",
+      url: "#education",
+      subheading: "Education and scientific activity",
+      icon: GraduationCap,
+    },
+    { heading: "Music", url: "#music", subheading: "My music", icon: Sliders },
+    {
+      heading: "Hire me",
+      url: "#hire-me",
+      subheading: "Let's work together!",
+      icon: Handshake,
+    },
+  ],
+};
+
+const figcaptions: { en: Caption[]; pl: Caption[] } = {
+  pl: [
+    {
+      title: "Programista frontendu",
+      subtitle: "Na co dzień",
+      img: {
+        filename: "1.png",
+        alt: "Grafika - Programista frontendu",
+      },
+    },
+    {
+      title: "Magister psychologii",
+      subtitle: "Z wykształcenia",
+      img: {
+        filename: "2.png",
+        alt: "Grafika - Psycholog",
+      },
+    },
+    {
+      title: "Trener personalny",
+      subtitle: "Po południu",
+      img: {
+        filename: "3.png",
+        alt: "Grafika - Trener personalny",
+      },
+    },
+    {
+      title: "Producent muzyczny",
+      subtitle: "A wieczorem",
+      img: {
+        filename: "4.png",
+        alt: "Grafika - Producent muzyczny",
+      },
+    },
+  ],
+  en: [
+    {
+      title: "Frontend Developer",
+      subtitle: "Professional",
+      img: {
+        filename: "1.png",
+        alt: "Frontend developer art",
+      },
+    },
+    {
+      title: "Degree in Psychology",
+      subtitle: "Who has a",
+      img: {
+        filename: "2.png",
+        alt: "Psychologist art",
+      },
+    },
+    {
+      title: "Personal Trainer",
+      subtitle: "Is a passionate",
+      img: {
+        filename: "3.png",
+        alt: "Personal trainer art",
+      },
+    },
+    {
+      title: "Music Producer",
+      subtitle: "And an amateur",
+      img: {
+        filename: "4.png",
+        alt: "Music producer art",
+      },
+    },
+  ],
+};
+---
+
+<Layout
+  language={language}
+  title={`Dawid Le Hai – ${
+    language === "en" ? "Frontend developer" : "Programista frontendu"
+  }`}
+  description={`${
+    language === "pl"
+      ? "Programista frontendu, psycholog, certyfikowany trener personalny, a także entuzjasta tworzenia muzyki."
+      : "Frontend developer, psychologist, certified personal trainer, and music production enthusiast."
+  }`}
+  image={language === "en"
+    ? "/img/personal-astro.png"
+    : "/img/personal-astro-pl.png"}>
+  <Header language={language} links={anchorLinks[language]} />
+
+  <main class="ignore-grid">
+    <section class="full-bleed layout-grid hero-bg">
+      <div class="hero mid-col">
+        <HeroTitle
+          linkUrl={anchorLinks[language][0]!.url}
+          linkText={language === "en" ? "Learn more" : "Dowiedz się więcej"}>
+          <Fragment slot="subtitle">
+            {language === "pl" && "Człowiek wielu pasji"}
+            {language === "en" && "A man of many passions"}
+          </Fragment>
+          <Fragment slot="desc">
+            {
+              language === "pl" && (
+                <>
+                  Programista frontendu, który tworzy przyjazne i&nbsp;dobrze
+                  wyglądające interfejsy użytkownika.
+                </>
+              )
+            }
+            {
+              language === "en" && (
+                <>
+                  Frontend developer who creates user-friendly and good looking
+                  interfaces.
+                </>
+              )
+            }
+          </Fragment>
+        </HeroTitle>
+
+        <HeroFigures captions={figcaptions[language]} />
+      </div>
+    </section>
+
+    <section class="ignore-grid">
+      <Wave bgTop="var(--c1)" bgBottom="var(--c6light)" />
+
+      <div
+        class="full-bleed layout-grid projects-bg"
+        id={anchorLinks[language][0]!.url.slice(1)}>
+        <ProjectsHeader link={anchorLinks[language][0]!}>
+          {
+            language === "en" && (
+              <>
+                <p>
+                  In my portfolio, you will find primarily projects I wrote as
+                  part of frontend courses. Each of them taught me something new
+                  or helped me improve my skills.
+                </p>
+                <p>
+                  I am currently looking to work with commercial projects to
+                  gain more professional experience and further develop my
+                  knowledge and skills related to frontend programming.
+                </p>
+              </>
+            )
+          }
+          {
+            language === "pl" && (
+              <>
+                <p>
+                  W moim portfolio znajdziesz przede wszystkim projekty, które
+                  napisałem w ramach kursów frontendowych. Każdy z nich nauczył
+                  mnie czegoś nowego lub pozwolił mi doskonalić swoje
+                  umiejętności.
+                </p>
+                <p>
+                  Obecnie poszukuję pracy przy profesjonalnych projektach
+                  komercyjnych, w celu uzyskania większego doświadczenia
+                  zawodowego oraz dalszego rozwoju swojej wiedzy i umiejętności
+                  związanych z programowaniem frontendu.
+                </p>
+              </>
+            )
+          }
+        </ProjectsHeader>
+      </div>
+
+      <div class="full-bleed layout-grid projects-list-bg">
+        <MyProjects projects={projects} language={language} />
+      </div>
+
+      <div class="full-bleed layout-grid projects-carousel-bg">
+        <ProjectsCarousel projects={projects} language={language}>
+          <Fragment slot="subheading">
+            {language === "pl" && "To nie wszystko"}
+            {language === "en" && "That's not all"}
+          </Fragment>
+          <Fragment slot="heading">
+            {language === "pl" && "Chcesz zobaczyć więcej projektów?"}
+            {language === "en" && "Want to see more projects?"}
+          </Fragment>
+          <Fragment slot="info">
+            {
+              language === "pl" && (
+                <>
+                  Sprawdź mój profil <strong>@dawidlehai</strong> na GitHub.
+                  Znajdziesz tam projekty, na które nie starczyło już tutaj
+                  miejsca oraz te, nad którymi pracuję obecnie.
+                </>
+              )
+            }
+            {
+              language === "en" && (
+                <>
+                  Check out my profile on GitHub. There you will find projects
+                  that I couldn't fit in here and those that I am currently
+                  working on.
+                </>
+              )
+            }
+          </Fragment>
+        </ProjectsCarousel>
+      </div>
+    </section>
+
+    <section class="ignore-grid">
+      <Wave bgTop="var(--c6light)" bgBottom="var(--c7light)" />
+
+      <div
+        class="full-bleed layout-grid skills-bg"
+        id={anchorLinks[language][1]!.url.slice(1)}>
+        <SkillsHeader link={anchorLinks[language][1]!}>
+          <p>
+            {
+              language === "pl" &&
+                "Ostatnio skupiłem się na nauce technologii i frameworków webowych. Ukończyłem kilka interesujących kursów, napisałem wiele projektów i walczyłem z setkami linijek kodu, aby przygotować się na większe wyzwania."
+            }
+            {
+              language === "en" &&
+                "Lately, I focused on learning web technologies and frameworks. I took some interesting courses, wrote many projects and struggled with hundreds of lines of code to prepare myself for bigger challenges."
+            }
+          </p>
+        </SkillsHeader>
+      </div>
+
+      <div class="full-bleed layout-grid courses-bg">
+        <Courses lang={language}>
+          {language === "pl" && "Ukończone kursy"}
+          {language === "en" && "Courses completed"}
+        </Courses>
+      </div>
+    </section>
+
+    <section class="ignore-grid">
+      <Wave bgTop="var(--c7light)" bgBottom="var(--c2light)" />
+
+      <div
+        class="full-bleed layout-grid education-bg"
+        id={anchorLinks[language][2]!.url.slice(1)}>
+        <EducationHeader link={anchorLinks[language][2]!}>
+          {
+            language === "pl" && (
+              <>
+                <p>
+                  Programowanie to pasja, którą rozwijam od dziecka. To ona
+                  skłoniła mnie do nauki w technikum z klasą o profilu
+                  informatycznym, a następnie do studiowania informatyki. Różne
+                  wydarzenia sprawiły jednak, że zainteresowałem się również
+                  psychologią. Dopiero po latach nauki w tej dyscyplinie
+                  zdecydowałem się powrócić do pierwotnej pasji.
+                </p>
+                <p>
+                  Podczas pięciu lat studiów psychologicznych wykazywałem się
+                  dużym zainteresowaniem w sferze badań naukowych, a także
+                  udzielałem się na forum studenckim chcąc usprawnić proces
+                  nauczania.
+                </p>
+              </>
+            )
+          }
+          {
+            language === "en" && (
+              <>
+                <p>
+                  Programming is a passion that I have been developing since
+                  childhood. It encouraged me to study in a technical high
+                  school with an IT profile class, and then to study computer
+                  science. Various events, however, also made me interested in
+                  psychology. Only after years of studying psychology did I
+                  decide to return to my original passion.
+                </p>
+                <p>
+                  During my five years of psychology studies, I showed great
+                  interest in scientific research and participated in the
+                  student forum to improve the teaching process.
+                </p>
+              </>
+            )
+          }
+        </EducationHeader>
+
+        <EducationList lang={language} />
+        <EducationAwards lang={language} />
+        <ResearchList lang={language} />
+      </div>
+    </section>
+
+    <section class="ignore-grid">
+      <Wave bgTop="var(--c2light)" bgBottom="var(--c1)" />
+
+      <div
+        class="full-bleed layout-grid music-bg"
+        id={anchorLinks[language][3]!.url.slice(1)}>
+        <MusicHeader link={anchorLinks[language][3]!}>
+          {
+            language === "pl" && (
+              <>
+                <p>
+                  Chociaż muzykiem nie jestem, to czerpię ogromną radość z
+                  tworzenia utworów. Kiedy komponuję nie ograniczają mnie ramy
+                  jednego gatunku i chętnie eksperymentuję z różnymi dźwiękami.
+                </p>
+                <p>Wszystkie moje utwory znajdziesz w serwisie SoundCloud.</p>
+              </>
+            )
+          }
+          {
+            language === "en" && (
+              <>
+                <p>
+                  Even though I'm not a musician, I enormously enjoy creating
+                  tracks. When I'm composing, I'm not limited by a genre and I'm
+                  happy to experiment with different sounds.
+                </p>
+                <p>You can find all of my tracks on SoundCloud.</p>
+              </>
+            )
+          }
+        </MusicHeader>
+
+        <MusicList lang={language} />
+      </div>
+    </section>
+
+    <section class="ignore-grid">
+      <Wave bgTop="var(--c1)" bgBottom="var(--c11)" />
+
+      <div
+        class="full-bleed layout-grid hire-bg"
+        id={anchorLinks[language][4]!.url.slice(1)}>
+        <HireHeader link={anchorLinks[language][4]!}>
+          {
+            language === "pl" && (
+              <>
+                <p>
+                  Poszukuję miejsca w zespole, w którym mógłbym dalej rozwijać
+                  swoje umiejętności programistyczne i designerskie, a także
+                  umiejętności związane z organizacją pracy przy większych
+                  projektach.
+                </p>
+                <p>
+                  Jeżeli przydałby Ci się ktoś taki jak ja, to zapraszam do
+                  kontaktu przez LinkedIn.
+                </p>
+              </>
+            )
+          }
+          {
+            language === "en" && (
+              <>
+                <p>
+                  I am looking for a place in a team where I could further
+                  develop my programming and design skills, as well as skills
+                  related to the organization of large projects workflow.
+                </p>
+                <p>
+                  If you'd like to hire someone like me, feel free to contact me
+                  via LinkedIn.
+                </p>
+              </>
+            )
+          }
+        </HireHeader>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 0 var(--side-padding);
+    padding-top: var(--space-128);
+    padding-bottom: var(--space-144);
+    gap: var(--space-64);
+  }
+
+  .projects-bg {
+    background: var(--c6light);
+  }
+
+  .projects-list-bg {
+    background: var(--c6light);
+    padding-bottom: var(--space-32);
+    z-index: -1;
+  }
+
+  .projects-carousel-bg {
+    padding-top: var(--space-144);
+    padding-bottom: var(--space-144);
+    background: var(--c6light);
+    z-index: -1;
+  }
+
+  .skills-bg {
+    padding-bottom: var(--space-96);
+    background: var(--c7light);
+  }
+
+  .courses-bg {
+    background: var(--c7light);
+    padding-bottom: var(--space-144);
+  }
+
+  .education-bg {
+    background: var(--c2light);
+    padding-bottom: var(--space-144);
+    z-index: -1;
+  }
+
+  .music-bg {
+    padding-bottom: var(--space-144);
+  }
+
+  .hire-bg {
+    background: var(--c11);
+  }
+</style>

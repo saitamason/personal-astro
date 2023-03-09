@@ -7,9 +7,10 @@ interface Props {
   description: string;
   language: LanguageSelectionType;
   children: any;
+  image: string;
 }
 
-const { language, title, description } = Astro.props;
+const { language, title, description, image } = Astro.props;
 
 if (title.length > 55)
   throw new Error(`The title mustn't have more than 55 characters: ${title}`);
@@ -18,7 +19,7 @@ if (description.length > 150)
     `The description mustn't have more than 150 characters: ${description}`
   );
 
-const url = getLanguageUrls(Astro.url.pathname);
+const url = getLanguageUrls();
 ---
 
 <!DOCTYPE html>
@@ -42,6 +43,20 @@ const url = getLanguageUrls(Astro.url.pathname);
     <link rel="alternate" hreflang="x-default" href={url.en} />
 
     <title>{title}</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url[language]} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={url[language]} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
   </head>
 
   <body class="container">
@@ -55,7 +70,7 @@ const url = getLanguageUrls(Astro.url.pathname);
         1fr [start] minmax(min-content, var(--width-default))
         [end] 1fr;
 
-      background: linear-gradient(to bottom, var(--c2), var(--c1) 20vh);
+      background: linear-gradient(to bottom, var(--c2), var(--c1) 20rem);
     }
   </style>
 

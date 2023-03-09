@@ -48,6 +48,7 @@ const { linkUrl: url, linkText: text } = Astro.props;
     const heroObserver = new IntersectionObserver(makeHeaderSticky, {
       root: null,
       threshold: 0,
+      rootMargin: "200px",
     });
 
     heroObserver.observe(hero);

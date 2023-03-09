@@ -5,12 +5,11 @@ export const getSite = () => {
   return site;
 };
 
-export const getLanguageUrls = (path: string) => {
+export const getLanguageUrls = () => {
   const site = getSite();
-  const englishUrl = new URL(path, site);
-  const polishUrl = new URL(`pl${path}`, site);
+  const polishUrl = new URL("pl", site);
   return {
-    en: englishUrl,
+    en: site,
     pl: polishUrl,
   };
 };
