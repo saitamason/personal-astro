@@ -21,7 +21,7 @@ const { track, lang, index } = Astro.props;
 
   <div class="image-container">
     <Picture
-      src={`/src/assets/covers/${track.name.toLowerCase().split(" ")[0]}.jpg`}
+      src={`/img/covers/${track.name.toLowerCase().split(" ")[0]}.jpg`}
       alt={`${track.name} ${lang === "en" ? "Cover Photo" : "- Okładka"}`}
       sizes="250px"
       widths={[500, 250]}

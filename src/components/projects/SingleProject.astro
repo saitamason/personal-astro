@@ -169,7 +169,7 @@ const isSmall = size === "small";
         image?.full && size === "large" && (
           <>
             <Picture
-              src={`/src/assets${image.full}`}
+              src={`/img${image.full}`}
               alt={`${title} - ${
                 lang === "en" ? "Screenshot" : "Zrzut ekranu"
               }`}
@@ -188,7 +188,7 @@ const isSmall = size === "small";
         image?.full && size === "small" && (
           <>
             <Picture
-              src={`/src/assets${image.full}`}
+              src={`/img${image.full}`}
               alt={`${title} - ${
                 lang === "en" ? "Screenshot" : "Zrzut ekranu"
               }`}
@@ -213,7 +213,7 @@ const isSmall = size === "small";
         <div class="phone__screen">
           {image?.mobile && (
             <Picture
-              src={`/src/assets${image.mobile}`}
+              src={`/img${image.mobile}`}
               alt={`${title} - ${
                 lang === "en" ? "Mobile Version" : "Wersja mobilna"
               }`}
