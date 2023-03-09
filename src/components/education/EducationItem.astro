@@ -35,10 +35,12 @@ const isSchoolDiffLang = schoolLang !== lang;
 <li class="item ignore-grid">
   <div class="item__logo-container">
     <img
-      src={`/logos/${logo}`}
+      src={`/src/assets/logos/${logo}`}
       alt={school}
       {...(isSchoolDiffLang && {lang: schoolLang})}
       class="item__logo"
+      loading="lazy"
+      decoding="async"
     />
   </div>
 
@@ -190,7 +192,7 @@ const isSchoolDiffLang = schoolLang !== lang;
     justify-content: center;
     gap: 0.1ex;
     font-size: var(--font-6);
-    font-weight: var(--font-bold);
+    font-weight: 700;
     background-color: var(--c2light);
     color: var(--c4);
   }

@@ -432,7 +432,7 @@ const isSmall = size === "small";
     );
     z-index: 1;
     border-radius: calc(var(--radius-default) + 0.1rem);
-    animation: pulse 0.75s ease-in-out infinite alternate both;
+    animation: pulse 0.5s ease-in-out infinite alternate both;
   }
 
   @keyframes pulse {
@@ -440,7 +440,7 @@ const isSmall = size === "small";
       filter: contrast(100%);
     }
     to {
-      filter: contrast(0%);
+      filter: contrast(25%);
     }
   }
 
