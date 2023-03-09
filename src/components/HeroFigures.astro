@@ -48,15 +48,19 @@ const { captions } = Astro.props;
 
   figure:nth-child(1) :is(.figure-image-container, .filler) {
     grid-column: 1 / 2;
+    background: var(--c5);
   }
   figure:nth-child(2) :is(.figure-image-container, .filler) {
     grid-column: 2 / 3;
+    background: var(--c4);
   }
   figure:nth-child(3) :is(.figure-image-container, .filler) {
     grid-column: 3 / 4;
+    background: var(--c6);
   }
   figure:nth-child(4) :is(.figure-image-container, .filler) {
     grid-column: 4 / 5;
+    background: var(--c3);
   }
 
   figcaption {
@@ -85,20 +89,21 @@ const { captions } = Astro.props;
     width: 100%;
     display: grid;
     align-self: stretch;
+    border-radius: var(--radius-default);
+    overflow: hidden;
   }
 
   .figure-image {
     width: 100%;
-    height: 60rem;
-    background-color: var(--gray-11);
-    border-radius: var(--radius-default);
+
     position: relative;
-    overflow: hidden;
   }
 
   .figure-image img {
+    height: 60rem;
     width: 100%;
     object-fit: cover;
+    object-position: top;
     aspect-ratio: 300 / 1191;
   }
 </style>

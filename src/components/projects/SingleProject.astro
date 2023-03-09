@@ -1,11 +1,13 @@
 ---
+import { Picture } from "@astrojs/image/components";
+
 import { GitHub } from "../../utils/technologies.astro";
+import { ArrowFatRight, Books, Coins, User } from "phosphor-react";
 
 import type { Project } from "../../data/projects";
-import CourseInfo from "./CourseInfo.astro";
-import { ArrowFatRight, Books, Coins, User } from "phosphor-react";
-import TechList from "./TechList.astro";
 import type { LanguageSelectionType } from "@utils/types";
+import CourseInfo from "./CourseInfo.astro";
+import TechList from "./TechList.astro";
 
 interface Props {
   project: Project;
@@ -71,6 +73,17 @@ if (type === "course")
 const isMedium = size === "medium";
 const isSmall = size === "small";
 ---
+
+<script>
+  const imgs = document.querySelectorAll<HTMLImageElement>(".project__img");
+  if (imgs) {
+    imgs.forEach((img) => {
+      img.onload = () => {
+        img.closest(".tablet__screen")!.classList.remove("loading");
+      };
+    });
+  }
+</script>
 
 <li
   class:list={[
@@ -151,10 +164,44 @@ const isSmall = size === "small";
     >
   </div>
   <div class="tablet">
-    <div class="tablet__screen">
+    <div class="tablet__screen loading">
       {
-        image?.full && (
-          <img src={image.full} class="project__img" draggable="false" />
+        image?.full && size === "large" && (
+          <>
+            <Picture
+              src={`/src/assets${image.full}`}
+              alt={`${title} - ${
+                lang === "en" ? "Screenshot" : "Zrzut ekranu"
+              }`}
+              sizes="650px"
+              widths={[1950, 1300, 650]}
+              formats={["webp"]}
+              aspectRatio="16:9"
+              loading="lazy"
+              decoding="async"
+              class="project__img"
+            />
+          </>
+        )
+      }
+      {
+        image?.full && size === "small" && (
+          <>
+            <Picture
+              src={`/src/assets${image.full}`}
+              alt={`${title} - ${
+                lang === "en" ? "Screenshot" : "Zrzut ekranu"
+              }`}
+              sizes="350px"
+              widths={[1050, 700, 350]}
+              formats={["webp"]}
+              aspectRatio="16:9"
+              loading="lazy"
+              decoding="async"
+              class="project__img"
+              draggable="false"
+            />
+          </>
         )
       }
     </div>
@@ -165,7 +212,19 @@ const isSmall = size === "small";
       <div class="phone">
         <div class="phone__screen">
           {image?.mobile && (
-            <img src={image.mobile} class="project__img-mobile" />
+            <Picture
+              src={`/src/assets${image.mobile}`}
+              alt={`${title} - ${
+                lang === "en" ? "Mobile Version" : "Wersja mobilna"
+              }`}
+              sizes="220px"
+              widths={[760, 440, 220]}
+              formats={["webp"]}
+              aspectRatio="1:2"
+              loading="lazy"
+              decoding="async"
+              class="project__img-mobile"
+            />
           )}
         </div>
       </div>
@@ -331,6 +390,7 @@ const isSmall = size === "small";
     padding: var(--padding);
     margin-top: var(--space-64);
     box-shadow: var(--shadow-default);
+    z-index: 5;
     position: relative;
   }
   .project--medium .phone {
@@ -355,6 +415,33 @@ const isSmall = size === "small";
   .tablet__screen {
     border-radius: var(--radius-default);
     overflow: hidden;
+    position: relative;
+  }
+
+  .tablet__screen.loading::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to top left,
+      hsl(var(--h) 50% 50%),
+      hsl(var(--h) 70% 70%)
+    );
+    z-index: 1;
+    border-radius: calc(var(--radius-default) + 0.1rem);
+    animation: pulse 0.75s ease-in-out infinite alternate both;
+  }
+
+  @keyframes pulse {
+    from {
+      filter: contrast(100%);
+    }
+    to {
+      filter: contrast(0%);
+    }
   }
 
   .tablet {
@@ -376,6 +463,14 @@ const isSmall = size === "small";
   .project__img {
     width: 100%;
     aspect-ratio: 16/9;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: transparent;
+    z-index: 2;
+    position: relative;
   }
 
   .bg {
