@@ -88,7 +88,7 @@ const { linkUrl: url, linkText: text } = Astro.props;
     font-family: "Anton", "Poppins", sans-serif;
     text-transform: uppercase;
     display: grid;
-    justify-items: flex-end;
+    justify-items: end;
     line-height: 1;
     grid-template-columns: 1fr;
   }
@@ -137,6 +137,32 @@ const { linkUrl: url, linkText: text } = Astro.props;
   @media only screen and (max-width: 71em /* 1136px */) {
     .title h1 {
       font-size: 13rem;
+    }
+  }
+
+  @media only screen and (max-width: 56em /* 896px */) {
+    .title {
+      grid-column: 1 / -1;
+      align-items: center;
+    }
+
+    .title h1 {
+      display: flex;
+      gap: var(--space-12);
+    }
+
+    .title h1 > span:last-child {
+      font-size: 13rem;
+    }
+
+    .title hgroup p {
+      margin-bottom: var(--space-24);
+    }
+
+    .title > p {
+      text-align: center;
+      margin-top: var(--space-12);
+      margin-bottom: var(--space-24);
     }
   }
 </style>

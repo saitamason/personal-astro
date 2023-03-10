@@ -24,7 +24,7 @@ const siteName = getSiteName();
 
 <div class="full-bleed layout-grid header-bg" id="header-container">
   <input aria-hidden="true" type="checkbox" id="menustate" />
-  <header class="header mid-col">
+  <header class="header mid-col mobile">
     <div class="left">
       <a href={site} class="logo-link">
         <div class="logo"><span>Le</span></div>
@@ -74,17 +74,9 @@ const siteName = getSiteName();
     padding: calc(var(--side-padding) / 3) var(--side-padding);
   }
 
-  .header.mobile .logo-link > span:nth-child(2) {
-    display: none;
-  }
-
   #menustate,
   header.header :is(.menu-button, .menu-button__close) {
     display: none;
-  }
-
-  header.header.mobile :is(.menu-button, .menu-button__open) {
-    display: flex;
   }
 
   #menustate:checked ~ header.header :is(.menu-button__close, .top-nav) {
@@ -160,4 +152,14 @@ const siteName = getSiteName();
     gap: calc(var(--gap) / 4);
     transition: transform 0.2s;
   }
+
+  @media only screen and (max-width: 56em /* 896px */) {
+    header.header.mobile :is(.menu-button, .menu-button__open) {
+      display: flex;
+    }
+  }
+
+  /* .header.mobile .logo-link > span:nth-child(2) {
+    display: none;
+  } */
 </style>

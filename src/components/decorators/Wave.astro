@@ -55,4 +55,10 @@ const { bgTop, bgBottom, reflect = false } = Astro.props;
     width: 100%;
     height: 100%;
   }
+
+  @media only screen and (max-width: 62.5em /* 1000px */) {
+    .wave-container {
+      margin-bottom: calc(var(--space-48) * -1);
+    }
+  }
 </style>

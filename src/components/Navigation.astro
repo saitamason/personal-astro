@@ -37,27 +37,6 @@ const { links } = Astro.props;
 </nav>
 
 <style is:global>
-  .mobile .top-nav {
-    display: none;
-    position: absolute;
-    right: var(--side-padding);
-    top: calc(100% + var(--side-padding) / 4);
-    z-index: 999;
-  }
-  .mobile .top-nav ul {
-    flex-direction: column;
-    border-radius: var(--radius-default);
-    border-top-right-radius: 0;
-    background: rgb(var(--whiteRGB) / 0.9);
-    padding: var(--space-16);
-    backdrop-filter: blur(4px);
-    align-items: stretch;
-    box-shadow: var(--shadow-default);
-  }
-  .mobile .top-nav ul a:where(:link, :visited) {
-    width: 100%;
-  }
-
   .top-nav ul {
     display: flex;
     gap: var(--gap);
@@ -104,5 +83,39 @@ const { links } = Astro.props;
 
   .top-nav .button__icon-container {
     background: var(--c6);
+  }
+
+  @media only screen and (max-width: 56em /* 896px */) {
+    .mobile .top-nav {
+      display: none;
+      position: absolute;
+      right: var(--side-padding);
+      top: calc(100% + var(--side-padding) / 4);
+      z-index: 999;
+    }
+
+    .mobile .top-nav ul {
+      flex-direction: column;
+      border-radius: var(--radius-default);
+      border-top-right-radius: 0;
+      background: rgb(var(--whiteRGB) / 0.9);
+      padding: var(--space-16);
+      backdrop-filter: blur(4px);
+      align-items: stretch;
+      box-shadow: var(--shadow-default);
+    }
+
+    .mobile .top-nav ul a:where(:link, :visited) {
+      width: 100%;
+    }
+
+    nav.top-nav ul a.button {
+      border: var(--border-width) solid var(--c6);
+      color: var(--c6dark);
+      box-shadow: none;
+    }
+    .top-nav .button__icon-container {
+      background: var(--c6);
+    }
   }
 </style>

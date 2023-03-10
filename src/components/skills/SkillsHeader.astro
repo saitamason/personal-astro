@@ -144,11 +144,19 @@ const { link } = Astro.props;
   @media only screen and (max-width: 62.5em /* 1000px */) {
     .header-container {
       padding: var(--space-8) var(--space-32);
+      padding-top: var(--space-48);
     }
 
     .filler {
       padding: var(--space-8) var(--space-32);
+      padding-top: var(--space-48);
       padding-bottom: 0;
+    }
+  }
+
+  @media only screen and (max-width: 56em /* 896px */) {
+    .skills-section {
+      grid-template-columns: 3fr 4fr;
     }
   }
 </style>

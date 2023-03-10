@@ -99,6 +99,7 @@ const { captions } = Astro.props;
   @media only screen and (max-width: 78.5em /* 1256px */) {
     figcaption h2 {
       font-size: var(--font-6);
+      max-width: 11ch;
     }
 
     .figures {
@@ -113,6 +114,23 @@ const { captions } = Astro.props;
   @media only screen and (max-width: 62.5em /* 1000px */) {
     .figure-image-container {
       height: 48.5rem;
+    }
+  }
+
+  @media only screen and (max-width: 56em /* 896px */) {
+    .figures {
+      grid-column: 1 / -1;
+      margin-top: var(--space-64);
+      text-align: center;
+    }
+
+    figcaption {
+      display: grid;
+      place-items: center;
+    }
+
+    .figure-image-container {
+      height: 60rem;
     }
   }
 </style>
