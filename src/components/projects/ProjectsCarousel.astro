@@ -74,7 +74,7 @@ const isEn = lang === "en";
   <p class="instructions">
     {isEn && "Swipe to see more"}
     {!isEn && "Przesuń, aby zobaczyć więcej"}
-    <ArrowRight size="2rem" weight="regular" className="instructions__icon" />
+    <ArrowRight size="100%" weight="regular" className="instructions__icon" />
   </p>
   <ul class="list-container ignore-grid" id="projects-list">
     {
@@ -96,7 +96,7 @@ const isEn = lang === "en";
         </p>
         <a href="https://github.com/dawidlehai/" hreflang="en" class="goto">
           GitHub
-          <ArrowCircleRight size="4rem" className="goto__icon" weight="fill" />
+          <ArrowCircleRight size="100%" className="goto__icon" weight="fill" />
         </a>
       </article>
     </li>
@@ -118,6 +118,11 @@ const isEn = lang === "en";
   }
   .instructions--hidden {
     opacity: 0;
+  }
+
+  .instructions__icon {
+    width: 2rem;
+    aspect-ratio: 1 / 1;
   }
 
   .projects-section {

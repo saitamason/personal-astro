@@ -74,22 +74,22 @@ const isSchoolDiffLang = schoolLang !== lang;
       <div class="icon-container">
         {
           slug === "ukw" && (
-            <Brain weight="duotone" size="3rem" className="icon" />
+            <Brain weight="duotone" size="100%" className="icon" />
           )
         }
         {
           slug === "inn" && (
-            <Swap weight="duotone" size="3rem" className="icon" />
+            <Swap weight="duotone" size="100%" className="icon" />
           )
         }
         {
           slug === "utp" && (
-            <Database weight="duotone" size="3rem" className="icon" />
+            <Database weight="duotone" size="100%" className="icon" />
           )
         }
         {
           slug === "zse" && (
-            <DesktopTower weight="duotone" size="3rem" className="icon" />
+            <DesktopTower weight="duotone" size="100%" className="icon" />
           )
         }
       </div>
@@ -97,7 +97,7 @@ const isSchoolDiffLang = schoolLang !== lang;
 
     <div class="item__description">
       <div class="gpa-container">
-        <Star weight="duotone" size="2rem" className="gpa-icon" />
+        <Star weight="duotone" size="100%" className="gpa-icon" />
         <span>GPA:</span>
         <span>
           {lang === "en" && gpa}
@@ -220,8 +220,14 @@ const isSchoolDiffLang = schoolLang !== lang;
     border: var(--border-width) solid var(--c2light);
     border-radius: var(--radius-small);
     display: flex;
+    align-self: start;
     align-items: center;
     justify-content: center;
+  }
+
+  .icon {
+    width: 3rem;
+    aspect-ratio: 1 / 1;
   }
 
   .gpa-container {
@@ -236,6 +242,11 @@ const isSchoolDiffLang = schoolLang !== lang;
   .gpa-container > span:last-child {
     color: var(--c6);
     font-weight: 700;
+  }
+
+  .gpa-icon {
+    width: 2rem;
+    aspect-ratio: 1 / 1;
   }
 
   .item__description {

@@ -16,7 +16,7 @@ const { course, lang } = Astro.props;
   <p class="year"><time datetime={course.year}>{course.year}</time></p>
   <p class="title" lang="en">
     <course.platform.icon.icon
-      size="2.4rem"
+      size="100%"
       className="icon"
       title={course.platform.name}
     />
@@ -25,13 +25,13 @@ const { course, lang } = Astro.props;
   <p class="techs">
     {
       course.tech.map((tech) => (
-        <tech.icon size="3.2rem" title={tech.name} className="icon" />
+        <tech.icon size="100%" title={tech.name} className="icon" />
       ))
     }
   </p>
   <p class="author">
     <ChalkboardTeacher
-      size="3rem"
+      size="100%"
       className="icon"
       alt={lang === "en" ? "Author" : "Autor"}
     />
@@ -39,7 +39,7 @@ const { course, lang } = Astro.props;
   </p>
   <p class="length">
     <HourglassHigh
-      size="2.4rem"
+      size="100%"
       weight="duotone"
       className="icon"
       alt={lang === "en" ? "Length" : "Czas trwania"}
@@ -56,8 +56,8 @@ const { course, lang } = Astro.props;
   </p>
   <p class="link">
     <a href={course.url} hreflang="en"
-      ><CaretRight size="3.2rem" weight="regular" className="icon" />
-      <CaretRight size="3.2rem" weight="fill" className="icon-hidden" /></a
+      ><CaretRight size="100%" weight="regular" className="icon" />
+      <CaretRight size="100%" weight="fill" className="icon-hidden" /></a
     >
   </p>
 </li>
@@ -121,6 +121,8 @@ const { course, lang } = Astro.props;
   .icon-hidden {
     color: var(--c6dark);
     transition: color 0.2s;
+    width: 3.2rem;
+    aspect-ratio: 1 / 1;
   }
 
   .year {
@@ -134,6 +136,9 @@ const { course, lang } = Astro.props;
     font-weight: 600;
     color: var(--c6medium);
   }
+  .title .icon {
+    width: 2.4rem;
+  }
 
   .techs {
     gap: var(--space-12);
@@ -144,10 +149,12 @@ const { course, lang } = Astro.props;
   }
   .author .icon {
     color: var(--c8);
+    width: 3rem;
   }
 
   .length .icon {
     color: var(--c8);
+    width: 2.4rem;
   }
 
   .link {
