@@ -1,6 +1,6 @@
 ---
 import type { Caption } from "../utils/types";
-import { Picture } from "@astrojs/image/components";
+import FigurePicture from "./utils/FigurePicture.astro";
 
 interface Props {
   captions: Caption[];
@@ -19,17 +19,7 @@ const { captions } = Astro.props;
         </figcaption>
         <div class="figure-image-container">
           <div class="figure-image">
-            <Picture
-              src={`/img/figures/${index + 1}.png`}
-              alt={caption.img.alt}
-              sizes="222px"
-              widths={[666, 444, 222]}
-              formats={["webp"]}
-              aspectRatio="300:1191"
-              fetchpriority="high"
-              loading="eager"
-              decoding="sync"
-            />
+            <FigurePicture index={index} alt={caption.img.alt} />
           </div>
         </div>
       </figure>

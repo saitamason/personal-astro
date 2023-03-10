@@ -1,0 +1,22 @@
+---
+import { Picture } from "@astrojs/image/components";
+
+interface Props {
+  alt: string;
+  index: number;
+}
+
+const { alt, index } = Astro.props;
+---
+
+<Picture
+  src={`/img/figures/${index + 1}.png`}
+  alt={alt}
+  sizes="222px"
+  widths={[666, 444, 222]}
+  formats={["webp"]}
+  aspectRatio="300:1191"
+  fetchpriority="high"
+  loading="eager"
+  decoding="sync"
+/>

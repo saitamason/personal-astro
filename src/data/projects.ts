@@ -447,7 +447,7 @@ const projects: Project[] = [
       text: "Strona",
       url: "https://protektor-polska.pl/",
       lang: "pl",
-      icon: tech.PhLink,
+      icon: tech.Netlify,
     },
     color: {
       h: "52",
@@ -474,7 +474,7 @@ const projects: Project[] = [
       text: "Strona",
       url: "http://taktyki.jcom.pl/",
       lang: "pl",
-      icon: tech.PhLink,
+      icon: tech.Netlify,
     },
     color: {
       h: "51",
