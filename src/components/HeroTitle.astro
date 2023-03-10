@@ -112,7 +112,7 @@ const { linkUrl: url, linkText: text } = Astro.props;
 
   .title > p {
     font-size: var(--font-6);
-    max-width: 40ch;
+    max-width: 29ch;
     text-align: right;
     margin-bottom: var(--space-48);
     margin-top: var(--space-32);
@@ -123,5 +123,14 @@ const { linkUrl: url, linkText: text } = Astro.props;
   .button {
     background-color: var(--white);
     font-size: var(--font-base);
+  }
+
+  @media only screen and (max-width: 85.5em /* 1368px */) {
+    .title h1 {
+      font-size: 15rem;
+    }
+    .title > p {
+      font-size: var(--font-large);
+    }
   }
 </style>

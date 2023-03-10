@@ -143,6 +143,7 @@ const { course, lang } = Astro.props;
   }
   .title .icon {
     width: 2.4rem;
+    flex-shrink: 0;
   }
 
   .techs {
@@ -182,5 +183,11 @@ const { course, lang } = Astro.props;
   }
   .link .icon-hidden {
     opacity: 0;
+  }
+
+  @media only screen and (max-width: 98.5em /* 1576px */) {
+    p {
+      padding-right: var(--space-12);
+    }
   }
 </style>
