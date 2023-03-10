@@ -154,14 +154,18 @@ const isSmall = size === "small";
         </a>
       )
     }
-    <a href={source} hreflang="en" class="button"
-      ><span class="button__text">{sourceText}</span>
-      <span class="button__icon-container">
-        <span class="button__icon-fill">
-          <GitHub.icon size="70%" className="button__icon" title="GitHub" />
-        </span>
-      </span></a
-    >
+    {
+      source && (
+        <a href={source} hreflang="en" class="button">
+          <span class="button__text">{sourceText}</span>
+          <span class="button__icon-container">
+            <span class="button__icon-fill">
+              <GitHub.icon size="70%" className="button__icon" title="GitHub" />
+            </span>
+          </span>
+        </a>
+      )
+    }
   </div>
   <div class="tablet">
     <div class="tablet__screen loading">
