@@ -133,4 +133,10 @@ const { linkUrl: url, linkText: text } = Astro.props;
       font-size: var(--font-large);
     }
   }
+
+  @media only screen and (max-width: 71em /* 1136px */) {
+    .title h1 {
+      font-size: 13rem;
+    }
+  }
 </style>
