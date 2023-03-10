@@ -124,4 +124,20 @@ const { link } = Astro.props;
       font-size: var(--font-4);
     }
   }
+
+  @media only screen and (max-width: 71em /* 1136px */) {
+    .header-container {
+      padding: var(--space-32);
+      max-width: 50ch;
+    }
+
+    .filler {
+      padding: var(--space-32);
+      padding-bottom: 0;
+    }
+
+    .heading span:last-child {
+      font-size: var(--font-normal);
+    }
+  }
 </style>
