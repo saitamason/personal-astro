@@ -160,12 +160,12 @@ const url = getLanguageUrls();
         --radius-old: 1.5rem;
         --radius-xxl: 3.5rem;
 
-        --shadow-default: -1.2rem 2rem 2.5rem -0.5rem rgb(0 0 0 / 0.1),
-          -0.8rem 0.8rem 1rem -0.6rem rgb(0 0 0 / 0.1),
-          -0.8rem -0.8rem 1rem -1rem rgb(0 0 0 / 0.2);
-        --shadow-card: 0 0.2rem 0.3rem 0.1rem rgb(0 0 0 / 0.08);
-        --shadow-button: 0 0.2rem 0.1rem rgb(var(--blackRGB) / 0.07);
-        --shadow-button-strong: 0.1rem 0.2rem 0.1rem rgb(var(--blackRGB) / 0.15);
+        --shadow-default: -12px 20px 25px -5px rgb(0 0 0 / 0.1),
+          -8px 8px 10px -6px rgb(0 0 0 / 0.1),
+          -8px -8px 10px -10px rgb(0 0 0 / 0.2);
+        --shadow-card: 0 2px 3px 1px rgb(0 0 0 / 0.08);
+        --shadow-button: 0 2px 1px rgb(var(--blackRGB) / 0.07);
+        --shadow-button-strong: 1px 2px 1px rgb(var(--blackRGB) / 0.15);
 
         --border-width: 2px;
       }
@@ -336,6 +336,12 @@ const url = getLanguageUrls();
       @media only screen and (max-width: 95em /* 1520px */) {
         html {
           font-size: 56.25%;
+        }
+      }
+
+      @media only screen and (max-width: 62.5em /* 1000px */) {
+        html {
+          font-size: 50%;
         }
       }
     </style>

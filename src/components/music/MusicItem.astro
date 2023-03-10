@@ -135,4 +135,10 @@ const { track, lang, index } = Astro.props;
       font-size: var(--font-large);
     }
   }
+
+  @media only screen and (max-width: 62.5em /* 1000px */) {
+    .heading {
+      letter-spacing: 0;
+    }
+  }
 </style>
