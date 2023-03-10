@@ -31,4 +31,10 @@ const { projects, language: lang } = Astro.props;
     gap: var(--space-48);
     row-gap: var(--space-128);
   }
+
+  @media only screen and (max-width: 71em /* 1136px */) {
+    .projects-section {
+      gap: var(--space-32);
+    }
+  }
 </style>
