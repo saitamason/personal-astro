@@ -27,4 +27,12 @@ const educationList = await getCollection("education", ({ id }) => {
     margin-top: var(--space-96);
     column-gap: var(--space-32);
   }
+
+  @media only screen and (max-width: 78.5em /* 1256px */) {
+    .list {
+      grid-template-columns: 1fr 1fr;
+      justify-self: center;
+      max-width: 90rem;
+    }
+  }
 </style>

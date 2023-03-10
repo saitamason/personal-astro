@@ -105,4 +105,20 @@ const { link } = Astro.props;
       gap: 0;
     }
   }
+
+  @media only screen and (max-width: 78.5em /* 1256px */) {
+    .header-container {
+      padding: var(--space-64);
+    }
+
+    .filler {
+      padding: var(--space-64);
+    }
+
+    .subheading {
+      font-size: var(--font-4);
+      max-width: 15ch;
+      justify-self: end;
+    }
+  }
 </style>

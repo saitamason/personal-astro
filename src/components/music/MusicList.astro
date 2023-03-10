@@ -26,4 +26,13 @@ const { lang } = Astro.props;
     padding: 0 var(--side-padding);
     gap: var(--space-32);
   }
+
+  @media only screen and (max-width: 78.5em /* 1256px */) {
+    ul {
+      max-width: 110rem;
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: var(--space-48);
+      justify-self: center;
+    }
+  }
 </style>

@@ -95,4 +95,10 @@ const { captions } = Astro.props;
       height: 50rem;
     }
   }
+
+  @media only screen and (max-width: 78.5em /* 1256px */) {
+    figcaption h2 {
+      font-size: var(--font-6);
+    }
+  }
 </style>

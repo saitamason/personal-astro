@@ -120,4 +120,16 @@ const awards: { pl: AwardType[]; en: AwardType[] } = {
     color: var(--c4);
     border: var(--border-width) solid var(--c2medium);
   }
+
+  @media only screen and (max-width: 78.5em /* 1256px */) {
+    .list {
+      max-width: 90rem;
+      justify-self: center;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section {
+      margin-top: var(--space-128);
+    }
+  }
 </style>

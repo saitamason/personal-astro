@@ -21,7 +21,10 @@ const researchList = await getCollection("research", ({ id }) => {
     <div class="icon-container">
       <FileSearch weight="duotone" size="100%" className="icon" />
     </div>
-    <h3>Wybrana działalność naukowa</h3>
+    <h3>
+      {lang === "en" && "Selected research activities"}
+      {lang === "pl" && "Wybrana działalność naukowa"}
+    </h3>
   </hgroup>
 
   <ul class="list">
@@ -67,5 +70,11 @@ const researchList = await getCollection("research", ({ id }) => {
     aspect-ratio: 1 / 1;
     border-radius: var(--radius-small);
     border: var(--border-width) solid var(--c2medium);
+  }
+
+  @media only screen and (max-width: 78.5em /* 1256px */) {
+    .list {
+      gap: var(--space-24);
+    }
   }
 </style>
