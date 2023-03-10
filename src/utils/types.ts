@@ -13,7 +13,6 @@ export interface Caption {
   title: string;
   subtitle: string;
   img: {
-    filename: string;
     alt: string;
   };
 }

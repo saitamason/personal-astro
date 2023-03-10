@@ -11,7 +11,7 @@ const { captions } = Astro.props;
 
 <div class="figures">
   {
-    captions.map((caption) => (
+    captions.map((caption, index) => (
       <figure class="ignore-grid">
         <figcaption>
           <p>{caption.subtitle}</p>
@@ -20,7 +20,7 @@ const { captions } = Astro.props;
         <div class="figure-image-container">
           <div class="figure-image">
             <Picture
-              src={`/img/figures/${caption.img.filename}`}
+              src={`/img/figures/${index + 1}.png`}
               alt={caption.img.alt}
               sizes="222px"
               widths={[666, 444, 222]}
