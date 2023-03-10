@@ -15,7 +15,7 @@ const { captions } = Astro.props;
       <figure class="ignore-grid">
         <figcaption>
           <p>{caption.subtitle}</p>
-          <h3>{caption.title}</h3>
+          <h2>{caption.title}</h2>
         </figcaption>
         <div class="figure-image-container">
           <div class="figure-image">
@@ -57,7 +57,7 @@ const { captions } = Astro.props;
     align-self: end;
   }
 
-  figcaption h3 {
+  figcaption h2 {
     font-size: var(--font-5);
     font-weight: 700;
     color: var(--c3dark);
