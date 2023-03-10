@@ -19,4 +19,15 @@ const { alt, index } = Astro.props;
   fetchpriority="high"
   loading="eager"
   decoding="sync"
+  class="image"
 />
+
+<style>
+  .image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    aspect-ratio: 300 / 1191;
+  }
+</style>
