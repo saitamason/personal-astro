@@ -55,7 +55,12 @@ const { course, lang } = Astro.props;
     }
   </p>
   <p class="link">
-    <a href={course.url} hreflang="en"
+    <a
+      href={course.url}
+      hreflang="en"
+      aria-label={lang === "en"
+        ? "See this course on Udemy"
+        : "Zobacz ten kurs na Udemy"}
       ><CaretRight size="100%" weight="regular" className="icon" />
       <CaretRight size="100%" weight="fill" className="icon-hidden" /></a
     >
