@@ -40,6 +40,7 @@ const researchList = await getCollection("research", ({ id }) => {
 <style>
   section {
     margin-top: var(--space-192);
+    display: grid;
   }
 
   .list {
@@ -92,6 +93,14 @@ const researchList = await getCollection("research", ({ id }) => {
   @media only screen and (max-width: 62.5em /* 1000px */) {
     section {
       margin-top: var(--space-96);
+    }
+  }
+
+  @media only screen and (max-width: 38em /* 608px */) {
+    .list {
+      max-width: 60rem;
+      justify-self: center;
+      grid-template-columns: repeat(1, 1fr);
     }
   }
 </style>
