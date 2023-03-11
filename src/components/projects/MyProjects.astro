@@ -37,4 +37,12 @@ const { projects, language: lang } = Astro.props;
       gap: var(--space-32);
     }
   }
+
+  @media only screen and (max-width: 45.5em /* 728px */) {
+    .projects-section {
+      grid-template-columns: repeat(6, 1fr);
+      max-width: 90rem;
+      justify-self: center;
+    }
+  }
 </style>

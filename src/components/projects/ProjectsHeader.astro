@@ -154,4 +154,29 @@ const { link } = Astro.props;
       grid-template-columns: 3fr 4fr;
     }
   }
+
+  @media only screen and (max-width: 45.5em /* 728px */) {
+    .projects-section {
+      grid-template-columns: 1fr;
+      max-width: 69rem;
+      justify-self: center;
+    }
+
+    .header-container {
+      padding: var(--space-24) var(--space-32);
+      padding-top: var(--space-48);
+      max-width: 100%;
+    }
+
+    .filler {
+      padding: var(--space-8) var(--space-32);
+      justify-self: center;
+    }
+
+    .subheading {
+      text-align: left;
+      justify-self: start;
+      max-width: 100%;
+    }
+  }
 </style>
