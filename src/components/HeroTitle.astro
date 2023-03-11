@@ -165,4 +165,16 @@ const { linkUrl: url, linkText: text } = Astro.props;
       margin-bottom: var(--space-24);
     }
   }
+
+  @media only screen and (max-width: 32.25em /* 516px */) {
+    .title h1 {
+      display: grid;
+      justify-items: center;
+      font-size: 16.1rem;
+    }
+
+    .title h1 > span:last-child {
+      font-size: 1.53ex;
+    }
+  }
 </style>

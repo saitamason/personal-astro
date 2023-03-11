@@ -277,4 +277,63 @@ const isSchoolDiffLang = schoolLang !== lang;
       height: 16rem;
     }
   }
+
+  @media only screen and (max-width: 32.25em /* 516px */) {
+    li:is(:nth-of-type(3), :nth-of-type(4)) .item__logo-container {
+      grid-row: auto;
+    }
+
+    li:is(:nth-of-type(3), :nth-of-type(4)) .item__near-logo {
+      grid-row: auto;
+    }
+
+    li.item {
+      display: grid;
+      grid-template-columns: min-content 1fr;
+      gap: var(--space-24);
+    }
+
+    .item__logo-container {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      padding: 0;
+      align-self: end;
+      width: 8rem;
+      padding-bottom: var(--space-8);
+    }
+
+    li.item:nth-of-type(1) .item__logo-container {
+      width: 7rem;
+    }
+
+    li.item:nth-of-type(2) .item__logo-container {
+      width: 12rem;
+    }
+
+    .item__near-logo {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      height: 100%;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .item__near-logo::before {
+      display: none;
+    }
+
+    .item__school {
+      margin: 0;
+      text-align: left;
+      max-width: 100%;
+    }
+
+    .item__years {
+      margin: 0;
+    }
+
+    .card {
+      grid-column: 1 / -1;
+    }
+  }
 </style>

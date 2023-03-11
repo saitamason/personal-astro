@@ -82,4 +82,15 @@ const { lang } = Astro.props;
       padding: 0;
     }
   }
+
+  @media only screen and (max-width: 32.25em /* 516px */) {
+    section {
+      max-width: 62rem;
+      margin: 0 auto;
+    }
+
+    ol {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
