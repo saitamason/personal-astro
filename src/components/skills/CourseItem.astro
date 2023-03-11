@@ -11,7 +11,7 @@ interface Props {
 const { course, lang } = Astro.props;
 ---
 
-<li class="ignore-grid">
+<li class="item ignore-grid">
   <div class="line"></div>
   <p class="year"><time datetime={course.year}>{course.year}</time></p>
   <p class="title" lang="en">
@@ -169,7 +169,6 @@ const { course, lang } = Astro.props;
     transition: background 0.2s;
   }
   .link a {
-    display: block;
     padding: var(--space-24);
     padding-right: var(--side-padding);
     position: relative;
@@ -204,6 +203,92 @@ const { course, lang } = Astro.props;
 
     .link a {
       padding-left: var(--space-12);
+    }
+  }
+
+  @media only screen and (max-width: 45.5em /* 728px */) {
+    li.item {
+      display: grid;
+      box-shadow: var(--shadow-button-strong);
+      border-radius: var(--radius-default);
+      overflow: hidden;
+      position: relative;
+      background: var(--white);
+    }
+
+    .line {
+      display: none;
+    }
+
+    p {
+      margin: 0;
+      padding: var(--space-12) var(--space-32);
+      gap: 0;
+    }
+
+    p:first-of-type {
+      border-radius: 0;
+    }
+    p:last-of-type {
+      border-radius: 0;
+    }
+
+    .icon,
+    .icon-hidden {
+      color: var(--c6dark);
+      transition: color 0.2s;
+      width: 3.2rem;
+      aspect-ratio: 1 / 1;
+      flex-shrink: 0;
+    }
+
+    p:is(.year) {
+      padding: var(--space-8) var(--space-32);
+      padding-top: var(--space-32);
+      font-size: var(--font-large);
+    }
+
+    p.title {
+      font-size: var(--font-large);
+      padding: var(--space-8) var(--space-32);
+    }
+
+    p.title .icon {
+      display: none;
+    }
+
+    p.author {
+      padding-top: var(--space-24);
+    }
+
+    p.length {
+      gap: var(--space-8);
+      padding-top: 0;
+      padding-bottom: var(--space-32);
+    }
+
+    .link :where(.icon, .icon-hidden) {
+      color: var(--white);
+    }
+
+    .link .icon-hidden {
+      opacity: 1;
+    }
+
+    .link .icon {
+      opacity: 0;
+    }
+
+    p.link {
+      background: var(--c6);
+      align-self: end;
+    }
+
+    p.link a {
+      width: 100%;
+      justify-items: end;
+      padding: var(--space-16) var(--space-32);
+      padding-right: var(--space-12);
     }
   }
 </style>
