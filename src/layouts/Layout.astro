@@ -130,6 +130,7 @@ const url = getLanguageUrls();
         --c4RGB: 0 112 80;
         --c5: #9ac3c2;
         --c6: #de6a20;
+        --c6RGB: 222 106 32;
         --c6dark: #d6651f;
         --c6darker: hsl(23, 75%, 25%);
         --c6medium: hsl(23, 75%, 42%);
@@ -180,6 +181,7 @@ const url = getLanguageUrls();
       html {
         font-size: 62.5%;
         scroll-behavior: smooth;
+        width: 100%;
       }
 
       body {
@@ -197,12 +199,27 @@ const url = getLanguageUrls();
 
         background: linear-gradient(to bottom, var(--c2), var(--c1) 20rem);
         overflow-x: hidden;
+        position: relative;
       }
 
       input,
       button,
       a {
         -webkit-tap-highlight-color: transparent;
+      }
+
+      input:focus-visible,
+      textarea:focus-visible,
+      button:focus-visible,
+      select:focus-visible,
+      a:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 1rem rgb(var(--c6RGB) / 0.2);
+        border-radius: 2px;
+      }
+
+      ::selection {
+        background-color: rgb(var(--c6RGB) / 0.2);
       }
 
       a:where(:link, :visited) {

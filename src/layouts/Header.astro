@@ -47,7 +47,7 @@ const siteName = getSiteName();
 
     {links && <Navigation links={links} />}
 
-    <label for="menustate" aria-hidden="true" class="menu-button">
+    <label for="menustate" aria-hidden="true" class="menu-button" tabindex="0">
       <List size="100%" weight="bold" className="menu-button__open" />
       <X size="100%" weight="bold" className="menu-button__close" />
     </label>
@@ -164,9 +164,13 @@ const siteName = getSiteName();
     header.header.mobile :is(.menu-button, .menu-button__open) {
       display: flex;
     }
-  }
 
-  /* .header.mobile .logo-link > span:nth-child(2) {
-    display: none;
-  } */
+    .sticky .header {
+      padding: calc(var(--side-padding) / 1.5) var(--side-padding);
+    }
+
+    .sticky {
+      margin-bottom: calc(var(--side-padding) * 4 / 1.5);
+    }
+  }
 </style>
