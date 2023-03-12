@@ -115,6 +115,8 @@ const isEn = lang === "en";
     justify-content: flex-end;
     opacity: 1;
     transition: opacity 1s;
+    width: 100vw;
+    max-width: 100%;
   }
   .instructions--hidden {
     opacity: 0;
@@ -132,13 +134,13 @@ const isEn = lang === "en";
 
   .list-container {
     display: flex;
-    gap: var(--space-48);
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     overflow-x: scroll;
     scroll-padding: 0 var(--side-padding);
     padding-bottom: var(--space-24);
     overscroll-behavior-x: contain;
+    gap: var(--space-48);
   }
 
   .bar-cover {
