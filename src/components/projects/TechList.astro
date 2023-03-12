@@ -30,4 +30,11 @@ const { technologies, size } = Astro.props;
     grid-column: 2 / -2;
     gap: var(--space-4);
   }
+
+  @media only screen and (max-width: 25em /* 400px */) {
+    .tech--large {
+      grid-column: 1 / -1;
+      padding: 0 var(--space-32);
+    }
+  }
 </style>

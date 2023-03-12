@@ -72,6 +72,7 @@ if (type === "course")
 
 const isMedium = size === "medium";
 const isSmall = size === "small";
+const isLarge = size === "large";
 ---
 
 <script>
@@ -90,6 +91,7 @@ const isSmall = size === "small";
     "project",
     { "project--medium": isMedium },
     { "project--small": isSmall },
+    { "project--large": isLarge },
   ]}>
   <div class="header">
     <div class="project__info">
@@ -519,5 +521,42 @@ const isSmall = size === "small";
 
   .button:nth-of-type(2) .button__icon-container {
     background: var(--c8);
+  }
+
+  @media only screen and (max-width: 25em /* 400px */) {
+    .project--large .bg {
+      grid-column: 1 / -1;
+    }
+
+    .project--large .description {
+      grid-column: 1 / -1;
+      padding: 0 var(--space-32);
+      margin-bottom: -1.2rem;
+    }
+
+    .project--large .buttons {
+      grid-column: 1 / -1;
+      padding: 0 var(--space-32);
+    }
+
+    .project--large .header {
+      grid-column: 1 / -1;
+      padding: 0 var(--space-32);
+      margin-bottom: var(--space-12);
+    }
+
+    .project--large .project__info {
+      margin-top: var(--space-48);
+    }
+
+    .project--large .tablet {
+      transform-origin: bottom right;
+      transform: scale(102%);
+    }
+
+    .project--large .phone {
+      transform-origin: bottom left;
+      transform: scale(105%);
+    }
   }
 </style>

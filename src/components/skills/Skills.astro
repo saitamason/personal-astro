@@ -44,6 +44,13 @@ import Skill from "./Skill.astro";
     .list-container {
       padding: 0;
       padding-bottom: var(--space-32);
+      padding-top: var(--space-8);
+    }
+  }
+
+  @media only screen and (max-width: 25em /* 400px */) {
+    .list {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 </style>

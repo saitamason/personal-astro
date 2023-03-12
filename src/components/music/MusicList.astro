@@ -41,4 +41,10 @@ const { lang } = Astro.props;
       grid-template-columns: repeat(2, 1fr);
     }
   }
+
+  @media only screen and (max-width: 25em /* 400px */) {
+    ul {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>

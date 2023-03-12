@@ -45,4 +45,10 @@ const { projects, language: lang } = Astro.props;
       justify-self: center;
     }
   }
+
+  @media only screen and (max-width: 25em /* 400px */) {
+    .projects-section {
+      padding-top: 0;
+    }
+  }
 </style>
