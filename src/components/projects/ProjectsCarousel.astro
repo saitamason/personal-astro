@@ -154,7 +154,7 @@ const isEn = lang === "en";
 
   .end {
     flex: 0 0 auto;
-    max-width: 40rem;
+    max-width: 45rem;
     color: var(--c11dark);
     align-self: center;
     padding: var(--side-padding);
@@ -209,6 +209,12 @@ const isEn = lang === "en";
   @media only screen and (max-width: 78.5em /* 1256px */) {
     .list-container {
       gap: var(--space-24);
+    }
+  }
+
+  @media only screen and (max-width: 20em /* 320px */) {
+    .end {
+      max-width: 35rem;
     }
   }
 </style>

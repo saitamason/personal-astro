@@ -122,4 +122,14 @@ const { links } = Astro.props;
       background: var(--c6);
     }
   }
+
+  @media only screen and (max-width: 32.25em /* 516px */) {
+    nav.top-nav a:is(:link, :visited) {
+      font-size: var(--font-large);
+    }
+
+    nav.top-nav ul a.button {
+      font-size: var(--font-base);
+    }
+  }
 </style>

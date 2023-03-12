@@ -26,7 +26,7 @@ const siteName = getSiteName();
   <input aria-hidden="true" type="checkbox" id="menustate" />
   <header class="header mid-col mobile">
     <div class="left">
-      <a href={site} class="logo-link">
+      <a href={site} class="logo-link" title="dawidlehai.dev">
         <div class="logo"><span>Le</span></div>
         <span>{siteName}</span>
       </a>
@@ -171,6 +171,12 @@ const siteName = getSiteName();
 
     .sticky {
       margin-bottom: calc(var(--side-padding) * 4 / 1.5);
+    }
+  }
+
+  @media only screen and (max-width: 20em /* 320px */) {
+    .header .logo-link > span {
+      display: none;
     }
   }
 </style>
