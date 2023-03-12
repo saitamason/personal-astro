@@ -76,7 +76,7 @@ const isEn = lang === "en";
     {!isEn && "Przesuń, aby zobaczyć więcej"}
     <ArrowRight size="100%" weight="regular" className="instructions__icon" />
   </p>
-  <ul class="list-container ignore-grid" id="projects-list">
+  <ul class="list-container" id="projects-list">
     {
       projects.map((project, index) => {
         if (index < 2) return;
@@ -129,6 +129,7 @@ const isEn = lang === "en";
 
   .projects-section {
     position: relative;
+    display: grid;
     overflow: hidden;
   }
 
@@ -136,7 +137,7 @@ const isEn = lang === "en";
     display: flex;
     /* scroll-snap-type: x mandatory; */
     /* scroll-behavior: smooth; */
-    overflow-x: scroll;
+    overflow-x: auto;
     scroll-padding: 0 var(--side-padding);
     padding-bottom: var(--space-24);
     overscroll-behavior-x: contain;
@@ -152,9 +153,11 @@ const isEn = lang === "en";
   }
 
   .end {
-    flex: 0 0 40rem;
+    flex: 0 0 auto;
+    max-width: 40rem;
     color: var(--c11dark);
     align-self: center;
+    padding: var(--side-padding);
   }
   .end article {
     display: grid;
