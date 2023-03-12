@@ -103,4 +103,14 @@ const researchList = await getCollection("research", ({ id }) => {
       grid-template-columns: repeat(1, 1fr);
     }
   }
+
+  @media only screen and (max-width: 32.25em /* 516px */) {
+    h3 {
+      font-size: var(--font-5);
+    }
+
+    hgroup {
+      margin-bottom: var(--space-48);
+    }
+  }
 </style>

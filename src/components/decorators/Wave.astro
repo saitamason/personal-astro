@@ -49,16 +49,27 @@ const { bgTop, bgBottom, reflect = false } = Astro.props;
     grid-column: 1 / -1;
     height: var(--space-192);
     background: var(--bgBottom);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
   }
 
   .wave-container svg {
     width: 100%;
+    min-width: 800px;
     height: 100%;
   }
 
   @media only screen and (max-width: 62.5em /* 1000px */) {
     .wave-container {
       margin-bottom: calc(var(--space-48) * -1);
+    }
+  }
+
+  @media only screen and (max-width: 32.25em /* 516px */) {
+    .wave-container {
+      margin-bottom: 0;
+      height: var(--space-144);
     }
   }
 </style>
