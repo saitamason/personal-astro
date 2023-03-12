@@ -13,8 +13,9 @@ const { linkUrl: url, linkText: text } = Astro.props;
 <script>
   const header = document.getElementById("header-container") as HTMLDivElement;
   const hero = document.querySelector(".js-hero") as HTMLDivElement;
+  const menuInput = document.getElementById("menustate") as HTMLInputElement;
 
-  if (header && hero) {
+  if (header && hero && menuInput) {
     let prevScroll = window.scrollY;
     let headerPos = -120;
 
@@ -31,6 +32,8 @@ const { linkUrl: url, linkText: text } = Astro.props;
       header.style.transform = `translateY(${headerPos}%)`;
 
       prevScroll = currScroll;
+
+      menuInput.checked = false;
     };
 
     const makeHeaderSticky = (entries: IntersectionObserverEntry[]) => {
@@ -38,6 +41,7 @@ const { linkUrl: url, linkText: text } = Astro.props;
       if (entry?.isIntersecting) {
         headerPos = -120;
         header.classList.remove("sticky");
+        header.style.zIndex = "999";
         document.removeEventListener("scroll", scrollEventHandler);
       } else {
         header.classList.add("sticky");
@@ -79,6 +83,8 @@ const { linkUrl: url, linkText: text } = Astro.props;
     align-items: flex-end;
     flex-direction: column;
     color: var(--c6);
+    position: relative;
+    z-index: 2;
   }
 
   .title h1 {
