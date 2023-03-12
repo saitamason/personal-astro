@@ -79,8 +79,14 @@ const siteName = getSiteName();
     display: none;
   }
 
-  #menustate:checked ~ header.header :is(.menu-button__close, .top-nav) {
+  #menustate:checked ~ header.header :is(.menu-button__close) {
     display: flex;
+  }
+
+  #menustate:checked ~ header.header :is(.top-nav) {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
   }
 
   #menustate:checked ~ header.header .menu-button__open {

@@ -87,18 +87,22 @@ const { links } = Astro.props;
 
   @media only screen and (max-width: 56em /* 896px */) {
     .mobile .top-nav {
-      display: none;
       position: absolute;
       right: var(--side-padding);
       top: calc(100% + var(--side-padding) / 4);
       z-index: 999;
+      visibility: hidden;
+      opacity: 0;
+      transform: scale(0.9);
+      transform-origin: top right;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .mobile .top-nav ul {
       flex-direction: column;
       border-radius: var(--radius-default);
       border-top-right-radius: 0;
-      background: rgb(var(--whiteRGB) / 0.9);
+      background: rgb(var(--whiteRGB) / 0.95);
       padding: var(--space-16);
       backdrop-filter: blur(4px);
       align-items: stretch;
