@@ -32,8 +32,8 @@ const isEn = lang === "en";
       pos.dx = event.clientX - pos.x;
       list.scrollLeft = pos.left - pos.dx;
 
-      list.style.scrollSnapType = "none";
-      list.style.scrollBehavior = "auto";
+      // list.style.scrollSnapType = "none";
+      // list.style.scrollBehavior = "auto";
     };
 
     const mouseUpHandler = () => {
@@ -42,11 +42,11 @@ const isEn = lang === "en";
 
       list.style.cursor = "grab";
       list.style.removeProperty("user-select");
-      list.style.scrollSnapType = "x mandatory";
-      list.style.scrollBehavior = "smooth";
+      // list.style.scrollSnapType = "x mandatory";
+      // list.style.scrollBehavior = "smooth";
 
-      if (pos.dx > 0) list.scrollLeft -= 150;
-      if (pos.dx < 0) list.scrollLeft += 150;
+      // if (pos.dx > 0) list.scrollLeft -= 150;
+      // if (pos.dx < 0) list.scrollLeft += 150;
     };
 
     list.addEventListener("mousedown", (event) => {
@@ -134,8 +134,8 @@ const isEn = lang === "en";
 
   .list-container {
     display: flex;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+    /* scroll-snap-type: x mandatory; */
+    /* scroll-behavior: smooth; */
     overflow-x: scroll;
     scroll-padding: 0 var(--side-padding);
     padding-bottom: var(--space-24);
@@ -152,8 +152,7 @@ const isEn = lang === "en";
   }
 
   .end {
-    flex: 0 0 45rem;
-    padding: var(--space-32);
+    flex: 0 0 40rem;
     color: var(--c11dark);
     align-self: center;
   }
