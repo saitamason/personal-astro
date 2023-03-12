@@ -135,5 +135,37 @@ const { captions } = Astro.props;
   }
 
   @media only screen and (max-width: 32.25em /* 516px */) {
+    .figures {
+      grid-template-columns: 1fr 1fr;
+      max-width: 45rem;
+      justify-self: center;
+    }
+
+    .figure-image-container {
+      height: 50rem;
+    }
+
+    figure:nth-child(3) figcaption,
+    figure:nth-child(4) figcaption {
+      margin-top: var(--space-32);
+    }
+
+    figure:nth-child(3) .figure-image-container,
+    figure:nth-child(4) .figure-image-container {
+      grid-row: 4 / 5;
+    }
+
+    figure:nth-child(1) :is(.figure-image-container, .filler) {
+      grid-column: 1 / 2;
+    }
+    figure:nth-child(2) :is(.figure-image-container, .filler) {
+      grid-column: 2 / 3;
+    }
+    figure:nth-child(3) :is(.figure-image-container, .filler) {
+      grid-column: 1 / 2;
+    }
+    figure:nth-child(4) :is(.figure-image-container, .filler) {
+      grid-column: 2 / 3;
+    }
   }
 </style>
