@@ -17,7 +17,7 @@ const researchList = await getCollection("research", ({ id }) => {
 ---
 
 <section class="mid-col">
-  <hgroup>
+  <div class="header">
     <div class="icon-container">
       <FileSearch weight="duotone" size="100%" className="icon" />
     </div>
@@ -25,7 +25,7 @@ const researchList = await getCollection("research", ({ id }) => {
       {lang === "en" && "Selected research activities"}
       {lang === "pl" && "Wybrana działalność naukowa"}
     </h3>
-  </hgroup>
+  </div>
 
   <ul class="list">
     <ResearchItem item={researchList[0]!} mark={true} />
@@ -50,7 +50,7 @@ const researchList = await getCollection("research", ({ id }) => {
     gap: var(--space-32);
   }
 
-  hgroup {
+  .header {
     display: flex;
     align-items: center;
     color: var(--c4);
@@ -110,7 +110,7 @@ const researchList = await getCollection("research", ({ id }) => {
       font-size: var(--font-5);
     }
 
-    hgroup {
+    .header {
       margin-bottom: var(--space-48);
     }
   }

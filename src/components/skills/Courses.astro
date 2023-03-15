@@ -12,12 +12,12 @@ const { lang } = Astro.props;
 ---
 
 <section class="mid-col">
-  <hgroup>
+  <div class="header">
     <div class="icon-container">
       <Books size="100%" weight="duotone" className="icon" />
     </div>
     <h3><slot /></h3>
-  </hgroup>
+  </div>
   <ol>
     {courses.map((course) => <CourseItem course={course} lang={lang} />)}
   </ol>
@@ -29,7 +29,7 @@ const { lang } = Astro.props;
     color: var(--c8);
   }
 
-  hgroup {
+  .header {
     margin-bottom: var(--space-80);
     display: flex;
     align-items: center;
@@ -53,7 +53,7 @@ const { lang } = Astro.props;
   }
 
   @media only screen and (max-width: 71em /* 1136px */) {
-    hgroup {
+    .header {
       margin-bottom: var(--space-48);
     }
 
@@ -78,7 +78,7 @@ const { lang } = Astro.props;
       gap: var(--side-padding);
     }
 
-    hgroup {
+    .header {
       padding: 0;
     }
   }

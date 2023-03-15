@@ -11,7 +11,7 @@ const { award, index } = Astro.props;
 ---
 
 <li class="container">
-  <hgroup class="header">
+  <div class="header">
     <p class="year">
       {award.year}
     </p>
@@ -28,7 +28,7 @@ const { award, index } = Astro.props;
     <h4 class="heading">
       {award.title}
     </h4>
-  </hgroup>
+  </div>
   <p class="desc">
     {award.desc}
   </p>
