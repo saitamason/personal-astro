@@ -3,8 +3,8 @@ import { skills } from "../../data/skills.astro";
 import Skill from "./Skill.astro";
 ---
 
-<div class="list-container" id="tech-list">
-  <ol class="list" id="tech-list">
+<div class="list-container">
+  <ol class="list">
     {skills.advanced.map((item) => <Skill tech={item} type="advanced" />)}
     {skills.good.map((item) => <Skill tech={item} type="good" />)}
     {skills.basic.map((item) => <Skill tech={item} type="basic" />)}
