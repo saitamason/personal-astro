@@ -65,19 +65,17 @@ const { linkUrl: url, linkText: text } = Astro.props;
     const heroObserver = new IntersectionObserver(makeHeaderSticky, {
       root: null,
       threshold: 0,
-      rootMargin: "500px",
+      rootMargin: "200px",
     });
 
     heroObserver.observe(hero);
-  }
 
-  // let scrollTimeout: number;
-  //       window.addEventListener("scroll", () => {
-  //         clearTimeout(scrollTimeout);
-  //         scrollTimeout = setTimeout(() => {
-  //           header.classList.add("sticky");
-  //         }, 200);
-  //       });
+    document.addEventListener("scroll", () => {
+      if (window.scrollY < 100) {
+        header.style.transform = `translateY(0)`;
+      }
+    });
+  }
 </script>
 
 <div class="title js-hero">

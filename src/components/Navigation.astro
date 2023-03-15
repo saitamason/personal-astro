@@ -16,7 +16,7 @@ const { links } = Astro.props;
         if (index === links.length - 1)
           return (
             <li>
-              <a href={link.url} class="button">
+              <a href={link.url} class="button" tabindex="4">
                 <span class="button__text">{link.heading}</span>
                 <span class="button__icon-container">
                   <span class="button__icon-fill">
@@ -28,7 +28,9 @@ const { links } = Astro.props;
           );
         return (
           <li>
-            <a href={link.url}>{link.heading}</a>
+            <a href={link.url} tabindex="4">
+              {link.heading}
+            </a>
           </li>
         );
       })
