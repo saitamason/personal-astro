@@ -7,7 +7,7 @@ export const getSite = () => {
 
 export const getLanguageUrls = () => {
   const site = getSite();
-  const polishUrl = new URL("pl", site);
+  const polishUrl = new URL("pl/", site);
   return {
     en: site,
     pl: polishUrl,
