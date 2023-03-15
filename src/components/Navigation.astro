@@ -72,6 +72,10 @@ const { links } = Astro.props;
     border: var(--border-width) solid var(--c5);
     color: var(--c8);
     box-shadow: none;
+    background: var(--c8);
+  }
+  .sticky nav.top-nav ul a.button .button__text {
+    background: var(--white);
   }
   .sticky .top-nav .button__icon-container {
     background: var(--c5);
@@ -118,8 +122,14 @@ const { links } = Astro.props;
     nav.top-nav ul a.button {
       border: var(--border-width) solid var(--c6);
       color: var(--c6dark);
-      box-shadow: none;
+      box-shadow: var(--border-width) solid var(--c6);
+      background: var(--c6);
     }
+
+    nav.top-nav ul a.button .button__text {
+      background: var(--white);
+    }
+
     .top-nav .button__icon-container {
       background: var(--c6);
     }
