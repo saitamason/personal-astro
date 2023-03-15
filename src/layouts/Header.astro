@@ -22,6 +22,19 @@ if (!isEn) site = new URL("pl", getSite());
 const siteName = getSiteName();
 ---
 
+<script>
+  const menuButton = document.querySelector(
+    ".js-menu-button"
+  ) as HTMLLabelElement;
+  const menuState = document.getElementById("menustate") as HTMLInputElement;
+
+  if (menuButton && menuState) {
+    menuButton.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") menuState.checked = !menuState.checked;
+    });
+  }
+</script>
+
 <div class="full-bleed layout-grid header-bg" id="header-container">
   <input aria-hidden="true" type="checkbox" id="menustate" />
   <header class="header mid-col mobile">
@@ -47,7 +60,7 @@ const siteName = getSiteName();
 
     {links && <Navigation links={links} />}
 
-    <label for="menustate" aria-hidden="true" class="menu-button" tabindex="0">
+    <label for="menustate" class="menu-button js-menu-button" tabindex="0">
       <List size="100%" weight="bold" className="menu-button__open" />
       <X size="100%" weight="bold" className="menu-button__close" />
     </label>
@@ -58,7 +71,7 @@ const siteName = getSiteName();
   .sticky {
     position: sticky;
     top: 0;
-    z-index: 99;
+    z-index: 999;
     background: linear-gradient(
       to bottom,
       var(--white),

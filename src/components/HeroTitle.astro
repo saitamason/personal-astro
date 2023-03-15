@@ -41,10 +41,23 @@ const { linkUrl: url, linkText: text } = Astro.props;
       if (entry?.isIntersecting) {
         headerPos = -120;
         header.classList.remove("sticky");
+        let scrollTimeout: number;
+        window.addEventListener("scroll", () => {
+          clearTimeout(scrollTimeout);
+          scrollTimeout = setTimeout(() => {
+            header.classList.remove("sticky");
+          }, 200);
+        });
         header.style.zIndex = "999";
         document.removeEventListener("scroll", scrollEventHandler);
       } else {
-        header.classList.add("sticky");
+        let scrollTimeout: number;
+        window.addEventListener("scroll", () => {
+          clearTimeout(scrollTimeout);
+          scrollTimeout = setTimeout(() => {
+            header.classList.add("sticky");
+          }, 200);
+        });
         document.addEventListener("scroll", scrollEventHandler);
       }
     };
@@ -52,11 +65,19 @@ const { linkUrl: url, linkText: text } = Astro.props;
     const heroObserver = new IntersectionObserver(makeHeaderSticky, {
       root: null,
       threshold: 0,
-      rootMargin: "200px",
+      rootMargin: "500px",
     });
 
     heroObserver.observe(hero);
   }
+
+  // let scrollTimeout: number;
+  //       window.addEventListener("scroll", () => {
+  //         clearTimeout(scrollTimeout);
+  //         scrollTimeout = setTimeout(() => {
+  //           header.classList.add("sticky");
+  //         }, 200);
+  //       });
 </script>
 
 <div class="title js-hero">
