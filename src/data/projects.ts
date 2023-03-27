@@ -97,7 +97,7 @@ const projects: Project[] = [
       lang: "en",
       icon: tech.Netlify,
     },
-    source: "https://github.com/dawidlehai/kociolek-remix",
+    source: "https://github.com/dawidlehai/natio",
     color: {
       h: "346",
       s: "74%",
