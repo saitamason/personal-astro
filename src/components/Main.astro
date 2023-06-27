@@ -129,7 +129,7 @@ const figcaptions: { en: Caption[]; pl: Caption[] } = {
   ],
   en: [
     {
-      title: "Frontend Developer",
+      title: "Web Developer",
       subtitle: "Professional",
       img: {
         alt: "Frontend developer art",
@@ -172,7 +172,8 @@ const figcaptions: { en: Caption[]; pl: Caption[] } = {
   }`}
   image={language === "en"
     ? "/img/personal-astro.png"
-    : "/img/personal-astro-pl.png"}>
+    : "/img/personal-astro-pl.png"}
+>
   <Header language={language} links={anchorLinks[language]} />
 
   <main class="ignore-grid">
@@ -180,7 +181,8 @@ const figcaptions: { en: Caption[]; pl: Caption[] } = {
       <div class="hero mid-col">
         <HeroTitle
           linkUrl={anchorLinks[language][0]!.url}
-          linkText={language === "en" ? "Learn more" : "Dowiedz się więcej"}>
+          linkText={language === "en" ? "Learn more" : "Dowiedz się więcej"}
+        >
           <Fragment slot="subtitle">
             {language === "pl" && "Człowiek wielu pasji"}
             {language === "en" && "A man of many passions"}
@@ -197,8 +199,8 @@ const figcaptions: { en: Caption[]; pl: Caption[] } = {
             {
               language === "en" && (
                 <>
-                  Frontend developer who creates user-friendly and good-looking
-                  interfaces.
+                  Full-stack web developer dedicated to writing clean,
+                  maintainable, and secure code.
                 </>
               )
             }
@@ -214,7 +216,8 @@ const figcaptions: { en: Caption[]; pl: Caption[] } = {
 
       <div
         class="full-bleed layout-grid projects-bg"
-        id={anchorLinks[language][0]!.url.slice(1)}>
+        id={anchorLinks[language][0]!.url.slice(1)}
+      >
         <ProjectsHeader link={anchorLinks[language][0]!}>
           {
             language === "en" && (
@@ -225,12 +228,7 @@ const figcaptions: { en: Caption[]; pl: Caption[] } = {
                   JavaScript-related technologies. Each of them taught me
                   something new or helped me improve my skills.
                 </p>
-                <p>
-                  I'm currently looking for a multidisciplinary team of
-                  passionate people working on innovative projects, where I
-                  could further develop my knowledge and skills related to
-                  programming.
-                </p>
+                <p>Feel free to take a look.</p>
               </>
             )
           }
@@ -298,7 +296,8 @@ const figcaptions: { en: Caption[]; pl: Caption[] } = {
 
       <div
         class="full-bleed layout-grid skills-bg"
-        id={anchorLinks[language][1]!.url.slice(1)}>
+        id={anchorLinks[language][1]!.url.slice(1)}
+      >
         <SkillsHeader link={anchorLinks[language][1]!}>
           <p>
             {
@@ -307,7 +306,7 @@ const figcaptions: { en: Caption[]; pl: Caption[] } = {
             }
             {
               language === "en" &&
-                "Lately, I focused on learning web technologies and frameworks. I took some interesting courses, wrote many projects and struggled with hundreds of lines of code to prepare myself for bigger challenges."
+                "Lately, I focused on learning full-stack and back-end technologies and frameworks. I took some interesting courses, wrote many projects and struggled with hundreds of lines of code to prepare myself for bigger challenges."
             }
           </p>
         </SkillsHeader>
@@ -326,7 +325,8 @@ const figcaptions: { en: Caption[]; pl: Caption[] } = {
 
       <div
         class="full-bleed layout-grid education-bg"
-        id={anchorLinks[language][2]!.url.slice(1)}>
+        id={anchorLinks[language][2]!.url.slice(1)}
+      >
         <EducationHeader link={anchorLinks[language][2]!}>
           {
             language === "pl" && (
@@ -380,7 +380,8 @@ const figcaptions: { en: Caption[]; pl: Caption[] } = {
 
       <div
         class="full-bleed layout-grid music-bg"
-        id={anchorLinks[language][3]!.url.slice(1)}>
+        id={anchorLinks[language][3]!.url.slice(1)}
+      >
         <MusicHeader link={anchorLinks[language][3]!}>
           {
             language === "pl" && (
@@ -417,7 +418,8 @@ const figcaptions: { en: Caption[]; pl: Caption[] } = {
 
       <div
         class="full-bleed layout-grid hire-bg"
-        id={anchorLinks[language][4]!.url.slice(1)}>
+        id={anchorLinks[language][4]!.url.slice(1)}
+      >
         <HireHeader link={anchorLinks[language][4]!}>
           {
             language === "pl" && (
@@ -439,13 +441,13 @@ const figcaptions: { en: Caption[]; pl: Caption[] } = {
             language === "en" && (
               <>
                 <p>
-                  I am looking for a place in a team where I could further
-                  develop my programming and design skills, as well as skills
-                  related to the organization of large projects workflow.
+                  I’m always looking for opportunities that will enable me to
+                  enhance my programming skills while upholding ethical business
+                  practices and demonstrating care for the environment.
                 </p>
                 <p>
-                  If you'd like to hire someone like me, feel free to contact me
-                  via LinkedIn.
+                  If you'd like to work with me, feel free to contact me via
+                  LinkedIn.
                 </p>
               </>
             )

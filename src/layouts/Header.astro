@@ -43,20 +43,6 @@ const siteName = getSiteName();
         <div class="logo"><span>Le</span></div>
         <span>{siteName}</span>
       </a>
-      <a
-        rel="alternate"
-        hreflang={langCode}
-        href={url[langCode]}
-        lang={langCode}
-        class="lang-link"
-        tabindex="2">
-        <Translate
-          size="2.5ex"
-          weight="duotone"
-          alt={isEn ? "Zmień język" : "Change language"}
-        />
-        {isEn ? "Polski" : "English"}
-      </a>
     </div>
 
     {links && <Navigation links={links} />}

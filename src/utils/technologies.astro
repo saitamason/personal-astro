@@ -34,9 +34,9 @@ import {
   Siopenai,
   Sisoundcloud,
   IconType,
+  Simysql,
+  Sifreecodecamp,
 } from "@icons-pack/react-simple-icons";
-
-import { Link as PhosphorLink } from "phosphor-react";
 
 export interface Tech {
   name: string;
@@ -45,6 +45,18 @@ export interface Tech {
   bg: string;
 }
 
+export const FCC: Tech = {
+  name: "freeCodeCamp",
+  icon: Sifreecodecamp,
+  color: "#fff",
+  bg: "#0A0A23",
+};
+export const MySQL: Tech = {
+  name: "MySQL",
+  icon: Simysql,
+  color: "#fff",
+  bg: "#1E3648",
+};
 export const SoundCloud: Tech = {
   name: "SoundCloud",
   icon: Sisoundcloud,
