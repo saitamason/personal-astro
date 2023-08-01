@@ -65,7 +65,7 @@ const projects: Project[] = [
       lang: "pl",
       icon: tech.Netlify,
     },
-    source: "https://github.com/saitamason/kociolek-remix",
+    source: "https://github.com/dawidlehai/kociolek-remix",
     color: {
       h: "45",
       s: "97%",
@@ -93,11 +93,11 @@ const projects: Project[] = [
     technologies: [tech.JS, tech.Sass, tech.HTML],
     link: {
       text: "Netlify",
-      url: "https://saitama-natio.netlify.app/",
+      url: "https://dawidlehai-natio.netlify.app/",
       lang: "en",
       icon: tech.Netlify,
     },
-    source: "https://github.com/saitamason/natio",
+    source: "https://github.com/dawidlehai/natio",
     color: {
       h: "346",
       s: "74%",
@@ -127,11 +127,11 @@ const projects: Project[] = [
     technologies: [tech.Remix, tech.React, tech.TS],
     link: {
       text: "Vercel",
-      url: "https://saitama-remix-expenses.vercel.app/",
+      url: "https://dawidlehai-remix-expenses.vercel.app/",
       lang: "en",
       icon: tech.Vercel,
     },
-    source: "https://github.com/saitamason/remix-expenses",
+    source: "https://github.com/dawidlehai/remix-expenses",
     color: {
       h: "248",
       s: "90%",
@@ -161,11 +161,11 @@ const projects: Project[] = [
     technologies: [tech.React, tech.JS, tech.CSS],
     link: {
       text: "Netlify",
-      url: "https://saitama-delifood.netlify.app/",
+      url: "https://dawidlehai-delifood.netlify.app/",
       lang: "en",
       icon: tech.Netlify,
     },
-    source: "https://github.com/saitamason/delifood",
+    source: "https://github.com/dawidlehai/delifood",
     color: {
       h: "174",
       s: "57%",
@@ -195,11 +195,11 @@ const projects: Project[] = [
     technologies: [tech.React, tech.JS, tech.CSS],
     link: {
       text: "Netlify",
-      url: "https://saitama-react-expenses-tracker.netlify.app/",
+      url: "https://dawidlehai-react-expenses-tracker.netlify.app/",
       lang: "en",
       icon: tech.Netlify,
     },
-    source: "https://github.com/saitamason/react-expenses-tracker",
+    source: "https://github.com/dawidlehai/react-expenses-tracker",
     color: {
       h: "278",
       s: "47%",
@@ -229,11 +229,11 @@ const projects: Project[] = [
     technologies: [tech.JS, tech.Sass, tech.HTML],
     link: {
       text: "Netlify",
-      url: "https://saitama-forkify.netlify.app/",
+      url: "https://dawidlehai-forkify.netlify.app/",
       lang: "en",
       icon: tech.Netlify,
     },
-    source: "https://github.com/saitamason/forkify",
+    source: "https://github.com/dawidlehai/forkify",
     color: {
       h: "23",
       s: "86%",
@@ -264,11 +264,11 @@ const projects: Project[] = [
     technologies: [tech.CSS, tech.HTML, tech.JS],
     link: {
       text: "Netlify",
-      url: "https://saitama-omnifood.netlify.app/",
+      url: "https://dawidlehai-omnifood.netlify.app/",
       lang: "en",
       icon: tech.Netlify,
     },
-    source: "https://github.com/saitamason/omnifood",
+    source: "https://github.com/dawidlehai/omnifood",
     color: {
       h: "39",
       s: "85%",
@@ -302,11 +302,11 @@ const projects: Project[] = [
     technologies: [tech.CSS, tech.HTML, tech.JS],
     link: {
       text: "Netlify",
-      url: "https://saitama-nexter.netlify.app/",
+      url: "https://dawidlehai-nexter.netlify.app/",
       lang: "en",
       icon: tech.Netlify,
     },
-    source: "https://github.com/saitamason/nexter",
+    source: "https://github.com/dawidlehai/nexter",
     color: {
       h: "210",
       s: "44%",
@@ -340,11 +340,11 @@ const projects: Project[] = [
     technologies: [tech.CSS, tech.HTML],
     link: {
       text: "Netlify",
-      url: "https://saitama-trillo.netlify.app/",
+      url: "https://dawidlehai-trillo.netlify.app/",
       lang: "en",
       icon: tech.Netlify,
     },
-    source: "https://github.com/saitamason/trillo",
+    source: "https://github.com/dawidlehai/trillo",
     color: {
       h: "346",
       s: "96%",
@@ -377,11 +377,11 @@ const projects: Project[] = [
     technologies: [tech.JS, tech.HTML, tech.CSS, tech.Leaflet],
     link: {
       text: "Netlify",
-      url: "https://saitama-mapty.netlify.app/",
+      url: "https://dawidlehai-mapty.netlify.app/",
       lang: "en",
       icon: tech.Netlify,
     },
-    source: "https://github.com/saitamason/mapty",
+    source: "https://github.com/dawidlehai/mapty",
     color: {
       h: "159",
       s: "100%",
@@ -414,11 +414,11 @@ const projects: Project[] = [
     technologies: [tech.JS, tech.CSS, tech.HTML],
     link: {
       text: "Netlify",
-      url: "https://saitama-bankist.netlify.app/",
+      url: "https://dawidlehai-bankist.netlify.app/",
       lang: "en",
       icon: tech.Netlify,
     },
-    source: "https://github.com/saitamason/bankist",
+    source: "https://github.com/dawidlehai/bankist",
     color: {
       h: "0",
       s: "0%",
@@ -453,6 +453,33 @@ const projects: Project[] = [
       h: "52",
       s: "96%",
       l: "59%",
+    },
+  },
+  {
+    year: 2013,
+    title: "Taktyki negocjacji",
+    subtitle: { pl: "Zastosowanie i metody obrony", en: "Negotiation tactics" },
+    type: "personal",
+    size: "small",
+    mobile: false,
+    description: {
+      pl: "Najstarsza strona jaką udało mi się zachować. Projekt edukacyjny w ramach konkursu Wyższej Szkoły Gospodarki.",
+      en: "The oldest page I managed to keep. An educational project that was part of the competition of the University of Economy.",
+    },
+    image: {
+      full: "/screenshots/taktyki-01.png",
+    },
+    technologies: [tech.CSS, tech.HTML, tech.PHP],
+    link: {
+      text: "Strona",
+      url: "http://taktyki.jcom.pl/",
+      lang: "pl",
+      icon: tech.Netlify,
+    },
+    color: {
+      h: "51",
+      s: "23%",
+      l: "68%",
     },
   },
 ];
