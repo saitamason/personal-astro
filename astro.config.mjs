@@ -11,6 +11,6 @@ import image from "@astrojs/image";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://dawidlehai.dev",
-  integrations: [react(), mdx(), image()]
+  site: "https://saitama-personal.netlify.app",
+  integrations: [react(), mdx(), image()],
 });
